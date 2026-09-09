@@ -9,9 +9,9 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <meta name="dcterms.date" content="2026-09-02">
+  <meta name="dcterms.date" content="2026-09-09">
   <meta name="keywords" content="Productivity Tools">
-  <title>DRAFT FOR 2026 fall of BST 260: Introduction to Data Science – Unix: an operating system with 50+ years of significance in scientific computing</title>
+  <title>DRAFT FOR 2026 fall of BST 260: Introduction to Data Science – Overview of Unix activities of 9 September</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -200,283 +200,55 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Unix: an operating system with 50+ years of significance in scientific computing</h1>
+  <h1 class="title">Overview of Unix activities of 9 September</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-09-02</p>
+  <p class="date">2026-09-09</p>
 </section>
-<section id="before-we-begin-partial-recap-of-aug-31" class="slide level2">
-<h2>Before we begin … partial recap of Aug 31</h2>
-<ul>
-<li><p>When designing a table for data organization, which is most important?</p>
-<ul>
-<li>choice of columns</li>
-<li>choice of rows</li>
-<li>options for cell contents</li>
-</ul></li>
-<li><p>When different groups wish to combine data from separately created tables, how should they proceed?</p></li>
-<li><p><a href="https://primedconsortium.org/research/data">PRIMED</a> is a relevant resource</p></li>
-</ul>
+<section id="acquiring-a-tarball" class="slide level2">
+<h2>Acquiring a “tarball”</h2>
+<p>In R (internet-connected session), this drops a .tar.gz file in the current folder.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource ch1 number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>download.packages("dpylr", ".")</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="another-point-about-table-design" class="slide level2">
-<h2>Another point about table design</h2>
-<ul>
-<li>It can be useful to think of rows as “replicates” – observations on sets of features (columns) that are “replicated” on different “study subjects”</li>
-<li>In our case, individual students were subjects, and the groups that were formed are a higher-level “study unit”</li>
-<li>We want to be able to distinguish which responses come from different units at different levels</li>
-<li>need a group identifier and a subject identifier</li>
-<li>subject may have multiple observations</li>
-</ul>
+<section id="using-tar-to-explode-the-archive" class="slide level2">
+<h2>Using “tar” to ‘explode’ the archive</h2>
+<p>In Unix:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource ch2 number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a aria-label="1"></a>tar xvf dplyr_1.2.1.tar.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This verbosely creates the folder <code>dplyr</code>.</p>
 </section>
-<section id="please-fill-out-second-form-httpstinyurl.combst260form2" class="slide level2">
-<h2>Please fill out second form: https://tinyurl.com/bst260form2</h2>
-<p>This version does not have free text responses on tool usage, etc.</p>
-<p>We do need accurate statement of “github handle”</p>
+<section id="using-a-unix-stream-to-count-entities" class="slide level2">
+<h2>Using a Unix ‘stream’ to count entities</h2>
+<p>With Unix</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource ch3 number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a aria-label="1"></a>ls dplyr/* | wc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>ls</code> starts a stream of lines that are “piped” through the <code>wc</code> command. Use <code>man wc</code> to learn about the output.</p>
 </section>
-<section id="emerging-role-of-github-in-content-management-for-the-course" class="slide level2 smaller">
-<h2>Emerging role of github in content management for the course</h2>
-<p>I asked students to invite the teaching team as collaborators. We will change this arrangement, but it is of interest to be able to assess this strategy. Code was written to use the GitHub API to check created repos and contents.</p>
-<pre><code>&gt; github_private_repo_collaborators([handle], "bst260")
-       login        id type role_name site_admin admin maintain push triage pull
-1     vjcitn   4624066 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
-2 QianyuFan8  88663047 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
-3  [handle]   [id    ] User     admin      FALSE  TRUE     TRUE TRUE   TRUE TRUE
-&gt; dir("R")
-[1] "github_private_repo_collaborators.R" "github_repo_has_file.R"              "github_repo_markdown_headers.R"     
-&gt; source("R/github_repo_markdown_headers.R")
-&gt; args(github_repo_markdown_headers)
-function (org, repo, folder, file, token = NULL) 
-NULL
-&gt; github_repo_markdown_headers([handle], "bst260", "task-01", "README.md")
-[1] "Overview"</code></pre>
-<p>Two points:</p>
-<ul>
-<li>default assignment of ‘write’ privilege to collaborators should probably not be taken</li>
-<li>the API permits retrieval of content, which will be used for grading</li>
-</ul>
+<section id="using-r-to-get-the-file-sizes" class="slide level2">
+<h2>Using R to get the file sizes</h2>
+<p>In R:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource ch4 number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a aria-label="1"></a>alld = list.files("dplyr", recursive=TRUE)</span>
+<span id="cb4-2"><a aria-label="2"></a>setwd("dplyr")</span>
+<span id="cb4-3"><a aria-label="3"></a>szs = file.size(alld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now <code>alld</code> and <code>szs</code> are vectors of equal length – the first holds paths, the second sizes in bytes.</p>
 </section>
-<section id="a-little-history-of-unix-and-commodity-computing" class="slide level2">
-<h2>A little history of unix and “commodity” computing</h2>
-<ul>
-<li>We take for granted the notion that we can “start the computer” and “type in commands” and get essentially immediate responses for many tasks</li>
-<li>The origins of this capability are historically complex; let’s have a little background</li>
-</ul>
+<section id="finding-the-largest-file" class="slide level2">
+<h2>Finding the largest file</h2>
+<p>In R:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource ch5 number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a aria-label="1"></a>alld[which.max(szs)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="antitrust-facts-from-sonnet-and-gemini" class="slide level2 smaller">
-<h2>Antitrust (facts from sonnet and gemini)</h2>
-<ul>
-<li><p>True or false: Because of AT&amp;T’s 1956 antitrust consent decree, the company was barred from competing in the computer business, so it could not sell Unix as a commercial product. Instead it licensed the source tape to universities for a nominal fee (little more than the cost of media and shipping).</p></li>
-<li><p>True: To resolve an antitrust lawsuit (United States v. Western Electric Co.), AT&amp;T signed a consent decree restricting the Bell System to regulated “common-carrier telecommunications services” and related equipment manufacturing. The decree legally barred AT&amp;T from entering other commercial markets, including data processing and computer software.</p></li>
-</ul>
+<section id="using-grep-to-find-a-string" class="slide level2">
+<h2>Using grep to find a string</h2>
+<p>In Unix, in the folder holding ‘dplyr’:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource ch6 number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a aria-label="1"></a>grep -r "generally easy" dplyr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>should find three files with the phrase.</p>
 </section>
-<section id="shipping-costs" class="slide level2 smaller">
-<h2>“Shipping costs”</h2>
-<ul>
-<li>Licensing Unix “As-Is”: Because AT&amp;T could not market Unix as a commercial software product, Bell Labs provided the source code to universities, research labs, and government agencies under an educational license. The fee was nominal—typically around $150 to $300—just enough to cover magnetic tapes, printed documentation, and handling. AT&amp;T explicitly provided no technical support, warranty, or bug fixes.</li>
-<li>The Impact: This policy inadvertently sparked a computing revolution. Because universities received full source code and had to maintain the OS themselves, a generation of students and researchers studied, debugged, and extended Unix. This culture gave rise to John Lions’ famous <a href="https://en.wikipedia.org/wiki/A_Commentary_on_the_UNIX_Operating_System">Commentary on UNIX 6th Edition</a>, the Berkeley Software Distribution (BSD), and the modern open-source movement. When AT&amp;T was broken up in 1984 and released from the 1956 decree, the company immediately sought to commercialize Unix (System V) and enforce strict, expensive licensing, igniting the famous “Unix Wars.”</li>
-</ul>
-</section>
-<section id="dos-vs-unix" class="slide level2 smaller">
-<h2>DOS vs UNIX</h2>
-<p>Try a prompt like</p>
-<pre><code>Can you provide some facts and interpretations, and discuss a bit how 
-DOS came about -- why unix could not be relevant for microcomputers in the evolution of microsoft.</code></pre>
-<p>to learn about CP/M, QDOS, and steps towards windows powershell. You will not be responsible for these facts but they are interesting: UNIX was intrinsically multiuser, share the hardware; DOS addressed a hardware limitation focusing on single-user processing for consumer-grade chips</p>
-<p>Conclusion: AT&amp;T was <a href="https://en.wikipedia.org/wiki/Modification_of_Final_Judgment">broken up</a></p>
-<p>Maybe search for “how did the MFJ issued for AT&amp;T affect its ability to continue bell labs scientific research and operating system development”</p>
-</section>
-<section id="some-future-targets-for-the-class" class="slide level2">
-<h2>Some future targets for the class</h2>
-<ul>
-<li>We will establish accounts on a linux system through GitHub code spaces (verify that you can start one from your GitHub IDE)</li>
-<li>We will create portable software tools in a compiled language, possibly C and C++</li>
-<li>We will learn how to use debuggers and profilers to identify errors and performance deficiencies</li>
-</ul>
-</section>
-<section id="naming-conventions-for-file-collections" class="slide level2">
-<h2>Naming conventions for file collections</h2>
-<ul>
-<li><p>Name your files in a way that is related to their contents and specifies how they relate to other files.</p></li>
-<li><p>The <a href="https://library.si.edu/sites/default/files/tutorial/pdf/filenamingorganizing20180227.pdf">Smithsonian Data Management Best Practices</a> has “Five precepts of file naming and organization”</p></li>
-<li><p>Any folder worth creating deserves a README.md inside the folder explaining why it was made and what its intended contents are —</p></li>
-</ul>
-</section>
-<section id="five-precepts-of-file-naming-and-organization" class="slide level2 smaller">
-<h2>Five precepts of file naming and organization</h2>
-<ul>
-<li>Have a distinctive name that describes the content.</li>
-<li>Follow a consistent pattern that fosters convenient references to files to simplify software that operates on them</li>
-<li>Organize files into directories that follow a consistent pattern.</li>
-<li>Avoid repetition of semantic elements among file and directory names.
-<ul>
-<li>What could that mean?</li>
-</ul></li>
-<li>Have a file extension that matches the file format (no changing extensions!)
-<ul>
-<li>jpg and jpeg are suffixes for a fixed image format</li>
-<li>sometimes csv is used as a suffix for tsv information! and <em>vice versa</em></li>
-<li>.txt conveys very little information</li>
-</ul></li>
-<li>markdown and json are formats that you should be comfortable with</li>
-</ul>
-<p>For specific recommendations we recommend you follow The <a href="https://style.tidyverse.org/">Tidyverse Style Guide</a></p>
-</section>
-<section id="the-system" class="slide level2 smaller">
-<h2>The System</h2>
-<ul>
-<li><p>Instead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal.</p></li>
-<li><p>The way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system.</p></li>
-<li><p>The file system is hierarchical, you create directories (folders) in other folders</p></li>
-<li><p>When you log in to a Unix computer you are in your <strong>home</strong> directory</p></li>
-<li><p>the command line has a <em>prompt</em> that is configurable and is printed on screen to let you know that the terminal is ready for input</p></li>
-<li><p><strong>Environment variables</strong> control your computing environment and many are customizable by users</p></li>
-<li><p>LLMs are useful tools for finding commands and getting help navigating through your first exposure to Unix and the ideas it is based on</p></li>
-</ul>
-</section>
-<section id="the-terminal" class="slide level2">
-<h2>The terminal</h2>
-<ul>
-<li><p>The terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator.</p></li>
-<li><p>Once you have a terminal open, you can start typing commands.</p></li>
-<li><p>You should see a blinking cursor at the spot where what you type will show up. This position is called the command line.</p></li>
-</ul>
-</section>
-<section id="the-filesystem" class="slide level2">
-<h2>The filesystem</h2>
-<!-- fixme?  make this local? -->
-
-<img data-src="http://rafalab.dfci.harvard.edu/dsbook-part-1/productivity/img//unix/filesystem.png" class="r-stretch"></section>
-
-
-
-<section id="files-and-permissions" class="slide level2">
-<h2>Files and permissions</h2>
-<ul>
-<li><p>within each directory you can create files and other directories</p></li>
-<li><p>files whose names start with a period <code>.</code> are <em>hidden</em> by default; use <code>ls -a</code> to view them</p></li>
-<li><p>files have permissions: use <code>ls -lh</code> to view details</p></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>drwxr<span class="sc">-</span>xr<span class="sc">-</span>x    <span class="dv">4</span> robert  staff   <span class="dv">128</span>B Aug  <span class="dv">8</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">03</span> bin</span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>rw<span class="sc">-</span>r<span class="sc">--</span>r<span class="sc">--</span><span class="er">@</span>   <span class="dv">1</span> robert  staff    <span class="dv">20</span>M Jun <span class="dv">24</span> <span class="dv">09</span><span class="sc">:</span><span class="dv">11</span> boots.png</span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>rw<span class="sc">-</span>r<span class="sc">--</span>r<span class="sc">--</span><span class="er">@</span>   <span class="dv">1</span> robert  staff    <span class="dv">26</span>M Jun <span class="dv">23</span> <span class="dv">15</span><span class="sc">:</span><span class="dv">23</span> boots1.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li>you can <strong>r</strong>ead, <strong>w</strong>rite, or e<strong>x</strong>ecute files and control who can see or use them by changing permissions</li>
-</ul>
-</section>
-<section id="working-directory" class="slide level2">
-<h2>Working directory</h2>
-<ul>
-<li><p>The working directory is the directly you are currently <em>in</em>.</p></li>
-<li><p>Commands you issue will generally take effect in this directory</p></li>
-<li><p>You can see your working directory using the Unix command <code>pwd</code></p></li>
-<li><p>You can list the contents of the directory (files and other directories) using <code>ls</code></p></li>
-<li><p>You can find out about how <code>ls</code> works by issuing the command: <code>man ls</code></p></li>
-</ul>
-</section>
-<section id="paths" class="slide level2">
-<h2>Paths</h2>
-<ul>
-<li><p>The string returned by <code>pwd</code> command is the <em>full path</em> to the working directory.</p></li>
-<li><p>The full path to your home directory is stored in an <em>environment</em> variable.</p></li>
-<li><p>You can see it like this <code>echo $HOME</code></p></li>
-</ul>
-</section>
-<section id="paths-1" class="slide level2 smaller">
-<h2>Paths</h2>
-<ul>
-<li><p>In Unix, we use the shorthand <code>~</code> as a nickname for your home directory</p>
-<ul>
-<li>Example: the full path for <em>docs</em> (image in prev. slides) can be written like this <code>~/docs</code>.</li>
-</ul></li>
-<li><p>A common default for the prompt is to show the path to the working directory (that path might be long, but you can change it)</p></li>
-<li><p>Let’s open a terminal window and see what the prompt is.</p></li>
-<li><p>you have an environment variable called <code>PATH</code> which you can display using <code>echo</code></p>
-<ul>
-<li><p>that variable is a set of individual paths, separated by <code>:</code> (colon) and it tells your Unix shell where to look for commands</p></li>
-<li><p>you can modify that path, so that you can have it look for commands in other, non-standard places (eg make your own <code>bin</code> directory)</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="unix-commands" class="slide level2">
-<h2>Unix commands</h2>
-<ul>
-<li><p><code>ls</code>: Listing directory content</p></li>
-<li><p><code>mkdir</code> and <code>rmdir</code>: make and remove a directory</p></li>
-<li><p><code>cd</code>: navigating the filesystem by changing directories</p></li>
-<li><p><code>pwd</code>: see your workding directory</p></li>
-<li><p><code>mv</code>: moving files</p></li>
-<li><p><code>cp</code>: copying files</p></li>
-<li><p><code>rm</code>: removing files</p></li>
-<li><p><code>more</code> and <code>less</code>: display the contents of a file</p></li>
-</ul>
-</section>
-<section id="autocomplete" class="slide level2">
-<h2>Autocomplete</h2>
-<ul>
-<li><p>In Unix you can auto-complete by hitting tab.</p></li>
-<li><p>This means that we can type <code>cd d</code> then hit tab.</p></li>
-<li><p>Unix will either auto-complete if <code>docs</code> is the only directory/file starting with <code>d</code> or show you the options.</p></li>
-<li><p>Try it out! Using Unix without auto-complete will make it unbearable.</p></li>
-</ul>
-</section>
-<section id="text-editors" class="slide level2">
-<h2>Text editors</h2>
-<p>Command-line text editors are essential tools, especially for system administrators, developers, and other users who frequently work in a terminal environment. Here are some of the most popular command-line text editors:</p>
-<ul>
-<li>Nano</li>
-<li>Pico</li>
-<li>Vi or Vim</li>
-<li>Emacs</li>
-</ul>
-</section>
-<section id="other-useful-commands" class="slide level2">
-<h2>Other useful commands</h2>
-<ul>
-<li><p><code>curl</code> - download data from the internet.</p></li>
-<li><p><code>tar</code> - archive files and directories into one file.</p></li>
-<li><p><code>gzip</code>, <code>zstd</code> - and other compression tools - make big files small</p></li>
-<li><p><code>ssh</code> - connect to another computer.</p></li>
-<li><p><code>find</code> - search for files by filename in your system.</p></li>
-<li><p><code>grep</code> - search for patterns in a file.</p></li>
-<li><p><code>awk/sed</code> - These are two very powerful commands that permit you to find specific strings in files and change them.</p></li>
-</ul>
-</section>
-<section id="a-deeper-dive" class="slide level2">
-<h2>A deeper dive</h2>
-<ul>
-<li><p>The shell you use helps to organize and facilitate your interactions with the operating system</p></li>
-<li><p><code>echo $SHELL</code> will display the shell you are using</p></li>
-<li><p>many software tools use hidden files and directories to provide customization e.g.&nbsp;<code>.gitconfig</code> or <code>.ssh</code></p></li>
-<li><p>most shells have two files that are commonly used to provide user level customization <code>.zsh</code>, and <code>.zprofile</code></p></li>
-</ul>
-</section>
-<section id="resources" class="slide level2 smaller">
-<h2>Resources</h2>
-<p><a href="https://software-carpentry.org/lessons/">Software carpentry</a> has a number of completely open learning resources of interest:</p>
-<ul>
-<li><a href="https://swcarpentry.github.io/shell-novice/">Unix shell</a></li>
-<li><a href="https://swcarpentry.github.io/git-novice/">Using git</a></li>
-<li><a href="https://swcarpentry.github.io/r-novice-inflammation/">Using R</a></li>
-</ul>
-<p>Some of these charge a fee to use the materials:</p>
-<ul>
-<li><a href="https://www.codecademy.com/learn/learn-the-command-line" class="uri">https://www.codecademy.com/learn/learn-the-command-line</a></li>
-<li><a href="https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1" class="uri">https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1</a></li>
-<li><a href="https://www.coursera.org/learn/unix" class="uri">https://www.coursera.org/learn/unix</a></li>
-</ul>
-</section>
-<section id="lets-get-learning" class="slide level2">
-<h2>Let’s get learning</h2>
-<ul>
-<li>witnessing effects of file compression and decompression</li>
-<li>“storage quotas” (or monitoring `df’) to avoid crashing your machine</li>
-<li>pattern matching with regular expressions; searching collections of files</li>
-<li>setting and retrieving values of ENVIRONMENT VARIABLES</li>
-</ul>
+<section id="computing-a-hash" class="slide level2">
+<h2>Computing a hash</h2>
+<p>In R:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource ch7 number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a aria-label="1"></a>digest("NEWS.md", file=TRUE)</span>
+<span id="cb7-2"><a aria-label="2"></a>myhash = "d1b91fcbe0dcc11586edbbdfe4878e9a" # from MD5 file</span>
+<span id="cb7-3"><a aria-label="3"></a>digest("NEWS.md", file=TRUE) == myhash</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -695,44 +467,6 @@ DOS came about -- why unix could not be relevant for microcomputers in the evolu
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -1,0 +1,68 @@
+---
+title: "Overview of Unix activities of 9 September"
+keywords: "Productivity Tools"
+date: "2026-09-09"
+format:
+  revealjs:
+    theme: solarized
+---
+
+## Acquiring a "tarball"
+
+In R (internet-connected session), this drops a .tar.gz file in the current folder.
+```ch1
+download.packages("dpylr", ".")
+```
+
+## Using "tar" to 'explode' the archive
+
+In Unix:
+```ch2
+tar xvf dplyr_1.2.1.tar.gz
+```
+This verbosely creates the folder `dplyr`.
+
+## Using a Unix 'stream' to count entities
+
+With Unix
+```ch3
+ls dplyr/* | wc
+```
+`ls` starts a stream of lines that are "piped" through the `wc` command.
+Use `man wc` to learn about the output.
+
+## Using R to get the file sizes
+
+In R:
+```ch4
+alld = list.files("dplyr", recursive=TRUE)
+setwd("dplyr")
+szs = file.size(alld)
+```
+
+Now `alld` and `szs` are vectors of equal length --
+the first holds paths, the second sizes in bytes.
+
+## Finding the largest file
+
+In R:
+```ch5
+alld[which.max(szs)]
+```
+
+## Using grep to find a string
+
+In Unix, in the folder holding 'dplyr':
+```ch6
+grep -r "generally easy" dplyr
+```
+should find three files with the phrase.
+
+## Computing a hash
+
+In R:
+```ch7
+digest("NEWS.md", file=TRUE)
+myhash = "d1b91fcbe0dcc11586edbbdfe4878e9a" # from MD5 file
+digest("NEWS.md", file=TRUE) == myhash
+```

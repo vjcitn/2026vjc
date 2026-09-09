@@ -335,9 +335,16 @@ Command-line text editors are essential tools, especially for system administrat
 
 * most shells have two files that are commonly used to provide user level customization `.zsh`, and `.zprofile`
 
-## Resources
+## Resources{.smaller}
 
-To get started.
+[Software carpentry](https://software-carpentry.org/lessons/) has a number of completely open
+learning resources of interest:
+
+- [Unix shell](https://swcarpentry.github.io/shell-novice/)
+- [Using git](https://swcarpentry.github.io/git-novice/)
+- [Using R](https://swcarpentry.github.io/r-novice-inflammation/)
+
+Some of these charge a fee to use the materials:
 
 -   <https://www.codecademy.com/learn/learn-the-command-line>
 -   <https://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1>

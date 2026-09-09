@@ -1,0 +1,72 @@
+---
+title: Problem set 1 comments
+date: 2026-09-02
+---
+
+## Take home tasks, please complete by Sept 2 2026{.smaller}
+
+- create repository `bst260' in your organization (account)
+- invite teaching team as collaborators
+- create folder 'task-01'
+- add file README.md in that folder, with a header `# Overview`
+
+I had announced via canvas that the bst260 repo in your organization should be set to private
+
+This problem set addresses
+
+- use of github.com
+- using repository settings to control visibility
+- using repository settings to identify collaborators
+- using the github IDE to create folders and files with specified content
+
+For the teaching team, this presents an opportunity to automate
+identification of correct and incorrect solutions via use of the GitHub API
+
+## A correct result
+
+
+```
+> github_private_repo_collaborators([handle], "bst260")
+           login        id type role_name site_admin admin maintain push triage pull
+1         vjcitn   4624066 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+2     QianyuFan8  88663047 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+3  yiyangzhang30  90349366 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+4       etlee110 176172401 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+5 gabby-gonzalez 230183994 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+6       [handle] [handid]  User     admin      FALSE  TRUE     TRUE TRUE   TRUE TRUE
+```
+
+## An incorrect result owing to incomplete team
+```
+> github_private_repo_collaborators([handle2], "bst260")
+            login        id type role_name site_admin admin maintain push triage pull
+1          vjcitn   4624066 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+2      QianyuFan8  88663047 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+3   yiyangzhang30  90349366 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+4        etlee110 176172401 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE
+5       [handle2] [hand2id] User     admin      FALSE  TRUE     TRUE TRUE   TRUE TRUE
+```
+
+## An incorrect result owing to no properly named repo
+
+```
+> github_private_repo_collaborators([handle3], "bst260")
+Error in github_api_get(repo_path, token) : 
+  Not Found (HTTP 404). Failed to GET https://api.github.com/repos/[handle3]/bst260.
+
+Enter a frame number, or 0 to exit 
+```
+
+## Current overview
+
+We can use the GitHub API to identify which repositories succeed in
+implementing the conditions of the problem.
+
+```
+##       No repo Not full team   Not private            OK 
+##            11            11             3            50
+```
+
+Please set your solutions properly even past the due date.  Note that if I do not
+have your github handle exactly, I cannot find your solution.  I wil be in touch with
+students who do not have a correct solution by end of week.
