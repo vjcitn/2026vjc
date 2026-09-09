@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-09-29">
   <meta name="keywords" content="Wrangling">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -235,7 +241,7 @@
 <li>To access the current locale settings in R, you can use the <code>Sys.getlocale()</code> function:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">Sys.getlocale</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">Sys.getlocale</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8"</code></pre>
 </div>
@@ -248,7 +254,7 @@
 <li><p>For example, to set the locale to US English:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">Sys.setlocale</span>(<span class="st">"LC_ALL"</span>, <span class="st">"en_US.UTF-8"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">Sys.setlocale</span>(<span class="st">"LC_ALL"</span>, <span class="st">"en_US.UTF-8"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8"</code></pre>
 </div>
@@ -300,8 +306,8 @@
 <li>The <strong>readr</strong> package includes a <code>locale()</code> function that can be used to learn or change the current locale from within R:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(readr) </span>
-<span id="cb5-2"><a></a><span class="fu">locale</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(readr) </span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">locale</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;locale&gt;
 Numbers:  123,456.78
@@ -324,7 +330,7 @@ AM/PM:  AM/PM</code></pre>
 <li>You can see all the locales available on your system by typing:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">system</span>(<span class="st">"locale -a"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">system</span>(<span class="st">"locale -a"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-locale-function-2" class="slide level2">
@@ -333,7 +339,7 @@ AM/PM:  AM/PM</code></pre>
 <li>Here is what you obtain if you change the dates locale to Spanish:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;locale&gt;
 Numbers:  123,456.78
@@ -356,7 +362,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>Earlier we noted that reading the file:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>), <span class="st">"calificaciones.csv"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"dslabs"</span>), <span class="st">"calificaciones.csv"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>had a encoding different than UTF-8, the default.</li>
@@ -368,7 +374,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>We used <code>guess_encoding</code> to determine the correct one:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">guess_encoding</span>(fn)<span class="sc">$</span>encoding[<span class="dv">1</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">guess_encoding</span>(fn)<span class="sc">$</span>encoding[<span class="dv">1</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ISO-8859-1"</code></pre>
 </div>
@@ -377,7 +383,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>and used the <code>locale</code> function to change this and read in this encoding instead:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example-2" class="slide level2">
@@ -386,7 +392,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>This file provides homework assignment scores for seven students. Columns represent the name, date of birth, the time they submitted their assignment, and their score:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">read_lines</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">read_lines</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "\"nombre\",\"f.n.\",\"estampa\",\"puntuación\""                       
 [2] "\"Beyoncé\",\"04 de septiembre de 1981\",2023-09-22 02:11:02,\"87,5\""
@@ -406,7 +412,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li><p>We can read in the file with correct encoding like this:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example-4" class="slide level2">
@@ -415,7 +421,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>However, notice that the last column, which is supposed to contain exam scores between 0 and 100, shows numbers larger than 800:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>dat<span class="sc">$</span>puntuación </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>dat<span class="sc">$</span>puntuación </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 875 990 989 887 931 887 830</code></pre>
 </div>
@@ -428,9 +434,9 @@ AM/PM:  a. m./p. m.</code></pre>
 <li><p>To address this issue, we can also change the encoding to use European decimals, which fixes the problem:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, </span>
-<span id="cb19-2"><a></a>                                    <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span>
-<span id="cb19-3"><a></a>dat<span class="sc">$</span>puntuación </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, </span>
+<span id="cb19-2"><a aria-label="2"></a>                                    <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span>
+<span id="cb19-3"><a aria-label="3"></a>dat<span class="sc">$</span>puntuación </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 87.5 99.0 98.9 88.7 93.1 88.7 83.0</code></pre>
 </div>
@@ -442,8 +448,8 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>Now, to compute the student ages, let’s try changing the submission times to date format:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">library</span>(lubridate) </span>
-<span id="cb21-2"><a></a><span class="fu">dmy</span>(dat<span class="sc">$</span>f.n.) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">library</span>(lubridate) </span>
+<span id="cb21-2"><a aria-label="2"></a><span class="fu">dmy</span>(dat<span class="sc">$</span>f.n.) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA NA NA NA NA NA NA</code></pre>
 </div>
@@ -457,7 +463,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <h2>Example</h2>
 <p>We can change the locale to use Spanish as the language for dates:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">parse_date</span>(dat<span class="sc">$</span>f.n., <span class="at">format =</span> <span class="st">"%d de %B de %Y"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">parse_date</span>(dat<span class="sc">$</span>f.n., <span class="at">format =</span> <span class="st">"%d de %B de %Y"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1981-09-04" "1980-04-20" "1931-06-10" "1969-07-24" "1981-12-15"
 [6] "1941-01-24" "1971-08-26"</code></pre>
@@ -468,19 +474,19 @@ AM/PM:  a. m./p. m.</code></pre>
 <h2>Example</h2>
 <p>We can also reread the file using the correct locales:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>, </span>
-<span id="cb25-2"><a></a>                                    <span class="at">date_format =</span> <span class="st">"%d de %B de %Y"</span>, </span>
-<span id="cb25-3"><a></a>                                    <span class="at">decimal_mark =</span> <span class="st">","</span>, </span>
-<span id="cb25-4"><a></a>                                    <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(fn, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">"es"</span>, </span>
+<span id="cb25-2"><a aria-label="2"></a>                                    <span class="at">date_format =</span> <span class="st">"%d de %B de %Y"</span>, </span>
+<span id="cb25-3"><a aria-label="3"></a>                                    <span class="at">decimal_mark =</span> <span class="st">","</span>, </span>
+<span id="cb25-4"><a aria-label="4"></a>                                    <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example-9" class="slide level2">
 <h2>Example</h2>
 <p>Computing the students’ ages is now straightforward:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">time_length</span>(<span class="fu">today</span>() <span class="sc">-</span> dat<span class="sc">$</span>f.n., <span class="at">unit =</span> <span class="st">"years"</span>) <span class="sc">|&gt;</span> <span class="fu">floor</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="fu">time_length</span>(<span class="fu">today</span>() <span class="sc">-</span> dat<span class="sc">$</span>f.n., <span class="at">unit =</span> <span class="st">"years"</span>) <span class="sc">|&gt;</span> <span class="fu">floor</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 44 46 95 57 44 85 55</code></pre>
+<pre><code>[1] 45 46 95 57 44 85 55</code></pre>
 </div>
 </div>
 </section>
@@ -490,7 +496,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>Let’s check which students turned in their homework past the deadline of September 22:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>dat<span class="sc">$</span>estampa <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2023</span>, <span class="dv">9</span>, <span class="dv">22</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>dat<span class="sc">$</span>estampa <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2023</span>, <span class="dv">9</span>, <span class="dv">22</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE</code></pre>
 </div>
@@ -500,7 +506,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li><p>However, with times we have to be particularly careful as some functions default to the UTC timezone:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">tz</span>(dat<span class="sc">$</span>estampa) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">tz</span>(dat<span class="sc">$</span>estampa) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "UTC"</code></pre>
 </div>
@@ -512,7 +518,7 @@ AM/PM:  a. m./p. m.</code></pre>
 <li>If we change to the timezone to Eastern Standard Time (EST), we see no one was late:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">with_tz</span>(dat<span class="sc">$</span>estampa, <span class="at">tz =</span>  <span class="st">"EST"</span>) <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2023</span>, <span class="dv">9</span>, <span class="dv">22</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">with_tz</span>(dat<span class="sc">$</span>estampa, <span class="at">tz =</span>  <span class="st">"EST"</span>) <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2023</span>, <span class="dv">9</span>, <span class="dv">22</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 </div>

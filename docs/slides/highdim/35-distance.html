@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-11-19">
   <meta name="keywords" content="High dimensional data">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -287,20 +293,20 @@
 <li>Define the features and labels:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>()</span>
-<span id="cb1-2"><a></a>x <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images  </span>
-<span id="cb1-3"><a></a>y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>labels </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>()</span>
+<span id="cb1-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images  </span>
+<span id="cb1-3"><a aria-label="3"></a>y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>labels </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>x_1 <span class="ot">&lt;-</span> x[<span class="dv">6</span>,] </span>
-<span id="cb2-2"><a></a>x_2 <span class="ot">&lt;-</span> x[<span class="dv">17</span>,] </span>
-<span id="cb2-3"><a></a>x_3 <span class="ot">&lt;-</span> x[<span class="dv">16</span>,] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>x_1 <span class="ot">&lt;-</span> x[<span class="dv">6</span>,] </span>
+<span id="cb2-2"><a aria-label="2"></a>x_2 <span class="ot">&lt;-</span> x[<span class="dv">17</span>,] </span>
+<span id="cb2-3"><a aria-label="3"></a>x_3 <span class="ot">&lt;-</span> x[<span class="dv">16</span>,] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Compute the distances:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">c</span>(<span class="fu">sum</span>((x_1 <span class="sc">-</span> x_2)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_1 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_2 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="fu">sum</span>((x_1 <span class="sc">-</span> x_2)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_1 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_2 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2319.867 2331.210 2518.969</code></pre>
 </div>
@@ -309,7 +315,7 @@
 <li>Checks out:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>y[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">17</span>,<span class="dv">16</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>y[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">17</span>,<span class="dv">16</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 2 7</code></pre>
 </div>
@@ -322,7 +328,7 @@
 <li><p>It multiplies <code>t(x)</code> by <code>x</code>:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">c</span>(<span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_2), <span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_3), <span class="fu">crossprod</span>(x_2 <span class="sc">-</span> x_3)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_2), <span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_3), <span class="fu">crossprod</span>(x_2 <span class="sc">-</span> x_3)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2319.867 2331.210 2518.969</code></pre>
 </div>
@@ -334,8 +340,8 @@
 <li>We can also compute <strong>all</strong> the distances at once:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">17</span>,<span class="dv">16</span>),]) </span>
-<span id="cb9-2"><a></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">17</span>,<span class="dv">16</span>),]) </span>
+<span id="cb9-2"><a aria-label="2"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         1        2
 2 2319.867         
@@ -346,7 +352,7 @@
 <li><code>dist</code> produces an object of class <code>dist</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">class</span>(d) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">class</span>(d) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "dist"</code></pre>
 </div>
@@ -362,7 +368,7 @@
 <li><p>To access the entries using row and column indices, we need to coerce it into a matrix.</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2518.969</code></pre>
 </div>
@@ -374,8 +380,8 @@
 <li>The <code>image</code> function allows us to quickly see an image of distances between observations.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,]) </span>
-<span id="cb15-2"><a></a><span class="fu">image</span>(<span class="fu">as.matrix</span>(d)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,]) </span>
+<span id="cb15-2"><a aria-label="2"></a><span class="fu">image</span>(<span class="fu">as.matrix</span>(d)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="35-distance_files/figure-revealjs/distance-image-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
@@ -385,7 +391,7 @@
 <li>If we order distance by the labels:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">image</span>(<span class="fu">as.matrix</span>(d)[<span class="fu">order</span>(y[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>]), <span class="fu">order</span>(y[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>])]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">image</span>(<span class="fu">as.matrix</span>(d)[<span class="fu">order</span>(y[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>]), <span class="fu">order</span>(y[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>])]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="35-distance_files/figure-revealjs/diatance-image-ordered-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>

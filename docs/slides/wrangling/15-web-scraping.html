@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-09-29">
   <meta name="keywords" content="Wrangling">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -208,9 +214,9 @@
 <li><p>For example, the US murders dataset we used in the R Basics chapter originally comes from this Wikipedia page:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://en.wikipedia.org/w/index.php?title="</span>, </span>
-<span id="cb1-2"><a></a>              <span class="st">"Gun_violence_in_the_United_States_by_state"</span>, </span>
-<span id="cb1-3"><a></a>              <span class="st">"&amp;direction=prev&amp;oldid=810166167"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://en.wikipedia.org/w/index.php?title="</span>, </span>
+<span id="cb1-2"><a aria-label="2"></a>              <span class="st">"Gun_violence_in_the_United_States_by_state"</span>, </span>
+<span id="cb1-3"><a aria-label="3"></a>              <span class="st">"&amp;direction=prev&amp;oldid=810166167"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="scraping-html-1" class="slide level2">
@@ -309,9 +315,9 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <li><p>The package makes this quite simple:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb3-2"><a></a><span class="fu">library</span>(rvest) </span>
-<span id="cb3-3"><a></a>h <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">library</span>(rvest) </span>
+<span id="cb3-3"><a aria-label="3"></a>h <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Note that the entire Murders in the US Wikipedia webpage is now contained in <code>h</code>.</li>
@@ -323,7 +329,7 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <li>The class of this object is:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">class</span>(h) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">class</span>(h) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "xml_document" "xml_node"    </code></pre>
 </div>
@@ -341,7 +347,7 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <li><p>We can see all the code that defines the downloaded webpage using the <code>html_text</code> function like this:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">html_text</span>(h) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">html_text</span>(h) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-rvest-package-3" class="slide level2">
@@ -364,7 +370,7 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <li>To extract the tables from the html code we use:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>tab <span class="ot">&lt;-</span> h <span class="sc">|&gt;</span> <span class="fu">html_nodes</span>(<span class="st">"table"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>tab <span class="ot">&lt;-</span> h <span class="sc">|&gt;</span> <span class="fu">html_nodes</span>(<span class="st">"table"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Now, instead of the entire webpage, we just have the html code for the tables in the page:</li>
@@ -373,7 +379,7 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <section id="the-rvest-package-6" class="slide level2">
 <h2>The rvest package</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>tab </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>tab </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{xml_nodeset (2)}
 [1] &lt;table class="wikitable sortable" id="mwDQ"&gt;&lt;tbody id="mwDg"&gt;\n&lt;tr id="mw ...
@@ -384,7 +390,7 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <li>The table we are interested is the first one:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>tab[[<span class="dv">1</span>]] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>tab[[<span class="dv">1</span>]] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_node}
 &lt;table class="wikitable sortable" id="mwDQ"&gt;
@@ -400,8 +406,8 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <li><p>In fact, <strong>rvest</strong> includes a function just for converting HTML tables into data frames:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>tab <span class="ot">&lt;-</span> tab[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">html_table</span>() </span>
-<span id="cb12-2"><a></a><span class="fu">class</span>(tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>tab <span class="ot">&lt;-</span> tab[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> <span class="fu">html_table</span>() </span>
+<span id="cb12-2"><a aria-label="2"></a><span class="fu">class</span>(tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
 </div>
@@ -413,10 +419,10 @@ title="List of U.S. states and territories by population"&gt;Population&lt;/a&gt
 <li>We can now make the data frame:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>tab <span class="ot">&lt;-</span> tab <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"state"</span>, <span class="st">"population"</span>, <span class="st">"total"</span>, <span class="st">"murder_rate"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(population, total), parse_number))</span>
-<span id="cb14-4"><a></a><span class="fu">head</span>(tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>tab <span class="ot">&lt;-</span> tab <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a aria-label="2"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"state"</span>, <span class="st">"population"</span>, <span class="st">"total"</span>, <span class="st">"murder_rate"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a aria-label="3"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(population, total), parse_number))</span>
+<span id="cb14-4"><a aria-label="4"></a><span class="fu">head</span>(tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   state      population total murder_rate

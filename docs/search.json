@@ -488,298 +488,74 @@
     "text": "Using Git in RStudio\n\nGo to file, new project, version control, and follow the instructions.\nThen notice the Git tab in the preferences."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#before-we-begin-partial-recap-of-aug-31",
-    "href": "slides/productivity/01-unix.html#before-we-begin-partial-recap-of-aug-31",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Before we begin … partial recap of Aug 31",
-    "text": "Before we begin … partial recap of Aug 31\n\nWhen designing a table for data organization, which is most important?\n\nchoice of columns\nchoice of rows\noptions for cell contents\n\nWhen different groups wish to combine data from separately created tables, how should they proceed?\nPRIMED is a relevant resource"
+    "objectID": "slides/productivity/01c-gitquarto.html#plan",
+    "href": "slides/productivity/01c-gitquarto.html#plan",
+    "title": "Working with git and quarto together",
+    "section": "Plan",
+    "text": "Plan\n\nUse your github account and the github.com IDE\nFork the repository https://github.com/vjcitn/lovequarto into your organization\nUse the IDE editing feature to change the title to use your own name\nCommit the changes with a comment describing what you did\nCreate a new Rstudio project with the version control option\nuse https://github.com/[your org name]/lovequarto to seed the project\n“run” the chkshiny.qmd “document” and we will explore it together"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#another-point-about-table-design",
-    "href": "slides/productivity/01-unix.html#another-point-about-table-design",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Another point about table design",
-    "text": "Another point about table design\n\nIt can be useful to think of rows as “replicates” – observations on sets of features (columns) that are “replicated” on different “study subjects”\nIn our case, individual students were subjects, and the groups that were formed are a higher-level “study unit”\nWe want to be able to distinguish which responses come from different units at different levels\nneed a group identifier and a subject identifier\nsubject may have multiple observations"
+    "objectID": "slides/productivity/02-rstudio.html#integrated-development-environment-ide",
+    "href": "slides/productivity/02-rstudio.html#integrated-development-environment-ide",
+    "title": "RStudio IDE",
+    "section": "Integrated Development Environment (IDE)",
+    "text": "Integrated Development Environment (IDE)\n\nPosit provides a free IDE for R with RStudio\nthose with more programming experience may want to experiment with Positron (newer and adapted to LLMs)\nIDEs provide a framework for developing software, carrying out analyses, and integrating code with analysis\nthey can help with creating packages, documenting functions and using external tools such as gitHub"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#please-fill-out-second-form-httpstinyurl.combst260form2",
-    "href": "slides/productivity/01-unix.html#please-fill-out-second-form-httpstinyurl.combst260form2",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Please fill out second form: https://tinyurl.com/bst260form2",
-    "text": "Please fill out second form: https://tinyurl.com/bst260form2\nThis version does not have free text responses on tool usage, etc.\nWe do need accurate statement of “github handle”"
+    "objectID": "slides/productivity/02-rstudio.html#the-panes",
+    "href": "slides/productivity/02-rstudio.html#the-panes",
+    "title": "RStudio IDE",
+    "section": "The panes",
+    "text": "The panes"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#emerging-role-of-github-in-content-management-for-the-course",
-    "href": "slides/productivity/01-unix.html#emerging-role-of-github-in-content-management-for-the-course",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Emerging role of github in content management for the course",
-    "text": "Emerging role of github in content management for the course\nI asked students to invite the teaching team as collaborators. We will change this arrangement, but it is of interest to be able to assess this strategy. Code was written to use the GitHub API to check created repos and contents.\n&gt; github_private_repo_collaborators([handle], \"bst260\")\n       login        id type role_name site_admin admin maintain push triage pull\n1     vjcitn   4624066 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE\n2 QianyuFan8  88663047 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE\n3  [handle]   [id    ] User     admin      FALSE  TRUE     TRUE TRUE   TRUE TRUE\n&gt; dir(\"R\")\n[1] \"github_private_repo_collaborators.R\" \"github_repo_has_file.R\"              \"github_repo_markdown_headers.R\"     \n&gt; source(\"R/github_repo_markdown_headers.R\")\n&gt; args(github_repo_markdown_headers)\nfunction (org, repo, folder, file, token = NULL) \nNULL\n&gt; github_repo_markdown_headers([handle], \"bst260\", \"task-01\", \"README.md\")\n[1] \"Overview\"\nTwo points:\n\ndefault assignment of ‘write’ privilege to collaborators should probably not be taken\nthe API permits retrieval of content, which will be used for grading"
+    "objectID": "slides/productivity/02-rstudio.html#the-basics",
+    "href": "slides/productivity/02-rstudio.html#the-basics",
+    "title": "RStudio IDE",
+    "section": "The Basics",
+    "text": "The Basics\nLet’s try a few things together:\n\nOpen a new R script file.\nLearn tab complete.\nRun commands while editing scripts.\nRun the entire script.\nMake a plot.\nChange options to never save workspace.\nChange IDE appearance."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#a-little-history-of-unix-and-commodity-computing",
-    "href": "slides/productivity/01-unix.html#a-little-history-of-unix-and-commodity-computing",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "A little history of unix and “commodity” computing",
-    "text": "A little history of unix and “commodity” computing\n\nWe take for granted the notion that we can “start the computer” and “type in commands” and get essentially immediate responses for many tasks\nThe origins of this capability are historically complex; let’s have a little background"
+    "objectID": "slides/productivity/02-rstudio.html#projects",
+    "href": "slides/productivity/02-rstudio.html#projects",
+    "title": "RStudio IDE",
+    "section": "Projects",
+    "text": "Projects\nLet’s try this together:\n\nStart a new project in a new directory.\nStart a new project in an existing directory.\nChange projects.\nUse the File menu to create a new Quarto document"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#antitrust-facts-from-sonnet-and-gemini",
-    "href": "slides/productivity/01-unix.html#antitrust-facts-from-sonnet-and-gemini",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Antitrust (facts from sonnet and gemini)",
-    "text": "Antitrust (facts from sonnet and gemini)\n\nTrue or false: Because of AT&T’s 1956 antitrust consent decree, the company was barred from competing in the computer business, so it could not sell Unix as a commercial product. Instead it licensed the source tape to universities for a nominal fee (little more than the cost of media and shipping).\nTrue: To resolve an antitrust lawsuit (United States v. Western Electric Co.), AT&T signed a consent decree restricting the Bell System to regulated “common-carrier telecommunications services” and related equipment manufacturing. The decree legally barred AT&T from entering other commercial markets, including data processing and computer software."
+    "objectID": "slides/productivity/02-rstudio.html#type-of-editor",
+    "href": "slides/productivity/02-rstudio.html#type-of-editor",
+    "title": "RStudio IDE",
+    "section": "Type of editor",
+    "text": "Type of editor\n\nthe editor you use will depend on what kind of document you are editing\nthey can be customized in many ways and often have language specific settings\nwe will be creating and editing markdown documents - mostly using the Quarto paradigm\nfor Quarto you can use either a source view or a visual view:\n\nSource - See the actual code (WYSIWYG)\nVisual - Partial preview of final document.\n\n\nNote: You can state your preference in a the header:\ntitle: RStudio IDE\nkeywords: \"Productivity Tools\"\n\neditor: source\n\nWe learn more about Quarto soon"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#shipping-costs",
-    "href": "slides/productivity/01-unix.html#shipping-costs",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "“Shipping costs”",
-    "text": "“Shipping costs”\n\nLicensing Unix “As-Is”: Because AT&T could not market Unix as a commercial software product, Bell Labs provided the source code to universities, research labs, and government agencies under an educational license. The fee was nominal—typically around $150 to $300—just enough to cover magnetic tapes, printed documentation, and handling. AT&T explicitly provided no technical support, warranty, or bug fixes.\nThe Impact: This policy inadvertently sparked a computing revolution. Because universities received full source code and had to maintain the OS themselves, a generation of students and researchers studied, debugged, and extended Unix. This culture gave rise to John Lions’ famous Commentary on UNIX 6th Edition, the Berkeley Software Distribution (BSD), and the modern open-source movement. When AT&T was broken up in 1984 and released from the 1956 decree, the company immediately sought to commercialize Unix (System V) and enforce strict, expensive licensing, igniting the famous “Unix Wars.”"
+    "objectID": "slides/productivity/01b-unixwrap.html#plan",
+    "href": "slides/productivity/01b-unixwrap.html#plan",
+    "title": "Confirming our UNIX chops",
+    "section": "Plan",
+    "text": "Plan\nWe will form teams, with one student running Rstudio and the other working through the form, step by step, at [https://tinyurl.com/bst260unix]\nThe form will be editable; after each exercise is completed, you submit (at the bottom) and then return to your form to do the next exercise."
   },
   {
-    "objectID": "slides/productivity/01-unix.html#dos-vs-unix",
-    "href": "slides/productivity/01-unix.html#dos-vs-unix",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "DOS vs UNIX",
-    "text": "DOS vs UNIX\nTry a prompt like\nCan you provide some facts and interpretations, and discuss a bit how \nDOS came about -- why unix could not be relevant for microcomputers in the evolution of microsoft.\nto learn about CP/M, QDOS, and steps towards windows powershell. You will not be responsible for these facts but they are interesting: UNIX was intrinsically multiuser, share the hardware; DOS addressed a hardware limitation focusing on single-user processing for consumer-grade chips\nConclusion: AT&T was broken up\nMaybe search for “how did the MFJ issued for AT&T affect its ability to continue bell labs scientific research and operating system development”"
+    "objectID": "slides/productivity/01b-unixwrap.html#topics-to-have-mastered",
+    "href": "slides/productivity/01b-unixwrap.html#topics-to-have-mastered",
+    "title": "Confirming our UNIX chops",
+    "section": "Topics to have mastered",
+    "text": "Topics to have mastered\n\nRetrieving a file in a specified way\n\nthe file happens to be an R package\nyou will use download.packages in R console\n\nWorking with a compressed file archive\n\nyou will have a .tar.gz file\nyou will expand it using classic unix command line interface\n\nGetting an overview of a folder system with tree\nCounting characters in a stream\nMeasuring file sizes, with the tool of your choice\nFinding strings in files using grep\nWorking with cryptographic hashes\nUsing a file compression utility"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#some-future-targets-for-the-class",
-    "href": "slides/productivity/01-unix.html#some-future-targets-for-the-class",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Some future targets for the class",
-    "text": "Some future targets for the class\n\nWe will establish accounts on a linux system through GitHub code spaces (verify that you can start one from your GitHub IDE)\nWe will create portable software tools in a compiled language, possibly C and C++\nWe will learn how to use debuggers and profilers to identify errors and performance deficiencies"
+    "objectID": "slides/productivity/01b-unixwrap.html#illustration-of-a-command-map",
+    "href": "slides/productivity/01b-unixwrap.html#illustration-of-a-command-map",
+    "title": "Confirming our UNIX chops",
+    "section": "Illustration of a command map",
+    "text": "Illustration of a command map\n\nunix map 1"
   },
   {
-    "objectID": "slides/productivity/01-unix.html#naming-conventions-for-file-collections",
-    "href": "slides/productivity/01-unix.html#naming-conventions-for-file-collections",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Naming conventions for file collections",
-    "text": "Naming conventions for file collections\n\nName your files in a way that is related to their contents and specifies how they relate to other files.\nThe Smithsonian Data Management Best Practices has “Five precepts of file naming and organization”\nAny folder worth creating deserves a README.md inside the folder explaining why it was made and what its intended contents are —"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
-    "href": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Five precepts of file naming and organization",
-    "text": "Five precepts of file naming and organization\n\nHave a distinctive name that describes the content.\nFollow a consistent pattern that fosters convenient references to files to simplify software that operates on them\nOrganize files into directories that follow a consistent pattern.\nAvoid repetition of semantic elements among file and directory names.\n\nWhat could that mean?\n\nHave a file extension that matches the file format (no changing extensions!)\n\njpg and jpeg are suffixes for a fixed image format\nsometimes csv is used as a suffix for tsv information! and vice versa\n.txt conveys very little information\n\nmarkdown and json are formats that you should be comfortable with\n\nFor specific recommendations we recommend you follow The Tidyverse Style Guide"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#the-system",
-    "href": "slides/productivity/01-unix.html#the-system",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "The System",
-    "text": "The System\n\nInstead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal.\nThe way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system.\nThe file system is hierarchical, you create directories (folders) in other folders\nWhen you log in to a Unix computer you are in your home directory\nthe command line has a prompt that is configurable and is printed on screen to let you know that the terminal is ready for input\nEnvironment variables control your computing environment and many are customizable by users\nLLMs are useful tools for finding commands and getting help navigating through your first exposure to Unix and the ideas it is based on"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#the-terminal",
-    "href": "slides/productivity/01-unix.html#the-terminal",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "The terminal",
-    "text": "The terminal\n\nThe terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator.\nOnce you have a terminal open, you can start typing commands.\nYou should see a blinking cursor at the spot where what you type will show up. This position is called the command line."
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#the-filesystem",
-    "href": "slides/productivity/01-unix.html#the-filesystem",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "The filesystem",
-    "text": "The filesystem"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#files-and-permissions",
-    "href": "slides/productivity/01-unix.html#files-and-permissions",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Files and permissions",
-    "text": "Files and permissions\n\nwithin each directory you can create files and other directories\nfiles whose names start with a period . are hidden by default; use ls -a to view them\nfiles have permissions: use ls -lh to view details\n\n\ndrwxr-xr-x    4 robert  staff   128B Aug  8 10:03 bin\n-rw-r--r--@   1 robert  staff    20M Jun 24 09:11 boots.png\n-rw-r--r--@   1 robert  staff    26M Jun 23 15:23 boots1.pdf\n\n\nyou can read, write, or execute files and control who can see or use them by changing permissions"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#working-directory",
-    "href": "slides/productivity/01-unix.html#working-directory",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Working directory",
-    "text": "Working directory\n\nThe working directory is the directly you are currently in.\nCommands you issue will generally take effect in this directory\nYou can see your working directory using the Unix command pwd\nYou can list the contents of the directory (files and other directories) using ls\nYou can find out about how ls works by issuing the command: man ls"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#paths",
-    "href": "slides/productivity/01-unix.html#paths",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Paths",
-    "text": "Paths\n\nThe string returned by pwd command is the full path to the working directory.\nThe full path to your home directory is stored in an environment variable.\nYou can see it like this echo $HOME"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#paths-1",
-    "href": "slides/productivity/01-unix.html#paths-1",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Paths",
-    "text": "Paths\n\nIn Unix, we use the shorthand ~ as a nickname for your home directory\n\nExample: the full path for docs (image in prev. slides) can be written like this ~/docs.\n\nA common default for the prompt is to show the path to the working directory (that path might be long, but you can change it)\nLet’s open a terminal window and see what the prompt is.\nyou have an environment variable called PATH which you can display using echo\n\nthat variable is a set of individual paths, separated by : (colon) and it tells your Unix shell where to look for commands\nyou can modify that path, so that you can have it look for commands in other, non-standard places (eg make your own bin directory)"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#unix-commands",
-    "href": "slides/productivity/01-unix.html#unix-commands",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Unix commands",
-    "text": "Unix commands\n\nls: Listing directory content\nmkdir and rmdir: make and remove a directory\ncd: navigating the filesystem by changing directories\npwd: see your workding directory\nmv: moving files\ncp: copying files\nrm: removing files\nmore and less: display the contents of a file"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#autocomplete",
-    "href": "slides/productivity/01-unix.html#autocomplete",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Autocomplete",
-    "text": "Autocomplete\n\nIn Unix you can auto-complete by hitting tab.\nThis means that we can type cd d then hit tab.\nUnix will either auto-complete if docs is the only directory/file starting with d or show you the options.\nTry it out! Using Unix without auto-complete will make it unbearable."
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#text-editors",
-    "href": "slides/productivity/01-unix.html#text-editors",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Text editors",
-    "text": "Text editors\nCommand-line text editors are essential tools, especially for system administrators, developers, and other users who frequently work in a terminal environment. Here are some of the most popular command-line text editors:\n\nNano\nPico\nVi or Vim\nEmacs"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#other-useful-commands",
-    "href": "slides/productivity/01-unix.html#other-useful-commands",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Other useful commands",
-    "text": "Other useful commands\n\ncurl - download data from the internet.\ntar - archive files and directories into one file.\ngzip, zstd - and other compression tools - make big files small\nssh - connect to another computer.\nfind - search for files by filename in your system.\ngrep - search for patterns in a file.\nawk/sed - These are two very powerful commands that permit you to find specific strings in files and change them."
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#a-deeper-dive",
-    "href": "slides/productivity/01-unix.html#a-deeper-dive",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "A deeper dive",
-    "text": "A deeper dive\n\nThe shell you use helps to organize and facilitate your interactions with the operating system\necho $SHELL will display the shell you are using\nmany software tools use hidden files and directories to provide customization e.g. .gitconfig or .ssh\nmost shells have two files that are commonly used to provide user level customization .zsh, and .zprofile"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#resources",
-    "href": "slides/productivity/01-unix.html#resources",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Resources",
-    "text": "Resources\nTo get started.\n\nhttps://www.codecademy.com/learn/learn-the-command-line\nhttps://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1\nhttps://www.coursera.org/learn/unix"
-  },
-  {
-    "objectID": "slides/productivity/01-unix.html#lets-get-learning",
-    "href": "slides/productivity/01-unix.html#lets-get-learning",
-    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
-    "section": "Let’s get learning",
-    "text": "Let’s get learning\n\nwitnessing effects of file compression and decompression\n“storage quotas” (or monitoring `df’) to avoid crashing your machine\npattern matching with regular expressions; searching collections of files\nsetting and retrieving values of ENVIRONMENT VARIABLES"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#the-header",
-    "href": "slides/productivity/03-quarto.html#the-header",
-    "title": "Quarto",
-    "section": "The header",
-    "text": "The header\n\nStart a new empty document.\nAt the top you see:\n\n\n---\ntitle: \"Untitled\"\n---\n\n\nThe things between the --- are the YAML header.\nYou will see it used throughout the Quarto guide."
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#text-formating",
-    "href": "slides/productivity/03-quarto.html#text-formating",
-    "title": "Quarto",
-    "section": "Text formating",
-    "text": "Text formating\n*italics* or _italics_ = italics\n**bold** = bold\n***bold italics*** = bold italics\n~~strikethrough~~ = strikethrough\n`code` = code"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#text-formating-1",
-    "href": "slides/productivity/03-quarto.html#text-formating-1",
-    "title": "Quarto",
-    "section": "Text formating",
-    "text": "Text formating\nThis:\n```\nline 1\nline 2\n```\nshows code chunks:\nline 1\nline 2"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#links",
-    "href": "slides/productivity/03-quarto.html#links",
-    "title": "Quarto",
-    "section": "Links",
-    "text": "Links\n\nShow the link and add link: &lt;https://quarto.org/docs/guide/&gt;\nAdd link to text: [Quarto Guide](https://quarto.org/docs/guide/)\n\nLooks like this:\nhttps://quarto.org/docs/guide/\nQuarto Guide"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#images",
-    "href": "slides/productivity/03-quarto.html#images",
-    "title": "Quarto",
-    "section": "Images",
-    "text": "Images\n![My caption](https://datasciencedojo.com/wp-content/uploads/11-1.jpg)\nShows the plot and caption:\n\nMy captionThe image can also be a local file."
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#lists",
-    "href": "slides/productivity/03-quarto.html#lists",
-    "title": "Quarto",
-    "section": "Lists",
-    "text": "Lists\nBullets:\n-   bullet 1\n    -   sub-bullet 1\n    -   sub-bullet 2\n-   bullet 2\nLooks like this:\n\nbullet 1\n\nsub-bullet 1\nsub-bullet 2\n\nbullet 2"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#lists-1",
-    "href": "slides/productivity/03-quarto.html#lists-1",
-    "title": "Quarto",
-    "section": "Lists",
-    "text": "Lists\nOrdered list:\n1.  Item 1\n2.  Item 2\nLooks like this:\n\nItem 1\nItem 2"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#equations",
-    "href": "slides/productivity/03-quarto.html#equations",
-    "title": "Quarto",
-    "section": "Equations",
-    "text": "Equations\n\n\n\n\n\n\n\nNote\n\n\nIf you are going to write technical report, you definitely want to learn LaTeX.\nOnce you learn LaTeX you will never want to use an equation editor again.\nThere are many online tutorials, like this one.\nChatGPT is great at LaTeX"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#equations-1",
-    "href": "slides/productivity/03-quarto.html#equations-1",
-    "title": "Quarto",
-    "section": "Equations",
-    "text": "Equations\nExamples:\n\nInline: $Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i$ looks like this \\(Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\\)\nDisplay math:\n\n$$\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n$$\nlooks like this:\n\\[\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n\\]"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#computations",
-    "href": "slides/productivity/03-quarto.html#computations",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nThe main reason we use Quarto is because we can include and execute the code when compiling the document.\nIn R we refer to the code as R chunks.\nThis applies to plots as well; the plot will be placed in the position of the code.\n\n\n\n\n\n\n\nNote\n\n\nTo add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows."
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#computations-1",
-    "href": "slides/productivity/03-quarto.html#computations-1",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\nWe can write something like this:\n```{r}\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#computations-2",
-    "href": "slides/productivity/03-quarto.html#computations-2",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\nIt looks like this:\n\nx &lt;- 1\ny &lt;- 2\nx + y\n\n[1] 3\n\n\nNote that it was evaluated and the result is shown."
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#computations-3",
-    "href": "slides/productivity/03-quarto.html#computations-3",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nBy default, the code and result will show up as well.\nYou can send arguments to control the behavior with #|\nFor example, to avoid showing code in the final document, you can use the argument echo: FALSE.\n\n```{r}\n#| echo: false\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#computations-4",
-    "href": "slides/productivity/03-quarto.html#computations-4",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nThere are many options (auto-complete shows them).\nFor example, to avoid the the code running you can use eval: FALSE.\nTo avoid showing warnings warning: FALSE, to avoid showing messages message: FALSE.\n\n\n\n\n\n\n\nNote\n\n\nIf you want to apply an option globally, these can be set globally in the header.\nexecute:\n  echo: false"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#computations-5",
-    "href": "slides/productivity/03-quarto.html#computations-5",
-    "title": "Quarto",
-    "section": "Computations",
-    "text": "Computations\n\nWe recommend getting into the habit of labeling code chunks:\n\n```{r}\n#| label: one-plus-two\nx &lt;- 1\ny &lt;- 2\nx + y\n```\n\nHelps with debugging\nGives meaningful names to generated images."
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#more-on-markdown",
-    "href": "slides/productivity/03-quarto.html#more-on-markdown",
-    "title": "Quarto",
-    "section": "More on markdown",
-    "text": "More on markdown\nThere is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:\n\nRStudio’s tutorial: https://quarto.org/docs/get-started/hello/rstudio.html\nThe knitR book: https://yihui.name/knitr/\nPandoc’s Markdown in-depth documentation\nGuide for academic reports"
-  },
-  {
-    "objectID": "slides/productivity/03-quarto.html#quarto-render",
-    "href": "slides/productivity/03-quarto.html#quarto-render",
-    "title": "Quarto",
-    "section": "quarto render",
-    "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, or format: gfm\n\n(gfm stands for GitHub flavored markdown, a convenient way to share your reports)."
+    "objectID": "slides/productivity/01b-unixwrap.html#more-commands",
+    "href": "slides/productivity/01b-unixwrap.html#more-commands",
+    "title": "Confirming our UNIX chops",
+    "section": "More commands",
+    "text": "More commands\n\n\n\nunix map 2"
   },
   {
     "objectID": "slides/inference/27-hierarchical-models.html#hierarchichal-models",
@@ -1479,7 +1255,7 @@
     "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-3",
     "title": "Parameters and Estimates",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157321.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4500759\n\nsd(x_hat) \n\n[1] 0.01571786"
+    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157321.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4496498\n\nsd(x_hat) \n\n[1] 0.01561491"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-4",
@@ -1773,7 +1549,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-02 20:47:06 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-03 00:47:06 GMT\""
+    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-09 08:19:37 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-09 12:19:37 GMT\""
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
@@ -1787,7 +1563,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 20\n\nnow() |&gt; minute() \n\n[1] 47\n\nnow() |&gt; second() \n\n[1] 6.048557"
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 8\n\nnow() |&gt; minute() \n\n[1] 19\n\nnow() |&gt; second() \n\n[1] 38.00711"
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
@@ -1969,7 +1745,7 @@
     "href": "slides/wrangling/13-locales.html#example-9",
     "title": "Locales",
     "section": "Example",
-    "text": "Example\nComputing the students’ ages is now straightforward:\n\ntime_length(today() - dat$f.n., unit = \"years\") |&gt; floor() \n\n[1] 44 46 95 57 44 85 55"
+    "text": "Example\nComputing the students’ ages is now straightforward:\n\ntime_length(today() - dat$f.n., unit = \"years\") |&gt; floor() \n\n[1] 45 46 95 57 44 85 55"
   },
   {
     "objectID": "slides/wrangling/13-locales.html#example-10",
@@ -2319,7 +2095,7 @@
     "href": "slides/ml/41-knn.html#over-training-1",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.996\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
+    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.994\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-2",
@@ -4937,7 +4713,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-2",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 941247 0.857\n 2  43698 0.785\n 3 388676 0.781\n 4 999020 0.778\n 5 719240 0.775\n 6 526188 0.770\n 7 489071 0.769\n 8 930372 0.769\n 9 298238 0.764\n10 189555 0.760\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.857."
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 282577 0.793\n 2 244708 0.780\n 3 686119 0.770\n 4 581745 0.768\n 5 450008 0.753\n 6 644788 0.753\n 7 345849 0.748\n 8 828364 0.748\n 9 463739 0.747\n10 585056 0.744\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.793."
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-3",
@@ -4972,7 +4748,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-7",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic      p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n1 x         1.12     0.140      7.96 0.0000000462"
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.789     0.126      6.24 0.00000227"
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-8",
@@ -6960,7 +6736,7 @@
     "href": "index.html",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 8abfad8.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit cbb2975.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -6970,7 +6746,7 @@
     "href": "index.html#course-information",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 8abfad8.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit cbb2975.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -7176,7 +6952,7 @@
     "href": "overview.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 8abfad8."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit cbb2975."
   },
   {
     "objectID": "psets/pset-01-unix-quarto.html",
@@ -7274,7 +7050,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\n\n\n\n\n\n \n\n\nOverview of BST 260 Introduction to Data Science\n\n\n\n\n\n\nProductivity Tools\n\n\nUnix: an operating system with 50+ years of significance in scientific computing\n\n\n\n\n\n\nProductivity Tools\n\n\nRStudio IDE\n\n\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub, 2025 edition\n\n\n\n\n\n\nR\n\n\nR Basics\n\n\n\n\n\n\nR\n\n\nVectorization\n\n\n\n\n\n\nR\n\n\nTidyverse\n\n\n\n\n\n\nR\n\n\nggplot2\n\n\n\n\n\n\nR\n\n\nTidying data\n\n\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\n\n\n\n\nWrangling\n\n\nImporting files\n\n\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\n\n\n\n\nWrangling\n\n\nLocales\n\n\n\n\n\n\nWrangling\n\n\nData APIs\n\n\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\n\n\n\n\nData Visualization\n\n\nDataviz In Practice\n\n\n\n\n\n\nProbability\n\n\nIntroduction to Probability\n\n\n\n\n\n\nProbability\n\n\nFoundations of Statistical Inference\n\n\n\n\n\n\nInference\n\n\nIntroduction to Statistical Inference and Models\n\n\n\n\n\n\nInference\n\n\nParameters and Estimates\n\n\n\n\n\n\nInference\n\n\nConfidence Intervals\n\n\n\n\n\n\nInference\n\n\nData-driven models\n\n\n\n\n\n\nInference\n\n\nBayesian Models\n\n\n\n\n\n\nInference\n\n\nHierarchical Models\n\n\n\n\n\n\nLinear Models\n\n\nIntroduction\n\n\n\n\n\n\nLinear Models\n\n\nRegression\n\n\n\n\n\n\nLinear Models\n\n\nMultivariate Regression\n\n\n\n\n\n\nLinear Models\n\n\nTreatment Effect Models\n\n\n\n\n\n\nOther topics\n\n\nAssociation Not Causation\n\n\n\n\n\n\nHigh dimensional data\n\n\nIntroduction to Linear Algebra\n\n\n\n\n\n\nHigh dimensional data\n\n\nMatrices In R\n\n\n\n\n\n\nHigh dimensional data\n\n\nDistance\n\n\n\n\n\n\nHigh dimensional data\n\n\nDimension Reduction\n\n\n\n\n\n\nMachine Learning\n\n\nIntroduction\n\n\n\n\n\n\nMachine Learning\n\n\nEvaluation Metrics\n\n\n\n\n\n\nMachine Learning\n\n\nConditionals\n\n\n\n\n\n\nMachine Learning\n\n\nSmoothing\n\n\n\n\n\n\nMachine Learning\n\n\nk-nearest neighbors (knn)\n\n\n\n\n\n\nMachine Learning\n\n\nResampling Methods\n\n\n\n\n\n\nMachine Learning\n\n\nThe caret package\n\n\n\n\n\n\nMachine Learning\n\n\nAlgorithms\n\n\n\n\n\n\nMachine Learning\n\n\nML In Practice\n\n\n\n\n\n\nOther topics\n\n\nIntroduction to Shiny\n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\n\n\n\n\n\n \n\n\nOverview of BST 260 Introduction to Data Science\n\n\n\n\n\n\nProductivity Tools\n\n\nUnix: an operating system with 50+ years of significance in scientific computing\n\n\n\n\n\n\nProductivity Tools\n\n\nConfirming our UNIX chops\n\n\n\n\n\n\nProductivity Tools\n\n\nWorking with git and quarto together\n\n\n\n\n\n\nProductivity Tools\n\n\nRStudio IDE\n\n\n\n\n\n\nProductivity Tools\n\n\nQuarto\n\n\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub\n\n\n\n\n\n\nProductivity Tools\n\n\nGit and GitHub, 2025 edition\n\n\n\n\n\n\nR\n\n\nR Basics\n\n\n\n\n\n\nR\n\n\nVectorization\n\n\n\n\n\n\nR\n\n\nTidyverse\n\n\n\n\n\n\nR\n\n\nggplot2\n\n\n\n\n\n\nR\n\n\nTidying data\n\n\n\n\n\n\nWrangling\n\n\nIntroduction to Wrangling\n\n\n\n\n\n\nWrangling\n\n\nImporting files\n\n\n\n\n\n\nWrangling\n\n\nDates And Times\n\n\n\n\n\n\nWrangling\n\n\nLocales\n\n\n\n\n\n\nWrangling\n\n\nData APIs\n\n\n\n\n\n\nWrangling\n\n\nWeb Scraping\n\n\n\n\n\n\nWrangling\n\n\nJoining Tables\n\n\n\n\n\n\nData Visualization\n\n\nData Visualization Principles\n\n\n\n\n\n\nData Visualization\n\n\nDistributions\n\n\n\n\n\n\nData Visualization\n\n\nDataviz In Practice\n\n\n\n\n\n\nProbability\n\n\nIntroduction to Probability\n\n\n\n\n\n\nProbability\n\n\nFoundations of Statistical Inference\n\n\n\n\n\n\nInference\n\n\nIntroduction to Statistical Inference and Models\n\n\n\n\n\n\nInference\n\n\nParameters and Estimates\n\n\n\n\n\n\nInference\n\n\nConfidence Intervals\n\n\n\n\n\n\nInference\n\n\nData-driven models\n\n\n\n\n\n\nInference\n\n\nBayesian Models\n\n\n\n\n\n\nInference\n\n\nHierarchical Models\n\n\n\n\n\n\nLinear Models\n\n\nIntroduction\n\n\n\n\n\n\nLinear Models\n\n\nRegression\n\n\n\n\n\n\nLinear Models\n\n\nMultivariate Regression\n\n\n\n\n\n\nLinear Models\n\n\nTreatment Effect Models\n\n\n\n\n\n\nOther topics\n\n\nAssociation Not Causation\n\n\n\n\n\n\nHigh dimensional data\n\n\nIntroduction to Linear Algebra\n\n\n\n\n\n\nHigh dimensional data\n\n\nMatrices In R\n\n\n\n\n\n\nHigh dimensional data\n\n\nDistance\n\n\n\n\n\n\nHigh dimensional data\n\n\nDimension Reduction\n\n\n\n\n\n\nMachine Learning\n\n\nIntroduction\n\n\n\n\n\n\nMachine Learning\n\n\nEvaluation Metrics\n\n\n\n\n\n\nMachine Learning\n\n\nConditionals\n\n\n\n\n\n\nMachine Learning\n\n\nSmoothing\n\n\n\n\n\n\nMachine Learning\n\n\nk-nearest neighbors (knn)\n\n\n\n\n\n\nMachine Learning\n\n\nResampling Methods\n\n\n\n\n\n\nMachine Learning\n\n\nThe caret package\n\n\n\n\n\n\nMachine Learning\n\n\nAlgorithms\n\n\n\n\n\n\nMachine Learning\n\n\nML In Practice\n\n\n\n\n\n\nOther topics\n\n\nIntroduction to Shiny\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -8099,7 +7875,7 @@
     "href": "slides/00-intro.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 8abfad8."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit cbb2975."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models",
@@ -9667,7 +9443,7 @@
     "href": "slides/R/05-r-basics.html#setting-levels",
     "title": "R Basics",
     "section": "Setting Levels",
-    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Male   Female Male   Male   Male   Female Female Male   Male   Male  \nLevels: Male Female\n\ny2[1:10]\n\n [1] Male   Female Male   Male   Male   Female Female Male   Male   Male  \nLevels: Female Male"
+    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Male   Male   Female Female Female Female Male   Male   Female Male  \nLevels: Male Female\n\ny2[1:10]\n\n [1] Male   Male   Female Female Female Female Male   Male   Female Male  \nLevels: Female Male"
   },
   {
     "objectID": "slides/R/05-r-basics.html#categories-based-on-strata",
@@ -9842,7 +9618,7 @@
     "href": "slides/R/05-r-basics.html#lexical-scope-1",
     "title": "R Basics",
     "section": "Lexical Scope",
-    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x12e746c40&gt;"
+    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x130e193b0&gt;"
   },
   {
     "objectID": "slides/R/05-r-basics.html#lexical-scope-example",
@@ -9954,7 +9730,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.00966 61.85295 65.89078 69.98638 69.81864 73.20553 67.10469 72.90475\n [9] 66.76724 69.92776"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.03225 61.91100 66.04911 70.06683 70.32258 73.07676 66.98423 73.17400\n [9] 67.14853 70.05918"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -12166,7 +11942,7 @@
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-7",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4012976 0.4627024\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4390655 0.5009345\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
+    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4102262 0.4717738\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4092336 0.4707664\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-8",
@@ -12208,7 +11984,7 @@
     "href": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
     "title": "Confidence Intervals",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9458"
+    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9482"
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation-1",
@@ -12771,39 +12547,298 @@
     "text": "Deployment Options\n\nShare Shiny apps using:\n\nShiny Server\nRStudio Connect\nshinyapps.io"
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#integrated-development-environment-ide",
-    "href": "slides/productivity/02-rstudio.html#integrated-development-environment-ide",
-    "title": "RStudio IDE",
-    "section": "Integrated Development Environment (IDE)",
-    "text": "Integrated Development Environment (IDE)\n\nPosit provides a free IDE for R with RStudio\nthose with more programming experience may want to experiment with Positron (newer and adapted to LLMs)\nIDEs provide a framework for developing software, carrying out analyses, and integrating code with analysis\nthey can help with creating packages, documenting functions and using external tools such as gitHub"
+    "objectID": "slides/productivity/03-quarto.html#the-header",
+    "href": "slides/productivity/03-quarto.html#the-header",
+    "title": "Quarto",
+    "section": "The header",
+    "text": "The header\n\nStart a new empty document.\nAt the top you see:\n\n\n---\ntitle: \"Untitled\"\n---\n\n\nThe things between the --- are the YAML header.\nYou will see it used throughout the Quarto guide."
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#the-panes",
-    "href": "slides/productivity/02-rstudio.html#the-panes",
-    "title": "RStudio IDE",
-    "section": "The panes",
-    "text": "The panes"
+    "objectID": "slides/productivity/03-quarto.html#text-formating",
+    "href": "slides/productivity/03-quarto.html#text-formating",
+    "title": "Quarto",
+    "section": "Text formating",
+    "text": "Text formating\n*italics* or _italics_ = italics\n**bold** = bold\n***bold italics*** = bold italics\n~~strikethrough~~ = strikethrough\n`code` = code"
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#the-basics",
-    "href": "slides/productivity/02-rstudio.html#the-basics",
-    "title": "RStudio IDE",
-    "section": "The Basics",
-    "text": "The Basics\nLet’s try a few things together:\n\nOpen a new R script file.\nLearn tab complete.\nRun commands while editing scripts.\nRun the entire script.\nMake a plot.\nChange options to never save workspace.\nChange IDE appearance."
+    "objectID": "slides/productivity/03-quarto.html#text-formating-1",
+    "href": "slides/productivity/03-quarto.html#text-formating-1",
+    "title": "Quarto",
+    "section": "Text formating",
+    "text": "Text formating\nThis:\n```\nline 1\nline 2\n```\nshows code chunks:\nline 1\nline 2"
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#projects",
-    "href": "slides/productivity/02-rstudio.html#projects",
-    "title": "RStudio IDE",
-    "section": "Projects",
-    "text": "Projects\nLet’s try this together:\n\nStart a new project in a new directory.\nStart a new project in an existing directory.\nChange projects.\nUse the File menu to create a new Quarto document"
+    "objectID": "slides/productivity/03-quarto.html#links",
+    "href": "slides/productivity/03-quarto.html#links",
+    "title": "Quarto",
+    "section": "Links",
+    "text": "Links\n\nShow the link and add link: &lt;https://quarto.org/docs/guide/&gt;\nAdd link to text: [Quarto Guide](https://quarto.org/docs/guide/)\n\nLooks like this:\nhttps://quarto.org/docs/guide/\nQuarto Guide"
   },
   {
-    "objectID": "slides/productivity/02-rstudio.html#type-of-editor",
-    "href": "slides/productivity/02-rstudio.html#type-of-editor",
-    "title": "RStudio IDE",
-    "section": "Type of editor",
-    "text": "Type of editor\n\nthe editor you use will depend on what kind of document you are editing\nthey can be customized in many ways and often have language specific settings\nwe will be creating and editing markdown documents - mostly using the Quarto paradigm\nfor Quarto you can use either a source view or a visual view:\n\nSource - See the actual code (WYSIWYG)\nVisual - Partial preview of final document.\n\n\nNote: You can state your preference in a the header:\ntitle: RStudio IDE\nkeywords: \"Productivity Tools\"\n\neditor: source\n\nWe learn more about Quarto soon"
+    "objectID": "slides/productivity/03-quarto.html#images",
+    "href": "slides/productivity/03-quarto.html#images",
+    "title": "Quarto",
+    "section": "Images",
+    "text": "Images\n![My caption](https://datasciencedojo.com/wp-content/uploads/11-1.jpg)\nShows the plot and caption:\n\nMy captionThe image can also be a local file."
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#lists",
+    "href": "slides/productivity/03-quarto.html#lists",
+    "title": "Quarto",
+    "section": "Lists",
+    "text": "Lists\nBullets:\n-   bullet 1\n    -   sub-bullet 1\n    -   sub-bullet 2\n-   bullet 2\nLooks like this:\n\nbullet 1\n\nsub-bullet 1\nsub-bullet 2\n\nbullet 2"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#lists-1",
+    "href": "slides/productivity/03-quarto.html#lists-1",
+    "title": "Quarto",
+    "section": "Lists",
+    "text": "Lists\nOrdered list:\n1.  Item 1\n2.  Item 2\nLooks like this:\n\nItem 1\nItem 2"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#equations",
+    "href": "slides/productivity/03-quarto.html#equations",
+    "title": "Quarto",
+    "section": "Equations",
+    "text": "Equations\n\n\n\n\n\n\n\nNote\n\n\nIf you are going to write technical report, you definitely want to learn LaTeX.\nOnce you learn LaTeX you will never want to use an equation editor again.\nThere are many online tutorials, like this one.\nChatGPT is great at LaTeX"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#equations-1",
+    "href": "slides/productivity/03-quarto.html#equations-1",
+    "title": "Quarto",
+    "section": "Equations",
+    "text": "Equations\nExamples:\n\nInline: $Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i$ looks like this \\(Y_i = \\beta_0 + \\beta_1 x_i + \\varepsilon_i\\)\nDisplay math:\n\n$$\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n$$\nlooks like this:\n\\[\n\\mathbf{Y} = \\mathbf{X\\beta} + \\mathbf{\\varepsilon}\n\\]"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations",
+    "href": "slides/productivity/03-quarto.html#computations",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nThe main reason we use Quarto is because we can include and execute the code when compiling the document.\nIn R we refer to the code as R chunks.\nThis applies to plots as well; the plot will be placed in the position of the code.\n\n\n\n\n\n\n\nNote\n\n\nTo add your own R chunks, you can type the characters above quickly with the key binding command-option-I on the Mac and Ctrl-Alt-I on Windows."
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-1",
+    "href": "slides/productivity/03-quarto.html#computations-1",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\nWe can write something like this:\n```{r}\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-2",
+    "href": "slides/productivity/03-quarto.html#computations-2",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\nIt looks like this:\n\nx &lt;- 1\ny &lt;- 2\nx + y\n\n[1] 3\n\n\nNote that it was evaluated and the result is shown."
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-3",
+    "href": "slides/productivity/03-quarto.html#computations-3",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nBy default, the code and result will show up as well.\nYou can send arguments to control the behavior with #|\nFor example, to avoid showing code in the final document, you can use the argument echo: FALSE.\n\n```{r}\n#| echo: false\nx &lt;- 1\ny &lt;- 2\nx + y\n```"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-4",
+    "href": "slides/productivity/03-quarto.html#computations-4",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nThere are many options (auto-complete shows them).\nFor example, to avoid the the code running you can use eval: FALSE.\nTo avoid showing warnings warning: FALSE, to avoid showing messages message: FALSE.\n\n\n\n\n\n\n\nNote\n\n\nIf you want to apply an option globally, these can be set globally in the header.\nexecute:\n  echo: false"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#computations-5",
+    "href": "slides/productivity/03-quarto.html#computations-5",
+    "title": "Quarto",
+    "section": "Computations",
+    "text": "Computations\n\nWe recommend getting into the habit of labeling code chunks:\n\n```{r}\n#| label: one-plus-two\nx &lt;- 1\ny &lt;- 2\nx + y\n```\n\nHelps with debugging\nGives meaningful names to generated images."
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#more-on-markdown",
+    "href": "slides/productivity/03-quarto.html#more-on-markdown",
+    "title": "Quarto",
+    "section": "More on markdown",
+    "text": "More on markdown\nThere is a lot more you can do with R markdown. We highly recommend you continue learning as you gain more experience writing reports in R. There are many free resources on the internet including:\n\nRStudio’s tutorial: https://quarto.org/docs/get-started/hello/rstudio.html\nThe knitR book: https://yihui.name/knitr/\nPandoc’s Markdown in-depth documentation\nGuide for academic reports"
+  },
+  {
+    "objectID": "slides/productivity/03-quarto.html#quarto-render",
+    "href": "slides/productivity/03-quarto.html#quarto-render",
+    "title": "Quarto",
+    "section": "quarto render",
+    "text": "quarto render\n\nRStudio provides the Render button that makes it easier to compile the document.\nYou can also type quarto render filename.qmd on the command line. This offers many options.\nYou can produce html, pdf, or word documents.\nYou can specify the default in the YAML header using: format: html, format: pdf,format: docx, or format: gfm\n\n(gfm stands for GitHub flavored markdown, a convenient way to share your reports)."
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#before-we-begin-partial-recap-of-aug-31",
+    "href": "slides/productivity/01-unix.html#before-we-begin-partial-recap-of-aug-31",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Before we begin … partial recap of Aug 31",
+    "text": "Before we begin … partial recap of Aug 31\n\nWhen designing a table for data organization, which is most important?\n\nchoice of columns\nchoice of rows\noptions for cell contents\n\nWhen different groups wish to combine data from separately created tables, how should they proceed?\nPRIMED is a relevant resource"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#another-point-about-table-design",
+    "href": "slides/productivity/01-unix.html#another-point-about-table-design",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Another point about table design",
+    "text": "Another point about table design\n\nIt can be useful to think of rows as “replicates” – observations on sets of features (columns) that are “replicated” on different “study subjects”\nIn our case, individual students were subjects, and the groups that were formed are a higher-level “study unit”\nWe want to be able to distinguish which responses come from different units at different levels\nneed a group identifier and a subject identifier\nsubject may have multiple observations"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#please-fill-out-second-form-httpstinyurl.combst260form2",
+    "href": "slides/productivity/01-unix.html#please-fill-out-second-form-httpstinyurl.combst260form2",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Please fill out second form: https://tinyurl.com/bst260form2",
+    "text": "Please fill out second form: https://tinyurl.com/bst260form2\nThis version does not have free text responses on tool usage, etc.\nWe do need accurate statement of “github handle”"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#emerging-role-of-github-in-content-management-for-the-course",
+    "href": "slides/productivity/01-unix.html#emerging-role-of-github-in-content-management-for-the-course",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Emerging role of github in content management for the course",
+    "text": "Emerging role of github in content management for the course\nI asked students to invite the teaching team as collaborators. We will change this arrangement, but it is of interest to be able to assess this strategy. Code was written to use the GitHub API to check created repos and contents.\n&gt; github_private_repo_collaborators([handle], \"bst260\")\n       login        id type role_name site_admin admin maintain push triage pull\n1     vjcitn   4624066 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE\n2 QianyuFan8  88663047 User     write      FALSE FALSE    FALSE TRUE   TRUE TRUE\n3  [handle]   [id    ] User     admin      FALSE  TRUE     TRUE TRUE   TRUE TRUE\n&gt; dir(\"R\")\n[1] \"github_private_repo_collaborators.R\" \"github_repo_has_file.R\"              \"github_repo_markdown_headers.R\"     \n&gt; source(\"R/github_repo_markdown_headers.R\")\n&gt; args(github_repo_markdown_headers)\nfunction (org, repo, folder, file, token = NULL) \nNULL\n&gt; github_repo_markdown_headers([handle], \"bst260\", \"task-01\", \"README.md\")\n[1] \"Overview\"\nTwo points:\n\ndefault assignment of ‘write’ privilege to collaborators should probably not be taken\nthe API permits retrieval of content, which will be used for grading"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#a-little-history-of-unix-and-commodity-computing",
+    "href": "slides/productivity/01-unix.html#a-little-history-of-unix-and-commodity-computing",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "A little history of unix and “commodity” computing",
+    "text": "A little history of unix and “commodity” computing\n\nWe take for granted the notion that we can “start the computer” and “type in commands” and get essentially immediate responses for many tasks\nThe origins of this capability are historically complex; let’s have a little background"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#antitrust-facts-from-sonnet-and-gemini",
+    "href": "slides/productivity/01-unix.html#antitrust-facts-from-sonnet-and-gemini",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Antitrust (facts from sonnet and gemini)",
+    "text": "Antitrust (facts from sonnet and gemini)\n\nTrue or false: Because of AT&T’s 1956 antitrust consent decree, the company was barred from competing in the computer business, so it could not sell Unix as a commercial product. Instead it licensed the source tape to universities for a nominal fee (little more than the cost of media and shipping).\nTrue: To resolve an antitrust lawsuit (United States v. Western Electric Co.), AT&T signed a consent decree restricting the Bell System to regulated “common-carrier telecommunications services” and related equipment manufacturing. The decree legally barred AT&T from entering other commercial markets, including data processing and computer software."
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#shipping-costs",
+    "href": "slides/productivity/01-unix.html#shipping-costs",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "“Shipping costs”",
+    "text": "“Shipping costs”\n\nLicensing Unix “As-Is”: Because AT&T could not market Unix as a commercial software product, Bell Labs provided the source code to universities, research labs, and government agencies under an educational license. The fee was nominal—typically around $150 to $300—just enough to cover magnetic tapes, printed documentation, and handling. AT&T explicitly provided no technical support, warranty, or bug fixes.\nThe Impact: This policy inadvertently sparked a computing revolution. Because universities received full source code and had to maintain the OS themselves, a generation of students and researchers studied, debugged, and extended Unix. This culture gave rise to John Lions’ famous Commentary on UNIX 6th Edition, the Berkeley Software Distribution (BSD), and the modern open-source movement. When AT&T was broken up in 1984 and released from the 1956 decree, the company immediately sought to commercialize Unix (System V) and enforce strict, expensive licensing, igniting the famous “Unix Wars.”"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#dos-vs-unix",
+    "href": "slides/productivity/01-unix.html#dos-vs-unix",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "DOS vs UNIX",
+    "text": "DOS vs UNIX\nTry a prompt like\nCan you provide some facts and interpretations, and discuss a bit how \nDOS came about -- why unix could not be relevant for microcomputers in the evolution of microsoft.\nto learn about CP/M, QDOS, and steps towards windows powershell. You will not be responsible for these facts but they are interesting: UNIX was intrinsically multiuser, share the hardware; DOS addressed a hardware limitation focusing on single-user processing for consumer-grade chips\nConclusion: AT&T was broken up\nMaybe search for “how did the MFJ issued for AT&T affect its ability to continue bell labs scientific research and operating system development”"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#some-future-targets-for-the-class",
+    "href": "slides/productivity/01-unix.html#some-future-targets-for-the-class",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Some future targets for the class",
+    "text": "Some future targets for the class\n\nWe will establish accounts on a linux system through GitHub code spaces (verify that you can start one from your GitHub IDE)\nWe will create portable software tools in a compiled language, possibly C and C++\nWe will learn how to use debuggers and profilers to identify errors and performance deficiencies"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#naming-conventions-for-file-collections",
+    "href": "slides/productivity/01-unix.html#naming-conventions-for-file-collections",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Naming conventions for file collections",
+    "text": "Naming conventions for file collections\n\nName your files in a way that is related to their contents and specifies how they relate to other files.\nThe Smithsonian Data Management Best Practices has “Five precepts of file naming and organization”\nAny folder worth creating deserves a README.md inside the folder explaining why it was made and what its intended contents are —"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
+    "href": "slides/productivity/01-unix.html#five-precepts-of-file-naming-and-organization",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Five precepts of file naming and organization",
+    "text": "Five precepts of file naming and organization\n\nHave a distinctive name that describes the content.\nFollow a consistent pattern that fosters convenient references to files to simplify software that operates on them\nOrganize files into directories that follow a consistent pattern.\nAvoid repetition of semantic elements among file and directory names.\n\nWhat could that mean?\n\nHave a file extension that matches the file format (no changing extensions!)\n\njpg and jpeg are suffixes for a fixed image format\nsometimes csv is used as a suffix for tsv information! and vice versa\n.txt conveys very little information\n\nmarkdown and json are formats that you should be comfortable with\n\nFor specific recommendations we recommend you follow The Tidyverse Style Guide"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#the-system",
+    "href": "slides/productivity/01-unix.html#the-system",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "The System",
+    "text": "The System\n\nInstead of clicking, dragging, and dropping to organize our files and folders, we will be typing Unix commands into the terminal.\nThe way we do this is similar to how we type commands into the R console, but instead of generating plots and statistical summaries, we will be organizing files on our system.\nThe file system is hierarchical, you create directories (folders) in other folders\nWhen you log in to a Unix computer you are in your home directory\nthe command line has a prompt that is configurable and is printed on screen to let you know that the terminal is ready for input\nEnvironment variables control your computing environment and many are customizable by users\nLLMs are useful tools for finding commands and getting help navigating through your first exposure to Unix and the ideas it is based on"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#the-terminal",
+    "href": "slides/productivity/01-unix.html#the-terminal",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "The terminal",
+    "text": "The terminal\n\nThe terminal is integrated into Mac and Linux systems, but Windows users will have to install an emulator.\nOnce you have a terminal open, you can start typing commands.\nYou should see a blinking cursor at the spot where what you type will show up. This position is called the command line."
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#the-filesystem",
+    "href": "slides/productivity/01-unix.html#the-filesystem",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "The filesystem",
+    "text": "The filesystem"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#files-and-permissions",
+    "href": "slides/productivity/01-unix.html#files-and-permissions",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Files and permissions",
+    "text": "Files and permissions\n\nwithin each directory you can create files and other directories\nfiles whose names start with a period . are hidden by default; use ls -a to view them\nfiles have permissions: use ls -lh to view details\n\n\ndrwxr-xr-x    4 robert  staff   128B Aug  8 10:03 bin\n-rw-r--r--@   1 robert  staff    20M Jun 24 09:11 boots.png\n-rw-r--r--@   1 robert  staff    26M Jun 23 15:23 boots1.pdf\n\n\nyou can read, write, or execute files and control who can see or use them by changing permissions"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#working-directory",
+    "href": "slides/productivity/01-unix.html#working-directory",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Working directory",
+    "text": "Working directory\n\nThe working directory is the directly you are currently in.\nCommands you issue will generally take effect in this directory\nYou can see your working directory using the Unix command pwd\nYou can list the contents of the directory (files and other directories) using ls\nYou can find out about how ls works by issuing the command: man ls"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#paths",
+    "href": "slides/productivity/01-unix.html#paths",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Paths",
+    "text": "Paths\n\nThe string returned by pwd command is the full path to the working directory.\nThe full path to your home directory is stored in an environment variable.\nYou can see it like this echo $HOME"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#paths-1",
+    "href": "slides/productivity/01-unix.html#paths-1",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Paths",
+    "text": "Paths\n\nIn Unix, we use the shorthand ~ as a nickname for your home directory\n\nExample: the full path for docs (image in prev. slides) can be written like this ~/docs.\n\nA common default for the prompt is to show the path to the working directory (that path might be long, but you can change it)\nLet’s open a terminal window and see what the prompt is.\nyou have an environment variable called PATH which you can display using echo\n\nthat variable is a set of individual paths, separated by : (colon) and it tells your Unix shell where to look for commands\nyou can modify that path, so that you can have it look for commands in other, non-standard places (eg make your own bin directory)"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#unix-commands",
+    "href": "slides/productivity/01-unix.html#unix-commands",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Unix commands",
+    "text": "Unix commands\n\nls: Listing directory content\nmkdir and rmdir: make and remove a directory\ncd: navigating the filesystem by changing directories\npwd: see your workding directory\nmv: moving files\ncp: copying files\nrm: removing files\nmore and less: display the contents of a file"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#autocomplete",
+    "href": "slides/productivity/01-unix.html#autocomplete",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Autocomplete",
+    "text": "Autocomplete\n\nIn Unix you can auto-complete by hitting tab.\nThis means that we can type cd d then hit tab.\nUnix will either auto-complete if docs is the only directory/file starting with d or show you the options.\nTry it out! Using Unix without auto-complete will make it unbearable."
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#text-editors",
+    "href": "slides/productivity/01-unix.html#text-editors",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Text editors",
+    "text": "Text editors\nCommand-line text editors are essential tools, especially for system administrators, developers, and other users who frequently work in a terminal environment. Here are some of the most popular command-line text editors:\n\nNano\nPico\nVi or Vim\nEmacs"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#other-useful-commands",
+    "href": "slides/productivity/01-unix.html#other-useful-commands",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Other useful commands",
+    "text": "Other useful commands\n\ncurl - download data from the internet.\ntar - archive files and directories into one file.\ngzip, zstd - and other compression tools - make big files small\nssh - connect to another computer.\nfind - search for files by filename in your system.\ngrep - search for patterns in a file.\nawk/sed - These are two very powerful commands that permit you to find specific strings in files and change them."
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#a-deeper-dive",
+    "href": "slides/productivity/01-unix.html#a-deeper-dive",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "A deeper dive",
+    "text": "A deeper dive\n\nThe shell you use helps to organize and facilitate your interactions with the operating system\necho $SHELL will display the shell you are using\nmany software tools use hidden files and directories to provide customization e.g. .gitconfig or .ssh\nmost shells have two files that are commonly used to provide user level customization .zsh, and .zprofile"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#resources",
+    "href": "slides/productivity/01-unix.html#resources",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Resources",
+    "text": "Resources\nTo get started.\n\nhttps://www.codecademy.com/learn/learn-the-command-line\nhttps://www.edx.org/course/introduction-linux-linuxfoundationx-lfs101x-1\nhttps://www.coursera.org/learn/unix"
+  },
+  {
+    "objectID": "slides/productivity/01-unix.html#lets-get-learning",
+    "href": "slides/productivity/01-unix.html#lets-get-learning",
+    "title": "Unix: an operating system with 50+ years of significance in scientific computing",
+    "section": "Let’s get learning",
+    "text": "Let’s get learning\n\nwitnessing effects of file compression and decompression\n“storage quotas” (or monitoring `df’) to avoid crashing your machine\npattern matching with regular expressions; searching collections of files\nsetting and retrieving values of ENVIRONMENT VARIABLES"
   },
   {
     "objectID": "slides/productivity/04-git.html#goal-for-the-day",

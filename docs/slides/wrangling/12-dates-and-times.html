@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-09-29">
   <meta name="keywords" content="Wrangling">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -225,9 +231,9 @@
 <li>We can see an example of the data type R uses for data here:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb1-3"><a></a>polls_us_election_2016<span class="sc">$</span>startdate <span class="sc">|&gt;</span> <span class="fu">head</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-3"><a aria-label="3"></a>polls_us_election_2016<span class="sc">$</span>startdate <span class="sc">|&gt;</span> <span class="fu">head</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2016-11-03" "2016-11-01" "2016-11-02" "2016-11-04" "2016-11-03"
 [6] "2016-11-03"</code></pre>
@@ -237,7 +243,7 @@
 <li>The dates look like strings, but they are not:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">class</span>(polls_us_election_2016<span class="sc">$</span>startdate) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">class</span>(polls_us_election_2016<span class="sc">$</span>startdate) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Date"</code></pre>
 </div>
@@ -249,7 +255,7 @@
 <li>Look at what happens when we convert them to numbers:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">as.numeric</span>(polls_us_election_2016<span class="sc">$</span>startdate) <span class="sc">|&gt;</span> <span class="fu">head</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">as.numeric</span>(polls_us_election_2016<span class="sc">$</span>startdate) <span class="sc">|&gt;</span> <span class="fu">head</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 17108 17106 17107 17109 17108 17108</code></pre>
 </div>
@@ -265,7 +271,7 @@
 <li><p>So to see that the epoch is day 0 we can type.</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">as.Date</span>(<span class="st">"1970-01-01"</span>) <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">as.Date</span>(<span class="st">"1970-01-01"</span>) <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -280,11 +286,11 @@
 <li>Scatterplots use the numeric representation to assign positions, but include the string in the labels:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>polls_us_election_2016 <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">filter</span>(startdate <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2016</span>, <span class="dv">6</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">filter</span>(pollster <span class="sc">==</span> <span class="st">"Ipsos"</span> <span class="sc">&amp;</span> state <span class="sc">==</span> <span class="st">"U.S."</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(startdate, rawpoll_clinton)) <span class="sc">+</span> </span>
-<span id="cb9-5"><a></a>  <span class="fu">geom_line</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>polls_us_election_2016 <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a aria-label="2"></a>  <span class="fu">filter</span>(startdate <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2016</span>, <span class="dv">6</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a aria-label="3"></a>  <span class="fu">filter</span>(pollster <span class="sc">==</span> <span class="st">"Ipsos"</span> <span class="sc">&amp;</span> state <span class="sc">==</span> <span class="st">"U.S."</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a aria-label="4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(startdate, rawpoll_clinton)) <span class="sc">+</span> </span>
+<span id="cb9-5"><a aria-label="5"></a>  <span class="fu">geom_line</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="12-dates-and-times_files/figure-revealjs/rawpolls-vs-time-1.png" width="960" class="r-stretch"></section>
@@ -296,13 +302,13 @@
 <div id="tabset-1-1">
 <p><strong>ggplot</strong> offers convenient functions to change labels:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>polls_us_election_2016 <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">filter</span>(startdate <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2016</span>, <span class="dv">6</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">filter</span>(pollster <span class="sc">==</span> <span class="st">"Ipsos"</span> <span class="sc">&amp;</span> state <span class="sc">==</span> <span class="st">"U.S."</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(startdate, rawpoll_clinton)) <span class="sc">+</span> </span>
-<span id="cb10-5"><a></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb10-6"><a></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 weeks"</span>, <span class="at">date_labels =</span> <span class="st">"%b %d"</span>) <span class="sc">+</span> </span>
-<span id="cb10-7"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2016-10-28"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>polls_us_election_2016 <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a aria-label="2"></a>  <span class="fu">filter</span>(startdate <span class="sc">&gt;=</span> <span class="fu">make_date</span>(<span class="dv">2016</span>, <span class="dv">6</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a aria-label="3"></a>  <span class="fu">filter</span>(pollster <span class="sc">==</span> <span class="st">"Ipsos"</span> <span class="sc">&amp;</span> state <span class="sc">==</span> <span class="st">"U.S."</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-4"><a aria-label="4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(startdate, rawpoll_clinton)) <span class="sc">+</span> </span>
+<span id="cb10-5"><a aria-label="5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a aria-label="6"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 weeks"</span>, <span class="at">date_labels =</span> <span class="st">"%b %d"</span>) <span class="sc">+</span> </span>
+<span id="cb10-7"><a aria-label="7"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">as.Date</span>(<span class="st">"2016-10-28"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -325,15 +331,15 @@
 <li>The <strong>lubridate</strong> package provides tools to work with date and times.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(lubridate) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">library</span>(lubridate) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We will take a random sample of dates to show some of the useful things one can do:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2002</span>) </span>
-<span id="cb12-2"><a></a>dates <span class="ot">&lt;-</span> <span class="fu">sample</span>(polls_us_election_2016<span class="sc">$</span>startdate, <span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="fu">sort</span>() </span>
-<span id="cb12-3"><a></a>dates </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">2002</span>) </span>
+<span id="cb12-2"><a aria-label="2"></a>dates <span class="ot">&lt;-</span> <span class="fu">sample</span>(polls_us_election_2016<span class="sc">$</span>startdate, <span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="fu">sort</span>() </span>
+<span id="cb12-3"><a aria-label="3"></a>dates </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "2016-05-31" "2016-08-08" "2016-08-19" "2016-09-22" "2016-09-27"
  [6] "2016-10-12" "2016-10-24" "2016-10-26" "2016-10-29" "2016-10-30"</code></pre>
@@ -346,7 +352,7 @@
 <li>The functions <code>year</code>, <code>month</code> and <code>day</code> extract those values:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">tibble</span>(<span class="at">date =</span> dates, <span class="at">month =</span> <span class="fu">month</span>(dates), <span class="at">day =</span> <span class="fu">day</span>(dates), <span class="at">year =</span> <span class="fu">year</span>(dates)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">tibble</span>(<span class="at">date =</span> dates, <span class="at">month =</span> <span class="fu">month</span>(dates), <span class="at">day =</span> <span class="fu">day</span>(dates), <span class="at">year =</span> <span class="fu">year</span>(dates)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
    date       month   day  year
@@ -370,7 +376,7 @@
 <li>We can also extract the month labels:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">month</span>(dates, <span class="at">label =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">month</span>(dates, <span class="at">label =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] May Aug Aug Sep Sep Oct Oct Oct Oct Oct
 12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec</code></pre>
@@ -384,9 +390,9 @@
 <li><p>The function <code>ymd</code> assumes the dates are in the format YYYY-MM-DD and tries to parse as well as possible.</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20090101</span>, <span class="st">"2009-01-02"</span>, <span class="st">"2009 01 03"</span>, <span class="st">"2009-1-4"</span>, </span>
-<span id="cb18-2"><a></a>       <span class="st">"2009-1, 5"</span>, <span class="st">"Created on 2009 1 6"</span>, <span class="st">"200901 !!! 07"</span>) </span>
-<span id="cb18-3"><a></a><span class="fu">ymd</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20090101</span>, <span class="st">"2009-01-02"</span>, <span class="st">"2009 01 03"</span>, <span class="st">"2009-1-4"</span>, </span>
+<span id="cb18-2"><a aria-label="2"></a>       <span class="st">"2009-1, 5"</span>, <span class="st">"Created on 2009 1 6"</span>, <span class="st">"200901 !!! 07"</span>) </span>
+<span id="cb18-3"><a aria-label="3"></a><span class="fu">ymd</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2009-01-01" "2009-01-02" "2009-01-03" "2009-01-04" "2009-01-05"
 [6] "2009-01-06" "2009-01-07"</code></pre>
@@ -411,7 +417,7 @@
 <li><p>For example, if the string is:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>x <span class="ot">&lt;-</span> <span class="st">"09/01/02"</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="st">"09/01/02"</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-lubridate-package-6" class="slide level2">
@@ -420,7 +426,7 @@
 <li>The <code>ymd</code> function assumes the first entry is the year, the second is the month, and the third is the day, so it converts it to:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ymd</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">ymd</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2009-01-02"</code></pre>
 </div>
@@ -432,7 +438,7 @@
 <li>The <code>mdy</code> function assumes the first entry is the month, then the day, then the year:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">mdy</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">mdy</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2002-09-01"</code></pre>
 </div>
@@ -445,7 +451,7 @@
 <li><p>Here is the other common one:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">dmy</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">dmy</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2002-01-09"</code></pre>
 </div>
@@ -459,13 +465,13 @@
 <li><p>The <strong>lubridate</strong> package provides a slightly more advanced function, <code>now</code>, that permits you to define the time zone:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">now</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">now</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-09-02 20:47:06 EDT"</code></pre>
+<pre><code>[1] "2026-09-09 08:19:37 EDT"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">now</span>(<span class="st">"GMT"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">now</span>(<span class="st">"GMT"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-09-03 00:47:06 GMT"</code></pre>
+<pre><code>[1] "2026-09-09 12:19:37 GMT"</code></pre>
 </div>
 </div>
 </section>
@@ -475,7 +481,7 @@
 <li>You can see all the available time zones with:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">OlsonNames</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">OlsonNames</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "Africa/Abidjan"                   "Africa/Accra"                    
   [3] "Africa/Addis_Ababa"               "Africa/Algiers"                  
@@ -787,17 +793,17 @@ attr(,"Version")
 <li>We can also extract hours, minutes, and seconds:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">hour</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">hour</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
+<pre><code>[1] 8</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">minute</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">minute</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 47</code></pre>
+<pre><code>[1] 19</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">second</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">second</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.048557</code></pre>
+<pre><code>[1] 38.00711</code></pre>
 </div>
 </div>
 </section>
@@ -807,13 +813,13 @@ attr(,"Version")
 <li>The package also includes a function to parse strings into times as well as parsers for time objects that include dates:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"12:34:56"</span>) </span>
-<span id="cb39-2"><a></a><span class="fu">hms</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"12:34:56"</span>) </span>
+<span id="cb39-2"><a aria-label="2"></a><span class="fu">hms</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "12H 34M 56S"</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>x <span class="ot">&lt;-</span> <span class="st">"Nov/2/2012 12:34:56"</span> </span>
-<span id="cb41-2"><a></a><span class="fu">mdy_hms</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="st">"Nov/2/2012 12:34:56"</span> </span>
+<span id="cb41-2"><a aria-label="2"></a><span class="fu">mdy_hms</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2012-11-02 12:34:56 UTC"</code></pre>
 </div>
@@ -826,7 +832,7 @@ attr(,"Version")
 <li><p>For example, to create an date object representing, for example, July 6, 2019 we write:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">make_date</span>(<span class="dv">2019</span>, <span class="dv">7</span>, <span class="dv">6</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a><span class="fu">make_date</span>(<span class="dv">2019</span>, <span class="dv">7</span>, <span class="dv">6</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2019-07-06"</code></pre>
 </div>
@@ -839,7 +845,7 @@ attr(,"Version")
 <li><p>To make a vector of January 1 for the 80s we write:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">make_date</span>(<span class="dv">1980</span><span class="sc">:</span><span class="dv">1989</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a><span class="fu">make_date</span>(<span class="dv">1980</span><span class="sc">:</span><span class="dv">1989</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "1980-01-01" "1981-01-01" "1982-01-01" "1983-01-01" "1984-01-01"
  [6] "1985-01-01" "1986-01-01" "1987-01-01" "1988-01-01" "1989-01-01"</code></pre>
@@ -863,12 +869,12 @@ attr(,"Version")
 <li>Example: if we want to group all the polls by week of the year we can do the following:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>polls_us_election_2016 <span class="sc">|&gt;</span>  </span>
-<span id="cb47-2"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">round_date</span>(startdate, <span class="st">"week"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb47-3"><a></a>  <span class="fu">group_by</span>(week) <span class="sc">|&gt;</span> </span>
-<span id="cb47-4"><a></a>  <span class="fu">summarize</span>(<span class="at">margin =</span> <span class="fu">mean</span>(rawpoll_clinton <span class="sc">-</span> rawpoll_trump)) <span class="sc">|&gt;</span> </span>
-<span id="cb47-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(week, margin)) <span class="sc">+</span> </span>
-<span id="cb47-6"><a></a>  <span class="fu">geom_point</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a>polls_us_election_2016 <span class="sc">|&gt;</span>  </span>
+<span id="cb47-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">round_date</span>(startdate, <span class="st">"week"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-3"><a aria-label="3"></a>  <span class="fu">group_by</span>(week) <span class="sc">|&gt;</span> </span>
+<span id="cb47-4"><a aria-label="4"></a>  <span class="fu">summarize</span>(<span class="at">margin =</span> <span class="fu">mean</span>(rawpoll_clinton <span class="sc">-</span> rawpoll_trump)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-5"><a aria-label="5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(week, margin)) <span class="sc">+</span> </span>
+<span id="cb47-6"><a aria-label="6"></a>  <span class="fu">geom_point</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2">

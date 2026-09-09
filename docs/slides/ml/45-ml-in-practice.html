@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-12-15">
   <meta name="keywords" content="Machine Learning">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -208,8 +214,8 @@
 <li><p>We can load this data using the following <strong>dslabs</strong> package:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb1-2"><a></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-2"><a aria-label="2"></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="machine-learning-in-practice-1" class="slide level2">
@@ -218,15 +224,15 @@
 <li>We will sample 10,000 random rows from the training set and 1,000 random rows from the test set:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1990</span>) </span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images), <span class="dv">10000</span>) </span>
-<span id="cb2-4"><a></a>x <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images[index,] </span>
-<span id="cb2-5"><a></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>labels[index]) </span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(mnist<span class="sc">$</span>test<span class="sc">$</span>images), <span class="dv">1000</span>) </span>
-<span id="cb2-8"><a></a>x_test <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>images[index,] </span>
-<span id="cb2-9"><a></a>y_test <span class="ot">&lt;-</span> <span class="fu">factor</span>(mnist<span class="sc">$</span>test<span class="sc">$</span>labels[index]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1990</span>) </span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images), <span class="dv">10000</span>) </span>
+<span id="cb2-4"><a aria-label="4"></a>x <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images[index,] </span>
+<span id="cb2-5"><a aria-label="5"></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>labels[index]) </span>
+<span id="cb2-6"><a aria-label="6"></a></span>
+<span id="cb2-7"><a aria-label="7"></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(mnist<span class="sc">$</span>test<span class="sc">$</span>images), <span class="dv">1000</span>) </span>
+<span id="cb2-8"><a aria-label="8"></a>x_test <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>images[index,] </span>
+<span id="cb2-9"><a aria-label="9"></a>y_test <span class="ot">&lt;-</span> <span class="fu">factor</span>(mnist<span class="sc">$</span>test<span class="sc">$</span>labels[index]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Note we make the outcomes factors.</li>
@@ -238,8 +244,8 @@
 <li>Assing names to columns for <strong>caret</strong>.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span>
-<span id="cb3-2"><a></a><span class="fu">colnames</span>(x_test) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">colnames</span>(x_test) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="parallelization" class="slide level2">
@@ -257,10 +263,10 @@
 <li><p>To do this we can use the <strong>doParallel</strong> package:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(doParallel) </span>
-<span id="cb4-2"><a></a>nc <span class="ot">&lt;-</span> <span class="fu">detectCores</span>() <span class="sc">-</span> <span class="dv">1</span> <span class="co"># it is convention to leave 1 core for OS </span></span>
-<span id="cb4-3"><a></a>cl <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(nc) </span>
-<span id="cb4-4"><a></a><span class="fu">registerDoParallel</span>(cl) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">library</span>(doParallel) </span>
+<span id="cb4-2"><a aria-label="2"></a>nc <span class="ot">&lt;-</span> <span class="fu">detectCores</span>() <span class="sc">-</span> <span class="dv">1</span> <span class="co"># it is convention to leave 1 core for OS </span></span>
+<span id="cb4-3"><a aria-label="3"></a>cl <span class="ot">&lt;-</span> <span class="fu">makeCluster</span>(nc) </span>
+<span id="cb4-4"><a aria-label="4"></a><span class="fu">registerDoParallel</span>(cl) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="parallelization-2" class="slide level2">
@@ -269,8 +275,8 @@
 <li>If you do use parallelization, make sure to let R know you are done with the following lines of code:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">stopCluster</span>(cl) </span>
-<span id="cb5-2"><a></a><span class="fu">stopImplicitCluster</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">stopCluster</span>(cl) </span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">stopImplicitCluster</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -300,12 +306,12 @@
 <li><p>The first step is to optimize for <span class="math inline">\(k\)</span>.</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>train_knn <span class="ot">&lt;-</span> <span class="fu">train</span>(x, y, <span class="at">method =</span> <span class="st">"knn"</span>,  </span>
-<span id="cb6-2"><a></a>                   <span class="at">preProcess =</span> <span class="st">"nzv"</span>, </span>
-<span id="cb6-3"><a></a>                   <span class="at">trControl =</span> <span class="fu">trainControl</span>(<span class="st">"cv"</span>, </span>
-<span id="cb6-4"><a></a>                                            <span class="at">number =</span> <span class="dv">20</span>, </span>
-<span id="cb6-5"><a></a>                                            <span class="at">p =</span> <span class="fl">0.95</span>), </span>
-<span id="cb6-6"><a></a>                   <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span>))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>train_knn <span class="ot">&lt;-</span> <span class="fu">train</span>(x, y, <span class="at">method =</span> <span class="st">"knn"</span>,  </span>
+<span id="cb6-2"><a aria-label="2"></a>                   <span class="at">preProcess =</span> <span class="st">"nzv"</span>, </span>
+<span id="cb6-3"><a aria-label="3"></a>                   <span class="at">trControl =</span> <span class="fu">trainControl</span>(<span class="st">"cv"</span>, </span>
+<span id="cb6-4"><a aria-label="4"></a>                                            <span class="at">number =</span> <span class="dv">20</span>, </span>
+<span id="cb6-5"><a aria-label="5"></a>                                            <span class="at">p =</span> <span class="fl">0.95</span>), </span>
+<span id="cb6-6"><a aria-label="6"></a>                   <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span>))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="k-nearest-neighbors-1" class="slide level2">
@@ -314,13 +320,13 @@
 <li>Once we optimize our algorithm, the <code>predict</code> function defaults to using the best performing algorithm fit with the entire training data:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_knn, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_knn, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We achieve relatively high accuracy:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn, <span class="fu">factor</span>(y_test))<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">confusionMatrix</span>(y_hat_knn, <span class="fu">factor</span>(y_test))<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.952 </code></pre>
@@ -333,13 +339,13 @@
 <li>An alternative to removing low variance columns directly is to use dimension reduction on the feature matrix before applying the algorithms.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We can actually explain, say, 75% of the variability in the predictors with a small number of dimensions:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">cumsum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>) <span class="sc">&gt;=</span> <span class="fl">0.75</span>)[<span class="dv">1</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">cumsum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>) <span class="sc">&gt;=</span> <span class="fl">0.75</span>)[<span class="dv">1</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="dimension-reduction-with-pca-1" class="slide level2">
@@ -348,7 +354,7 @@
 <li>We can then re-run our algorithm on these 33 features:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>fit_knn_pca <span class="ot">&lt;-</span> <span class="fu">knn3</span>(pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span>p], y, <span class="at">k =</span> train_knn<span class="sc">$</span>bestTune) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>fit_knn_pca <span class="ot">&lt;-</span> <span class="fu">knn3</span>(pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span>p], y, <span class="at">k =</span> train_knn<span class="sc">$</span>bestTune) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="dimension-reduction-with-pca-2" class="slide level2">
@@ -358,8 +364,8 @@
 <li><p>We therefrom compute the averages needed for centering and the rotation on the training set:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>newdata <span class="ot">&lt;-</span>  <span class="fu">sweep</span>(x_test, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) <span class="sc">%*%</span> pca<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span>p] </span>
-<span id="cb13-2"><a></a>y_hat_knn_pca <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_knn_pca, newdata, <span class="at">type =</span> <span class="st">"class"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>newdata <span class="ot">&lt;-</span>  <span class="fu">sweep</span>(x_test, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) <span class="sc">%*%</span> pca<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span>p] </span>
+<span id="cb13-2"><a aria-label="2"></a>y_hat_knn_pca <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_knn_pca, newdata, <span class="at">type =</span> <span class="st">"class"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="dimension-reduction-with-pca-3" class="slide level2">
@@ -368,7 +374,7 @@
 <li>We obtain similar accuracy, while using only 33 dimensions:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn_pca, <span class="fu">factor</span>(y_test))<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">confusionMatrix</span>(y_hat_knn_pca, <span class="fu">factor</span>(y_test))<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.965 </code></pre>
@@ -388,16 +394,16 @@
 <li>Because the <code>train</code> function includes PCA as one of the available preprocessing operations we can achieve this with this modification of the code above:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>train_knn_pca <span class="ot">&lt;-</span> <span class="fu">train</span>(x, y, <span class="at">method =</span> <span class="st">"knn"</span>,  </span>
-<span id="cb16-2"><a></a>                       <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">"nzv"</span>, <span class="st">"pca"</span>), </span>
-<span id="cb16-3"><a></a>                       <span class="at">trControl =</span> <span class="fu">trainControl</span>(<span class="st">"cv"</span>, </span>
-<span id="cb16-4"><a></a>                                                <span class="at">number =</span> <span class="dv">20</span>, </span>
-<span id="cb16-5"><a></a>                                                <span class="at">p =</span> <span class="fl">0.95</span>, </span>
-<span id="cb16-6"><a></a>                                                <span class="at">preProcOptions =</span> </span>
-<span id="cb16-7"><a></a>                                                  <span class="fu">list</span>(<span class="at">pcaComp =</span> p)), </span>
-<span id="cb16-8"><a></a>                       <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span>))) </span>
-<span id="cb16-9"><a></a>y_hat_knn_pca <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_knn_pca, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span>
-<span id="cb16-10"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn_pca, <span class="fu">factor</span>(y_test))<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>train_knn_pca <span class="ot">&lt;-</span> <span class="fu">train</span>(x, y, <span class="at">method =</span> <span class="st">"knn"</span>,  </span>
+<span id="cb16-2"><a aria-label="2"></a>                       <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">"nzv"</span>, <span class="st">"pca"</span>), </span>
+<span id="cb16-3"><a aria-label="3"></a>                       <span class="at">trControl =</span> <span class="fu">trainControl</span>(<span class="st">"cv"</span>, </span>
+<span id="cb16-4"><a aria-label="4"></a>                                                <span class="at">number =</span> <span class="dv">20</span>, </span>
+<span id="cb16-5"><a aria-label="5"></a>                                                <span class="at">p =</span> <span class="fl">0.95</span>, </span>
+<span id="cb16-6"><a aria-label="6"></a>                                                <span class="at">preProcOptions =</span> </span>
+<span id="cb16-7"><a aria-label="7"></a>                                                  <span class="fu">list</span>(<span class="at">pcaComp =</span> p)), </span>
+<span id="cb16-8"><a aria-label="8"></a>                       <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">k =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span>))) </span>
+<span id="cb16-9"><a aria-label="9"></a>y_hat_knn_pca <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_knn_pca, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span>
+<span id="cb16-10"><a aria-label="10"></a><span class="fu">confusionMatrix</span>(y_hat_knn_pca, <span class="fu">factor</span>(y_test))<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.969 </code></pre>
@@ -423,11 +429,11 @@
 <li>This is also the only tuning parameter that the <strong>caret</strong> function <code>train</code> permits when using the default implementation from the <strong>randomForest</strong> package.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(randomForest) </span>
-<span id="cb18-2"><a></a>train_rf <span class="ot">&lt;-</span> <span class="fu">train</span>(x, y, <span class="at">method =</span> <span class="st">"rf"</span>,  </span>
-<span id="cb18-3"><a></a>                  <span class="at">preProcess =</span> <span class="st">"nzv"</span>, </span>
-<span id="cb18-4"><a></a>                  <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">mtry =</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">15</span>))) </span>
-<span id="cb18-5"><a></a>y_hat_rf <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_rf, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">library</span>(randomForest) </span>
+<span id="cb18-2"><a aria-label="2"></a>train_rf <span class="ot">&lt;-</span> <span class="fu">train</span>(x, y, <span class="at">method =</span> <span class="st">"rf"</span>,  </span>
+<span id="cb18-3"><a aria-label="3"></a>                  <span class="at">preProcess =</span> <span class="st">"nzv"</span>, </span>
+<span id="cb18-4"><a aria-label="4"></a>                  <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">mtry =</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">15</span>))) </span>
+<span id="cb18-5"><a aria-label="5"></a>y_hat_rf <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_rf, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="random-forest-2" class="slide level2">
@@ -436,13 +442,13 @@
 <li>Now that we have optimized our algorithm, we are ready to fit our final model:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>y_hat_rf <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_rf, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>y_hat_rf <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_rf, x_test, <span class="at">type =</span> <span class="st">"raw"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>As with kNN, we also achieve high accuracy:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">confusionMatrix</span>(y_hat_rf, y_test)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">confusionMatrix</span>(y_hat_rf, y_test)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.952 </code></pre>
@@ -460,8 +466,8 @@
 <li><p>We can use the <code>system.time</code> function to estimate how long it takes to run the algorithm once:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>nzv <span class="ot">&lt;-</span> <span class="fu">nearZeroVar</span>(x) </span>
-<span id="cb22-2"><a></a><span class="fu">system.time</span>({fit_rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(x[, <span class="sc">-</span>nzv], y,  <span class="at">mtry =</span> <span class="dv">9</span>)}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>nzv <span class="ot">&lt;-</span> <span class="fu">nearZeroVar</span>(x) </span>
+<span id="cb22-2"><a aria-label="2"></a><span class="fu">system.time</span>({fit_rf <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(x[, <span class="sc">-</span>nzv], y,  <span class="at">mtry =</span> <span class="dv">9</span>)}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
   52.23    0.22   52.51 </code></pre>
@@ -490,7 +496,7 @@
 <li>We can see that error rate stabilizes after200 trees:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">plot</span>(fit_rf) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">plot</span>(fit_rf) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="45-ml-in-practice_files/figure-revealjs/error-versus-number-of-trees-1.png" width="960" class="r-stretch"></section>
@@ -508,7 +514,7 @@
 <li>The following function computes the importance of each feature:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>imp <span class="ot">&lt;-</span> <span class="fu">importance</span>(fit_rf) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>imp <span class="ot">&lt;-</span> <span class="fu">importance</span>(fit_rf) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="variable-importance-1" class="slide level2">
@@ -517,9 +523,9 @@
 <li>We can see which features are being used most by plotting an image:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>mat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(x)) </span>
-<span id="cb27-2"><a></a>mat[<span class="sc">-</span>nzv] <span class="ot">&lt;-</span> imp </span>
-<span id="cb27-3"><a></a><span class="fu">image</span>(<span class="fu">matrix</span>(mat, <span class="dv">28</span>, <span class="dv">28</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>mat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(x)) </span>
+<span id="cb27-2"><a aria-label="2"></a>mat[<span class="sc">-</span>nzv] <span class="ot">&lt;-</span> imp </span>
+<span id="cb27-3"><a aria-label="3"></a><span class="fu">image</span>(<span class="fu">matrix</span>(mat, <span class="dv">28</span>, <span class="dv">28</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="45-ml-in-practice_files/figure-revealjs/importance-image-1.png" width="960" class="r-stretch"></section>
@@ -541,12 +547,12 @@
 <li>We can see that the accuracy improves:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>p_rf <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_rf, x_test[,<span class="sc">-</span>nzv], <span class="at">type =</span> <span class="st">"prob"</span>)   </span>
-<span id="cb28-2"><a></a>p_rf <span class="ot">&lt;-</span> p_rf <span class="sc">/</span> <span class="fu">rowSums</span>(p_rf) </span>
-<span id="cb28-3"><a></a>p_knn_pca  <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_knn_pca, x_test, <span class="at">type =</span> <span class="st">"prob"</span>) </span>
-<span id="cb28-4"><a></a>p <span class="ot">&lt;-</span> (p_rf <span class="sc">+</span> p_knn_pca)<span class="sc">/</span><span class="dv">2</span> </span>
-<span id="cb28-5"><a></a>y_pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">apply</span>(p, <span class="dv">1</span>, which.max) <span class="sc">-</span> <span class="dv">1</span>) </span>
-<span id="cb28-6"><a></a><span class="fu">confusionMatrix</span>(y_pred, y_test)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>p_rf <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_rf, x_test[,<span class="sc">-</span>nzv], <span class="at">type =</span> <span class="st">"prob"</span>)   </span>
+<span id="cb28-2"><a aria-label="2"></a>p_rf <span class="ot">&lt;-</span> p_rf <span class="sc">/</span> <span class="fu">rowSums</span>(p_rf) </span>
+<span id="cb28-3"><a aria-label="3"></a>p_knn_pca  <span class="ot">&lt;-</span> <span class="fu">predict</span>(train_knn_pca, x_test, <span class="at">type =</span> <span class="st">"prob"</span>) </span>
+<span id="cb28-4"><a aria-label="4"></a>p <span class="ot">&lt;-</span> (p_rf <span class="sc">+</span> p_knn_pca)<span class="sc">/</span><span class="dv">2</span> </span>
+<span id="cb28-5"><a aria-label="5"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">apply</span>(p, <span class="dv">1</span>, which.max) <span class="sc">-</span> <span class="dv">1</span>) </span>
+<span id="cb28-6"><a aria-label="6"></a><span class="fu">confusionMatrix</span>(y_pred, y_test)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
     0.97 </code></pre>

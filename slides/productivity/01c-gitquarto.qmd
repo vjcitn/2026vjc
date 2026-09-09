@@ -1,0 +1,17 @@
+---
+title: "Working with git and quarto together"
+keywords: "Productivity Tools"
+date: "2026-09-09"
+format:
+  revealjs:
+    theme: solarized
+---
+## Plan{.smaller}
+
+- Use your github account and the github.com IDE
+- Fork the repository `https://github.com/vjcitn/lovequarto` into your organization
+- Use the IDE editing feature to change the title to use your own name
+- Commit the changes with a comment describing what you did
+- Create a new Rstudio project with the version control option
+- use `https://github.com/[your org name]/lovequarto` to seed the project
+- "run" the chkshiny.qmd "document" and we will explore it together

@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-10-20">
   <meta name="keywords" content="Probability">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -259,7 +265,7 @@
 <li><p>So playing a color in one game of roulette is equivalent to drawing from this urn:</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>color <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Black"</span>, <span class="st">"Red"</span>, <span class="st">"Green"</span>), <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">2</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>color <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Black"</span>, <span class="st">"Red"</span>, <span class="st">"Green"</span>), <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">2</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="sampling-models-8" class="slide level2">
@@ -276,10 +282,10 @@
 <li>To construct our random variable <span class="math inline">\(S\)</span>, we can use this code:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb2-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">ifelse</span>(color <span class="sc">==</span> <span class="st">"Red"</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>),  n, <span class="at">replace =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb2-3"><a></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] </span>
-<span id="cb2-4"><a></a><span class="co">#&gt;  [1]  1  1  1 -1  1  1 -1 -1  1  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb2-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">ifelse</span>(color <span class="sc">==</span> <span class="st">"Red"</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>),  n, <span class="at">replace =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb2-3"><a aria-label="3"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] </span>
+<span id="cb2-4"><a aria-label="4"></a><span class="co">#&gt;  [1]  1  1  1 -1  1  1 -1 -1  1  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="sampling-models-10" class="slide level2">
@@ -288,7 +294,7 @@
 <li>Because we know the proportions of 1s and -1s, we can generate the draws without defining <code>color</code>.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="sampling-models-11" class="slide level2">
@@ -298,10 +304,10 @@
 <li><p>The total winnings <span class="math inline">\(S\)</span> is simply the sum of these 1,000 independent draws:</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
-<span id="cb4-2"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sum</span>(x) </span>
-<span id="cb4-3"><a></a>s </span>
-<span id="cb4-4"><a></a><span class="co">#&gt; [1] 10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
+<span id="cb4-2"><a aria-label="2"></a>s <span class="ot">&lt;-</span> <span class="fu">sum</span>(x) </span>
+<span id="cb4-3"><a aria-label="3"></a>s </span>
+<span id="cb4-4"><a aria-label="4"></a><span class="co">#&gt; [1] 10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>If you rerun the code above, you see that <span class="math inline">\(S\)</span> changes every time.</p></li>
@@ -330,13 +336,13 @@
 <li>With this code, we run the experiment of having 1,000 people repeatedly play roulette, specifically <span class="math inline">\(B = 10,000\)</span> times:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb5-2"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
-<span id="cb5-3"><a></a>roulette_winnings <span class="ot">&lt;-</span> <span class="cf">function</span>(n){ </span>
-<span id="cb5-4"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
-<span id="cb5-5"><a></a>  <span class="fu">sum</span>(x) </span>
-<span id="cb5-6"><a></a>} </span>
-<span id="cb5-7"><a></a>s <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, <span class="fu">roulette_winnings</span>(n)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb5-2"><a aria-label="2"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
+<span id="cb5-3"><a aria-label="3"></a>roulette_winnings <span class="ot">&lt;-</span> <span class="cf">function</span>(n){ </span>
+<span id="cb5-4"><a aria-label="4"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
+<span id="cb5-5"><a aria-label="5"></a>  <span class="fu">sum</span>(x) </span>
+<span id="cb5-6"><a aria-label="6"></a>} </span>
+<span id="cb5-7"><a aria-label="7"></a>s <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, <span class="fu">roulette_winnings</span>(n)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-probability-distribution-2" class="slide level2">
@@ -345,7 +351,7 @@
 <li>Now, we can ask the following: in our simulation, how often did we get sums less than or equal to <code>a</code>?</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">mean</span>(s <span class="sc">&lt;=</span> a) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">mean</span>(s <span class="sc">&lt;=</span> a) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-probability-distribution-3" class="slide level2">
@@ -356,8 +362,8 @@
 <li><p>It is quite low:</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
-<span id="cb7-2"><a></a><span class="co">#&gt; [1] 0.0411</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
+<span id="cb7-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.0411</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-probability-distribution-4" class="slide level2">
@@ -407,9 +413,9 @@
 <li><p>We can use the function <code>dbinom</code> and <code>pbinom</code> to compute the probabilities exactly.</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb8-2"><a></a><span class="fu">pbinom</span>(n<span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>) </span>
-<span id="cb8-3"><a></a><span class="co">#&gt; [1] 0.0448</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb8-2"><a aria-label="2"></a><span class="fu">pbinom</span>(n<span class="sc">/</span><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>) </span>
+<span id="cb8-3"><a aria-label="3"></a><span class="co">#&gt; [1] 0.0448</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -436,8 +442,8 @@
 <li>These are determined with a straightforward operation involving the vector containing the list of numbers, denoted as <code>x</code>:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>m <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x) </span>
-<span id="cb9-2"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> m)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(x)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>m <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x) </span>
+<span id="cb9-2"><a aria-label="2"></a>s <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>((x <span class="sc">-</span> m)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(x)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="distributions-versus-probability-distributions-3" class="slide level2">
@@ -568,10 +574,10 @@
 <li>A Monte Carlo simulation confirms this:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> </span>
-<span id="cb10-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), B, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
-<span id="cb10-3"><a></a><span class="fu">mean</span>(x) </span>
-<span id="cb10-4"><a></a><span class="co">#&gt; [1] 0.0517</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>B <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> </span>
+<span id="cb10-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), B, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
+<span id="cb10-3"><a aria-label="3"></a><span class="fu">mean</span>(x) </span>
+<span id="cb10-4"><a aria-label="4"></a><span class="co">#&gt; [1] 0.0517</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-expected-value-and-se-9" class="slide level2">
@@ -666,8 +672,8 @@
 \]</span></p>
 <p>or:</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
-<span id="cb11-2"><a></a><span class="co">#&gt; [1] 0.999</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
+<span id="cb11-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.999</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-expected-value-and-se-20" class="slide level2">
@@ -692,9 +698,9 @@
 <li>Using this formula, the sum of 1,000 people playing has standard error of about $32:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb12-2"><a></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
-<span id="cb12-3"><a></a><span class="co">#&gt; [1] 31.6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb12-2"><a aria-label="2"></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span> </span>
+<span id="cb12-3"><a aria-label="3"></a><span class="co">#&gt; [1] 31.6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-expected-value-and-se-23" class="slide level2">
@@ -750,13 +756,13 @@
 <li>We previously ran this Monte Carlo simulation:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb13-2"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
-<span id="cb13-3"><a></a>roulette_winnings <span class="ot">&lt;-</span> <span class="cf">function</span>(n){ </span>
-<span id="cb13-4"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
-<span id="cb13-5"><a></a>  <span class="fu">sum</span>(x) </span>
-<span id="cb13-6"><a></a>} </span>
-<span id="cb13-7"><a></a>s <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, <span class="fu">roulette_winnings</span>(n)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb13-2"><a aria-label="2"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
+<span id="cb13-3"><a aria-label="3"></a>roulette_winnings <span class="ot">&lt;-</span> <span class="cf">function</span>(n){ </span>
+<span id="cb13-4"><a aria-label="4"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
+<span id="cb13-5"><a aria-label="5"></a>  <span class="fu">sum</span>(x) </span>
+<span id="cb13-6"><a aria-label="6"></a>} </span>
+<span id="cb13-7"><a aria-label="7"></a>s <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, <span class="fu">roulette_winnings</span>(n)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="central-limit-theorem-4" class="slide level2">
@@ -766,10 +772,10 @@
 <li><p>Using the formulas above, we know that the expected value and standard error are:</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>n <span class="sc">*</span> (<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span>  </span>
-<span id="cb14-2"><a></a><span class="co">#&gt; [1] 52.6</span></span>
-<span id="cb14-3"><a></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
-<span id="cb14-4"><a></a><span class="co">#&gt; [1] 31.6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>n <span class="sc">*</span> (<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span>  </span>
+<span id="cb14-2"><a aria-label="2"></a><span class="co">#&gt; [1] 52.6</span></span>
+<span id="cb14-3"><a aria-label="3"></a><span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
+<span id="cb14-4"><a aria-label="4"></a><span class="co">#&gt; [1] 31.6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="central-limit-theorem-5" class="slide level2">
@@ -778,10 +784,10 @@
 <li>The theoretical values above match those obtained with the Monte Carlo simulation:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">mean</span>(s) </span>
-<span id="cb15-2"><a></a><span class="co">#&gt; [1] 52.6</span></span>
-<span id="cb15-3"><a></a><span class="fu">sd</span>(s) </span>
-<span id="cb15-4"><a></a><span class="co">#&gt; [1] 31.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">mean</span>(s) </span>
+<span id="cb15-2"><a aria-label="2"></a><span class="co">#&gt; [1] 52.6</span></span>
+<span id="cb15-3"><a aria-label="3"></a><span class="fu">sd</span>(s) </span>
+<span id="cb15-4"><a aria-label="4"></a><span class="co">#&gt; [1] 31.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="central-limit-theorem-6" class="slide level2">
@@ -790,17 +796,17 @@
 <li>Using the CLT, we can skip the Monte Carlo simulation and instead compute the probability of the casino losing money using this approximation:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>mu <span class="ot">&lt;-</span> n<span class="sc">*</span>(<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span> </span>
-<span id="cb16-2"><a></a>se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
-<span id="cb16-3"><a></a><span class="fu">pnorm</span>(<span class="dv">0</span>, mu, se) </span>
-<span id="cb16-4"><a></a><span class="co">#&gt; [1] 0.0478</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>mu <span class="ot">&lt;-</span> n<span class="sc">*</span>(<span class="dv">20</span> <span class="sc">-</span> <span class="dv">18</span>)<span class="sc">/</span><span class="dv">38</span> </span>
+<span id="cb16-2"><a aria-label="2"></a>se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n)<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">90</span>)<span class="sc">/</span><span class="dv">19</span>  </span>
+<span id="cb16-3"><a aria-label="3"></a><span class="fu">pnorm</span>(<span class="dv">0</span>, mu, se) </span>
+<span id="cb16-4"><a aria-label="4"></a><span class="co">#&gt; [1] 0.0478</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>which is also in very good agreement with our Monte Carlo result:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
-<span id="cb17-2"><a></a><span class="co">#&gt; [1] 0.044</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
+<span id="cb17-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.044</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="how-large-is-large-in-the-clt" class="slide level2">

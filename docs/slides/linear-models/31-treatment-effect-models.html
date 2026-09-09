@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-11-10">
   <meta name="keywords" content="Linear Models">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -250,9 +256,9 @@
 <li><p>The data is included in the <strong>dslabs</strong> package:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb1-3"><a></a><span class="fu">table</span>(mice_weights<span class="sc">$</span>diet) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">table</span>(mice_weights<span class="sc">$</span>diet) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 chow   hf 
@@ -280,7 +286,7 @@ chow   hf
 <h2>Comparing group means</h2>
 <p>We know that the <span class="math inline">\(\bar{X}_1 - \bar{X}_0\)</span></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>mice_weights <span class="sc">|&gt;</span> <span class="fu">group_by</span>(diet) <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(body_weight)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>mice_weights <span class="sc">|&gt;</span> <span class="fu">group_by</span>(diet) <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(body_weight)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   diet  average
@@ -325,11 +331,11 @@ t = \frac{\bar{X}_1 - \bar{X}_0}{\sqrt{\frac{s_1^2}{N_1} + \frac{s_0^2}{N_0}}}
 <li>This implies that we can easily compute the probability of observing a value as large as the one we obtained:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>stats <span class="ot">&lt;-</span> mice_weights <span class="sc">|&gt;</span>  </span>
-<span id="cb5-2"><a></a>  <span class="fu">group_by</span>(diet) <span class="sc">|&gt;</span>  </span>
-<span id="cb5-3"><a></a>  <span class="fu">summarize</span>(<span class="at">xbar =</span> <span class="fu">mean</span>(body_weight), <span class="at">s =</span> <span class="fu">sd</span>(body_weight), <span class="at">n =</span> <span class="fu">n</span>())  </span>
-<span id="cb5-4"><a></a>t_stat <span class="ot">&lt;-</span> <span class="fu">with</span>(stats, (xbar[<span class="dv">2</span>] <span class="sc">-</span> xbar[<span class="dv">1</span>])<span class="sc">/</span><span class="fu">sqrt</span>(s[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">2</span>] <span class="sc">+</span> s[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">1</span>])) </span>
-<span id="cb5-5"><a></a>t_stat </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>stats <span class="ot">&lt;-</span> mice_weights <span class="sc">|&gt;</span>  </span>
+<span id="cb5-2"><a aria-label="2"></a>  <span class="fu">group_by</span>(diet) <span class="sc">|&gt;</span>  </span>
+<span id="cb5-3"><a aria-label="3"></a>  <span class="fu">summarize</span>(<span class="at">xbar =</span> <span class="fu">mean</span>(body_weight), <span class="at">s =</span> <span class="fu">sd</span>(body_weight), <span class="at">n =</span> <span class="fu">n</span>())  </span>
+<span id="cb5-4"><a aria-label="4"></a>t_stat <span class="ot">&lt;-</span> <span class="fu">with</span>(stats, (xbar[<span class="dv">2</span>] <span class="sc">-</span> xbar[<span class="dv">1</span>])<span class="sc">/</span><span class="fu">sqrt</span>(s[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">2</span>] <span class="sc">+</span> s[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">1</span>])) </span>
+<span id="cb5-5"><a aria-label="5"></a>t_stat </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9.339096</code></pre>
 </div>
@@ -346,7 +352,7 @@ t = \frac{\bar{X}_1 - \bar{X}_0}{\sqrt{\frac{s_1^2}{N_1} + \frac{s_0^2}{N_0}}}
 <li><p>Specifically, we use</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t_stat, <span class="fu">with</span>(stats, n[<span class="dv">2</span>]<span class="sc">+</span>n[<span class="dv">1</span>]<span class="sc">-</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(t_stat, <span class="fu">with</span>(stats, n[<span class="dv">2</span>]<span class="sc">+</span>n[<span class="dv">1</span>]<span class="sc">-</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -420,7 +426,7 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 <li>A powerful characteristic of linear models is that we can estimate the <span class="math inline">\(\beta\)</span>s and their standard errors with the same LSE machinery:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet, <span class="at">data =</span> mice_weights) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet, <span class="at">data =</span> mice_weights) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="one-factor-design-5" class="slide level2">
@@ -430,7 +436,7 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 <li><p>The <code>summary</code> function shows us the resulting estimate, standard error, and p-value:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">coefficients</span>(<span class="fu">summary</span>(fit)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">coefficients</span>(<span class="fu">summary</span>(fit)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Estimate Std. Error   t value     Pr(&gt;|t|)
 (Intercept) 31.537005  0.3858192 81.740369 0.000000e+00
@@ -444,8 +450,8 @@ diethf       5.136078  0.5484506  9.364705 8.021959e-20</code></pre>
 <li>Using <code>broom</code>, we can write:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(broom) </span>
-<span id="cb12-2"><a></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"diethf"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">library</span>(broom) </span>
+<span id="cb12-2"><a aria-label="2"></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"diethf"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 7
   term   estimate std.error statistic  p.value conf.low conf.high
@@ -464,7 +470,7 @@ diethf       5.136078  0.5484506  9.364705 8.021959e-20</code></pre>
 <li>In the case of the simple one-factor model, we can show that this statistic is almost equivalent to the t-statistics computed in the previous section:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">c</span>(<span class="fu">coefficients</span>(<span class="fu">summary</span>(fit))[<span class="dv">2</span>,<span class="dv">3</span>], t_stat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="fu">coefficients</span>(<span class="fu">summary</span>(fit))[<span class="dv">2</span>,<span class="dv">3</span>], t_stat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9.364705 9.339096</code></pre>
 </div>
@@ -498,7 +504,7 @@ diethf       5.136078  0.5484506  9.364705 8.021959e-20</code></pre>
 <li><p>This explains why the residuals depend on the sex variable:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">boxplot</span>(fit<span class="sc">$</span>residuals <span class="sc">~</span> mice_weights<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">boxplot</span>(fit<span class="sc">$</span>residuals <span class="sc">~</span> mice_weights<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="two-factor-designs-1" class="slide level2">
@@ -519,7 +525,7 @@ diethf       5.136078  0.5484506  9.364705 8.021959e-20</code></pre>
 <li>We can examine the data:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>mice_weights <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(diet, <span class="fu">log2</span>(body_weight), <span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>mice_weights <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(diet, <span class="fu">log2</span>(body_weight), <span class="at">fill =</span> sex)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="two-factor-designs-4" class="slide level2">
@@ -579,7 +585,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}  + \beta_3 x_{i,1} x_{i,2}  +
 <li><p>In R, we can specific the linear model above using the following:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet<span class="sc">*</span>sex, <span class="at">data =</span> mice_weights) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet<span class="sc">*</span>sex, <span class="at">data =</span> mice_weights) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The <code>*</code> implies that the term that multiplies <span class="math inline">\(x_{i,1}\)</span> and <span class="math inline">\(x_{i,2}\)</span> should be included, along with the <span class="math inline">\(x_{i,1}\)</span> and <span class="math inline">\(x_{i,2}\)</span> terms.</li>
@@ -591,7 +597,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}  + \beta_3 x_{i,1} x_{i,2}  +
 <li>Here are the estimates:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(term, <span class="st">"Intercept"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">tidy</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(term, <span class="st">"Intercept"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
   term        estimate std.error statistic  p.value conf.low conf.high
@@ -623,7 +629,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
 <li>In R, we use the following code, employing a <code>+</code> instead of <code>*</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet <span class="sc">+</span> sex, <span class="at">data =</span> mice_weights) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> diet <span class="sc">+</span> sex, <span class="at">data =</span> mice_weights) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Note that this model does not account for the difference in diet effect between males and females.</li>
@@ -635,7 +641,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
 <li>Diagnostic plots would reveal this deficiency by showing that the residuals are biased: they are, on average, negative for females on the diet and positive for males on the diet, rather than being centered around 0.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">plot</span>(fit, <span class="at">which =</span> <span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">plot</span>(fit, <span class="at">which =</span> <span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="two-factor-designs-15" class="slide level2">
@@ -685,8 +691,8 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
 <li><p>We can see when we estimate the sex effect with <code>lm</code> like this:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> sex, <span class="at">data =</span> mice_weights) </span>
-<span id="cb23-2"><a></a><span class="fu">coefficients</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> sex, <span class="at">data =</span> mice_weights) </span>
+<span id="cb23-2"><a aria-label="2"></a><span class="fu">coefficients</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)        sexM 
   29.758844    8.820658 </code></pre>
@@ -699,7 +705,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
 <li>To recover the expected mean for males, we can simply add the two coefficients:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">sum</span>(fit<span class="sc">$</span>coefficients[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">sum</span>(fit<span class="sc">$</span>coefficients[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 38.5795</code></pre>
 </div>
@@ -708,8 +714,8 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
 <li>The package <strong>emmeans</strong> simplifies the calculation and also calculates standard errors:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">library</span>(emmeans) </span>
-<span id="cb27-2"><a></a><span class="fu">emmeans</span>(fit, <span class="sc">~</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">library</span>(emmeans) </span>
+<span id="cb27-2"><a aria-label="2"></a><span class="fu">emmeans</span>(fit, <span class="sc">~</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> sex emmean    SE  df lower.CL upper.CL
  F     29.8 0.339 778     29.1     30.4
@@ -756,9 +762,9 @@ Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \varepsilon_i
 <li><p>To achieve this in R, we can use the argument <code>contrast</code> in the following way:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> sex, <span class="at">data =</span> mice_weights,  </span>
-<span id="cb29-2"><a></a>          <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">sex =</span> contr.sum)) </span>
-<span id="cb29-3"><a></a><span class="fu">coefficients</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> sex, <span class="at">data =</span> mice_weights,  </span>
+<span id="cb29-2"><a aria-label="2"></a>          <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">sex =</span> contr.sum)) </span>
+<span id="cb29-3"><a aria-label="3"></a><span class="fu">coefficients</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)        sex1 
   34.169173   -4.410329 </code></pre>
@@ -779,7 +785,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \varepsilon_i
 <li>If we want to see all the estimates, the <strong>emmeans</strong> package also makes the calculations for us:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">contrast</span>(<span class="fu">emmeans</span>(fit, <span class="sc">~</span>sex)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">contrast</span>(<span class="fu">emmeans</span>(fit, <span class="sc">~</span>sex)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> contrast estimate    SE  df t.ratio p.value
  F effect    -4.41 0.242 778 -18.203 &lt;0.0001
@@ -802,7 +808,7 @@ P value adjustment: fdr method for 2 tests </code></pre>
 <li>As an example, consider that the mice in our dataset are actually from several generations:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">table</span>(mice_weights<span class="sc">$</span>gen) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a><span class="fu">table</span>(mice_weights<span class="sc">$</span>gen) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   4   7   8   9  11 
@@ -840,9 +846,9 @@ Y_i = \beta_0 + \sum_{j=1}^J \beta_j x_{i,j} + \varepsilon_i
 <li>We can see the estimated coefficients using the following:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> gen,  <span class="at">data =</span> mice_weights,  </span>
-<span id="cb35-2"><a></a>          <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">gen =</span> contr.sum)) </span>
-<span id="cb35-3"><a></a><span class="fu">contrast</span>(<span class="fu">emmeans</span>(fit, <span class="sc">~</span>gen))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_weight <span class="sc">~</span> gen,  <span class="at">data =</span> mice_weights,  </span>
+<span id="cb35-2"><a aria-label="2"></a>          <span class="at">contrasts =</span> <span class="fu">list</span>(<span class="at">gen =</span> contr.sum)) </span>
+<span id="cb35-3"><a aria-label="3"></a><span class="fu">contrast</span>(<span class="fu">emmeans</span>(fit, <span class="sc">~</span>gen))  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> contrast     estimate    SE  df t.ratio p.value
  gen4 effect    -0.122 0.705 775  -0.174  0.8621
@@ -870,7 +876,7 @@ P value adjustment: fdr method for 5 tests </code></pre>
 <li>Specifically, the estimate of the factor variability is computed along with a statistic that can be used for hypothesis testing:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">summary</span>(<span class="fu">aov</span>(fit)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(fit)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)
 gen           4    294   73.50   1.128  0.342
@@ -884,7 +890,7 @@ Residuals   775  50479   65.13               </code></pre>
 <li>Keep in mind that if given a model formula, <code>aov</code> will fit the model:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">summary</span>(<span class="fu">aov</span>(body_weight <span class="sc">~</span> gen, <span class="at">data =</span> mice_weights)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(body_weight <span class="sc">~</span> gen, <span class="at">data =</span> mice_weights)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>We do not need to specify the constraint because ANOVA needs to constrain the sum to be 0 for the results to be interpretable.</p></li>
@@ -918,7 +924,7 @@ Residuals   775  50479   65.13               </code></pre>
 <li><p>We can perform ANOVA with multiple factors:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">summary</span>(<span class="fu">aov</span>(body_weight <span class="sc">~</span> sex <span class="sc">+</span> diet <span class="sc">+</span> gen,  <span class="at">data =</span> mice_weights)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(body_weight <span class="sc">~</span> sex <span class="sc">+</span> diet <span class="sc">+</span> gen,  <span class="at">data =</span> mice_weights)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
 sex           1  15165   15165 389.799 &lt;2e-16 ***

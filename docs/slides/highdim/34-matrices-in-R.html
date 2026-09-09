@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-11-17">
   <meta name="keywords" content="High dimensional data">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -256,9 +262,9 @@
 <li><p>Let’s load the data using the <strong>dslabs</strong> package:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb1-3"><a></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-3"><a aria-label="3"></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="case-study-mnist-6" class="slide level2">
@@ -267,7 +273,7 @@
 <li>In these cases, the pixel intensities are saved in a matrix:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">class</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">class</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "matrix" "array" </code></pre>
 </div>
@@ -276,7 +282,7 @@
 <li>The labels associated with each image are included in a vector:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">table</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>labels) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">table</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>labels) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
    0    1    2    3    4    5    6    7    8    9 
@@ -303,8 +309,8 @@
 <li><p>To simplify the code below, we will rename these <code>x</code> and <code>y</code> respectively:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>x <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images </span>
-<span id="cb6-2"><a></a>y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>labels </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images </span>
+<span id="cb6-2"><a aria-label="2"></a>y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>labels </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="dimensions-of-a-matrix" class="slide level2">
@@ -313,14 +319,14 @@
 <li>The <code>nrow</code> function tells us how many rows that matrix has:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">nrow</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">nrow</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 60000</code></pre>
 </div>
 </div>
 <p>and <code>ncol</code> tells us how many columns:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ncol</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">ncol</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 784</code></pre>
 </div>
@@ -333,7 +339,7 @@
 <li><p>The <code>dim</code> function returns the rows and columns:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">dim</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">dim</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 60000   784</code></pre>
 </div>
@@ -345,13 +351,13 @@
 <li>We saw that we can create a matrix using the <code>matrix</code> function.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span><span class="sc">*</span><span class="dv">2</span>), <span class="dv">100</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span><span class="sc">*</span><span class="dv">2</span>), <span class="dv">100</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Note that by default the matrix is filled in column by column:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    4    7   10   13
@@ -366,7 +372,7 @@
 <li>To fill the matrix row by row, we can use the <code>byrow</code> argument:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    2    3    4    5
@@ -381,7 +387,7 @@
 <li>The function <code>as.vector</code> converts a matrix back into a vector:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">as.vector</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">as.vector</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15</code></pre>
 </div>
@@ -403,7 +409,7 @@
 <li><p>If the length of the vector is a sub-multiple or multiple of the number of rows, this happens <strong>without warning</strong>:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    1    1    1    1
@@ -421,7 +427,7 @@
 <li>To extract a specific entry from a matrix, for example the 300th row of the 100th column, we write:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>x[<span class="dv">300</span>,<span class="dv">100</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>x[<span class="dv">300</span>,<span class="dv">100</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="subsetting-1" class="slide level2">
@@ -431,7 +437,7 @@
 <li><p>For example, we can extract the first 100 pixels from the first 300 observations like this:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="subsetting-2" class="slide level2">
@@ -440,7 +446,7 @@
 <li>To extract an entire row or subset of rows, we leave the column dimension blank.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>,] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="subsetting-3" class="slide level2">
@@ -450,7 +456,7 @@
 <li><p>Here is the code to extract the first 100 pixels:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -469,7 +475,7 @@
 <li><p>For example:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">dim</span>(x[<span class="dv">300</span>,]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="fu">dim</span>(x[<span class="dv">300</span>,]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
 </div>
@@ -478,7 +484,7 @@
 <li>To avoid this, we can use the <code>drop</code> argument:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">dim</span>(x[<span class="dv">100</span>,,<span class="at">drop =</span> <span class="cn">FALSE</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="fu">dim</span>(x[<span class="dv">100</span>,,<span class="at">drop =</span> <span class="cn">FALSE</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   1 784</code></pre>
 </div>
@@ -493,7 +499,7 @@
 <li>Let’s try to visualize the third observation.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>mnist<span class="sc">$</span>train<span class="sc">$</span>label[<span class="dv">3</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>mnist<span class="sc">$</span>train<span class="sc">$</span>label[<span class="dv">3</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -506,7 +512,7 @@
 <li><p>We can assume these were entered in order and convert them back to a <span class="math inline">\(28 \times 28\)</span> matrix using:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>grid <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x[<span class="dv">3</span>,], <span class="dv">28</span>, <span class="dv">28</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>grid <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x[<span class="dv">3</span>,], <span class="dv">28</span>, <span class="dv">28</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="visualize-the-original-image-2" class="slide level2">
@@ -515,7 +521,7 @@
 <li>To visualize the data, we can use <code>image</code> in the followin way:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, grid) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, grid) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="visualize-the-original-image-3" class="slide level2">
@@ -524,7 +530,7 @@
 <li>To flip it back we can use:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, grid[, <span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, grid[, <span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="34-matrices-in-R_files/figure-revealjs/matrix-image-1.png" width="960" class="r-stretch"></section>
@@ -543,15 +549,15 @@
 <li>So, for example, to compute the averages and standard deviations of each row, we write:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>avgs <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">1</span>, mean) </span>
-<span id="cb35-2"><a></a>sds <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">1</span>, sd) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>avgs <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">1</span>, mean) </span>
+<span id="cb35-2"><a aria-label="2"></a>sds <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">1</span>, sd) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>To compute these for the columns, we simply change the 1 to a 2:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>avgs <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">2</span>, mean) </span>
-<span id="cb36-2"><a></a>sds <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">2</span>, sd) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a>avgs <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">2</span>, mean) </span>
+<span id="cb36-2"><a aria-label="2"></a>sds <span class="ot">&lt;-</span> <span class="fu">apply</span>(x, <span class="dv">2</span>, sd) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="row-and-column-summaries-2" class="slide level2">
@@ -561,14 +567,14 @@
 <li><p>The functions <code>rowMeans</code> computes the average of each row:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>avg <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>avg <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>and the <strong>matrixStats</strong> function <code>rowSds</code> computes the standard deviations for each row:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">library</span>(matrixStats) </span>
-<span id="cb38-2"><a></a>sds <span class="ot">&lt;-</span> <span class="fu">rowSds</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">library</span>(matrixStats) </span>
+<span id="cb38-2"><a aria-label="2"></a>sds <span class="ot">&lt;-</span> <span class="fu">rowSds</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="row-and-column-summaries-3" class="slide level2">
@@ -585,8 +591,8 @@
 <li><p>We have already computed this average and can generate a boxplot to answer the question:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>avg <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(x) </span>
-<span id="cb39-2"><a></a><span class="fu">boxplot</span>(avg <span class="sc">~</span> y) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>avg <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(x) </span>
+<span id="cb39-2"><a aria-label="2"></a><span class="fu">boxplot</span>(avg <span class="sc">~</span> y) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="do-some-digits-require-more-ink-to-write-than-others-1" class="slide level2">
@@ -606,7 +612,7 @@
 <li>Here is a simple example subsetting columns with logicals:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>)[,<span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>)[,<span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
 [1,]    4    7   13
@@ -624,13 +630,13 @@
 <li>In the following example we remove all observations containing at least one <code>NA</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>x[<span class="fu">apply</span>(<span class="sc">!</span><span class="fu">is.na</span>(x), <span class="dv">1</span>, all),] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a>x[<span class="fu">apply</span>(<span class="sc">!</span><span class="fu">is.na</span>(x), <span class="dv">1</span>, all),] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>This being a common operation, we have a <strong>matrixStats</strong> function to do it faster:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>x[<span class="sc">!</span><span class="fu">rowAnyNAs</span>(x),] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a>x[<span class="sc">!</span><span class="fu">rowAnyNAs</span>(x),] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="are-some-pixels-uninformative" class="slide level2">
@@ -646,7 +652,7 @@
 <li>Since each column represents a pixel, we use the <code>colSds</code> function from the <strong>matrixStats</strong> package:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>sds <span class="ot">&lt;-</span> <span class="fu">colSds</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a>sds <span class="ot">&lt;-</span> <span class="fu">colSds</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="are-some-pixels-uninformative-2" class="slide level2">
@@ -662,7 +668,7 @@
 <li>Here is the variance plotted by location:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="fu">matrix</span>(sds, <span class="dv">28</span>, <span class="dv">28</span>)[, <span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="fu">matrix</span>(sds, <span class="dv">28</span>, <span class="dv">28</span>)[, <span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="34-matrices-in-R_files/figure-revealjs/unnamed-chunk-31-1.png" width="960" class="r-stretch"></section>
@@ -673,8 +679,8 @@
 <li><p>So if we wanted to remove uninformative predictors from our matrix, we could write this one line of code:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>new_x <span class="ot">&lt;-</span> x[,<span class="fu">colSds</span>(x) <span class="sc">&gt;</span> <span class="dv">60</span>] </span>
-<span id="cb46-2"><a></a><span class="fu">dim</span>(new_x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-label="1"></a>new_x <span class="ot">&lt;-</span> x[,<span class="fu">colSds</span>(x) <span class="sc">&gt;</span> <span class="dv">60</span>] </span>
+<span id="cb46-2"><a aria-label="2"></a><span class="fu">dim</span>(new_x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 60000   322</code></pre>
 </div>
@@ -690,9 +696,9 @@
 <li><p>Here is a simple example:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>) </span>
-<span id="cb48-2"><a></a>mat[mat <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> mat <span class="sc">&lt;</span> <span class="dv">12</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
-<span id="cb48-3"><a></a>mat </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a aria-label="1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">5</span>) </span>
+<span id="cb48-2"><a aria-label="2"></a>mat[mat <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> mat <span class="sc">&lt;</span> <span class="dv">12</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
+<span id="cb48-3"><a aria-label="3"></a>mat </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    1    4    0    0   13
@@ -707,7 +713,7 @@
 <li>A useful application is that we can change all the <code>NA</code> entries of a matrix to something else:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>x[<span class="fu">is.na</span>(x)] <span class="ot">&lt;-</span> <span class="dv">0</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-label="1"></a>x[<span class="fu">is.na</span>(x)] <span class="ot">&lt;-</span> <span class="dv">0</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="can-we-remove-smudges" class="slide level2">
@@ -724,8 +730,8 @@
 <li><p>If we think that values below, say, 50 are smudges, we can quickly make them zero using:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>new_x <span class="ot">&lt;-</span> x </span>
-<span id="cb51-2"><a></a>new_x[new_x <span class="sc">&lt;</span> <span class="dv">50</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-label="1"></a>new_x <span class="ot">&lt;-</span> x </span>
+<span id="cb51-2"><a aria-label="2"></a>new_x[new_x <span class="sc">&lt;</span> <span class="dv">50</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="binarizing-the-data" class="slide level2">
@@ -741,9 +747,9 @@
 <li>Applying what we have learned, we can binarize the data using just matrix operations:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>bin_x <span class="ot">&lt;-</span> x </span>
-<span id="cb52-2"><a></a>bin_x[bin_x <span class="sc">&lt;</span> <span class="dv">255</span><span class="sc">/</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>  </span>
-<span id="cb52-3"><a></a>bin_x[bin_x <span class="sc">&gt;</span> <span class="dv">255</span><span class="sc">/</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-label="1"></a>bin_x <span class="ot">&lt;-</span> x </span>
+<span id="cb52-2"><a aria-label="2"></a>bin_x[bin_x <span class="sc">&lt;</span> <span class="dv">255</span><span class="sc">/</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>  </span>
+<span id="cb52-3"><a aria-label="3"></a>bin_x[bin_x <span class="sc">&gt;</span> <span class="dv">255</span><span class="sc">/</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="binarizing-the-data-2" class="slide level2">
@@ -752,7 +758,7 @@
 <li>We can also convert to a matrix of logicals and then coerce to numbers like this:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>bin_X <span class="ot">&lt;-</span> (x <span class="sc">&gt;</span> <span class="dv">255</span><span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span><span class="dv">1</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a aria-label="1"></a>bin_X <span class="ot">&lt;-</span> (x <span class="sc">&gt;</span> <span class="dv">255</span><span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span><span class="dv">1</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="vectorization-for-matrices" class="slide level2">
@@ -805,7 +811,7 @@ a_n
 <li><p>So, for example, to center each row around the average, we can use:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">sweep</span>(x, <span class="dv">1</span>, <span class="fu">rowMeans</span>(x)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a aria-label="1"></a><span class="fu">sweep</span>(x, <span class="dv">1</span>, <span class="fu">rowMeans</span>(x)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="standardize-the-digits" class="slide level2">
@@ -814,7 +820,7 @@ a_n
 <li>The way R vectorizes arithmetic operations implies that we can scale each row of a matrix as follows:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a>(x <span class="sc">-</span> <span class="fu">rowMeans</span>(x))<span class="sc">/</span><span class="fu">rowSds</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a aria-label="1"></a>(x <span class="sc">-</span> <span class="fu">rowMeans</span>(x))<span class="sc">/</span><span class="fu">rowSds</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="standardize-the-digits-1" class="slide level2">
@@ -824,7 +830,7 @@ a_n
 <li><p>For columns, we can <code>sweep</code>:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>x_mean_0 <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a aria-label="1"></a>x_mean_0 <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="standardize-the-digits-2" class="slide level2">
@@ -833,7 +839,7 @@ a_n
 <li>To divide by the standard deviation, we change the default arithmetic operation to division as follows:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a>x_standardized <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x_mean_0, <span class="dv">2</span>, <span class="fu">colSds</span>(x), <span class="at">FUN =</span> <span class="st">"/"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a aria-label="1"></a>x_standardized <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x_mean_0, <span class="dv">2</span>, <span class="fu">colSds</span>(x), <span class="at">FUN =</span> <span class="st">"/"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="componentwise-multiplication" class="slide level2">
@@ -843,7 +849,7 @@ a_n
 <li><p>For example, if two matrices are stored in <code>x</code> and <code>y</code>, then:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>x<span class="sc">*</span>y </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a aria-label="1"></a>x<span class="sc">*</span>y </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>does not result in matrix multiplication.</p></li>

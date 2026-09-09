@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-10-22">
   <meta name="keywords" content="Inference">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -251,8 +257,8 @@
 <li><p>We use the same parameters as above:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>p <span class="ot">&lt;-</span> <span class="fl">0.45</span> </span>
-<span id="cb1-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.45</span> </span>
+<span id="cb1-2"><a aria-label="2"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="confidence-intervals-7" class="slide level2">
@@ -261,24 +267,24 @@
 <li>And notice that the interval here:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
-<span id="cb2-2"><a></a>x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb2-3"><a></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
-<span id="cb2-4"><a></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
+<span id="cb2-2"><a aria-label="2"></a>x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb2-3"><a aria-label="3"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
+<span id="cb2-4"><a aria-label="4"></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4012976 0.4627024</code></pre>
+<pre><code>[1] 0.4102262 0.4717738</code></pre>
 </div>
 </div>
 <ul>
 <li>is different from this one:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
-<span id="cb4-2"><a></a>x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb4-3"><a></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
-<span id="cb4-4"><a></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
+<span id="cb4-2"><a aria-label="2"></a>x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb4-3"><a aria-label="3"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
+<span id="cb4-4"><a aria-label="4"></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4390655 0.5009345</code></pre>
+<pre><code>[1] 0.4092336 0.4707664</code></pre>
 </div>
 </div>
 <ul>
@@ -315,7 +321,7 @@
 <li>which we can quickly compute using :</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">pnorm</span>(<span class="fl">1.96</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.96</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">1.96</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.96</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9500042</code></pre>
 </div>
@@ -336,12 +342,12 @@
 <li>We use:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.995</span>) </span>
-<span id="cb8-2"><a></a>z </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.995</span>) </span>
+<span id="cb8-2"><a aria-label="2"></a>z </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.575829</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.99</code></pre>
 </div>
@@ -355,7 +361,7 @@
 <li><p>So, for example, for <span class="math inline">\(\alpha=0.05\)</span>, <span class="math inline">\(1 - \alpha/2 = 0.975\)</span> and we get the <span class="math inline">\(z=1.96\)</span> we used above:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.959964</code></pre>
 </div>
@@ -367,17 +373,17 @@
 <li>We can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes <span class="math inline">\(p\)</span> 95% of the time.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb14-2"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
-<span id="cb14-3"><a></a>inside <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
-<span id="cb14-4"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
-<span id="cb14-5"><a></a>  x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb14-6"><a></a>  se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
-<span id="cb14-7"><a></a>  <span class="fu">between</span>(p, x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span>
-<span id="cb14-8"><a></a>}) </span>
-<span id="cb14-9"><a></a><span class="fu">mean</span>(inside) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb14-2"><a aria-label="2"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
+<span id="cb14-3"><a aria-label="3"></a>inside <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb14-4"><a aria-label="4"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
+<span id="cb14-5"><a aria-label="5"></a>  x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb14-6"><a aria-label="6"></a>  se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
+<span id="cb14-7"><a aria-label="7"></a>  <span class="fu">between</span>(p, x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span>
+<span id="cb14-8"><a aria-label="8"></a>}) </span>
+<span id="cb14-9"><a aria-label="9"></a><span class="fu">mean</span>(inside) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9458</code></pre>
+<pre><code>[1] 0.9482</code></pre>
 </div>
 </div>
 </section>

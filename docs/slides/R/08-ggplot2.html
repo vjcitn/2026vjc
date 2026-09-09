@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-09-22">
   <meta name="keywords" content="R">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -205,10 +211,10 @@
 <h2>ggplot2</h2>
 <p>The code in this lecture assumes these three libraries are loaded:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(dslabs)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(lattice)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="fu">library</span>(lattice)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-components-of-a-graph" class="slide level2">
@@ -265,20 +271,20 @@
 <li>Start by defining the dataset:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> murders)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> murders)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We can also use the pipe:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We call also assign the output to a variable</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> murders)</span>
-<span id="cb4-2"><a></a><span class="fu">class</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> murders)</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">class</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ggplot2::ggplot" "ggplot"          "ggplot2::gg"     "S7_object"      
 [5] "gg"             </code></pre>
@@ -289,7 +295,7 @@
 <h2><code>ggplot</code> objects</h2>
 <p>To see the plot we can print it:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">print</span>(p) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">print</span>(p) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-2-1.png" width="960" class="r-stretch"></section>
@@ -322,7 +328,7 @@
 <li><p>The help file tells us this is how we use it:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, <span class="at">y =</span> total))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, <span class="at">y =</span> total))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-2-1-1.png" width="960" class="r-stretch"></section>
@@ -332,7 +338,7 @@
 <li>Since we defined <code>p</code> earlier, we can add a layer like this:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-3-1.png" width="960" class="r-stretch"><ul>
@@ -345,8 +351,8 @@
 <li>To add text we use <code>geom_text</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total)) <span class="sc">+</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total)) <span class="sc">+</span></span>
+<span id="cb10-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-4-1.png" width="960" class="r-stretch"></section>
@@ -356,11 +362,11 @@
 <li>As an example of the unique behavior of <code>aes</code> note that this call:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p_test <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>p_test <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>is fine, whereas this call:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>p_test <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total), <span class="at">label =</span> abb) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>p_test <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total), <span class="at">label =</span> abb) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>will give you an error since <code>abb</code> is not found because it is outside of the <code>aes</code> function.</p>
 <ul>
@@ -373,10 +379,10 @@
 <li>we can also use the <code>lattice</code> package to produce high quality graphics - R has lots of ways to do things</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>pl <span class="ot">&lt;-</span> <span class="fu">xyplot</span>(total <span class="sc">~</span> population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> <span class="sc">|</span> region, <span class="at">data =</span> murders,</span>
-<span id="cb13-2"><a></a>      <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"p"</span>, <span class="st">"g"</span>), <span class="at">xlab =</span> <span class="st">"Population/10^6"</span>, <span class="at">ylab =</span> <span class="st">"Total"</span>,</span>
-<span id="cb13-3"><a></a>     <span class="at">strip =</span> <span class="fu">strip.custom</span>(<span class="at">strip.names =</span> <span class="cn">TRUE</span>, <span class="at">var.name =</span> <span class="st">"region"</span>), <span class="at">layout=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb13-4"><a></a><span class="fu">print</span>(pl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>pl <span class="ot">&lt;-</span> <span class="fu">xyplot</span>(total <span class="sc">~</span> population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> <span class="sc">|</span> region, <span class="at">data =</span> murders,</span>
+<span id="cb13-2"><a aria-label="2"></a>      <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"p"</span>, <span class="st">"g"</span>), <span class="at">xlab =</span> <span class="st">"Population/10^6"</span>, <span class="at">ylab =</span> <span class="st">"Total"</span>,</span>
+<span id="cb13-3"><a aria-label="3"></a>     <span class="at">strip =</span> <span class="fu">strip.custom</span>(<span class="at">strip.names =</span> <span class="cn">TRUE</span>, <span class="at">var.name =</span> <span class="st">"region"</span>), <span class="at">layout=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb13-4"><a aria-label="4"></a><span class="fu">print</span>(pl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/lattice ex-1.png" width="960" class="r-stretch"></section>
@@ -386,17 +392,17 @@
 <li>here we produce a similar plot using <code>ggplot2</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>pg <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(murders, <span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb14-2"><a></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>region) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>)</span>
-<span id="cb14-3"><a></a><span class="fu">print</span>(pg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>pg <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(murders, <span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-2"><a aria-label="2"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>region) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>)</span>
+<span id="cb14-3"><a aria-label="3"></a><span class="fu">print</span>(pg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplotpanel-1.png" width="960" class="r-stretch"></section>
 <section id="tinkering-with-arguments" class="slide level2">
 <h2>Tinkering with arguments</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb15-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-5-1.png" width="960" class="r-stretch"><ul>
@@ -406,8 +412,8 @@
 <section id="tinkering-with-arguments-1" class="slide level2">
 <h2>Tinkering with arguments</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb), <span class="at">nudge_x =</span> <span class="fl">1.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb16-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb), <span class="at">nudge_x =</span> <span class="fl">1.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-6-1.png" width="960" class="r-stretch"><ul>
@@ -420,7 +426,7 @@
 <li>Note that in we can define a global <code>aes</code> in the <code>ggplot</code> function:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">args</span>(ggplot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">args</span>(ggplot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (data = NULL, mapping = aes(), ..., environment = parent.frame()) 
 NULL</code></pre>
@@ -436,8 +442,8 @@ NULL</code></pre>
 <li>All the layers will assume the global mapping unless we explicitly define another one.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>p <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span>
-<span id="cb19-2"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">1.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb))</span>
+<span id="cb19-2"><a aria-label="2"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">1.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-7-1.png" width="960" class="r-stretch"><ul>
@@ -450,8 +456,8 @@ NULL</code></pre>
 <li>We can override the global <code>aes</code> by defining one in the geometry functions:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
-<span id="cb20-2"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">y =</span> <span class="dv">800</span>, <span class="at">label =</span> <span class="st">"Hello there!"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
+<span id="cb20-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">y =</span> <span class="dv">800</span>, <span class="at">label =</span> <span class="st">"Hello there!"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-8-1.png" width="960" class="r-stretch"></section>
@@ -461,10 +467,10 @@ NULL</code></pre>
 <li>Layers can define transformations:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
-<span id="cb21-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb21-3"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
-<span id="cb21-4"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
+<span id="cb21-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb21-3"><a aria-label="3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a aria-label="4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-9-1.png" width="960" class="r-stretch"></section>
@@ -474,10 +480,10 @@ NULL</code></pre>
 <li>This particular transformation is so common that <strong>ggplot2</strong> provides the specialized functions:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
-<span id="cb22-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb22-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb22-4"><a></a>  <span class="fu">scale_y_log10</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
+<span id="cb22-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb22-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="labels-and-titles" class="slide level2">
@@ -486,13 +492,13 @@ NULL</code></pre>
 <li>There are layers for adding labels and titles:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-code-line-numbers="5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
-<span id="cb23-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb23-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb23-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb23-5"><a></a>  <span class="fu">xlab</span>(<span class="st">"Populations in millions (log scale)"</span>) <span class="sc">+</span> </span>
-<span id="cb23-6"><a></a>  <span class="fu">ylab</span>(<span class="st">"Total number of murders (log scale)"</span>) <span class="sc">+</span></span>
-<span id="cb23-7"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"US Gun Murders in 2010"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-code-line-numbers="5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
+<span id="cb23-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb23-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb23-5"><a aria-label="5"></a>  <span class="fu">xlab</span>(<span class="st">"Populations in millions (log scale)"</span>) <span class="sc">+</span> </span>
+<span id="cb23-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">"Total number of murders (log scale)"</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a aria-label="7"></a>  <span class="fu">ggtitle</span>(<span class="st">"US Gun Murders in 2010"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-10-1.png" width="960" class="r-stretch"></section>
@@ -502,13 +508,13 @@ NULL</code></pre>
 <li>We can also use the <code>labs</code> function:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
-<span id="cb24-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb24-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb24-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb24-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb24-6"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb24-7"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
+<span id="cb24-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb24-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb24-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb24-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb24-6"><a aria-label="6"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb24-7"><a aria-label="7"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><h2 id="this-produces-the-same-graph-as-in-the-previous-slide.">This produces the same graph as in the previous slide.</h2></li>
@@ -543,13 +549,13 @@ NULL</code></pre>
 </div>
 <div id="tabset-1-3">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
-<span id="cb25-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb25-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb25-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb25-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb25-6"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb25-7"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span>  </span>
+<span id="cb25-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb25-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb25-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb25-6"><a aria-label="6"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb25-7"><a aria-label="7"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -558,28 +564,28 @@ NULL</code></pre>
 <section id="adding-color" class="slide level2">
 <h2>Adding color</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
-<span id="cb26-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb26-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb26-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb26-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb26-6"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb26-7"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>) <span class="sc">+</span></span>
-<span id="cb26-8"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
+<span id="cb26-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb26-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb26-6"><a aria-label="6"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb26-7"><a aria-label="7"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>) <span class="sc">+</span></span>
+<span id="cb26-8"><a aria-label="8"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-11-1.png" width="960" class="r-stretch"></section>
 <section id="a-mapped-color" class="slide level2">
 <h2>A mapped color</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
-<span id="cb27-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb27-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb27-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb27-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb27-6"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb27-7"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>) <span class="sc">+</span></span>
-<span id="cb27-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
+<span id="cb27-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb27-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb27-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb27-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb27-6"><a aria-label="6"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb27-7"><a aria-label="7"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>) <span class="sc">+</span></span>
+<span id="cb27-8"><a aria-label="8"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-12-1.png" width="960" class="r-stretch"><p>A legend is added automatically!</p>
@@ -587,15 +593,15 @@ NULL</code></pre>
 <section id="change-legend-name" class="slide level2">
 <h2>Change legend name</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
-<span id="cb28-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb28-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb28-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb28-6"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb28-7"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
-<span id="cb28-8"><a></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
-<span id="cb28-9"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
+<span id="cb28-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb28-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb28-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb28-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb28-6"><a aria-label="6"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb28-7"><a aria-label="7"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
+<span id="cb28-8"><a aria-label="8"></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
+<span id="cb28-9"><a aria-label="9"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-12-1-1.png" width="960" class="r-stretch"></section>
@@ -606,24 +612,24 @@ NULL</code></pre>
 <li><p>Lets compute that</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>r <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
-<span id="cb29-2"><a></a>  <span class="fu">summarize</span>(<span class="at">rate =</span> <span class="fu">sum</span>(total) <span class="sc">/</span>  <span class="fu">sum</span>(population) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb29-3"><a></a>  <span class="fu">pull</span>(rate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>r <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
+<span id="cb29-2"><a aria-label="2"></a>  <span class="fu">summarize</span>(<span class="at">rate =</span> <span class="fu">sum</span>(total) <span class="sc">/</span>  <span class="fu">sum</span>(population) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb29-3"><a aria-label="3"></a>  <span class="fu">pull</span>(rate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="add-a-line" class="slide level2">
 <h2>Add a line</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
-<span id="cb30-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb30-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb30-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb30-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb30-6"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb30-7"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
-<span id="cb30-8"><a></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
-<span id="cb30-9"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb30-10"><a></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">log10</span>(r), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkgrey"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
+<span id="cb30-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb30-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb30-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb30-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb30-6"><a aria-label="6"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb30-7"><a aria-label="7"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
+<span id="cb30-8"><a aria-label="8"></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
+<span id="cb30-9"><a aria-label="9"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb30-10"><a aria-label="10"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">log10</span>(r), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkgrey"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/ggplot-example-13-1.png" width="960" class="r-stretch"></section>
@@ -637,16 +643,16 @@ NULL</code></pre>
 <li>To make the final adjustments we will save our current draft in <code>p</code> and add layers.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>p <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
-<span id="cb31-2"><a></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
-<span id="cb31-3"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb31-4"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb31-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb31-6"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb31-7"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
-<span id="cb31-8"><a></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
-<span id="cb31-9"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb31-10"><a></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">log10</span>(r), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkgrey"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
+<span id="cb31-2"><a aria-label="2"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_x =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb31-3"><a aria-label="3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb31-4"><a aria-label="4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb31-5"><a aria-label="5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb31-6"><a aria-label="6"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb31-7"><a aria-label="7"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
+<span id="cb31-8"><a aria-label="8"></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
+<span id="cb31-9"><a aria-label="9"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb31-10"><a aria-label="10"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">log10</span>(r), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkgrey"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="add-on-packages" class="slide level2">
@@ -655,7 +661,7 @@ NULL</code></pre>
 <li>The <strong>dslabs</strong> package can define the look used in the textbook:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">ds_theme_set</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">ds_theme_set</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Many other themes are added by the package <strong>ggthemes</strong>.</li>
@@ -665,8 +671,8 @@ NULL</code></pre>
 <h2>Add-on packages</h2>
 <p><strong>ggthemes</strong> provides pre-designed themes.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb33-2"><a></a>p <span class="sc">+</span> <span class="fu">theme_economist</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb33-2"><a aria-label="2"></a>p <span class="sc">+</span> <span class="fu">theme_economist</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/economist-1.png" width="960" class="r-stretch"></section>
@@ -674,7 +680,7 @@ NULL</code></pre>
 <h2>Add-on packages</h2>
 <p>Here is the FiveThirtyEight theme:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>p <span class="sc">+</span> <span class="fu">theme_fivethirtyeight</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">theme_fivethirtyeight</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/fivethirtyeight-1.png" width="960" class="r-stretch"></section>
@@ -682,7 +688,7 @@ NULL</code></pre>
 <h2>Add-on packages</h2>
 <p>If you want to ruin the plot use the excel theme:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>p <span class="sc">+</span> <span class="fu">theme_excel</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">theme_excel</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/excel-1.png" width="960" class="r-stretch"></section>
@@ -690,8 +696,8 @@ NULL</code></pre>
 <h2>Add-on packages</h2>
 <p><strong>ThemePark</strong> provides fun themes:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">library</span>(ThemePark)</span>
-<span id="cb36-2"><a></a>p <span class="sc">+</span> <span class="fu">theme_starwars</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">library</span>(ThemePark)</span>
+<span id="cb36-2"><a aria-label="2"></a>p <span class="sc">+</span> <span class="fu">theme_starwars</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/starwars-1.png" width="960" class="r-stretch"></section>
@@ -699,7 +705,7 @@ NULL</code></pre>
 <h2>Add-on packages</h2>
 <p>This is a fan favorite:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>p <span class="sc">+</span> <span class="fu">theme_barbie</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>p <span class="sc">+</span> <span class="fu">theme_barbie</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="08-ggplot2_files/figure-revealjs/barbie-1.png" width="960" class="r-stretch"></section>
@@ -717,24 +723,24 @@ NULL</code></pre>
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb38-2"><a></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb38-3"><a></a></span>
-<span id="cb38-4"><a></a>r <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
-<span id="cb38-5"><a></a>  <span class="fu">summarize</span>(<span class="at">rate =</span> <span class="fu">sum</span>(total) <span class="sc">/</span>  <span class="fu">sum</span>(population) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
-<span id="cb38-6"><a></a>  <span class="fu">pull</span>(rate)</span>
-<span id="cb38-7"><a></a></span>
-<span id="cb38-8"><a></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
-<span id="cb38-9"><a></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">log10</span>(r), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
-<span id="cb38-10"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb38-11"><a></a>  <span class="fu">geom_text_repel</span>() <span class="sc">+</span> </span>
-<span id="cb38-12"><a></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb38-13"><a></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb38-14"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
-<span id="cb38-15"><a></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
-<span id="cb38-16"><a></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
-<span id="cb38-17"><a></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
-<span id="cb38-18"><a></a>  <span class="fu">theme_economist</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb38-2"><a aria-label="2"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb38-3"><a aria-label="3"></a></span>
+<span id="cb38-4"><a aria-label="4"></a>r <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
+<span id="cb38-5"><a aria-label="5"></a>  <span class="fu">summarize</span>(<span class="at">rate =</span> <span class="fu">sum</span>(total) <span class="sc">/</span>  <span class="fu">sum</span>(population) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
+<span id="cb38-6"><a aria-label="6"></a>  <span class="fu">pull</span>(rate)</span>
+<span id="cb38-7"><a aria-label="7"></a></span>
+<span id="cb38-8"><a aria-label="8"></a>murders <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(population<span class="sc">/</span><span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, total, <span class="at">label =</span> abb)) <span class="sc">+</span>   </span>
+<span id="cb38-9"><a aria-label="9"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">log10</span>(r), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
+<span id="cb38-10"><a aria-label="10"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> region), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb38-11"><a aria-label="11"></a>  <span class="fu">geom_text_repel</span>() <span class="sc">+</span> </span>
+<span id="cb38-12"><a aria-label="12"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb38-13"><a aria-label="13"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb38-14"><a aria-label="14"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Populations in millions (log scale)"</span>, </span>
+<span id="cb38-15"><a aria-label="15"></a>       <span class="at">y =</span> <span class="st">"Total number of murders (log scale)"</span>, </span>
+<span id="cb38-16"><a aria-label="16"></a>       <span class="at">title =</span> <span class="st">"US Gun Murders in 2010"</span>,</span>
+<span id="cb38-17"><a aria-label="17"></a>       <span class="at">color =</span> <span class="st">"Region"</span>) <span class="sc">+</span></span>
+<span id="cb38-18"><a aria-label="18"></a>  <span class="fu">theme_economist</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -762,14 +768,14 @@ NULL</code></pre>
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">library</span>(gridExtra)</span>
-<span id="cb39-2"><a></a>p1 <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
-<span id="cb39-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">log10</span>(population))) <span class="sc">+</span> </span>
-<span id="cb39-4"><a></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb39-5"><a></a>p2 <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
-<span id="cb39-6"><a></a>  <span class="fu">gplot</span>(<span class="fu">aes</span>(<span class="fu">log10</span>(population), <span class="fu">log10</span>(total))) <span class="sc">+</span> </span>
-<span id="cb39-7"><a></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb39-8"><a></a><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb39-2"><a aria-label="2"></a>p1 <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
+<span id="cb39-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">log10</span>(population))) <span class="sc">+</span> </span>
+<span id="cb39-4"><a aria-label="4"></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb39-5"><a aria-label="5"></a>p2 <span class="ot">&lt;-</span> murders <span class="sc">|&gt;</span> </span>
+<span id="cb39-6"><a aria-label="6"></a>  <span class="fu">gplot</span>(<span class="fu">aes</span>(<span class="fu">log10</span>(population), <span class="fu">log10</span>(total))) <span class="sc">+</span> </span>
+<span id="cb39-7"><a aria-label="7"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb39-8"><a aria-label="8"></a><span class="fu">grid.arrange</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-3-2">

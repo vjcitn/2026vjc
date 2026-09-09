@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-11-19">
   <meta name="keywords" content="High dimensional data">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -248,9 +254,9 @@
 <li>Start by standardizing data</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(matrixStats) </span>
-<span id="cb1-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) </span>
-<span id="cb1-3"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colSds</span>(x), <span class="st">"/"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(matrixStats) </span>
+<span id="cb1-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colMeans</span>(x)) </span>
+<span id="cb1-3"><a aria-label="3"></a>x <span class="ot">&lt;-</span> <span class="fu">sweep</span>(x, <span class="dv">2</span>, <span class="fu">colSds</span>(x), <span class="st">"/"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="motivation-preserving-distance-4" class="slide level2">
@@ -266,12 +272,12 @@
 <li>We can compute these distances using <code>dist</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x) </span>
-<span id="cb2-2"><a></a><span class="fu">as.matrix</span>(d)[<span class="dv">1</span>, <span class="dv">2</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x) </span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">as.matrix</span>(d)[<span class="dv">1</span>, <span class="dv">2</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5949407</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>, <span class="dv">51</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>, <span class="dv">51</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.388275</code></pre>
 </div>
@@ -448,18 +454,18 @@ a_{2,1}&amp;a_{2,2}
 <li>If we define:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
-<span id="cb6-2"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
+<span id="cb6-2"><a aria-label="2"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We can write code implementing a rotation by any angle <span class="math inline">\(\theta\)</span> using linear algebra:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>rotate <span class="ot">&lt;-</span> <span class="cf">function</span>(x, theta){ </span>
-<span id="cb7-2"><a></a>  theta <span class="ot">&lt;-</span> theta<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> </span>
-<span id="cb7-3"><a></a>  A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span>
-<span id="cb7-4"><a></a>  x <span class="sc">%*%</span> A </span>
-<span id="cb7-5"><a></a>} </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>rotate <span class="ot">&lt;-</span> <span class="cf">function</span>(x, theta){ </span>
+<span id="cb7-2"><a aria-label="2"></a>  theta <span class="ot">&lt;-</span> theta<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi<span class="sc">/</span><span class="dv">360</span> </span>
+<span id="cb7-3"><a aria-label="3"></a>  A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb7-4"><a aria-label="4"></a>  x <span class="sc">%*%</span> A </span>
+<span id="cb7-5"><a aria-label="5"></a>} </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="linear-transformations-7" class="slide level2">
@@ -558,7 +564,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>Here is an example for a 30 degree rotation, although it works for any angle:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">all.equal</span>(<span class="fu">as.matrix</span>(<span class="fu">dist</span>(<span class="fu">rotate</span>(x, <span class="dv">30</span>))), <span class="fu">as.matrix</span>(<span class="fu">dist</span>(x))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">all.equal</span>(<span class="fu">as.matrix</span>(<span class="fu">dist</span>(<span class="fu">rotate</span>(x, <span class="dv">30</span>))), <span class="fu">as.matrix</span>(<span class="fu">dist</span>(x))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -576,7 +582,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li><p>We can confirm using R:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>A <span class="sc">%*%</span> <span class="fu">t</span>(A) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>A <span class="sc">%*%</span> <span class="fu">t</span>(A) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             [,1]         [,2]
 [1,] 1.000000e+00 1.014654e-17
@@ -599,13 +605,13 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>We can confirm using R:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> </span>
-<span id="cb12-2"><a></a>z <span class="ot">&lt;-</span> <span class="fu">rotate</span>(x, theta) <span class="co"># works for any theta </span></span>
-<span id="cb12-3"><a></a><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">45</span> </span>
+<span id="cb12-2"><a aria-label="2"></a>z <span class="ot">&lt;-</span> <span class="fu">rotate</span>(x, theta) <span class="co"># works for any theta </span></span>
+<span id="cb12-3"><a aria-label="3"></a><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 198</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 198</code></pre>
 </div>
@@ -624,7 +630,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>Here we compute the proportion of TSS attributed to each column, referred to as the <em>variance explained</em> or <em>variance captured</em> by each column, for <span class="math inline">\(\mathbf{X}\)</span>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">colSums</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">colSums</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5 0.5</code></pre>
 </div>
@@ -633,7 +639,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>and <span class="math inline">\(\mathbf{Z}\)</span>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">colSums</span>(z<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">colSums</span>(z<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.98477912 0.01522088</code></pre>
 </div>
@@ -665,8 +671,8 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li><p>We denote this rotation matrix with <span class="math inline">\(\mathbf{V}\)</span>:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>theta <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*-</span><span class="dv">45</span><span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
-<span id="cb20-2"><a></a>V <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>theta <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*-</span><span class="dv">45</span><span class="sc">/</span><span class="dv">360</span> <span class="co">#convert to radians </span></span>
+<span id="cb20-2"><a aria-label="2"></a>V <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">cos</span>(theta), <span class="sc">-</span><span class="fu">sin</span>(theta), <span class="fu">sin</span>(theta), <span class="fu">cos</span>(theta)), <span class="dv">2</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="principal-component-analysis-3" class="slide level2">
@@ -681,7 +687,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>In R:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>z <span class="ot">&lt;-</span> x <span class="sc">%*%</span> V </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>z <span class="ot">&lt;-</span> x <span class="sc">%*%</span> V </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="principal-component-analysis-4" class="slide level2">
@@ -702,9 +708,9 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <section id="principal-component-analysis-7" class="slide level2">
 <h2>Principal Component Analysis</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>rafalib<span class="sc">::</span><span class="fu">mypar</span>() </span>
-<span id="cb22-2"><a></a><span class="fu">plot</span>(<span class="fu">dist</span>(x), <span class="fu">dist</span>(z[,<span class="dv">1</span>])) </span>
-<span id="cb22-3"><a></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>rafalib<span class="sc">::</span><span class="fu">mypar</span>() </span>
+<span id="cb22-2"><a aria-label="2"></a><span class="fu">plot</span>(<span class="fu">dist</span>(x), <span class="fu">dist</span>(z[,<span class="dv">1</span>])) </span>
+<span id="cb22-3"><a aria-label="3"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>, <span class="at">col =</span> <span class="st">"red"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="36-dimension-reduction_files/figure-revealjs/distance-approx-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
@@ -796,7 +802,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>In R, we can find the principal components of any matrix with the function <code>prcomp</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x, <span class="at">center =</span> <span class="cn">FALSE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x, <span class="at">center =</span> <span class="cn">FALSE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The default behavior is to center the columns of <code>x</code> before computing the PCs, an operation we don’t currently need because our matrix is scaled.</li>
@@ -809,7 +815,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li><p>We can see that columns of the <code>pca$rotation</code> are indeed the rotation obtained with -45 (remember the sign is arbitrary):</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>pca<span class="sc">$</span>rotation </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>pca<span class="sc">$</span>rotation </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            PC1        PC2
 [1,] -0.7071068  0.7071068
@@ -824,7 +830,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li><p>This implies we can compute the variance explained by each PC using:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.98477912 0.01522088</code></pre>
 </div>
@@ -836,7 +842,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <li>The function <code>summary</code> performs this calculation:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">summary</span>(pca) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="fu">summary</span>(pca) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                           PC1     PC2
@@ -852,11 +858,11 @@ Cumulative Proportion  0.9848 1.00000</code></pre>
 <li>We also see that we can rotate <code>x</code> (<span class="math inline">\(\mathbf{X}\)</span>) and <code>pca$x</code> (<span class="math inline">\(\mathbf{Z}\)</span>) as explained with the mathematical earlier:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">all.equal</span>(pca<span class="sc">$</span>x, x <span class="sc">%*%</span> pca<span class="sc">$</span>rotation) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">all.equal</span>(pca<span class="sc">$</span>x, x <span class="sc">%*%</span> pca<span class="sc">$</span>rotation) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">all.equal</span>(x, pca<span class="sc">$</span>x <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">all.equal</span>(x, pca<span class="sc">$</span>x <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -869,11 +875,11 @@ Cumulative Proportion  0.9848 1.00000</code></pre>
 <li><p>It includes four botanical measurements related to three flower species:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">names</span>(iris) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fu">names</span>(iris) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"     </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">head</span>(iris<span class="sc">$</span>Species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">head</span>(iris<span class="sc">$</span>Species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] setosa setosa setosa setosa setosa setosa
 Levels: setosa versicolor virginica</code></pre>
@@ -894,7 +900,7 @@ Levels: setosa versicolor virginica</code></pre>
 <li><p>Three are very correlated:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">cor</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">cor</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Sepal.Length Sepal.Width Petal.Length Petal.Width
 Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
@@ -911,8 +917,8 @@ Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
 <li><p>Using the <code>summary</code> function, we can see the variability explained by each PC:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x) </span>
-<span id="cb40-2"><a></a><span class="fu">summary</span>(pca) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(x) </span>
+<span id="cb40-2"><a aria-label="2"></a><span class="fu">summary</span>(pca) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
                           PC1     PC2    PC3     PC4
@@ -935,10 +941,10 @@ Cumulative Proportion  0.9246 0.97769 0.9948 1.00000</code></pre>
 <li>A useful application is we can now visualize with a two-dimensional plot:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">data.frame</span>(pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">Species =</span> iris<span class="sc">$</span>Species) <span class="sc">|&gt;</span> </span>
-<span id="cb42-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(PC1, PC2, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb42-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">cex =</span> <span class="dv">3</span>, <span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span> </span>
-<span id="cb42-4"><a></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a><span class="fu">data.frame</span>(pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">Species =</span> iris<span class="sc">$</span>Species) <span class="sc">|&gt;</span> </span>
+<span id="cb42-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(PC1, PC2, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb42-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>(<span class="at">cex =</span> <span class="dv">3</span>, <span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span> </span>
+<span id="cb42-4"><a aria-label="4"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="iris-example-6" class="slide level2">
@@ -971,14 +977,14 @@ Cumulative Proportion  0.9246 0.97769 0.9948 1.00000</code></pre>
 <li>Let’s compute the PCs:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a>pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(mnist<span class="sc">$</span>train<span class="sc">$</span>images) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="mnist-example-2" class="slide level2">
 <h2>MNIST example</h2>
 <p>And look at the variance explained:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">plot</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>), <span class="at">xlab =</span> <span class="st">"PC"</span>, <span class="at">ylab =</span> <span class="st">"Variance explained"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a><span class="fu">plot</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>), <span class="at">xlab =</span> <span class="st">"PC"</span>, <span class="at">ylab =</span> <span class="st">"Variance explained"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="36-dimension-reduction_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
@@ -1028,7 +1034,7 @@ Cumulative Proportion  0.9246 0.97769 0.9948 1.00000</code></pre>
 <section id="dimensions-approximation" class="slide level2">
 <h2>200 dimensions approximation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>images_hat <span class="ot">&lt;-</span> pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>] <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a>images_hat <span class="ot">&lt;-</span> pca<span class="sc">$</span>x[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>] <span class="sc">%*%</span> <span class="fu">t</span>(pca<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="dimensions-approximation-1" class="slide level2">

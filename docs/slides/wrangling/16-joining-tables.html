@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-09-29">
   <meta name="keywords" content="Wrangling">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -215,9 +221,9 @@
 <li><p>We have the population size in this table:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb1-3"><a></a><span class="fu">head</span>(murders) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">head</span>(murders) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state abb region population total
 1    Alabama  AL  South    4779736   135
@@ -235,7 +241,7 @@
 <li>and electoral votes in this one:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">head</span>(results_us_election_2016) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">head</span>(results_us_election_2016) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         state electoral_votes  clinton    trump  johnson     stein  mcmullin
 1   California              55 61.72640 31.61711 3.374092 1.9649200 0.2792070
@@ -260,7 +266,7 @@
 <li>Just concatenating these two tables together will not work since the order of the states is not the same.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">identical</span>(results_us_election_2016<span class="sc">$</span>state, murders<span class="sc">$</span>state) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">identical</span>(results_us_election_2016<span class="sc">$</span>state, murders<span class="sc">$</span>state) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -281,9 +287,9 @@
 <li>Notice what happens if we join the two tables above by state using <code>left_join</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>tab <span class="ot">&lt;-</span> <span class="fu">left_join</span>(murders, results_us_election_2016, <span class="at">by =</span> <span class="st">"state"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a></a>  <span class="fu">select</span>(<span class="sc">-</span>others) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">ev =</span> electoral_votes) </span>
-<span id="cb7-3"><a></a><span class="fu">head</span>(tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>tab <span class="ot">&lt;-</span> <span class="fu">left_join</span>(murders, results_us_election_2016, <span class="at">by =</span> <span class="st">"state"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a aria-label="2"></a>  <span class="fu">select</span>(<span class="sc">-</span>others) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">ev =</span> electoral_votes) </span>
+<span id="cb7-3"><a aria-label="3"></a><span class="fu">head</span>(tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state abb region population total ev  clinton    trump  johnson
 1    Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169
@@ -329,11 +335,11 @@
 <li>We create the tables <code>tab1</code> and <code>tab2</code> so that they have some states in common but not all:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>tab_1 <span class="ot">&lt;-</span> <span class="fu">slice</span>(murders, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(state, population) </span>
-<span id="cb9-2"><a></a>tab_2 <span class="ot">&lt;-</span> results_us_election_2016 <span class="sc">|&gt;</span>  </span>
-<span id="cb9-3"><a></a>  <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Alabama"</span>, <span class="st">"Alaska"</span>, <span class="st">"Arizona"</span>,  </span>
-<span id="cb9-4"><a></a>                    <span class="st">"California"</span>, <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>)) <span class="sc">|&gt;</span>  </span>
-<span id="cb9-5"><a></a>  <span class="fu">select</span>(state, electoral_votes) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">ev =</span> electoral_votes) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>tab_1 <span class="ot">&lt;-</span> <span class="fu">slice</span>(murders, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(state, population) </span>
+<span id="cb9-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> results_us_election_2016 <span class="sc">|&gt;</span>  </span>
+<span id="cb9-3"><a aria-label="3"></a>  <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Alabama"</span>, <span class="st">"Alaska"</span>, <span class="st">"Arizona"</span>,  </span>
+<span id="cb9-4"><a aria-label="4"></a>                    <span class="st">"California"</span>, <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>)) <span class="sc">|&gt;</span>  </span>
+<span id="cb9-5"><a aria-label="5"></a>  <span class="fu">select</span>(state, electoral_votes) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">ev =</span> electoral_votes) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We will use these two tables as examples in the next sections.</li>
@@ -347,7 +353,7 @@
 <li><p>We specify which column to use to match with the <code>by</code> argument.</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">left_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">left_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state population ev
 1    Alabama    4779736  9
@@ -368,7 +374,7 @@
 <li>Also, notice that this function, as well as all the other joins, can receive the first arguments through the pipe:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>tab_1 <span class="sc">|&gt;</span> <span class="fu">left_join</span>(tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>tab_1 <span class="sc">|&gt;</span> <span class="fu">left_join</span>(tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="right-join" class="slide level2">
@@ -377,7 +383,7 @@
 <li>If instead of a table with the same rows as first table, we want one with the same rows as second table, we can use <code>right_join</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>tab_1 <span class="sc">|&gt;</span> <span class="fu">right_join</span>(tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>tab_1 <span class="sc">|&gt;</span> <span class="fu">right_join</span>(tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        state population ev
 1     Alabama    4779736  9
@@ -399,7 +405,7 @@
 <li><p>You can think of this as an intersection:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">inner_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">inner_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state population ev
 1    Alabama    4779736  9
@@ -416,7 +422,7 @@
 <li><p>You can think of this as a union:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">full_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">full_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        state population ev
 1     Alabama    4779736  9
@@ -437,7 +443,7 @@
 <li><p>It does not add the columns of the second:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">semi_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">semi_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state population
 1    Alabama    4779736
@@ -454,7 +460,7 @@
 <li><p>It keeps the elements of the first table for which there is no information in the second:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">anti_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">anti_join</span>(tab_1, tab_2, <span class="at">by =</span> <span class="st">"state"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     state population
 1 Arkansas    2915918
@@ -476,7 +482,7 @@
 <li>The <strong>dplyr</strong> function <em>bind_cols</em> binds two objects by making them columns in a tibble.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">bind_cols</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">bind_cols</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
       a     b
@@ -504,11 +510,11 @@
 <li>For example, here we break up the <code>tab</code> data frame and then bind them back together:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>tab_1 <span class="ot">&lt;-</span> tab[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] </span>
-<span id="cb25-2"><a></a>tab_2 <span class="ot">&lt;-</span> tab[, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>] </span>
-<span id="cb25-3"><a></a>tab_3 <span class="ot">&lt;-</span> tab[, <span class="dv">7</span><span class="sc">:</span><span class="dv">8</span>] </span>
-<span id="cb25-4"><a></a>new_tab <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(tab_1, tab_2, tab_3) </span>
-<span id="cb25-5"><a></a><span class="fu">head</span>(new_tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>tab_1 <span class="ot">&lt;-</span> tab[, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] </span>
+<span id="cb25-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>] </span>
+<span id="cb25-3"><a aria-label="3"></a>tab_3 <span class="ot">&lt;-</span> tab[, <span class="dv">7</span><span class="sc">:</span><span class="dv">8</span>] </span>
+<span id="cb25-4"><a aria-label="4"></a>new_tab <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(tab_1, tab_2, tab_3) </span>
+<span id="cb25-5"><a aria-label="5"></a><span class="fu">head</span>(new_tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state abb region population total ev  clinton    trump
 1    Alabama  AL  South    4779736   135  9 34.35795 62.08309
@@ -526,9 +532,9 @@
 <li>The <code>bind_rows</code> function is similar to <code>bind_cols</code>, but binds rows instead of columns:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,] </span>
-<span id="cb27-2"><a></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>,] </span>
-<span id="cb27-3"><a></a><span class="fu">bind_rows</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,] </span>
+<span id="cb27-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>,] </span>
+<span id="cb27-3"><a aria-label="3"></a><span class="fu">bind_rows</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     state abb region population total ev  clinton    trump  johnson     stein
 1  Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169 0.4422682
@@ -561,7 +567,7 @@
 <li>You can take intersections of vectors of any type, such as numeric:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">intersect</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">intersect</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  6  7  8  9 10</code></pre>
 </div>
@@ -570,7 +576,7 @@
 <li>or characters:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">intersect</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>), <span class="fu">c</span>(<span class="st">"b"</span>,<span class="st">"c"</span>,<span class="st">"d"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">intersect</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>), <span class="fu">c</span>(<span class="st">"b"</span>,<span class="st">"c"</span>,<span class="st">"d"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "b" "c"</code></pre>
 </div>
@@ -586,9 +592,9 @@
 <li>To make sure we use the <strong>dplyr</strong> version of <code>intersect</code> rather than the base R version, we can use <code>dplyr::intersect</code> like this:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span>
-<span id="cb33-2"><a></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
-<span id="cb33-3"><a></a>dplyr<span class="sc">::</span><span class="fu">intersect</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span>
+<span id="cb33-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
+<span id="cb33-3"><a aria-label="3"></a>dplyr<span class="sc">::</span><span class="fu">intersect</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state abb region population total ev  clinton    trump  johnson
 1    Arizona  AZ   West    6392017   232 11 44.58042 48.08314 4.082188
@@ -608,11 +614,11 @@
 <li><p>For example:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">union</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a><span class="fu">union</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">union</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>), <span class="fu">c</span>(<span class="st">"b"</span>,<span class="st">"c"</span>,<span class="st">"d"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">union</span>(<span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>), <span class="fu">c</span>(<span class="st">"b"</span>,<span class="st">"c"</span>,<span class="st">"d"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "a" "b" "c" "d"</code></pre>
 </div>
@@ -624,9 +630,9 @@
 <li><strong>dplyr</strong> includes a version of <code>union</code> that combines all the rows of two tables with the same column names.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span>
-<span id="cb39-2"><a></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
-<span id="cb39-3"><a></a>dplyr<span class="sc">::</span><span class="fu">union</span>(tab_1, tab_2)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span>
+<span id="cb39-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
+<span id="cb39-3"><a aria-label="3"></a>dplyr<span class="sc">::</span><span class="fu">union</span>(tab_1, tab_2)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        state abb    region population total ev  clinton    trump  johnson
 1     Alabama  AL     South    4779736   135  9 34.35795 62.08309 2.094169
@@ -654,11 +660,11 @@
 <li><p>Unlike <code>intersect</code> and <code>union</code>, this function is not symmetric:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a><span class="fu">setdiff</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">setdiff</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a><span class="fu">setdiff</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">15</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11 12 13 14 15</code></pre>
 </div>
@@ -670,9 +676,9 @@
 <li>As with the functions shown above, <strong>dplyr</strong> has a version for data frames:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span>
-<span id="cb45-2"><a></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
-<span id="cb45-3"><a></a>dplyr<span class="sc">::</span><span class="fu">setdiff</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a>tab_1 <span class="ot">&lt;-</span> tab[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,] </span>
+<span id="cb45-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
+<span id="cb45-3"><a aria-label="3"></a>dplyr<span class="sc">::</span><span class="fu">setdiff</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    state abb region population total ev  clinton    trump  johnson     stein
 1 Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169 0.4422682
@@ -690,7 +696,7 @@
 <li><p>So notice that:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">setequal</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a><span class="fu">setequal</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -699,7 +705,7 @@
 <li>but:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">setequal</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a><span class="fu">setequal</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -711,7 +717,7 @@
 <li>The <strong>dplyr</strong> version checks whether data frames are equal, regardless of order of rows <em>or</em> columns:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>dplyr<span class="sc">::</span><span class="fu">setequal</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">setequal</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -724,7 +730,7 @@
 <li><p>In <strong>tidyverse</strong> we joined two tables with <code>left_join</code>:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>tab <span class="ot">&lt;-</span> <span class="fu">left_join</span>(murders, results_us_election_2016, <span class="at">by =</span> <span class="st">"state"</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a aria-label="1"></a>tab <span class="ot">&lt;-</span> <span class="fu">left_join</span>(murders, results_us_election_2016, <span class="at">by =</span> <span class="st">"state"</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="joining-with-data.table-1" class="slide level2">
@@ -733,8 +739,8 @@
 <li>In <strong>data.table</strong> the <code>merge</code> functions works similarly:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">library</span>(data.table) </span>
-<span id="cb54-2"><a></a>tab <span class="ot">&lt;-</span> <span class="fu">merge</span>(murders, results_us_election_2016, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a aria-label="1"></a><span class="fu">library</span>(data.table) </span>
+<span id="cb54-2"><a aria-label="2"></a>tab <span class="ot">&lt;-</span> <span class="fu">merge</span>(murders, results_us_election_2016, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="joining-with-data.table-2" class="slide level2">

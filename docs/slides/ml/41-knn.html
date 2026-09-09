@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-12-08">
   <meta name="keywords" content="Machine Learning">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -233,14 +239,14 @@ p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid X_1 = x_1 , X_2 = x_2).
 <section id="training-set" class="slide level2">
 <h2>Training set</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>mnist_27<span class="sc">$</span>train <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x_1, x_2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">75</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>mnist_27<span class="sc">$</span>train <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x_1, x_2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha=</span>.<span class="dv">75</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="41-knn_files/figure-revealjs/two-or-seven-scatter-1.png" width="960" class="r-stretch"></section>
 <section id="test-set" class="slide level2">
 <h2>Test set</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>mnist_27<span class="sc">$</span>test <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x_1, x_2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">75</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>mnist_27<span class="sc">$</span>test <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x_1, x_2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">75</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="41-knn_files/figure-revealjs/two-or-seven-scatter-2-1.png" width="960" class="r-stretch"></section>
@@ -266,20 +272,20 @@ p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid X_1 = x_1 , X_2 = x_2).
 <section id="lets-try-it" class="slide level2">
 <h2>Let’s try it</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb3-2"><a></a><span class="fu">library</span>(caret) </span>
-<span id="cb3-3"><a></a>knn_fit <span class="ot">&lt;-</span> <span class="fu">knn3</span>(y <span class="sc">~</span> ., <span class="at">data =</span> mnist_27<span class="sc">$</span>train, <span class="at">k =</span> <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">library</span>(caret) </span>
+<span id="cb3-3"><a aria-label="3"></a>knn_fit <span class="ot">&lt;-</span> <span class="fu">knn3</span>(y <span class="sc">~</span> ., <span class="at">data =</span> mnist_27<span class="sc">$</span>train, <span class="at">k =</span> <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="knn" class="slide level2">
 <h2>kNN</h2>
 <p>This gives us <span class="math inline">\(\widehat{p}(\mathbf{x})\)</span>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>p_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>test)[,<span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>p_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>test)[,<span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
-<span id="cb5-2"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">confusionMatrix</span>(y_hat_knn, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.815 </code></pre>
@@ -300,8 +306,8 @@ p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid X_1 = x_1 , X_2 = x_2).
 <h2>Over-training</h2>
 <p>Compare</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>train, <span class="at">type =</span> <span class="st">"class"</span>) </span>
-<span id="cb7-2"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn, mnist_27<span class="sc">$</span>train<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>train, <span class="at">type =</span> <span class="st">"class"</span>) </span>
+<span id="cb7-2"><a aria-label="2"></a><span class="fu">confusionMatrix</span>(y_hat_knn, mnist_27<span class="sc">$</span>train<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.859 </code></pre>
@@ -309,8 +315,8 @@ p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid X_1 = x_1 , X_2 = x_2).
 </div>
 <p>to</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
-<span id="cb9-2"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>y_hat_knn <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
+<span id="cb9-2"><a aria-label="2"></a><span class="fu">confusionMatrix</span>(y_hat_knn, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.815 </code></pre>
@@ -321,17 +327,17 @@ p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid X_1 = x_1 , X_2 = x_2).
 <h2>Over-training</h2>
 <p>Compare this:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>knn_fit_1 <span class="ot">&lt;-</span> <span class="fu">knn3</span>(y <span class="sc">~</span> ., <span class="at">data =</span> mnist_27<span class="sc">$</span>train, <span class="at">k =</span> <span class="dv">1</span>) </span>
-<span id="cb11-2"><a></a>y_hat_knn_1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit_1, mnist_27<span class="sc">$</span>train, <span class="at">type =</span> <span class="st">"class"</span>) </span>
-<span id="cb11-3"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn_1, mnist_27<span class="sc">$</span>train<span class="sc">$</span>y)<span class="sc">$</span>overall[[<span class="st">"Accuracy"</span>]] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>knn_fit_1 <span class="ot">&lt;-</span> <span class="fu">knn3</span>(y <span class="sc">~</span> ., <span class="at">data =</span> mnist_27<span class="sc">$</span>train, <span class="at">k =</span> <span class="dv">1</span>) </span>
+<span id="cb11-2"><a aria-label="2"></a>y_hat_knn_1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit_1, mnist_27<span class="sc">$</span>train, <span class="at">type =</span> <span class="st">"class"</span>) </span>
+<span id="cb11-3"><a aria-label="3"></a><span class="fu">confusionMatrix</span>(y_hat_knn_1, mnist_27<span class="sc">$</span>train<span class="sc">$</span>y)<span class="sc">$</span>overall[[<span class="st">"Accuracy"</span>]] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.996</code></pre>
+<pre><code>[1] 0.994</code></pre>
 </div>
 </div>
 <p>to this:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>y_hat_knn_1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit_1, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
-<span id="cb13-2"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn_1, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>y_hat_knn_1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit_1, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
+<span id="cb13-2"><a aria-label="2"></a><span class="fu">confusionMatrix</span>(y_hat_knn_1, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
     0.81 </code></pre>
@@ -349,9 +355,9 @@ p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid X_1 = x_1 , X_2 = x_2).
 <h2>Over-smoothing</h2>
 <p>Let’s try a much bigger neighborhood:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>knn_fit_401 <span class="ot">&lt;-</span> <span class="fu">knn3</span>(y <span class="sc">~</span> ., <span class="at">data =</span> mnist_27<span class="sc">$</span>train, <span class="at">k =</span> <span class="dv">401</span>) </span>
-<span id="cb15-2"><a></a>y_hat_knn_401 <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit_401, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
-<span id="cb15-3"><a></a><span class="fu">confusionMatrix</span>(y_hat_knn_401, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>knn_fit_401 <span class="ot">&lt;-</span> <span class="fu">knn3</span>(y <span class="sc">~</span> ., <span class="at">data =</span> mnist_27<span class="sc">$</span>train, <span class="at">k =</span> <span class="dv">401</span>) </span>
+<span id="cb15-2"><a aria-label="2"></a>y_hat_knn_401 <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit_401, mnist_27<span class="sc">$</span>test, <span class="at">type =</span> <span class="st">"class"</span>) </span>
+<span id="cb15-3"><a aria-label="3"></a><span class="fu">confusionMatrix</span>(y_hat_knn_401, mnist_27<span class="sc">$</span>test<span class="sc">$</span>y)<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
     0.76 </code></pre>

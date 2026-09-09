@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-12-01">
   <meta name="keywords" content="Machine Learning">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -224,29 +230,29 @@
 <li>For our first example, we use the height data provided by the <strong>dslabs</strong> package.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(caret) </span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(dslabs) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(caret) </span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(dslabs) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We start by defining the outcome and predictors.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>y <span class="ot">&lt;-</span> heights<span class="sc">$</span>sex </span>
-<span id="cb2-2"><a></a>x <span class="ot">&lt;-</span> heights<span class="sc">$</span>height </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>y <span class="ot">&lt;-</span> heights<span class="sc">$</span>sex </span>
+<span id="cb2-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> heights<span class="sc">$</span>height </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="training-and-test-sets" class="slide level2">
 <h2>Training and test sets</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2007</span>) </span>
-<span id="cb3-2"><a></a>test_index <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(y, <span class="at">times =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="fl">0.25</span>, <span class="at">list =</span> <span class="cn">FALSE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">2007</span>) </span>
+<span id="cb3-2"><a aria-label="2"></a>test_index <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(y, <span class="at">times =</span> <span class="dv">1</span>, <span class="at">p =</span> <span class="fl">0.25</span>, <span class="at">list =</span> <span class="cn">FALSE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>We can use the result of the <code>createDataPartition</code> function call to define the training and test sets as follows:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>test_set <span class="ot">&lt;-</span> heights[test_index, ] </span>
-<span id="cb4-2"><a></a>train_set <span class="ot">&lt;-</span> heights[<span class="sc">-</span>test_index, ] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>test_set <span class="ot">&lt;-</span> heights[test_index, ] </span>
+<span id="cb4-2"><a aria-label="2"></a>train_set <span class="ot">&lt;-</span> heights[<span class="sc">-</span>test_index, ] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="overall-accuracy" class="slide level2">
@@ -255,14 +261,14 @@
 <li>Let’s start by developing the simplest possible machine algorithm: guessing the outcome.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>y_hat <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="fu">length</span>(test_index), <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>y_hat <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="fu">length</span>(test_index), <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a aria-label="2"></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The <em>overall accuracy</em> is simply defined as the overall proportion that is predicted correctly:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">mean</span>(y_hat <span class="sc">==</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">mean</span>(y_hat <span class="sc">==</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.479</code></pre>
 </div>
@@ -275,8 +281,8 @@
 <li><p>Exploratory data analysis suggests we can because, on average, males are slightly taller than females:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb8-2"><a></a>heights <span class="sc">|&gt;</span> <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(height), <span class="at">sd =</span> <span class="fu">sd</span>(height)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb8-2"><a aria-label="2"></a>heights <span class="sc">|&gt;</span> <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(height), <span class="at">sd =</span> <span class="fu">sd</span>(height)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   sex      avg    sd
@@ -295,13 +301,13 @@
 <li>Let’s try another simple approach: predict <code>Male</code> if height is within two standard deviations from the average male.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">62</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">62</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The accuracy goes up from 0.50 to about 0.80:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">mean</span>(y <span class="sc">==</span> y_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">mean</span>(y <span class="sc">==</span> y_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.793</code></pre>
 </div>
@@ -316,11 +322,11 @@
 <li>Here we examine the accuracy of 10 different cutoffs and pick the one yielding the best result:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>cutoff <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">61</span>, <span class="dv">70</span>) </span>
-<span id="cb13-2"><a></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sapply</span>(cutoff, <span class="cf">function</span>(x){ </span>
-<span id="cb13-3"><a></a>  y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(train_set<span class="sc">$</span>height <span class="sc">&gt;</span> x, <span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
-<span id="cb13-4"><a></a>  <span class="fu">mean</span>(y_hat <span class="sc">==</span> train_set<span class="sc">$</span>sex) </span>
-<span id="cb13-5"><a></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>cutoff <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">61</span>, <span class="dv">70</span>) </span>
+<span id="cb13-2"><a aria-label="2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sapply</span>(cutoff, <span class="cf">function</span>(x){ </span>
+<span id="cb13-3"><a aria-label="3"></a>  y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(train_set<span class="sc">$</span>height <span class="sc">&gt;</span> x, <span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
+<span id="cb13-4"><a aria-label="4"></a>  <span class="fu">mean</span>(y_hat <span class="sc">==</span> train_set<span class="sc">$</span>sex) </span>
+<span id="cb13-5"><a aria-label="5"></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="overall-accuracy-4" class="slide level2">
@@ -336,7 +342,7 @@
 <li>We see that the maximum value is:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">max</span>(accuracy) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">max</span>(accuracy) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.834</code></pre>
 </div>
@@ -346,8 +352,8 @@
 <li><p>The cutoff resulting in this accuracy is:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>best_cutoff <span class="ot">&lt;-</span> cutoff[<span class="fu">which.max</span>(accuracy)] </span>
-<span id="cb16-2"><a></a>best_cutoff </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>best_cutoff <span class="ot">&lt;-</span> cutoff[<span class="fu">which.max</span>(accuracy)] </span>
+<span id="cb16-2"><a aria-label="2"></a>best_cutoff </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 64</code></pre>
 </div>
@@ -359,10 +365,10 @@
 <li>We can now test this cutoff on our test set to make sure our accuracy is not overly optimistic:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>y_hat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(test_set<span class="sc">$</span>height <span class="sc">&gt;</span> best_cutoff, <span class="st">"Male"</span>, <span class="st">"Female"</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb18-2"><a></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
-<span id="cb18-3"><a></a>y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(y_hat) </span>
-<span id="cb18-4"><a></a><span class="fu">mean</span>(y_hat <span class="sc">==</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>y_hat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(test_set<span class="sc">$</span>height <span class="sc">&gt;</span> best_cutoff, <span class="st">"Male"</span>, <span class="st">"Female"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb18-2"><a aria-label="2"></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
+<span id="cb18-3"><a aria-label="3"></a>y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(y_hat) </span>
+<span id="cb18-4"><a aria-label="4"></a><span class="fu">mean</span>(y_hat <span class="sc">==</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.806</code></pre>
 </div>
@@ -381,8 +387,8 @@
 <section id="the-confusion-matrix" class="slide level2">
 <h2>The confusion matrix</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>cm <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> test_set<span class="sc">$</span>sex) </span>
-<span id="cb20-2"><a></a>cm<span class="sc">$</span>table </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>cm <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> test_set<span class="sc">$</span>sex) </span>
+<span id="cb20-2"><a aria-label="2"></a>cm<span class="sc">$</span>table </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Reference
 Prediction Female Male
@@ -400,7 +406,7 @@ Prediction Female Male
 <li>If we compute the accuracy separately we get:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>cm<span class="sc">$</span>byClass[<span class="fu">c</span>(<span class="st">"Sensitivity"</span>, <span class="st">"Specificity"</span>)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>cm<span class="sc">$</span>byClass[<span class="fu">c</span>(<span class="st">"Sensitivity"</span>, <span class="st">"Specificity"</span>)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sensitivity Specificity 
       0.400       0.926 </code></pre>
@@ -414,7 +420,7 @@ Prediction Female Male
 <li><p>These heights were collected from three data sciences courses, two of which had higher male enrollment:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>cm<span class="sc">$</span>byClass[<span class="st">"Prevalence"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>cm<span class="sc">$</span>byClass[<span class="st">"Prevalence"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Prevalence 
      0.228 </code></pre>
@@ -554,12 +560,12 @@ Prediction Female Male
 <li>The <strong>caret</strong> function <code>confusionMatrix</code> computes all these metrics:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>cm<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>cm<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Accuracy 
    0.806 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>cm<span class="sc">$</span>byClass[<span class="fu">c</span>(<span class="st">"Sensitivity"</span>,<span class="st">"Specificity"</span>, <span class="st">"Prevalence"</span>)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>cm<span class="sc">$</span>byClass[<span class="fu">c</span>(<span class="st">"Sensitivity"</span>,<span class="st">"Specificity"</span>, <span class="st">"Prevalence"</span>)] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sensitivity Specificity  Prevalence 
       0.400       0.926       0.228 </code></pre>
@@ -608,11 +614,11 @@ Prediction Female Male
 <li><p>Let’s rebuild our prediction algorithm, but this time maximizing the F-score instead of overall accuracy:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>cutoff <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">61</span>, <span class="dv">70</span>) </span>
-<span id="cb30-2"><a></a>F_1 <span class="ot">&lt;-</span> <span class="fu">sapply</span>(cutoff, <span class="cf">function</span>(x){ </span>
-<span id="cb30-3"><a></a>  y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(train_set<span class="sc">$</span>height <span class="sc">&gt;</span> x, <span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
-<span id="cb30-4"><a></a>  <span class="fu">F_meas</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> <span class="fu">factor</span>(train_set<span class="sc">$</span>sex)) </span>
-<span id="cb30-5"><a></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>cutoff <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">61</span>, <span class="dv">70</span>) </span>
+<span id="cb30-2"><a aria-label="2"></a>F_1 <span class="ot">&lt;-</span> <span class="fu">sapply</span>(cutoff, <span class="cf">function</span>(x){ </span>
+<span id="cb30-3"><a aria-label="3"></a>  y_hat <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(train_set<span class="sc">$</span>height <span class="sc">&gt;</span> x, <span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
+<span id="cb30-4"><a aria-label="4"></a>  <span class="fu">F_meas</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> <span class="fu">factor</span>(train_set<span class="sc">$</span>sex)) </span>
+<span id="cb30-5"><a aria-label="5"></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="balanced-accuracy-and-f_1-score-4" class="slide level2">
@@ -628,7 +634,7 @@ Prediction Female Male
 <li>We see that it is maximized at <span class="math inline">\(F_1\)</span> value of:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">max</span>(F_1) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">max</span>(F_1) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.614</code></pre>
 </div>
@@ -637,8 +643,8 @@ Prediction Female Male
 <li>This maximum is achieved when we use the following cutoff:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>best_cutoff <span class="ot">&lt;-</span> cutoff[<span class="fu">which.max</span>(F_1)] </span>
-<span id="cb33-2"><a></a>best_cutoff </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>best_cutoff <span class="ot">&lt;-</span> cutoff[<span class="fu">which.max</span>(F_1)] </span>
+<span id="cb33-2"><a aria-label="2"></a>best_cutoff </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 66</code></pre>
 </div>
@@ -653,13 +659,13 @@ Prediction Female Male
 <li>Furthermore, it balances the specificity and sensitivity of our confusion matrix:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>y_hat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(test_set<span class="sc">$</span>height <span class="sc">&gt;</span> best_cutoff, <span class="st">"Male"</span>, <span class="st">"Female"</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb35-2"><a></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
-<span id="cb35-3"><a></a><span class="fu">sensitivity</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>y_hat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(test_set<span class="sc">$</span>height <span class="sc">&gt;</span> best_cutoff, <span class="st">"Male"</span>, <span class="st">"Female"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb35-2"><a aria-label="2"></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">levels</span>(test_set<span class="sc">$</span>sex)) </span>
+<span id="cb35-3"><a aria-label="3"></a><span class="fu">sensitivity</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.633</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">specificity</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">specificity</span>(<span class="at">data =</span> y_hat, <span class="at">reference =</span> test_set<span class="sc">$</span>sex) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.857</code></pre>
 </div>

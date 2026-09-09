@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-09-17">
   <meta name="keywords" content="R">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -216,13 +222,13 @@
 <li><p>Let’s convert the following heights in inches to meters:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Rather than loop we use vectorization:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>heights<span class="sc">*</span><span class="fl">2.54</span><span class="sc">/</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>heights<span class="sc">*</span><span class="fl">2.54</span><span class="sc">/</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 1.7526 1.5748 1.6764 1.7780 1.7780 1.8542 1.7018 1.8542 1.7018 1.7780</code></pre>
 </div>
@@ -235,8 +241,8 @@
 <li><p>This is convenient for computing residuals or deviations from an average:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>avg <span class="ot">&lt;-</span> <span class="fu">mean</span>(heights)</span>
-<span id="cb4-2"><a></a>heights <span class="sc">-</span> avg </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>avg <span class="ot">&lt;-</span> <span class="fu">mean</span>(heights)</span>
+<span id="cb4-2"><a aria-label="2"></a>heights <span class="sc">-</span> avg </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  0.3 -6.7 -2.7  1.3  1.3  4.3 -1.7  4.3 -1.7  1.3</code></pre>
 </div>
@@ -248,8 +254,8 @@
 <li>This means we can compute standard units like this:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(heights)</span>
-<span id="cb6-2"><a></a>(heights <span class="sc">-</span> avg)<span class="sc">/</span>s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(heights)</span>
+<span id="cb6-2"><a aria-label="2"></a>(heights <span class="sc">-</span> avg)<span class="sc">/</span>s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
  [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
@@ -266,12 +272,12 @@
 <li><p>Here is an example:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span>
-<span id="cb8-2"><a></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(heights), <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
-<span id="cb8-3"><a></a>heights <span class="sc">+</span> error</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>heights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">69</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">70</span>)</span>
+<span id="cb8-2"><a aria-label="2"></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(heights), <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
+<span id="cb8-3"><a aria-label="3"></a>heights <span class="sc">+</span> error</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 69.00966 61.85295 65.89078 69.98638 69.81864 73.20553 67.10469 72.90475
- [9] 66.76724 69.92776</code></pre>
+<pre><code> [1] 69.03225 61.91100 66.04911 70.06683 70.32258 73.07676 66.98423 73.17400
+ [9] 67.14853 70.05918</code></pre>
 </div>
 </div>
 </section>
@@ -288,18 +294,18 @@
 <li>Most arithmetic functions work on vectors.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb10-2"><a></a><span class="fu">sqrt</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="fu">sqrt</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
  [9] 3.000000 3.162278</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">log</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">log</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
  [8] 2.0794415 2.1972246 2.3025851</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="dv">2</span><span class="sc">^</span>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="dv">2</span><span class="sc">^</span>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]    2    4    8   16   32   64  128  256  512 1024</code></pre>
 </div>
@@ -308,7 +314,7 @@
 <section id="functions-that-vectorize-1" class="slide level2">
 <h2>Functions that vectorize</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">scale</span>(heights)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">scale</span>(heights)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             [,1]
  [1,]  0.08995503
@@ -329,7 +335,7 @@ attr(,"scaled:scale")
 </div>
 <p>provides the same results,</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>(heights <span class="sc">-</span> <span class="fu">mean</span>(heights))<span class="sc">/</span><span class="fu">sd</span>(heights)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>(heights <span class="sc">-</span> <span class="fu">mean</span>(heights))<span class="sc">/</span><span class="fu">sd</span>(heights)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
  [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
@@ -342,7 +348,7 @@ attr(,"scaled:scale")
 <li>But <code>scale</code> coerces to a column matrix:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">class</span>(<span class="fu">scale</span>(heights))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">class</span>(<span class="fu">scale</span>(heights))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "matrix" "array" </code></pre>
 </div>
@@ -356,8 +362,8 @@ attr(,"scaled:scale")
 <li><p>Here is an example:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb22-2"><a></a><span class="fu">ifelse</span>(a <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span>a, <span class="cn">NA</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb22-2"><a aria-label="2"></a><span class="fu">ifelse</span>(a <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span>a, <span class="cn">NA</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  NA 1.0 0.5  NA 0.2</code></pre>
 </div>
@@ -369,14 +375,14 @@ attr(,"scaled:scale")
 <li>Indexing with a logical vector subsets to the set corresponding to the <code>TRUE</code> values</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">library</span>(dslabs)</span>
-<span id="cb24-2"><a></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb24-2"><a aria-label="2"></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>A convenient aspect of this is that you can subset a vector using this logical vector for indexing:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>murders<span class="sc">$</span>state[ind]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>murders<span class="sc">$</span>state[ind]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Alaska"               "Delaware"             "District of Columbia"
 [4] "Montana"              "North Dakota"         "South Dakota"        
@@ -390,8 +396,8 @@ attr(,"scaled:scale")
 <li>You can also use vectorization to apply logical operators:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> <span class="sc">&amp;</span> murders<span class="sc">$</span>region <span class="sc">==</span> <span class="st">"West"</span></span>
-<span id="cb27-2"><a></a>murders<span class="sc">$</span>state[ind]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>ind <span class="ot">&lt;-</span> murders<span class="sc">$</span>population <span class="sc">&lt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> <span class="sc">&amp;</span> murders<span class="sc">$</span>region <span class="sc">==</span> <span class="st">"West"</span></span>
+<span id="cb27-2"><a aria-label="2"></a>murders<span class="sc">$</span>state[ind]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Alaska"  "Montana" "Wyoming"</code></pre>
 </div>
@@ -403,8 +409,8 @@ attr(,"scaled:scale")
 <li><code>split</code> is a useful function to get indexes using a factor:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>inds <span class="ot">&lt;-</span> <span class="fu">with</span>(murders, <span class="fu">split</span>(<span class="fu">seq_along</span>(region), region))</span>
-<span id="cb29-2"><a></a>murders<span class="sc">$</span>state[inds<span class="sc">$</span>West]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>inds <span class="ot">&lt;-</span> <span class="fu">with</span>(murders, <span class="fu">split</span>(<span class="fu">seq_along</span>(region), region))</span>
+<span id="cb29-2"><a aria-label="2"></a>murders<span class="sc">$</span>state[inds<span class="sc">$</span>West]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Alaska"     "Arizona"    "California" "Colorado"   "Hawaii"    
  [6] "Idaho"      "Montana"    "Nevada"     "New Mexico" "Oregon"    
@@ -422,12 +428,12 @@ attr(,"scaled:scale")
 <section id="which" class="slide level2">
 <h2>which</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>)</span>
-<span id="cb31-2"><a></a>ind</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>)</span>
+<span id="cb31-2"><a aria-label="2"></a>ind</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>murders[ind,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>murders[ind,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       state abb region population total
 5 California  CA   West   37253956  1257</code></pre>
@@ -437,12 +443,12 @@ attr(,"scaled:scale")
 <section id="match" class="slide level2">
 <h2>match</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>), murders<span class="sc">$</span>state)</span>
-<span id="cb35-2"><a></a>ind</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>ind <span class="ot">&lt;-</span> <span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>), murders<span class="sc">$</span>state)</span>
+<span id="cb35-2"><a aria-label="2"></a>ind</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 33 10 44</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>murders[ind,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>murders[ind,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      state abb    region population total
 33 New York  NY Northeast   19378102   517
@@ -454,12 +460,12 @@ attr(,"scaled:scale")
 <section id="in" class="slide level2">
 <h2>%in%</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>))</span>
-<span id="cb39-2"><a></a>ind</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>ind <span class="ot">&lt;-</span> <span class="fu">which</span>(murders<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Florida"</span>, <span class="st">"Texas"</span>))</span>
+<span id="cb39-2"><a aria-label="2"></a>ind</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10 33 44</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>murders[ind,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a>murders[ind,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      state abb    region population total
 10  Florida  FL     South   19687653   669
@@ -475,19 +481,19 @@ attr(,"scaled:scale")
 <section id="match-versus-in" class="slide level2">
 <h2>match versus %in%</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>) <span class="sc">%in%</span> murders<span class="sc">$</span>state</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>) <span class="sc">%in%</span> murders<span class="sc">$</span>state</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE FALSE  TRUE</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>), murders<span class="sc">$</span>state)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a><span class="fu">match</span>(<span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>), murders<span class="sc">$</span>state)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA NA 48</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">match</span>(murders<span class="sc">$</span>state, <span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a><span class="fu">match</span>(murders<span class="sc">$</span>state, <span class="fu">c</span>(<span class="st">"Boston"</span>, <span class="st">"Dakota"</span>, <span class="st">"Washington"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
 [26] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA  3 NA NA
@@ -511,12 +517,12 @@ attr(,"scaled:scale")
 <section id="apply-examples" class="slide level2">
 <h2>Apply Examples</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a> mm <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">nc=</span><span class="dv">2</span>, <span class="at">byrow=</span>T)</span>
-<span id="cb49-2"><a></a> <span class="fu">apply</span>(mm, <span class="dv">1</span>, sum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a> mm <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">nc=</span><span class="dv">2</span>, <span class="at">byrow=</span>T)</span>
+<span id="cb49-2"><a aria-label="2"></a> <span class="fu">apply</span>(mm, <span class="dv">1</span>, sum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  3  7 11 15 19</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a> <span class="fu">apply</span>(mm, <span class="dv">2</span>, \(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-label="1"></a> <span class="fu">apply</span>(mm, <span class="dv">2</span>, \(x) x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2]
 [1,]    1    4
@@ -530,8 +536,8 @@ attr(,"scaled:scale")
 <section id="split-example" class="slide level2">
 <h2>Split Example</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>sp1 <span class="ot">=</span> <span class="fu">split</span>(murders<span class="sc">$</span>population, murders<span class="sc">$</span>region)</span>
-<span id="cb53-2"><a></a><span class="fu">lapply</span>(sp1, sum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a aria-label="1"></a>sp1 <span class="ot">=</span> <span class="fu">split</span>(murders<span class="sc">$</span>population, murders<span class="sc">$</span>region)</span>
+<span id="cb53-2"><a aria-label="2"></a><span class="fu">lapply</span>(sp1, sum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$Northeast
 [1] 55317240
@@ -550,7 +556,7 @@ $West
 <li>alternatively:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">with</span>(murders, <span class="fu">tapply</span>(population, region, sum))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a aria-label="1"></a><span class="fu">with</span>(murders, <span class="fu">tapply</span>(population, region, sum))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Northeast         South North Central          West 
      55317240     115674434      66927001      71945553 </code></pre>

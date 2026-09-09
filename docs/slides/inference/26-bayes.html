@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-10-27">
   <meta name="keywords" content="Inference">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -406,19 +412,19 @@
 <h2>Example</h2>
 <p>We will use these data again:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb1-2"><a></a>polls <span class="ot">&lt;-</span> polls_us_election_2016 <span class="sc">|&gt;</span>  </span>
-<span id="cb1-3"><a></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"U.S."</span> <span class="sc">&amp;</span> enddate <span class="sc">&gt;=</span> <span class="st">"2016-10-31"</span> <span class="sc">&amp;</span> </span>
-<span id="cb1-4"><a></a>           (grade <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>) <span class="sc">|</span> <span class="fu">is.na</span>(grade))) <span class="sc">|&gt;</span>  </span>
-<span id="cb1-5"><a></a>  <span class="fu">mutate</span>(<span class="at">spread =</span> rawpoll_clinton<span class="sc">/</span><span class="dv">100</span> <span class="sc">-</span> rawpoll_trump<span class="sc">/</span><span class="dv">100</span>) </span>
-<span id="cb1-6"><a></a>one_poll_per_pollster <span class="ot">&lt;-</span> polls <span class="sc">|&gt;</span> <span class="fu">group_by</span>(pollster) <span class="sc">|&gt;</span>  </span>
-<span id="cb1-7"><a></a>  <span class="fu">filter</span>(enddate <span class="sc">==</span> <span class="fu">max</span>(enddate)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-8"><a></a>  <span class="fu">ungroup</span>() </span>
-<span id="cb1-9"><a></a>results <span class="ot">&lt;-</span> one_poll_per_pollster <span class="sc">|&gt;</span>  </span>
-<span id="cb1-10"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(spread),  </span>
-<span id="cb1-11"><a></a>            <span class="at">se =</span> <span class="fu">sd</span>(spread) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(spread))) <span class="sc">|&gt;</span>  </span>
-<span id="cb1-12"><a></a>  <span class="fu">mutate</span>(<span class="at">start =</span> avg <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se,  </span>
-<span id="cb1-13"><a></a>         <span class="at">end =</span> avg <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb1-2"><a aria-label="2"></a>polls <span class="ot">&lt;-</span> polls_us_election_2016 <span class="sc">|&gt;</span>  </span>
+<span id="cb1-3"><a aria-label="3"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"U.S."</span> <span class="sc">&amp;</span> enddate <span class="sc">&gt;=</span> <span class="st">"2016-10-31"</span> <span class="sc">&amp;</span> </span>
+<span id="cb1-4"><a aria-label="4"></a>           (grade <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>) <span class="sc">|</span> <span class="fu">is.na</span>(grade))) <span class="sc">|&gt;</span>  </span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">mutate</span>(<span class="at">spread =</span> rawpoll_clinton<span class="sc">/</span><span class="dv">100</span> <span class="sc">-</span> rawpoll_trump<span class="sc">/</span><span class="dv">100</span>) </span>
+<span id="cb1-6"><a aria-label="6"></a>one_poll_per_pollster <span class="ot">&lt;-</span> polls <span class="sc">|&gt;</span> <span class="fu">group_by</span>(pollster) <span class="sc">|&gt;</span>  </span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="fu">filter</span>(enddate <span class="sc">==</span> <span class="fu">max</span>(enddate)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a aria-label="8"></a>  <span class="fu">ungroup</span>() </span>
+<span id="cb1-9"><a aria-label="9"></a>results <span class="ot">&lt;-</span> one_poll_per_pollster <span class="sc">|&gt;</span>  </span>
+<span id="cb1-10"><a aria-label="10"></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(spread),  </span>
+<span id="cb1-11"><a aria-label="11"></a>            <span class="at">se =</span> <span class="fu">sd</span>(spread) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(spread))) <span class="sc">|&gt;</span>  </span>
+<span id="cb1-12"><a aria-label="12"></a>  <span class="fu">mutate</span>(<span class="at">start =</span> avg <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> se,  </span>
+<span id="cb1-13"><a aria-label="13"></a>         <span class="at">end =</span> avg <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> se)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example-1" class="slide level2">
@@ -431,18 +437,18 @@
 <section id="example-2" class="slide level2">
 <h2>Example</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>theta <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
-<span id="cb2-2"><a></a>tau <span class="ot">&lt;-</span> <span class="fl">0.035</span> </span>
-<span id="cb2-3"><a></a>sigma <span class="ot">&lt;-</span> results<span class="sc">$</span>se </span>
-<span id="cb2-4"><a></a>x_bar <span class="ot">&lt;-</span> results<span class="sc">$</span>avg </span>
-<span id="cb2-5"><a></a>B <span class="ot">&lt;-</span> sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> tau<span class="sc">^</span><span class="dv">2</span>) </span>
-<span id="cb2-6"><a></a>posterior_mean <span class="ot">&lt;-</span> B<span class="sc">*</span>theta <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> B)<span class="sc">*</span>x_bar </span>
-<span id="cb2-7"><a></a>posterior_se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">/</span>sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>tau<span class="sc">^</span><span class="dv">2</span>)) </span>
-<span id="cb2-8"><a></a>posterior_mean </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>theta <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
+<span id="cb2-2"><a aria-label="2"></a>tau <span class="ot">&lt;-</span> <span class="fl">0.035</span> </span>
+<span id="cb2-3"><a aria-label="3"></a>sigma <span class="ot">&lt;-</span> results<span class="sc">$</span>se </span>
+<span id="cb2-4"><a aria-label="4"></a>x_bar <span class="ot">&lt;-</span> results<span class="sc">$</span>avg </span>
+<span id="cb2-5"><a aria-label="5"></a>B <span class="ot">&lt;-</span> sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> tau<span class="sc">^</span><span class="dv">2</span>) </span>
+<span id="cb2-6"><a aria-label="6"></a>posterior_mean <span class="ot">&lt;-</span> B<span class="sc">*</span>theta <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> B)<span class="sc">*</span>x_bar </span>
+<span id="cb2-7"><a aria-label="7"></a>posterior_se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">/</span>sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>tau<span class="sc">^</span><span class="dv">2</span>)) </span>
+<span id="cb2-8"><a aria-label="8"></a>posterior_mean </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02808534</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>posterior_se </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>posterior_se </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.006149604</code></pre>
 </div>
@@ -454,7 +460,7 @@
 <li>Since we know the posterior distribution is normal, we can construct a credible interval like this:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>posterior_mean <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>) <span class="sc">*</span> posterior_se </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>posterior_mean <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>) <span class="sc">*</span> posterior_se </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.01603234 0.04013834</code></pre>
 </div>
@@ -467,7 +473,7 @@
 <li><p>Specifically, <span class="math inline">\(\mbox{Pr}(\mu&gt;0 \mid \bar{X})\)</span> can be computed as follows:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>, posterior_mean, posterior_se) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>, posterior_mean, posterior_se) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9999975</code></pre>
 </div>

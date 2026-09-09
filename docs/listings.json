@@ -11,6 +11,8 @@
     "items": [
       "/slides/00-intro.html",
       "/slides/productivity/01-unix.html",
+      "/slides/productivity/01b-unixwrap.html",
+      "/slides/productivity/01c-gitquarto.html",
       "/slides/productivity/02-rstudio.html",
       "/slides/productivity/03-quarto.html",
       "/slides/productivity/04-git.html",

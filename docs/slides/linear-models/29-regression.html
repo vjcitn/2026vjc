@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-11-03">
   <meta name="keywords" content="Linear Models">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,16 +237,16 @@
 <li>To imitate Galton’s analysis, we will create a dataset with the heights of fathers and a randomly selected son of each family:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(HistData) </span>
-<span id="cb1-3"><a></a><span class="fu">set.seed</span>(<span class="dv">1983</span>) </span>
-<span id="cb1-4"><a></a>galton_heights <span class="ot">&lt;-</span> GaltonFamilies <span class="sc">|&gt;</span> </span>
-<span id="cb1-5"><a></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-6"><a></a>  <span class="fu">group_by</span>(family) <span class="sc">|&gt;</span> </span>
-<span id="cb1-7"><a></a>  <span class="fu">sample_n</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-8"><a></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a></a>  <span class="fu">select</span>(father, childHeight) <span class="sc">|&gt;</span> </span>
-<span id="cb1-10"><a></a>  <span class="fu">rename</span>(<span class="at">son =</span> childHeight) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(HistData) </span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">set.seed</span>(<span class="dv">1983</span>) </span>
+<span id="cb1-4"><a aria-label="4"></a>galton_heights <span class="ot">&lt;-</span> GaltonFamilies <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">group_by</span>(family) <span class="sc">|&gt;</span> </span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="fu">sample_n</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a aria-label="8"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a aria-label="9"></a>  <span class="fu">select</span>(father, childHeight) <span class="sc">|&gt;</span> </span>
+<span id="cb1-10"><a aria-label="10"></a>  <span class="fu">rename</span>(<span class="at">son =</span> childHeight) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="case-study-is-height-hereditary-4" class="slide level2">
@@ -250,8 +256,8 @@
 <li><p>Since both distributions are well approximated by the normal distribution, we could use:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>galton_heights <span class="sc">|&gt;</span>  </span>
-<span id="cb2-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(father), <span class="fu">sd</span>(father), <span class="fu">mean</span>(son), <span class="fu">sd</span>(son)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb2-2"><a aria-label="2"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(father), <span class="fu">sd</span>(father), <span class="fu">mean</span>(son), <span class="fu">sd</span>(son)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
   `mean(father)` `sd(father)` `mean(son)` `sd(son)`
@@ -292,7 +298,7 @@
 <li>We can represent the formula above with R code using:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>rho <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">scale</span>(x) <span class="sc">*</span> <span class="fu">scale</span>(y)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>rho <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">scale</span>(x) <span class="sc">*</span> <span class="fu">scale</span>(y)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-correlation-coefficient-2" class="slide level2 smaller">
@@ -328,7 +334,7 @@
 <li>The correlation, computed with the function <code>cor</code>, between father and son’s heights is about 0.5:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4334102</code></pre>
 </div>
@@ -384,8 +390,8 @@
 <li><p>The sample correlation can be computed with:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>r <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, <span class="dv">25</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb7-2"><a></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>r <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, <span class="dv">25</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb7-2"><a aria-label="2"></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>r</code> is a random variable.</li>
@@ -397,14 +403,14 @@
 <li>We can run a Monte Carlo simulation to see its distribution:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb8-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">25</span> </span>
-<span id="cb8-3"><a></a>r <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
-<span id="cb8-4"><a></a>  <span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb8-5"><a></a>    <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span>  </span>
-<span id="cb8-6"><a></a>    <span class="fu">pull</span>(r) </span>
-<span id="cb8-7"><a></a>}) </span>
-<span id="cb8-8"><a></a><span class="fu">hist</span>(r, <span class="at">breaks =</span> <span class="dv">20</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb8-2"><a aria-label="2"></a>N <span class="ot">&lt;-</span> <span class="dv">25</span> </span>
+<span id="cb8-3"><a aria-label="3"></a>r <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb8-4"><a aria-label="4"></a>  <span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb8-5"><a aria-label="5"></a>    <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span>  </span>
+<span id="cb8-6"><a aria-label="6"></a>    <span class="fu">pull</span>(r) </span>
+<span id="cb8-7"><a aria-label="7"></a>}) </span>
+<span id="cb8-8"><a aria-label="8"></a><span class="fu">hist</span>(r, <span class="at">breaks =</span> <span class="dv">20</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -422,7 +428,7 @@
 <li>We see that the expected value of <code>r</code> is the population correlation:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">mean</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">mean</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4307393</code></pre>
 </div>
@@ -431,7 +437,7 @@
 <li>and that it has a relatively high standard error relative to the range of values <code>r</code> can take:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">sd</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">sd</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1609393</code></pre>
 </div>
@@ -457,9 +463,9 @@
 <li><span class="math inline">\(N=25\)</span> does not seem to be large enough to get a good approximation to the Normal distribution:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> r), <span class="at">data =</span> <span class="fu">data.frame</span>(r)) <span class="sc">+</span>  </span>
-<span id="cb13-2"><a></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span>  </span>
-<span id="cb13-3"><a></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">mean</span>(r), <span class="at">slope =</span> <span class="fu">sqrt</span>((<span class="dv">1</span> <span class="sc">-</span> <span class="fu">mean</span>(r)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(N <span class="sc">-</span> <span class="dv">2</span>))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> r), <span class="at">data =</span> <span class="fu">data.frame</span>(r)) <span class="sc">+</span>  </span>
+<span id="cb13-2"><a aria-label="2"></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span>  </span>
+<span id="cb13-3"><a aria-label="3"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">mean</span>(r), <span class="at">slope =</span> <span class="fu">sqrt</span>((<span class="dv">1</span> <span class="sc">-</span> <span class="fu">mean</span>(r)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(N <span class="sc">-</span> <span class="dv">2</span>))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -563,7 +569,7 @@
 <li><p>For example, we have only:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">sum</span>(galton_heights<span class="sc">$</span>father <span class="sc">==</span> <span class="dv">72</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">sum</span>(galton_heights<span class="sc">$</span>father <span class="sc">==</span> <span class="dv">72</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -578,7 +584,7 @@
 <li>If we change the number to 72.5, we get even fewer data points:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">sum</span>(galton_heights<span class="sc">$</span>father <span class="sc">==</span> <span class="fl">72.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">sum</span>(galton_heights<span class="sc">$</span>father <span class="sc">==</span> <span class="fl">72.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -595,11 +601,11 @@
 <section id="conditional-expectations-10" class="slide level2">
 <h2>Conditional expectations</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>conditional_avg <span class="ot">&lt;-</span> galton_heights <span class="sc">|&gt;</span>  </span>
-<span id="cb18-2"><a></a>  <span class="fu">filter</span>(<span class="fu">round</span>(father) <span class="sc">==</span> <span class="dv">72</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb18-3"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(son)) <span class="sc">|&gt;</span>  </span>
-<span id="cb18-4"><a></a>  <span class="fu">pull</span>(avg) </span>
-<span id="cb18-5"><a></a>conditional_avg </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>conditional_avg <span class="ot">&lt;-</span> galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb18-2"><a aria-label="2"></a>  <span class="fu">filter</span>(<span class="fu">round</span>(father) <span class="sc">==</span> <span class="dv">72</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a aria-label="3"></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(son)) <span class="sc">|&gt;</span>  </span>
+<span id="cb18-4"><a aria-label="4"></a>  <span class="fu">pull</span>(avg) </span>
+<span id="cb18-5"><a aria-label="5"></a>conditional_avg </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 70.5</code></pre>
 </div>
@@ -700,15 +706,15 @@
 <li>Here we add the regression line to the original data:</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father) </span>
-<span id="cb20-2"><a></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son) </span>
-<span id="cb20-3"><a></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father) </span>
-<span id="cb20-4"><a></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son) </span>
-<span id="cb20-5"><a></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son) </span>
-<span id="cb20-6"><a></a>galton_heights <span class="sc">|&gt;</span>  </span>
-<span id="cb20-7"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span>  </span>
-<span id="cb20-8"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb20-9"><a></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> r <span class="sc">*</span> s_y<span class="sc">/</span>s_x, <span class="at">intercept =</span> mu_y <span class="sc">-</span> r <span class="sc">*</span> s_y<span class="sc">/</span>s_x <span class="sc">*</span> mu_x)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb20-2"><a aria-label="2"></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb20-3"><a aria-label="3"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb20-4"><a aria-label="4"></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb20-5"><a aria-label="5"></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son) </span>
+<span id="cb20-6"><a aria-label="6"></a>galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb20-7"><a aria-label="7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(father, son)) <span class="sc">+</span>  </span>
+<span id="cb20-8"><a aria-label="8"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb20-9"><a aria-label="9"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> r <span class="sc">*</span> s_y<span class="sc">/</span>s_x, <span class="at">intercept =</span> mu_y <span class="sc">-</span> r <span class="sc">*</span> s_y<span class="sc">/</span>s_x <span class="sc">*</span> mu_x)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-regression-line-6" class="slide level2">
@@ -727,10 +733,10 @@
 <li>You can make same plot, but using standard units like this:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>galton_heights <span class="sc">|&gt;</span>  </span>
-<span id="cb21-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">scale</span>(father), <span class="fu">scale</span>(son))) <span class="sc">+</span>  </span>
-<span id="cb21-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb21-4"><a></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> r)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>galton_heights <span class="sc">|&gt;</span>  </span>
+<span id="cb21-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">scale</span>(father), <span class="fu">scale</span>(son))) <span class="sc">+</span>  </span>
+<span id="cb21-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb21-4"><a aria-label="4"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> r)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="regression-improves-precision" class="slide level2">
@@ -747,24 +753,24 @@
 <section id="regression-improves-precision-1" class="slide level2">
 <h2>Regression improves precision</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb22-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
-<span id="cb22-3"><a></a><span class="fu">set.seed</span>(<span class="dv">1983</span>) </span>
-<span id="cb22-4"><a></a>conditional_avg <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
-<span id="cb22-5"><a></a>  dat <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, N) </span>
-<span id="cb22-6"><a></a>  dat <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">round</span>(father) <span class="sc">==</span> <span class="dv">72</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb22-7"><a></a>    <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(son)) <span class="sc">|&gt;</span>  </span>
-<span id="cb22-8"><a></a>    <span class="fu">pull</span>(avg) </span>
-<span id="cb22-9"><a></a>  }) </span>
-<span id="cb22-10"><a></a>regression_prediction <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
-<span id="cb22-11"><a></a>  dat <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, N) </span>
-<span id="cb22-12"><a></a>  mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>father) </span>
-<span id="cb22-13"><a></a>  mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>son) </span>
-<span id="cb22-14"><a></a>  s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(dat<span class="sc">$</span>father) </span>
-<span id="cb22-15"><a></a>  s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(dat<span class="sc">$</span>son) </span>
-<span id="cb22-16"><a></a>  r <span class="ot">&lt;-</span> <span class="fu">cor</span>(dat<span class="sc">$</span>father, dat<span class="sc">$</span>son) </span>
-<span id="cb22-17"><a></a>  mu_y <span class="sc">+</span> r<span class="sc">*</span>(<span class="dv">72</span> <span class="sc">-</span> mu_x)<span class="sc">/</span>s_x<span class="sc">*</span>s_y </span>
-<span id="cb22-18"><a></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb22-2"><a aria-label="2"></a>N <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb22-3"><a aria-label="3"></a><span class="fu">set.seed</span>(<span class="dv">1983</span>) </span>
+<span id="cb22-4"><a aria-label="4"></a>conditional_avg <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb22-5"><a aria-label="5"></a>  dat <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, N) </span>
+<span id="cb22-6"><a aria-label="6"></a>  dat <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">round</span>(father) <span class="sc">==</span> <span class="dv">72</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb22-7"><a aria-label="7"></a>    <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(son)) <span class="sc">|&gt;</span>  </span>
+<span id="cb22-8"><a aria-label="8"></a>    <span class="fu">pull</span>(avg) </span>
+<span id="cb22-9"><a aria-label="9"></a>  }) </span>
+<span id="cb22-10"><a aria-label="10"></a>regression_prediction <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb22-11"><a aria-label="11"></a>  dat <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(galton_heights, N) </span>
+<span id="cb22-12"><a aria-label="12"></a>  mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>father) </span>
+<span id="cb22-13"><a aria-label="13"></a>  mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(dat<span class="sc">$</span>son) </span>
+<span id="cb22-14"><a aria-label="14"></a>  s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(dat<span class="sc">$</span>father) </span>
+<span id="cb22-15"><a aria-label="15"></a>  s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(dat<span class="sc">$</span>son) </span>
+<span id="cb22-16"><a aria-label="16"></a>  r <span class="ot">&lt;-</span> <span class="fu">cor</span>(dat<span class="sc">$</span>father, dat<span class="sc">$</span>son) </span>
+<span id="cb22-17"><a aria-label="17"></a>  mu_y <span class="sc">+</span> r<span class="sc">*</span>(<span class="dv">72</span> <span class="sc">-</span> mu_x)<span class="sc">/</span>s_x<span class="sc">*</span>s_y </span>
+<span id="cb22-18"><a aria-label="18"></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="regression-improves-precision-2" class="slide level2">
@@ -773,11 +779,11 @@
 <li>Although the expected value of these two random variables is about the same:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">mean</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">mean</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 70.49368</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">mean</span>(regression_prediction) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">mean</span>(regression_prediction) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 70.50941</code></pre>
 </div>
@@ -786,11 +792,11 @@
 <li>The standard error for the regression prediction is substantially smaller:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">sd</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">sd</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9635814</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">sd</span>(regression_prediction) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">sd</span>(regression_prediction) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4520833</code></pre>
 </div>
@@ -856,12 +862,12 @@
 <section id="bivariate-normal-distribution-5" class="slide level2">
 <h2>Bivariate normal distribution</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>galton_heights <span class="sc">|&gt;</span> </span>
-<span id="cb31-2"><a></a>  <span class="fu">mutate</span>(<span class="at">z_father =</span> <span class="fu">round</span>((father <span class="sc">-</span> <span class="fu">mean</span>(father)) <span class="sc">/</span> <span class="fu">sd</span>(father))) <span class="sc">|&gt;</span> </span>
-<span id="cb31-3"><a></a>  <span class="fu">filter</span>(z_father <span class="sc">%in%</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb31-4"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
-<span id="cb31-5"><a></a>  <span class="fu">stat_qq</span>(<span class="fu">aes</span>(<span class="at">sample =</span> son)) <span class="sc">+</span> </span>
-<span id="cb31-6"><a></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> z_father)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>galton_heights <span class="sc">|&gt;</span> </span>
+<span id="cb31-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">z_father =</span> <span class="fu">round</span>((father <span class="sc">-</span> <span class="fu">mean</span>(father)) <span class="sc">/</span> <span class="fu">sd</span>(father))) <span class="sc">|&gt;</span> </span>
+<span id="cb31-3"><a aria-label="3"></a>  <span class="fu">filter</span>(z_father <span class="sc">%in%</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-4"><a aria-label="4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>   </span>
+<span id="cb31-5"><a aria-label="5"></a>  <span class="fu">stat_qq</span>(<span class="fu">aes</span>(<span class="at">sample =</span> son)) <span class="sc">+</span> </span>
+<span id="cb31-6"><a aria-label="6"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span> z_father)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -949,13 +955,13 @@
 <li><p>We used these calculations:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father) </span>
-<span id="cb32-2"><a></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son) </span>
-<span id="cb32-3"><a></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father) </span>
-<span id="cb32-4"><a></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son) </span>
-<span id="cb32-5"><a></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son) </span>
-<span id="cb32-6"><a></a>m_1 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_y <span class="sc">/</span> s_x </span>
-<span id="cb32-7"><a></a>b_1 <span class="ot">&lt;-</span> mu_y <span class="sc">-</span> m_1<span class="sc">*</span>mu_x </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>mu_x <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb32-2"><a aria-label="2"></a>mu_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb32-3"><a aria-label="3"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>father) </span>
+<span id="cb32-4"><a aria-label="4"></a>s_y <span class="ot">&lt;-</span> <span class="fu">sd</span>(galton_heights<span class="sc">$</span>son) </span>
+<span id="cb32-5"><a aria-label="5"></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(galton_heights<span class="sc">$</span>father, galton_heights<span class="sc">$</span>son) </span>
+<span id="cb32-6"><a aria-label="6"></a>m_1 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_y <span class="sc">/</span> s_x </span>
+<span id="cb32-7"><a aria-label="7"></a>b_1 <span class="ot">&lt;-</span> mu_y <span class="sc">-</span> m_1<span class="sc">*</span>mu_x </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>which gives us the function <span class="math inline">\(\mbox{E}(Y\mid X=x) =\)</span> 37.3 + 0.46 <span class="math inline">\(x\)</span>.</li>
@@ -969,8 +975,8 @@
 <li><p>Since the data is approximately bivariate normal, the theory described earlier tells us that this conditional expectation will follow a line with slope and intercept:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>m_2 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_x <span class="sc">/</span> s_y </span>
-<span id="cb33-2"><a></a>b_2 <span class="ot">&lt;-</span> mu_x <span class="sc">-</span> m_2 <span class="sc">*</span> mu_y </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>m_2 <span class="ot">&lt;-</span>  r <span class="sc">*</span> s_x <span class="sc">/</span> s_y </span>
+<span id="cb33-2"><a aria-label="2"></a>b_2 <span class="ot">&lt;-</span> mu_x <span class="sc">-</span> m_2 <span class="sc">*</span> mu_y </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="there-are-two-regression-lines-2" class="slide level2">
@@ -1155,10 +1161,10 @@ RSS = \sum_{i=1}^n \left\{  y_i - \left(\beta_0 + \beta_1 x_i \right)\right\}^2
 <li>Let’s start by writing a function that computes the RSS for any pair of values <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>rss <span class="ot">&lt;-</span> <span class="cf">function</span>(beta0, beta1, data){ </span>
-<span id="cb34-2"><a></a>  resid <span class="ot">&lt;-</span> galton_heights<span class="sc">$</span>son <span class="sc">-</span> (beta0 <span class="sc">+</span> beta1<span class="sc">*</span>galton_heights<span class="sc">$</span>father) </span>
-<span id="cb34-3"><a></a>  <span class="fu">return</span>(<span class="fu">sum</span>(resid<span class="sc">^</span><span class="dv">2</span>)) </span>
-<span id="cb34-4"><a></a>} </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>rss <span class="ot">&lt;-</span> <span class="cf">function</span>(beta0, beta1, data){ </span>
+<span id="cb34-2"><a aria-label="2"></a>  resid <span class="ot">&lt;-</span> galton_heights<span class="sc">$</span>son <span class="sc">-</span> (beta0 <span class="sc">+</span> beta1<span class="sc">*</span>galton_heights<span class="sc">$</span>father) </span>
+<span id="cb34-3"><a aria-label="3"></a>  <span class="fu">return</span>(<span class="fu">sum</span>(resid<span class="sc">^</span><span class="dv">2</span>)) </span>
+<span id="cb34-4"><a aria-label="4"></a>} </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>So for any pair of values, we get an RSS.</li>
@@ -1211,8 +1217,8 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 <section id="the-lm-function-1" class="slide level2">
 <h2>The <code>lm</code> function</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> galton_heights) </span>
-<span id="cb35-2"><a></a>fit<span class="sc">$</span>coefficients </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> galton_heights) </span>
+<span id="cb35-2"><a aria-label="2"></a>fit<span class="sc">$</span>coefficients </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)      father 
   37.287605    0.461392 </code></pre>
@@ -1230,7 +1236,7 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 <li><p>We can use the function <code>summary</code> to extract more of this information:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">summary</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">summary</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1273,14 +1279,14 @@ F-statistic: 40.94 on 1 and 177 DF,  p-value: 1.36e-09</code></pre>
 <li>To see this, we can run a Monte Carlo simulation in which we assume the son and father height data defines a population, take a random sample of size <span class="math inline">\(N=50\)</span>, and compute the regression slope coefficient for each one:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb39-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
-<span id="cb39-3"><a></a>lse <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
-<span id="cb39-4"><a></a>  <span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb39-5"><a></a>    <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _) <span class="sc">|&gt;</span>  </span>
-<span id="cb39-6"><a></a>    <span class="fu">coef</span>() </span>
-<span id="cb39-7"><a></a>}) </span>
-<span id="cb39-8"><a></a>lse <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">beta_0 =</span> lse[<span class="dv">1</span>,], <span class="at">beta_1 =</span> lse[<span class="dv">2</span>,])  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb39-2"><a aria-label="2"></a>N <span class="ot">&lt;-</span> <span class="dv">50</span> </span>
+<span id="cb39-3"><a aria-label="3"></a>lse <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb39-4"><a aria-label="4"></a>  <span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb39-5"><a aria-label="5"></a>    <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _) <span class="sc">|&gt;</span>  </span>
+<span id="cb39-6"><a aria-label="6"></a>    <span class="fu">coef</span>() </span>
+<span id="cb39-7"><a aria-label="7"></a>}) </span>
+<span id="cb39-8"><a aria-label="8"></a>lse <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">beta_0 =</span> lse[<span class="dv">1</span>,], <span class="at">beta_1 =</span> lse[<span class="dv">2</span>,])  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="lse-are-random-variables-2" class="slide level2">
@@ -1303,10 +1309,10 @@ F-statistic: 40.94 on 1 and 177 DF,  p-value: 1.36e-09</code></pre>
 <li>The function <code>summary</code> shows us the standard error estimates:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb40-2"><a></a>  <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _) <span class="sc">|&gt;</span>  </span>
-<span id="cb40-3"><a></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span>  </span>
-<span id="cb40-4"><a></a>  <span class="fu">coef</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">sample_n</span>(galton_heights, N, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb40-2"><a aria-label="2"></a>  <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _) <span class="sc">|&gt;</span>  </span>
+<span id="cb40-3"><a aria-label="3"></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span>  </span>
+<span id="cb40-4"><a aria-label="4"></a>  <span class="fu">coef</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Estimate Std. Error  t value     Pr(&gt;|t|)
 (Intercept) 24.5722201 11.0734543 2.219020 0.0312467290
@@ -1320,7 +1326,7 @@ father       0.6479396  0.1602234 4.043975 0.0001896386</code></pre>
 <li>You can see that the standard errors estimates reported above are close to the standard errors from the simulation:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>lse <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">se_0 =</span> <span class="fu">sd</span>(beta_0), <span class="at">se_1 =</span> <span class="fu">sd</span>(beta_1)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a>lse <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">se_0 =</span> <span class="fu">sd</span>(beta_0), <span class="at">se_1 =</span> <span class="fu">sd</span>(beta_1)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      se_0      se_1
 1 8.669471 0.1256726</code></pre>
@@ -1372,9 +1378,9 @@ father       0.6479396  0.1602234 4.043975 0.0001896386</code></pre>
 <li><p>In fact, the <strong>ggplot2</strong> layer <code>geom_smooth(method = "lm")</code> that we previously used plots <span class="math inline">\(\widehat{Y}\)</span> and surrounds it by confidence intervals:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(son, father)) <span class="sc">+</span> </span>
-<span id="cb44-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb44-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(son, father)) <span class="sc">+</span> </span>
+<span id="cb44-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb44-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="predicted-values-are-random-variables-3" class="slide level2">
@@ -1388,9 +1394,9 @@ father       0.6479396  0.1602234 4.043975 0.0001896386</code></pre>
 <li><p>If requested, the standard errors and other information from which we can construct confidence intervals is provided:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>fit <span class="ot">&lt;-</span> galton_heights <span class="sc">|&gt;</span> <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _)  </span>
-<span id="cb45-2"><a></a>y_hat <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">se.fit =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb45-3"><a></a><span class="fu">names</span>(y_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> galton_heights <span class="sc">|&gt;</span> <span class="fu">lm</span>(son <span class="sc">~</span> father, <span class="at">data =</span> _)  </span>
+<span id="cb45-2"><a aria-label="2"></a>y_hat <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">se.fit =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb45-3"><a aria-label="3"></a><span class="fu">names</span>(y_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "fit"            "se.fit"         "df"             "residual.scale"</code></pre>
 </div>
@@ -1451,7 +1457,7 @@ r = Y - \widehat{Y} = Y - \left(\widehat{\beta}_0 - \widehat{\beta}_1 x_i\right)
 <section id="diagnostic-plots-6" class="slide level2">
 <h2>Diagnostic plots</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">plot</span>(fit, <span class="at">which =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a><span class="fu">plot</span>(fit, <span class="at">which =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="diagnostic-plots-7" class="slide level2 smaller">

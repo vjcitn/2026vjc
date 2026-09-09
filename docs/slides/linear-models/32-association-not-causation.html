@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-11-12">
   <meta name="keywords" content="Other topics">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -253,50 +259,50 @@
 <section id="spurious-correlation-1" class="slide level2">
 <h2>Spurious correlation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb1-2"><a></a>N <span class="ot">&lt;-</span> <span class="dv">25</span> </span>
-<span id="cb1-3"><a></a>g <span class="ot">&lt;-</span> <span class="dv">1000000</span> </span>
-<span id="cb1-4"><a></a>sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">group =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>g, <span class="at">each =</span> N),  </span>
-<span id="cb1-5"><a></a>                   <span class="at">x =</span> <span class="fu">rnorm</span>(N<span class="sc">*</span>g),  </span>
-<span id="cb1-6"><a></a>                   <span class="at">y =</span> <span class="fu">rnorm</span>(N<span class="sc">*</span>g)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb1-2"><a aria-label="2"></a>N <span class="ot">&lt;-</span> <span class="dv">25</span> </span>
+<span id="cb1-3"><a aria-label="3"></a>g <span class="ot">&lt;-</span> <span class="dv">1000000</span> </span>
+<span id="cb1-4"><a aria-label="4"></a>sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">group =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>g, <span class="at">each =</span> N),  </span>
+<span id="cb1-5"><a aria-label="5"></a>                   <span class="at">x =</span> <span class="fu">rnorm</span>(N<span class="sc">*</span>g),  </span>
+<span id="cb1-6"><a aria-label="6"></a>                   <span class="at">y =</span> <span class="fu">rnorm</span>(N<span class="sc">*</span>g)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="spurious-correlation-2" class="slide level2">
 <h2>Spurious correlation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>res <span class="ot">&lt;-</span> sim_data <span class="sc">|&gt;</span>  </span>
-<span id="cb2-2"><a></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span>  </span>
-<span id="cb2-3"><a></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(x, y)) <span class="sc">|&gt;</span>  </span>
-<span id="cb2-4"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(r)) </span>
-<span id="cb2-5"><a></a>res </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>res <span class="ot">&lt;-</span> sim_data <span class="sc">|&gt;</span>  </span>
+<span id="cb2-2"><a aria-label="2"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span>  </span>
+<span id="cb2-3"><a aria-label="3"></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(x, y)) <span class="sc">|&gt;</span>  </span>
+<span id="cb2-4"><a aria-label="4"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(r)) </span>
+<span id="cb2-5"><a aria-label="5"></a>res </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,000,000 × 2
     group     r
     &lt;int&gt; &lt;dbl&gt;
- 1 941247 0.857
- 2  43698 0.785
- 3 388676 0.781
- 4 999020 0.778
- 5 719240 0.775
- 6 526188 0.770
- 7 489071 0.769
- 8 930372 0.769
- 9 298238 0.764
-10 189555 0.760
+ 1 282577 0.793
+ 2 244708 0.780
+ 3 686119 0.770
+ 4 581745 0.768
+ 5 450008 0.753
+ 6 644788 0.753
+ 7 345849 0.748
+ 8 828364 0.748
+ 9 463739 0.747
+10 585056 0.744
 # ℹ 999,990 more rows</code></pre>
 </div>
 </div>
 <ul>
-<li>We see a maximum correlation of 0.857.</li>
+<li>We see a maximum correlation of 0.793.</li>
 </ul>
 </section>
 <section id="spurious-correlation-3" class="slide level2">
 <h2>Spurious correlation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>sim_data <span class="sc">|&gt;</span> <span class="fu">filter</span>(group <span class="sc">==</span> res<span class="sc">$</span>group[<span class="fu">which.max</span>(res<span class="sc">$</span>r)]) <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
-<span id="cb4-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
-<span id="cb4-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>sim_data <span class="sc">|&gt;</span> <span class="fu">filter</span>(group <span class="sc">==</span> res<span class="sc">$</span>group[<span class="fu">which.max</span>(res<span class="sc">$</span>r)]) <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="spurious-correlation-4" class="slide level2">
@@ -319,16 +325,16 @@
 <section id="spurious-correlation-7" class="slide level2">
 <h2>Spurious correlation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(broom) </span>
-<span id="cb5-2"><a></a>sim_data <span class="sc">|&gt;</span>  </span>
-<span id="cb5-3"><a></a>  <span class="fu">filter</span>(group <span class="sc">==</span> res<span class="sc">$</span>group[<span class="fu">which.max</span>(res<span class="sc">$</span>r)]) <span class="sc">|&gt;</span> </span>
-<span id="cb5-4"><a></a>  <span class="fu">reframe</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x))) <span class="sc">|&gt;</span>  </span>
-<span id="cb5-5"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"x"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(broom) </span>
+<span id="cb5-2"><a aria-label="2"></a>sim_data <span class="sc">|&gt;</span>  </span>
+<span id="cb5-3"><a aria-label="3"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> res<span class="sc">$</span>group[<span class="fu">which.max</span>(res<span class="sc">$</span>r)]) <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a aria-label="4"></a>  <span class="fu">reframe</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x))) <span class="sc">|&gt;</span>  </span>
+<span id="cb5-5"><a aria-label="5"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"x"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 5
-  term  estimate std.error statistic      p.value
-  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
-1 x         1.12     0.140      7.96 0.0000000462</code></pre>
+  term  estimate std.error statistic    p.value
+  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+1 x        0.789     0.126      6.24 0.00000227</code></pre>
 </div>
 </div>
 </section>
@@ -370,11 +376,11 @@
 <section id="outliers" class="slide level2">
 <h2>Outliers</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1985</span>) </span>
-<span id="cb7-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">1</span>) </span>
-<span id="cb7-3"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">84</span>,<span class="dv">1</span>) </span>
-<span id="cb7-4"><a></a>x[<span class="sc">-</span><span class="dv">23</span>] <span class="ot">&lt;-</span> <span class="fu">scale</span>(x[<span class="sc">-</span><span class="dv">23</span>]) </span>
-<span id="cb7-5"><a></a>y[<span class="sc">-</span><span class="dv">23</span>] <span class="ot">&lt;-</span> <span class="fu">scale</span>(y[<span class="sc">-</span><span class="dv">23</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1985</span>) </span>
+<span id="cb7-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">1</span>) </span>
+<span id="cb7-3"><a aria-label="3"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">84</span>,<span class="dv">1</span>) </span>
+<span id="cb7-4"><a aria-label="4"></a>x[<span class="sc">-</span><span class="dv">23</span>] <span class="ot">&lt;-</span> <span class="fu">scale</span>(x[<span class="sc">-</span><span class="dv">23</span>]) </span>
+<span id="cb7-5"><a aria-label="5"></a>y[<span class="sc">-</span><span class="dv">23</span>] <span class="ot">&lt;-</span> <span class="fu">scale</span>(y[<span class="sc">-</span><span class="dv">23</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="outliers-1" class="slide level2">
@@ -384,7 +390,7 @@
 <section id="outliers-2" class="slide level2">
 <h2>Outliers</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">cor</span>(x,y) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">cor</span>(x,y) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.988</code></pre>
 </div>
@@ -397,7 +403,7 @@
 <li>If we remove this outlier, the correlation is greatly reduced to almost 0:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">cor</span>(x[<span class="sc">-</span><span class="dv">23</span>], y[<span class="sc">-</span><span class="dv">23</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">cor</span>(x[<span class="sc">-</span><span class="dv">23</span>], y[<span class="sc">-</span><span class="dv">23</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.0442</code></pre>
 </div>
@@ -435,7 +441,7 @@ X_i = \beta_0 + \beta_1 y_i + \varepsilon_i, i=1, \dots, N
 <li>where <span class="math inline">\(X_i\)</span> is the father height and <span class="math inline">\(y_i\)</span> is the son height, we do get a statistically significant result.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">reframe</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(father <span class="sc">~</span> son))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">reframe</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(father <span class="sc">~</span> son))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
@@ -484,11 +490,11 @@ X_i = \beta_0 + \beta_1 y_i + \varepsilon_i, i=1, \dots, N
 <section id="uc-berkeley-admissions" class="slide level2">
 <h2>UC Berkeley admissions</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>two_by_two <span class="ot">&lt;-</span> admissions <span class="sc">|&gt;</span> <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span>  </span>
-<span id="cb14-2"><a></a>  <span class="fu">summarize</span>(<span class="at">total_admitted =</span> <span class="fu">round</span>(<span class="fu">sum</span>(admitted <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> applicants)),  </span>
-<span id="cb14-3"><a></a>            <span class="at">not_admitted =</span> <span class="fu">sum</span>(applicants) <span class="sc">-</span> <span class="fu">sum</span>(total_admitted)) </span>
-<span id="cb14-4"><a></a>two_by_two <span class="sc">|&gt;</span> </span>
-<span id="cb14-5"><a></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> total_admitted<span class="sc">/</span>(total_admitted <span class="sc">+</span> not_admitted)<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>two_by_two <span class="ot">&lt;-</span> admissions <span class="sc">|&gt;</span> <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span>  </span>
+<span id="cb14-2"><a aria-label="2"></a>  <span class="fu">summarize</span>(<span class="at">total_admitted =</span> <span class="fu">round</span>(<span class="fu">sum</span>(admitted <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> applicants)),  </span>
+<span id="cb14-3"><a aria-label="3"></a>            <span class="at">not_admitted =</span> <span class="fu">sum</span>(applicants) <span class="sc">-</span> <span class="fu">sum</span>(total_admitted)) </span>
+<span id="cb14-4"><a aria-label="4"></a>two_by_two <span class="sc">|&gt;</span> </span>
+<span id="cb14-5"><a aria-label="5"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> total_admitted<span class="sc">/</span>(total_admitted <span class="sc">+</span> not_admitted)<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   gender total_admitted not_admitted percent
@@ -498,8 +504,8 @@ X_i = \beta_0 + \beta_1 y_i + \varepsilon_i, i=1, \dots, N
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>two_by_two <span class="ot">&lt;-</span> <span class="fu">select</span>(two_by_two, <span class="sc">-</span>gender)</span>
-<span id="cb16-2"><a></a><span class="fu">chisq.test</span>(two_by_two)<span class="sc">$</span>p.value </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>two_by_two <span class="ot">&lt;-</span> <span class="fu">select</span>(two_by_two, <span class="sc">-</span>gender)</span>
+<span id="cb16-2"><a aria-label="2"></a><span class="fu">chisq.test</span>(two_by_two)<span class="sc">$</span>p.value </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.06e-21</code></pre>
 </div>
@@ -511,9 +517,9 @@ X_i = \beta_0 + \beta_1 y_i + \varepsilon_i, i=1, \dots, N
 <li>Closer inspection shows a paradoxical result:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>admissions <span class="sc">|&gt;</span> <span class="fu">select</span>(major, gender, admitted) <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"gender"</span>, <span class="at">values_from =</span> <span class="st">"admitted"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb18-3"><a></a>  <span class="fu">mutate</span>(<span class="at">women_minus_men =</span> women <span class="sc">-</span> men) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>admissions <span class="sc">|&gt;</span> <span class="fu">select</span>(major, gender, admitted) <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a aria-label="2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"gender"</span>, <span class="at">values_from =</span> <span class="st">"admitted"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a aria-label="3"></a>  <span class="fu">mutate</span>(<span class="at">women_minus_men =</span> women <span class="sc">-</span> men) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   major   men women women_minus_men
@@ -553,8 +559,8 @@ X_i = \beta_0 + \beta_1 y_i + \varepsilon_i, i=1, \dots, N
 <li>If we average the difference by major, we find that the percent is actually 3.5% higher for women.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>admissions <span class="sc">|&gt;</span>  <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(admitted)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>admissions <span class="sc">|&gt;</span>  <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a aria-label="2"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(admitted)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   gender average
