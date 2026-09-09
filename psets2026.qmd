@@ -6,6 +6,7 @@ listing:
   - id: psets2026
     contents:
       - psets2026/pset-01-github.qmd
+      - psets2026/pset-01b-notes.qmd
       - psets2026/pset-02-poly-md.qmd
     type: table
     fields: [title, date]

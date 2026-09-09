@@ -9,7 +9,7 @@ format:
 ## Plan
 
 We will form teams, with one student running Rstudio and the other working through
-the form, step by step, at [https://tinyurl.com/bst260unix]
+the form, step by step, at [https://tinyurl.com/bst260unix](https://tinyurl.com/bst260unix)
 
 The form will be editable; after each exercise is completed, you submit (at the bottom)
 and then return to your form to do the next exercise.
