@@ -162,7 +162,7 @@ $$
 
 
 $$ 
-\mbox{Pr}(A \cup B) = \mbox{Pr}(A)\mbox{Pr}(B \mid A) 
+\mbox{Pr}(A \cap B) = \mbox{Pr}(A)\mbox{Pr}(B \mid A) 
 $$ 
 
 ## Multiplication rule
@@ -186,7 +186,7 @@ $$
 
 
 $$ 
-\mbox{Pr}(A \cup B \cup C) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)\mbox{Pr}(C \mid A \cup B) 
+\mbox{Pr}(A \cap B \cap C) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)\mbox{Pr}(C \mid A \cap B) 
 $$
 
 
@@ -197,7 +197,7 @@ $$
 
 
 $$ 
-\mbox{Pr}(A \cup B \cup C) = \mbox{Pr}(A)\mbox{Pr}(B)\mbox{Pr}(C) 
+\mbox{Pr}(A \cap B \cap C) = \mbox{Pr}(A)\mbox{Pr}(B)\mbox{Pr}(C) 
 $$
 
 - However, we have to be very careful before using this version of the multiplication rule, since assuming independence can result in very different and incorrect probability calculations when events are not actually independent.
@@ -222,7 +222,7 @@ $$
 
 
 $$ 
-\mbox{Pr}(B \mid A) = \frac{\mbox{Pr}(A \cup B)}{ \mbox{Pr}(A)} 
+\mbox{Pr}(B \mid A) = \frac{\mbox{Pr}(A \cap B)}{ \mbox{Pr}(A)} 
 $$
 
 

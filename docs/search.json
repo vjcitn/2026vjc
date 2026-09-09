@@ -7595,7 +7595,7 @@
     "href": "slides/prob/20-intro-to-prob.html#multiplication-rule",
     "title": "Introduction to Probability",
     "section": "Multiplication rule",
-    "text": "Multiplication rule\n\nIf we want to determine the probability of two events, say \\(A\\) and \\(B\\), occurring, we can use the multiplication rule:\n\n\\[\n\\mbox{Pr}(A \\cup B) = \\mbox{Pr}(A)\\mbox{Pr}(B \\mid A)\n\\]"
+    "text": "Multiplication rule\n\nIf we want to determine the probability of two events, say \\(A\\) and \\(B\\), occurring, we can use the multiplication rule:\n\n\\[\n\\mbox{Pr}(A \\cap B) = \\mbox{Pr}(A)\\mbox{Pr}(B \\mid A)\n\\]"
   },
   {
     "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-1",
@@ -7609,14 +7609,14 @@
     "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-2",
     "title": "Introduction to Probability",
     "section": "Multiplication rule",
-    "text": "Multiplication rule\n\nWe can use induction to expand for more events:\n\n\\[\n\\mbox{Pr}(A \\cup B \\cup C) = \\mbox{Pr}(A)\\mbox{Pr}(B \\mid A)\\mbox{Pr}(C \\mid A \\cup B)\n\\]"
+    "text": "Multiplication rule\n\nWe can use induction to expand for more events:\n\n\\[\n\\mbox{Pr}(A \\cap B \\cap C) = \\mbox{Pr}(A)\\mbox{Pr}(B \\mid A)\\mbox{Pr}(C \\mid A \\cap B)\n\\]"
   },
   {
     "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-3",
     "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-3",
     "title": "Introduction to Probability",
     "section": "Multiplication rule",
-    "text": "Multiplication rule\n\nWhen dealing with independent events, the multiplication rule becomes simpler:\n\n\\[\n\\mbox{Pr}(A \\cup B \\cup C) = \\mbox{Pr}(A)\\mbox{Pr}(B)\\mbox{Pr}(C)\n\\]\n\nHowever, we have to be very careful before using this version of the multiplication rule, since assuming independence can result in very different and incorrect probability calculations when events are not actually independent."
+    "text": "Multiplication rule\n\nWhen dealing with independent events, the multiplication rule becomes simpler:\n\n\\[\n\\mbox{Pr}(A \\cap B \\cap C) = \\mbox{Pr}(A)\\mbox{Pr}(B)\\mbox{Pr}(C)\n\\]\n\nHowever, we have to be very careful before using this version of the multiplication rule, since assuming independence can result in very different and incorrect probability calculations when events are not actually independent."
   },
   {
     "objectID": "slides/prob/20-intro-to-prob.html#multiplication-rule-example",
@@ -7630,7 +7630,7 @@
     "href": "slides/prob/20-intro-to-prob.html#multiplication-rule-under",
     "title": "Introduction to Probability",
     "section": "Multiplication rule under",
-    "text": "Multiplication rule under\n\nThe multiplication rule also gives us a general formula for computing conditional probabilities:\n\n\\[\n\\mbox{Pr}(B \\mid A) = \\frac{\\mbox{Pr}(A \\cup B)}{ \\mbox{Pr}(A)}\n\\]"
+    "text": "Multiplication rule under\n\nThe multiplication rule also gives us a general formula for computing conditional probabilities:\n\n\\[\n\\mbox{Pr}(B \\mid A) = \\frac{\\mbox{Pr}(A \\cap B)}{ \\mbox{Pr}(A)}\n\\]"
   },
   {
     "objectID": "slides/prob/20-intro-to-prob.html#addition-rule",

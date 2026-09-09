@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="dcterms.date" content="2025-10-20">
   <meta name="keywords" content="Probability">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-73806f0e93c0950b605bb3afe7220856.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -241,7 +247,7 @@
 <li><p>If we have 2 red beads and 3 blue beads inside an urn, and we perform the random experiment of picking 1 bead, there are two outcomes: bead is red or blue.</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>beads <span class="ot">&lt;-</span> <span class="fu">rep</span>( <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>beads <span class="ot">&lt;-</span> <span class="fu">rep</span>( <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>The four possible events: <strong>bead is red</strong>, <strong>bead is blue</strong>, <strong>bead is red or blue</strong>, and an event with no outcomes.</li>
@@ -293,8 +299,8 @@
 <li>By detault, the <code>sample</code> function samples <em>without replacement</em></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1996</span>)</span>
-<span id="cb2-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(beads, <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1996</span>)</span>
+<span id="cb2-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(beads, <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>If you have to guess the color of the first bead, you will predict blue since blue has a 60% chance.</li>
@@ -306,7 +312,7 @@
 <li>However, if I show you the result of the last four outcomes:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "blue" "blue" "red"  "blue"</code></pre>
 </div>
@@ -343,7 +349,7 @@
 <li>If we want to determine the probability of two events, say <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, occurring, we can use the multiplication rule:</li>
 </ul>
 <p><span class="math display">\[
-\mbox{Pr}(A \cup B) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)
+\mbox{Pr}(A \cap B) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)
 \]</span></p>
 </section>
 <section id="multiplication-rule-1" class="slide level2">
@@ -364,7 +370,7 @@
 <li>We can use induction to expand for more events:</li>
 </ul>
 <p><span class="math display">\[
-\mbox{Pr}(A \cup B \cup C) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)\mbox{Pr}(C \mid A \cup B)
+\mbox{Pr}(A \cap B \cap C) = \mbox{Pr}(A)\mbox{Pr}(B \mid A)\mbox{Pr}(C \mid A \cap B)
 \]</span></p>
 </section>
 <section id="multiplication-rule-3" class="slide level2">
@@ -373,7 +379,7 @@
 <li>When dealing with independent events, the multiplication rule becomes simpler:</li>
 </ul>
 <p><span class="math display">\[
-\mbox{Pr}(A \cup B \cup C) = \mbox{Pr}(A)\mbox{Pr}(B)\mbox{Pr}(C)
+\mbox{Pr}(A \cap B \cap C) = \mbox{Pr}(A)\mbox{Pr}(B)\mbox{Pr}(C)
 \]</span></p>
 <ul>
 <li>However, we have to be very careful before using this version of the multiplication rule, since assuming independence can result in very different and incorrect probability calculations when events are not actually independent.</li>
@@ -395,7 +401,7 @@
 <li>The multiplication rule also gives us a general formula for computing conditional probabilities:</li>
 </ul>
 <p><span class="math display">\[
-\mbox{Pr}(B \mid A) = \frac{\mbox{Pr}(A \cup B)}{ \mbox{Pr}(A)}
+\mbox{Pr}(B \mid A) = \frac{\mbox{Pr}(A \cap B)}{ \mbox{Pr}(A)}
 \]</span></p>
 </section>
 <section id="addition-rule" class="slide level2">
@@ -416,8 +422,8 @@
 <li><p>For example, define <code>X</code> to be 1 if a bead is blue and red otherwise:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>beads <span class="ot">&lt;-</span> <span class="fu">rep</span>( <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb5-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>beads <span class="ot">&lt;-</span> <span class="fu">rep</span>( <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb5-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="random-variables-1" class="slide level2">
@@ -426,15 +432,15 @@
 <li>Here <code>X</code> is a random variable, changing randomly each time we select a new bead. Sometimes it’s 1 and sometimes it’s 0.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">ifelse</span>(<span class="fu">sample</span>(beads, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">"blue"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
@@ -477,8 +483,8 @@
 <li><p>The <code>sample</code> function in R uses a random number generator:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>beads <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb12-2"><a></a><span class="fu">sample</span>(beads, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>beads <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb12-2"><a aria-label="2"></a><span class="fu">sample</span>(beads, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "blue"</code></pre>
 </div>
@@ -490,9 +496,9 @@
 <li>If we repeat the experiment over and over, we can define the probability using the <em>frequentists</em> definition</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>n <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span></span>
-<span id="cb14-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(beads, n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-3"><a></a><span class="fu">table</span>(x)<span class="sc">/</span>n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span></span>
+<span id="cb14-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(beads, n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a aria-label="3"></a><span class="fu">table</span>(x)<span class="sc">/</span>n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x
      blue       red 
@@ -537,7 +543,7 @@
 <li>Before we continue, we will briefly explain the function <code>set.seed</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2020-10-13</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">2020-10-13</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>When using random number generators you get a different answer each time.</p></li>
@@ -558,11 +564,11 @@
 <li>Here is how we generate a deck of cards:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>suits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Diamonds"</span>, <span class="st">"Clubs"</span>, <span class="st">"Hearts"</span>, <span class="st">"Spades"</span>) </span>
-<span id="cb17-2"><a></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ace"</span>, <span class="st">"Deuce"</span>, <span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span>, <span class="st">"Six"</span>, <span class="st">"Seven"</span>,  </span>
-<span id="cb17-3"><a></a>             <span class="st">"Eight"</span>, <span class="st">"Nine"</span>, <span class="st">"Ten"</span>, <span class="st">"Jack"</span>, <span class="st">"Queen"</span>, <span class="st">"King"</span>) </span>
-<span id="cb17-4"><a></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">number =</span> numbers, <span class="at">suit =</span> suits) </span>
-<span id="cb17-5"><a></a>deck <span class="ot">&lt;-</span> <span class="fu">paste</span>(deck<span class="sc">$</span>number, deck<span class="sc">$</span>suit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>suits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Diamonds"</span>, <span class="st">"Clubs"</span>, <span class="st">"Hearts"</span>, <span class="st">"Spades"</span>) </span>
+<span id="cb17-2"><a aria-label="2"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ace"</span>, <span class="st">"Deuce"</span>, <span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span>, <span class="st">"Six"</span>, <span class="st">"Seven"</span>,  </span>
+<span id="cb17-3"><a aria-label="3"></a>             <span class="st">"Eight"</span>, <span class="st">"Nine"</span>, <span class="st">"Ten"</span>, <span class="st">"Jack"</span>, <span class="st">"Queen"</span>, <span class="st">"King"</span>) </span>
+<span id="cb17-4"><a aria-label="4"></a>deck <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">number =</span> numbers, <span class="at">suit =</span> suits) </span>
+<span id="cb17-5"><a aria-label="5"></a>deck <span class="ot">&lt;-</span> <span class="fu">paste</span>(deck<span class="sc">$</span>number, deck<span class="sc">$</span>suit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="combinations-and-permutations-2" class="slide level2">
@@ -571,8 +577,8 @@
 <li>Here are all the ways we can choose two numbers from a list consisting of <code>1,2,3</code>:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(gtools) </span>
-<span id="cb18-2"><a></a><span class="fu">permutations</span>(<span class="dv">3</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">library</span>(gtools) </span>
+<span id="cb18-2"><a aria-label="2"></a><span class="fu">permutations</span>(<span class="dv">3</span>, <span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2]
 [1,]    1    2
@@ -594,7 +600,7 @@
 <li>To compute all possible ways we can choose two cards when the order matters, we type, you can use the <code>v</code> option:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>hands <span class="ot">&lt;-</span> <span class="fu">permutations</span>(<span class="dv">52</span>, <span class="dv">2</span>, <span class="at">v =</span> deck) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>hands <span class="ot">&lt;-</span> <span class="fu">permutations</span>(<span class="dv">52</span>, <span class="dv">2</span>, <span class="at">v =</span> deck) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="combinations-and-permutations-4" class="slide level2">
@@ -604,7 +610,7 @@
 <li><p>If we wanted to compute the probability of this happening, we would enumerate the <em>combinations</em>, not the permutations, since the order does not matter.</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">combinations</span>(<span class="dv">3</span>,<span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">combinations</span>(<span class="dv">3</span>,<span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2]
 [1,]    1    2
@@ -635,15 +641,15 @@
 <li>We used the heights of adult male students as an example:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb23-2"><a></a><span class="fu">library</span>(dslabs) </span>
-<span id="cb23-3"><a></a>x <span class="ot">&lt;-</span> heights <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(height) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb23-2"><a aria-label="2"></a><span class="fu">library</span>(dslabs) </span>
+<span id="cb23-3"><a aria-label="3"></a>x <span class="ot">&lt;-</span> heights <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(height) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>and defined the empirical cumulative distribution function (eCDF) as.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>F <span class="ot">&lt;-</span> <span class="cf">function</span>(a) <span class="fu">mean</span>(x <span class="sc">&lt;=</span> a) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>F <span class="ot">&lt;-</span> <span class="cf">function</span>(a) <span class="fu">mean</span>(x <span class="sc">&lt;=</span> a) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>which, for any value <code>a</code>, gives the proportion of values in the list <code>x</code> that are smaller or equal than <code>a</code>.</li>
@@ -663,7 +669,7 @@
 <li>Using the eCDF we obtain an answer by typing:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">F</span>(<span class="dv">70</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">F</span>(<span class="dv">70</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3768473</code></pre>
 </div>
@@ -738,7 +744,7 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <li>We say that a random quantity is normally distributed with average <code>m</code> and standard deviation <code>s</code> if its probability distribution is defined by:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">F</span>(a) <span class="ot">=</span> <span class="fu">pnorm</span>(a, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">F</span>(a) <span class="ot">=</span> <span class="fu">pnorm</span>(a, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="probability-density-function-5" class="slide level2">
@@ -748,9 +754,9 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <li><p>We just need the average height and standard deviation:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>m <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb28-2"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x) </span>
-<span id="cb28-3"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">70.5</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>m <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb28-2"><a aria-label="2"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x) </span>
+<span id="cb28-3"><a aria-label="3"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">70.5</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.371369</code></pre>
 </div>
@@ -815,15 +821,15 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <li>For example, the normal distribution is useful for approximating the proportion of students reporting values in intervals like the following three:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">68.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">67.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">68.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">67.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.114532</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">69.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">68.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">69.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">68.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1194581</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">69.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">69.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1219212</code></pre>
 </div>
@@ -835,15 +841,15 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <li>Note how close we get with the normal approximation:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">pnorm</span>(<span class="fl">68.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">67.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">68.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">67.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1031077</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">pnorm</span>(<span class="fl">69.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">68.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">69.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">68.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1097121</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">pnorm</span>(<span class="fl">70.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">69.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">70.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">69.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1081743</code></pre>
 </div>
@@ -858,7 +864,7 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <li>For instance, notice how the approximation breaks down when we try to estimate:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.9</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.9</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02216749</code></pre>
 </div>
@@ -867,7 +873,7 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <li>with:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">pnorm</span>(<span class="fl">70.9</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">70.1</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">70.9</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">70.1</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.08359562</code></pre>
 </div>
@@ -924,7 +930,7 @@ F(a) = \mbox{Pr}(X\leq a) = \int_{-\infty}^a f(x)\, dx
 <li>For example, to use the normal approximation to estimate the probability of someone being taller than 76 inches, we use:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">76</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-label="1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">76</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.03206008</code></pre>
 </div>
@@ -958,10 +964,10 @@ F(a) = \mbox{Pr}(X\leq a) = \int_{-\infty}^a f(x)\, dx
 <li>Here is an example of how we could generate data that looks like our reported heights:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x) </span>
-<span id="cb48-2"><a></a>m <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb48-3"><a></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x) </span>
-<span id="cb48-4"><a></a>simulated_heights <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x) </span>
+<span id="cb48-2"><a aria-label="2"></a>m <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb48-3"><a aria-label="3"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x) </span>
+<span id="cb48-4"><a aria-label="4"></a>simulated_heights <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="monte-carlo-4" class="slide level2">
@@ -981,11 +987,11 @@ F(a) = \mbox{Pr}(X\leq a) = \int_{-\infty}^a f(x)\, dx
 <section id="monte-carlo-6" class="slide level2">
 <h2>Monte Carlo</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
-<span id="cb49-2"><a></a>tallest <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
-<span id="cb49-3"><a></a>  simulated_data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">800</span>, m, s) </span>
-<span id="cb49-4"><a></a>  <span class="fu">max</span>(simulated_data) </span>
-<span id="cb49-5"><a></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
+<span id="cb49-2"><a aria-label="2"></a>tallest <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
+<span id="cb49-3"><a aria-label="3"></a>  simulated_data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">800</span>, m, s) </span>
+<span id="cb49-4"><a aria-label="4"></a>  <span class="fu">max</span>(simulated_data) </span>
+<span id="cb49-5"><a aria-label="5"></a>}) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="monte-carlo-7" class="slide level2">
@@ -994,7 +1000,7 @@ F(a) = \mbox{Pr}(X\leq a) = \int_{-\infty}^a f(x)\, dx
 <li>Having a seven-footer is quite rare:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="fu">mean</span>(tallest <span class="sc">&gt;=</span> <span class="dv">7</span><span class="sc">*</span><span class="dv">12</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-label="1"></a><span class="fu">mean</span>(tallest <span class="sc">&gt;=</span> <span class="dv">7</span><span class="sc">*</span><span class="dv">12</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0195</code></pre>
 </div>
@@ -1030,8 +1036,8 @@ F(a) = \mbox{Pr}(X\leq a) = \int_{-\infty}^a f(x)\, dx
 <section id="continuous-distributions-2" class="slide level2">
 <h2>Continuous distributions</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">100</span>) </span>
-<span id="cb52-2"><a></a><span class="fu">qplot</span>(x, f, <span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">data =</span> <span class="fu">data.frame</span>(x, <span class="at">f =</span> <span class="fu">dnorm</span>(x))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">100</span>) </span>
+<span id="cb52-2"><a aria-label="2"></a><span class="fu">qplot</span>(x, f, <span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">data =</span> <span class="fu">data.frame</span>(x, <span class="at">f =</span> <span class="fu">dnorm</span>(x))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
