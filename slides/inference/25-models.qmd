@@ -1,7 +1,7 @@
 ---
 title: "Data-driven models"
 keywords: "Inference"
-date: 2025-10-27
+date: 2026-10-21
 format:
   revealjs:
     theme: night

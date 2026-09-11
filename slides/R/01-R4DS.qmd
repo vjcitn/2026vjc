@@ -1,0 +1,44 @@
+---
+title: "R for data science"
+keywords: "R"
+date: 2026-09-14
+format:
+  revealjs:
+    theme: solarized
+execute: 
+  echo: true
+---
+
+## Quick return to Unix
+
+- sign in to the github.com ide
+- with the "+" control, pick "New codespace"
+- we will do some basic work in unix once the terminal starts 
+
+## A map of our destinations{.smaller}
+
+- Principles of programming
+    - symbols (syntax) mapped to operations and values (semantics)
+    - data representations
+    - repetitive computing: iteration and recursion
+    - resource consumption: "space" and "time"; concurrency
+    - fault tolerance: anticipating and responding to errors
+- R for interactive "data analysis and visualization"
+
+## Contents in production{.smaller}
+
+0) creating or acquiring values, existence as variables, types
+0.4) the index concept for vectors and other entities
+0.45) producing lists via split; other features of lists
+0.5) elements with unknown values: NA
+0.6) infix operators and the recycling rule; implicit iteration
+1) meaning of sort, order
+1.5) which, %in%, match
+2) meaning of table
+3) preview/postview with head/tail
+4) equality testing
+5) recycling rule
+6) behavior of strsplit
+7) set.seed and sampling
+8) flow control: loops, apply, recursion
+

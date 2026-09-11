@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <meta name="dcterms.date" content="2025-09-29">
+  <meta name="dcterms.date" content="2026-09-21">
   <meta name="keywords" content="Wrangling">
   <title>DRAFT FOR 2026 fall of BST 260: Introduction to Data Science – Dates And Times</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -205,7 +205,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2025-09-29</p>
+  <p class="date">2026-09-21</p>
 </section>
 <section id="parsing-dates-and-times" class="slide level2">
 <h2>Parsing dates and times</h2>
@@ -467,11 +467,11 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">now</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-09-09 12:45:02 EDT"</code></pre>
+<pre><code>[1] "2026-09-11 17:25:42 EDT"</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">now</span>(<span class="st">"GMT"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-09-09 16:45:02 GMT"</code></pre>
+<pre><code>[1] "2026-09-11 21:25:42 GMT"</code></pre>
 </div>
 </div>
 </section>
@@ -795,15 +795,15 @@ attr(,"Version")
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">hour</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
+<pre><code>[1] 17</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">minute</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 45</code></pre>
+<pre><code>[1] 25</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">now</span>() <span class="sc">|&gt;</span> <span class="fu">second</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.536538</code></pre>
+<pre><code>[1] 42.5878</code></pre>
 </div>
 </div>
 </section>

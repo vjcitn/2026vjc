@@ -1,5 +1,5 @@
 ---
-title: "Unix: an operating system with 50+ years of significance in scientific computing"
+title: "Unix: an operating system with 50+ years of <br>significance in scientific computing"
 keywords: "Productivity Tools"
 date: "2026-09-02"
 format:

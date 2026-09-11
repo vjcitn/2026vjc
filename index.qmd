@@ -50,9 +50,7 @@ edition of the course, and will change.
 
 ## Problem Sets for 2026.  
 
-| 2026 Problem Sets| Topic | Due Date |  Difficulty |
-|:-------|:--------------|:---------|:----------|
-| [Problem Set 1](psets2026/pset-01-github.qmd)   |  GitHub, Markdown|Sep 2| easy |
+See [https://vjcitn.github.io/2026vjc/psets2026.html](https://vjcitn.github.io/2026vjc/psets2026.html)
 
 ## Final projects for 2026.  To be determined.
 

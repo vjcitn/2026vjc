@@ -1,7 +1,7 @@
 ---
 title: "Matrices In R"
 keywords: "High dimensional data"
-date: 2025-11-17
+date: 2026-11-16
 format:
   revealjs:
     theme: night

@@ -1,6 +1,7 @@
 ---
 title: "Overview of BST 260 Introduction to Data Science"
 author: "Vince Carey, instructor, Fall 2026 edition"
+date: 2026-08-31
 shortcodes:
   - git-rev.lua
 ---

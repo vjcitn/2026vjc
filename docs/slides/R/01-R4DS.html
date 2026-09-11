@@ -6,12 +6,12 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
-  <meta name="dcterms.date" content="2026-10-21">
-  <meta name="keywords" content="Inference">
-  <title>DRAFT FOR 2026 fall of BST 260: Introduction to Data Science – Confidence Intervals</title>
+  <meta name="dcterms.date" content="2026-09-14">
+  <meta name="keywords" content="R">
+  <title>DRAFT FOR 2026 fall of BST 260: Introduction to Data Science – R for data science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -35,74 +35,8 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #f8f8f2;  }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #f07178; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #00e0e0; } /* Attribute */
-    code span.bn { color: #d4d0ab; } /* BaseN */
-    code span.bu { color: #abe338; } /* BuiltIn */
-    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffd700; } /* Constant */
-    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
-    code span.cv { color: #ffd700; } /* CommentVar */
-    code span.do { color: #f8f8f2; } /* Documentation */
-    code span.dt { color: #ffa07a; } /* DataType */
-    code span.dv { color: #d4d0ab; } /* DecVal */
-    code span.er { color: #f07178; text-decoration: underline; } /* Error */
-    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
-    code span.fl { color: #d4d0ab; } /* Float */
-    code span.fu { color: #ffa07a; } /* Function */
-    code span.im { color: #abe338; } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
-    code span.op { color: #ffa07a; } /* Operator */
-    code span.ot { color: #00e0e0; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
-    code span.sc { color: #abe338; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #00e0e0; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-422092a5e00d6ffa3175d97bbb8f7ab9.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-1a8385bbf955fbb4448938bc10efacf4.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -195,207 +129,56 @@
     }
   </style>
 </head>
-<body class="quarto-dark">
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Confidence Intervals</h1>
+  <h1 class="title">R for data science</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-10-21</p>
+  <p class="date">2026-09-14</p>
 </section>
-<section id="confidence-intervals" class="slide level2">
-<h2>Confidence intervals</h2>
+<section id="quick-return-to-unix" class="slide level2">
+<h2>Quick return to Unix</h2>
 <ul>
-<li><p>Confidence intervals are a very useful concept widely employed by data analysts.</p></li>
-<li><p>A version of these that are commonly seen come from the <code>ggplot</code> geometry <code>geom_smooth</code>.</p></li>
-<li><p>Below is an example using a temperature dataset available in R:</p></li>
-</ul>
-</section>
-<section id="confidence-intervals-1" class="slide level2">
-<h2>Confidence intervals</h2>
-
-<img data-src="24-confidence-intervals_files/figure-revealjs/first-confidence-intervals-example-1.png" width="960" class="r-stretch"></section>
-<section id="confidence-intervals-2" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li><p>In our competition, you were asked to give an interval.</p></li>
-<li><p>If the interval you submitted includes the <span class="math inline">\(p\)</span>, you receive half the money you spent on your “poll” back and proceed to the next stage of the competition.</p></li>
+<li>sign in to the github.com ide</li>
+<li>with the “+” control, pick “New codespace”</li>
+<li>we will do some basic work in unix once the terminal starts</li>
 </ul>
 </section>
-<section id="confidence-intervals-3" class="slide level2">
-<h2>Confidence intervals</h2>
+<section id="a-map-of-our-destinations" class="slide level2 smaller">
+<h2>A map of our destinations</h2>
 <ul>
-<li><p>One way to pass to the second round is to report a very large interval.</p></li>
-<li><p>For example, the interval <span class="math inline">\([0,1]\)</span> is guaranteed to include <span class="math inline">\(p\)</span>.</p></li>
-<li><p>However, with an interval this big, we have no chance of winning the competition.</p></li>
+<li>Principles of programming
+<ul>
+<li>symbols (syntax) mapped to operations and values (semantics)</li>
+<li>data representations</li>
+<li>repetitive computing: iteration and recursion</li>
+<li>resource consumption: “space” and “time”; concurrency</li>
+<li>fault tolerance: anticipating and responding to errors</li>
+</ul></li>
+<li>R for interactive “data analysis and visualization”</li>
 </ul>
 </section>
-<section id="confidence-intervals-4" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li><p>Similarly, if you are an election forecaster and predict the spread will be between -100% and 100%, you will be ridiculed for stating the obvious.</p></li>
-<li><p>Even a smaller interval, such as saying the spread will be between -10 and 10%, will not be considered serious.</p></li>
-</ul>
-</section>
-<section id="confidence-intervals-5" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li><p>On the other hand, the smaller the interval we report, the smaller our chances are of winning the prize.</p></li>
-<li><p>Likewise, a bold pollster that reports very small intervals and misses the mark most of the time will not be considered a good pollster.</p></li>
-<li><p>We might want to be somewhere in between.</p></li>
-<li><p>We can use the statistical theory we have learned to compute the probability of any given interval including <span class="math inline">\(p\)</span>.</p></li>
-</ul>
-</section>
-<section id="confidence-intervals-6" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li><p>To illustrate this we run the Monte Carlo simulation.</p></li>
-<li><p>We use the same parameters as above:</p></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.45</span> </span>
-<span id="cb1-2"><a aria-label="2"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="confidence-intervals-7" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li>And notice that the interval here:</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
-<span id="cb2-2"><a aria-label="2"></a>x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb2-3"><a aria-label="3"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
-<span id="cb2-4"><a aria-label="4"></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.428114 0.489886</code></pre>
-</div>
-</div>
-<ul>
-<li>is different from this one:</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
-<span id="cb4-2"><a aria-label="2"></a>x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb4-3"><a aria-label="3"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
-<span id="cb4-4"><a aria-label="4"></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3993149 0.4606851</code></pre>
-</div>
-</div>
-<ul>
-<li>Keep sampling and creating intervals, and you will see the random variation.</li>
-</ul>
-</section>
-<section id="confidence-intervals-8" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li>To determine the probability that the interval includes <span class="math inline">\(p\)</span>, we need to compute the following:</li>
-</ul>
-<p><span class="math display">\[
-\mbox{Pr}\left(\bar{X} - 1.96\hat{\mbox{SE}}(\bar{X}) \leq p \leq \bar{X} + 1.96\hat{\mbox{SE}}(\bar{X})\right)
-\]</span></p>
-</section>
-<section id="confidence-intervals-9" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li>By subtracting and dividing the same quantities in all parts of the equation, we find that the above is equivalent to:</li>
-</ul>
-<p><span class="math display">\[
-\mbox{Pr}\left(-1.96 \leq \frac{\bar{X}- p}{\hat{\mbox{SE}}(\bar{X})} \leq  1.96\right)
-\]</span></p>
-</section>
-<section id="confidence-intervals-10" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li>The term in the middle is an approximately normal random variable with expected value 0 and standard error 1, which we have been denoting with <span class="math inline">\(Z\)</span>, so we have:</li>
-</ul>
-<p><span class="math display">\[
-\mbox{Pr}\left(-1.96 \leq Z \leq  1.96\right)
-\]</span></p>
-<ul>
-<li>which we can quickly compute using :</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">1.96</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.96</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9500042</code></pre>
-</div>
-</div>
-<ul>
-<li>proving that we have a 95% probability.</li>
-</ul>
-</section>
-<section id="confidence-intervals-11" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li>If we want to have a larger probability, say 99%, we need to multiply by whatever <code>z</code> satisfies the following:</li>
-</ul>
-<p><span class="math display">\[
-\mbox{Pr}\left(-z \leq Z \leq  z\right) = 0.99
-\]</span></p>
-<ul>
-<li>We use:</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.995</span>) </span>
-<span id="cb8-2"><a aria-label="2"></a>z </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.575829</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.99</code></pre>
-</div>
-</div>
-</section>
-<section id="confidence-intervals-12" class="slide level2">
-<h2>Confidence intervals</h2>
-<ul>
-<li><p>In statistics textbooks, confidence interval formulas are given for arbitraty probabilities written as <span class="math inline">\(1-\alpha\)</span>.</p></li>
-<li><p>We can obtain the <span class="math inline">\(z\)</span> for the equation above using <code>z = qnorm(1 - alpha / 2)</code> because <span class="math inline">\(1 - \alpha/2 - \alpha/2 = 1 - \alpha\)</span>.</p></li>
-<li><p>So, for example, for <span class="math inline">\(\alpha=0.05\)</span>, <span class="math inline">\(1 - \alpha/2 = 0.975\)</span> and we get the <span class="math inline">\(z=1.96\)</span> we used above:</p></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.959964</code></pre>
-</div>
-</div>
-</section>
-<section id="a-monte-carlo-simulation" class="slide level2">
-<h2>A Monte Carlo simulation</h2>
-<ul>
-<li>We can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes <span class="math inline">\(p\)</span> 95% of the time.</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb14-2"><a aria-label="2"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span> </span>
-<span id="cb14-3"><a aria-label="3"></a>inside <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, { </span>
-<span id="cb14-4"><a aria-label="4"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">size =</span> N, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> p, p)) </span>
-<span id="cb14-5"><a aria-label="5"></a>  x_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x) </span>
-<span id="cb14-6"><a aria-label="6"></a>  se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
-<span id="cb14-7"><a aria-label="7"></a>  <span class="fu">between</span>(p, x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span>
-<span id="cb14-8"><a aria-label="8"></a>}) </span>
-<span id="cb14-9"><a aria-label="9"></a><span class="fu">mean</span>(inside) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9448</code></pre>
-</div>
-</div>
-</section>
-<section id="a-monte-carlo-simulation-1" class="slide level2">
-<h2>A Monte Carlo simulation</h2>
-<ul>
-<li>The following plot shows the first 100 confidence intervals.</li>
-</ul>
+<section id="contents-in-production" class="slide level2 smaller">
+<h2>Contents in production</h2>
+<ol start="0" type="1">
+<li>creating or acquiring values, existence as variables, types 0.4) the index concept for vectors and other entities 0.45) producing lists via split; other features of lists 0.5) elements with unknown values: NA 0.6) infix operators and the recycling rule; implicit iteration</li>
+<li>meaning of sort, order 1.5) which, %in%, match</li>
+<li>meaning of table</li>
+<li>preview/postview with head/tail</li>
+<li>equality testing</li>
+<li>recycling rule</li>
+<li>behavior of strsplit</li>
+<li>set.seed and sampling</li>
+<li>flow control: loops, apply, recursion</li>
+</ol>
 
 
-
-<img data-src="24-confidence-intervals_files/figure-revealjs/confidence-interval-coverage-1.png" width="960" class="r-stretch"></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -611,44 +394,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

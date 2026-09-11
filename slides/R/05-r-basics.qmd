@@ -1,7 +1,7 @@
 ---
 title: "R Basics"
 keywords: "R"
-date: 2025-09-15
+date: 2026-09-14
 format:
   revealjs:
     theme: night

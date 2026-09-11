@@ -1,5 +1,5 @@
 ---
-title: "Slides"
+title: "Slides: Dates for 2026 are approximate"
 author: ""
 date: ""
 listing:
@@ -18,16 +18,40 @@ listing:
       - slides/other-topics/*.qmd
 
     type: table
-    fields: [keywords, title]
+    fields: [keywords, title, date]
     date-format: "ddd, MMM DD"
     field-display-names:
       keywords: "Topic"
       title: "Title"
-    sort: [filename]
+    sort: [date]
     sort-ui: false
     filter-ui: false
-tbl-colwidths: [10,50,40]
 ---
+
+<style>
+#listing-slides table.quarto-listing-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+#listing-slides table.quarto-listing-table th:nth-child(1),
+#listing-slides table.quarto-listing-table td:nth-child(1) {
+  width: 20%;
+}
+
+#listing-slides table.quarto-listing-table th:nth-child(2),
+#listing-slides table.quarto-listing-table td:nth-child(2) {
+  width: 60%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#listing-slides table.quarto-listing-table th:nth-child(3),
+#listing-slides table.quarto-listing-table td:nth-child(3) {
+  width: 20%;
+}
+</style>
 
 ::: {#slides}
 :::
