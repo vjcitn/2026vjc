@@ -11,7 +11,7 @@
 
   <meta name="dcterms.date" content="2026-09-14">
   <meta name="keywords" content="R">
-  <title>DRAFT FOR 2026 fall of BST 260: Introduction to Data Science – R for data science</title>
+  <title>DRAFT FOR 2026 fall of BST 260: Introduction to Data Science – Unix, AI, R for data science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -134,7 +134,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">R for data science</h1>
+  <h1 class="title">Unix, AI, R for data science</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -147,6 +147,71 @@
 <li>sign in to the github.com ide</li>
 <li>with the “+” control, pick “New codespace”</li>
 <li>we will do some basic work in unix once the terminal starts</li>
+</ul>
+</section>
+<section id="quick-notes-on-use-of-ai" class="slide level2">
+<h2>Quick notes on use of AI</h2>
+<pre><code>AI Assistance
+Model: GPT-5.6 Sol
+
+Prompt: I asked ChatGPT to guide me through Problem Set 2 step by step, including understanding R vectors, ...
+
+What I learned: I learned how vector operations and recycling work in R, how to control plot ...</code></pre>
+<ul>
+<li>This is a nice, honest statement of use of AI.<br>
+</li>
+<li>I’d like to look at this critically.</li>
+<li>You have to be better than the AI … and you can be.</li>
+<li>You have to be careful of mis-skilling or de-skilling…</li>
+</ul>
+</section>
+<section id="nejm-2025-abdelnour-et-al-doi-10.1056nejmra2503232" class="slide level2">
+<h2>NEJM 2025 Abdelnour et al DOI 10.1056/NEJMra2503232</h2>
+
+<img data-src="./genaiSkilling.jpg" class="r-stretch"></section>
+<section id="avoiding-de-skilling-managing-the-helper" class="slide level2">
+<h2>Avoiding de-skilling, “managing the helper”</h2>
+<ul>
+<li>Don’t just drop the problem set into chatbot or agent environment</li>
+<li>This prevents “active dissection” of the problem</li>
+<li>Eliminates the need for strategic thinking</li>
+<li>Silos the student into 1-1 dialog with bot</li>
+<li>Problems must become harder in ways that AI “does not help”</li>
+</ul>
+</section>
+<section id="summary-of-learning-objectives-of-2025-problem-set-1" class="slide level2">
+<h2>Summary of learning objectives of 2025 Problem set 1</h2>
+
+<img data-src="learnObj1.jpg" class="r-stretch quarto-figure-center"><p class="caption">From GPT-5.6 Luna</p></section>
+<section id="more-learning-objectives-of-2025-problem-set-1" class="slide level2">
+<h2>More learning objectives of 2025 Problem set 1</h2>
+
+<img data-src="learnObj2.jpg" class="r-stretch quarto-figure-center"><p class="caption">From GPT-5.6 Luna</p></section>
+<section id="difference-in-2026-problems-so-far" class="slide level2">
+<h2>Difference in 2026 problems (so far)</h2>
+
+<img data-src="comp2026.jpg" class="r-stretch quarto-figure-center"><p class="caption">From GPT-5.6 Luna</p></section>
+<section id="a-perspective-from-the-math-department" class="slide level2">
+<h2>A perspective from the <a href="https://people.math.harvard.edu/~elkies/M229.26/plan.pdf">Math department</a></h2>
+
+<img data-src="elkiesAI.jpg" class="r-stretch quarto-figure-center"><p class="caption">https://people.math.harvard.edu/~elkies/M229.26/plan.pdf</p></section>
+<section id="what-is-lost-in-agentic-math" class="slide level2 smaller">
+<h2>What is <a href="https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html">lost</a> in “agentic math”</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="navier.jpg" height="500"></p>
+<figcaption>https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html</figcaption>
+</figure>
+</div>
+</section>
+<section id="comments" class="slide level2">
+<h2>Comments</h2>
+<ul>
+<li>See also <a href="https://www.youtube.com/watch?v=mqNsHSV2Ofg">T. Tao video</a></li>
+<li>And <a href="https://talks.seandavis.net/">Sean Davis resources, mostly on agentic methods</a></li>
+<li>Always acknowledge your collaborators, even if artificial</li>
+<li>Always try to push the boundaries that came back … e.g., the “grading app”</li>
+<li>Articulate your concerns</li>
 </ul>
 </section>
 <section id="a-map-of-our-destinations" class="slide level2 smaller">
@@ -163,19 +228,62 @@
 <li>R for interactive “data analysis and visualization”</li>
 </ul>
 </section>
-<section id="contents-in-production" class="slide level2 smaller">
-<h2>Contents in production</h2>
-<ol start="0" type="1">
-<li>creating or acquiring values, existence as variables, types 0.4) the index concept for vectors and other entities 0.45) producing lists via split; other features of lists 0.5) elements with unknown values: NA 0.6) infix operators and the recycling rule; implicit iteration</li>
-<li>meaning of sort, order 1.5) which, %in%, match</li>
-<li>meaning of table</li>
+<section id="contents-in-production-1-vector-concepts" class="slide level2">
+<h2>Contents in production 1: vector concepts</h2>
+<ul>
+<li><ol start="0" type="1">
+<li>creating or acquiring values, existence as variables, types</li>
+</ol></li>
+<li>0.4) the index concept for vectors and other entities</li>
+<li>0.45) producing lists via split; other features of lists</li>
+<li>0.5) elements with unknown values: NA</li>
+<li>0.6) infix operators and the recycling rule; implicit iteration</li>
+<li><ol start="6" type="1">
+<li>behaviors of split, strsplit</li>
+</ol></li>
+</ul>
+</section>
+<section id="vector-ordering-and-searching" class="slide level2">
+<h2>2: vector ordering and searching</h2>
+<ul>
+<li><ol type="1">
+<li>meaning of sort, order</li>
+</ol></li>
+<li>1.5) which, %in%, match, grep</li>
+<li><ol start="3" type="1">
 <li>preview/postview with head/tail</li>
+</ol></li>
+<li><ol start="4" type="1">
 <li>equality testing</li>
+</ol></li>
+<li><ol start="5" type="1">
 <li>recycling rule</li>
-<li>behavior of strsplit</li>
-<li>set.seed and sampling</li>
+</ol></li>
+</ul>
+</section>
+<section id="aggregation" class="slide level2">
+<h2>3: aggregation</h2>
+<ul>
+<li><ol start="2" type="1">
+<li>meaning of table</li>
+</ol></li>
+</ul>
+</section>
+<section id="flow-control" class="slide level2">
+<h2>4: flow control</h2>
+<ul>
+<li><ol start="8" type="1">
 <li>flow control: loops, apply, recursion</li>
-</ol>
+</ol></li>
+</ul>
+</section>
+<section id="randomness" class="slide level2">
+<h2>5: ‘randomness’</h2>
+<ul>
+<li><ol start="7" type="1">
+<li>set.seed and sampling</li>
+</ol></li>
+</ul>
 
 
 </section>

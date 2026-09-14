@@ -60,12 +60,18 @@ What I learned: I learned how vector operations and recycling work in R, how to 
 
 ![https://people.math.harvard.edu/~elkies/M229.26/plan.pdf](elkiesAI.jpg)
  
-## What is lost in "agentic math"
+## What is [lost](https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html) in "agentic math"{.smaller}
 
-![https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html](navier.jpg)
+![https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html](navier.jpg){height=500}
+
+
 ## Comments
 
-- 
+- See also [T. Tao video](https://www.youtube.com/watch?v=mqNsHSV2Ofg)
+- And [Sean Davis resources, mostly on agentic methods](https://talks.seandavis.net/)
+- Always acknowledge your collaborators, even if artificial
+- Always try to push the boundaries that came back ... e.g., the "grading app"
+- Articulate your concerns
 
 ## A map of our destinations{.smaller}
 
@@ -77,20 +83,33 @@ What I learned: I learned how vector operations and recycling work in R, how to 
     - fault tolerance: anticipating and responding to errors
 - R for interactive "data analysis and visualization"
 
-## Contents in production{.smaller}
+## Contents in production 1: vector concepts
 
-0) creating or acquiring values, existence as variables, types
-0.4) the index concept for vectors and other entities
-0.45) producing lists via split; other features of lists
-0.5) elements with unknown values: NA
-0.6) infix operators and the recycling rule; implicit iteration
-1) meaning of sort, order
-1.5) which, %in%, match
-2) meaning of table
-3) preview/postview with head/tail
-4) equality testing
-5) recycling rule
-6) behavior of strsplit
-7) set.seed and sampling
-8) flow control: loops, apply, recursion
+- 0) creating or acquiring values, existence as variables, types
+- 0.4) the index concept for vectors and other entities
+- 0.45) producing lists via split; other features of lists
+- 0.5) elements with unknown values: NA
+- 0.6) infix operators and the recycling rule; implicit iteration
+- 6) behaviors of split, strsplit
+
+## 2: vector ordering and searching
+
+- 1) meaning of sort, order
+- 1.5) which, %in%, match, grep
+- 3) preview/postview with head/tail
+- 4) equality testing
+- 5) recycling rule
+
+## 3: aggregation 
+
+- 2) meaning of table
+
+## 4: flow control
+
+- 8) flow control: loops, apply, recursion
+
+## 5: 'randomness'
+
+- 7) set.seed and sampling
+
 
