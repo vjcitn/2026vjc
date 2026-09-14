@@ -1,5 +1,5 @@
 ---
-title: "R for data science"
+title: "Unix, AI, R for data science"
 keywords: "R"
 date: 2026-09-14
 format:
@@ -14,6 +14,58 @@ execute:
 - sign in to the github.com ide
 - with the "+" control, pick "New codespace"
 - we will do some basic work in unix once the terminal starts 
+
+## Quick notes on use of AI
+
+```
+AI Assistance
+Model: GPT-5.6 Sol
+
+Prompt: I asked ChatGPT to guide me through Problem Set 2 step by step, including understanding R vectors, ...
+
+What I learned: I learned how vector operations and recycling work in R, how to control plot ...
+```
+
+- This is a nice, honest statement of use of AI.  
+- I'd like to look at this critically.
+- You have to be better than the AI ... and you can be.
+- You have to be careful of mis-skilling or de-skilling...
+
+## NEJM 2025 Abdelnour et al DOI 10.1056/NEJMra2503232
+
+![](./genaiSkilling.jpg)
+
+## Avoiding de-skilling, "managing the helper"
+
+- Don't just drop the problem set into chatbot or agent environment
+- This prevents "active dissection" of the problem
+- Eliminates the need for strategic thinking
+- Silos the student into 1-1 dialog with bot
+- Problems must become harder in ways that AI "does not help"
+
+
+## Summary of learning objectives of 2025 Problem set 1
+
+![From GPT-5.6 Luna](learnObj1.jpg)
+ 
+## More learning objectives of 2025 Problem set 1
+
+![From GPT-5.6 Luna](learnObj2.jpg)
+
+## Difference in 2026 problems (so far)
+
+![From GPT-5.6 Luna](comp2026.jpg)
+
+## A perspective from the [Math department](https://people.math.harvard.edu/~elkies/M229.26/plan.pdf)
+
+![https://people.math.harvard.edu/~elkies/M229.26/plan.pdf](elkiesAI.jpg)
+ 
+## What is lost in "agentic math"
+
+![https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html](navier.jpg)
+## Comments
+
+- 
 
 ## A map of our destinations{.smaller}
 
