@@ -130,6 +130,9 @@ head(table(cdcmurd$Location))
 What do you learn about the `cdcmurd` data.frame on the basis of these
 commands?  Hint: `table(cdcmurd$Location)` is quite unpleasant to look at.
 
+You can use AI to get some reasoning about the value of the `table(table(`
+construction.  Report what you learn here.
+
 **Exercise 7**.  Before running the code, explain what
 ```
 apply(cdcmurd,2,function(x) any(is.na(x)))
@@ -151,3 +154,12 @@ library(dplyr)
 cdcmurd |> filter(is.na(Death.Rate)) |> count()
 ```
 What is the difference between the outcome here and that of Exercise 8?
+
+Here's a two-line command, which you can run if the commands
+above have all suceeded.
+```
+cdcmurd |> filter(is.na(Death.Rate)) |> 
+    group_by(Location) |> summarise(mn=mean(Deaths))
+```
+Now look at `median(cdcmurd$Deaths)`.  Form a conjecture on
+why the death rates are missing when they are?
