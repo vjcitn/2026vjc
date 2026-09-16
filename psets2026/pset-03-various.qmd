@@ -1,0 +1,153 @@
+---
+title: Problem set 2 
+date: 2026-09-25
+---
+
+# Overview
+
+If you use AI to help solve any problem, please
+provide information on 1) the model in use, 2) the prompt used to get help,
+3) some comments on what you learned from the encounter.
+
+Solutions to this problem set should be submitted as quarto documents.
+Place the required file in your bst260 repository in folder "solutions" as "pset03.qmd"
+Use the title "BST 260 Problem set 3: Logic, reading, guns and geography",
+and put your
+name as author in the yaml header.  Ensure that the HTML
+to which your quarto document compiles has a good appearance.
+
+# Propositional logic exercises
+
+Notation: ~ (not), $\wedge$ (and), $\lor$ (or), $\rightarrow$ (if...then), $\leftrightarrow$ (if and only if)
+
+In your document you can use \LaTeX annotation for these connectives:
+
+- tilde for negation
+- `$\wedge$` for 'and'
+- `$\lor$` for 'or'
+- `$\rightarrow$` for 'if...then'
+- `$\leftrightarrow$` for 'if and only if'
+
+
+Illustration.  We consider the sentence
+
+If Ana studies, then if she rests well, she will pass the exam.
+
+We can use propositional variables
+
+- S = Ana studies 
+- R = Ana rests well 
+- P = Ana passes the exam
+
+We will formalize the sentence as $S \rightarrow (R \rightarrow P)$, and
+suppose that the sentence is TRUE.  If Ana rested well and failed the
+exam, what can we say about whether she studied?  Give all your reasoning.
+
+A formal approach could be based on writing out the truth table.
+
+| S | R | P | **S → (R → P)** |
+|:---:|:---:|:---:|:---:|
+| T | T | T | T |
+| T | T | F | F |
+| T | F | T | T |
+| T | F | F | T |
+| F | T | T | T |
+| F | T | F | T |
+| F | F | T | T |
+| F | F | F | T |
+
+We asserted that the sentence is true but P is false and R is true.
+We can find this configuration only once in the truth table, on
+the sixth line.  There S is F, so we conclude that Ana did not study.
+
+Note that when I submitted the problem to the Luna chatbot in the
+Harvard sandbox, it found
+
+"This is an application of **modus tollens** to the outer implication: if $S$ were true, then $R \rightarrow P$ would have to be true, but it is false. Therefore $S$ must be false."
+
+That's interesting.  I should be motivated to learn what **modus tollens** is,
+might connect it to **modus ponens**, and might learn a short cut relative
+to working out the truth table.
+
+**Exercise 1**.  Formalize
+
+If the coupon is valid, then the price is reduced of the shipping is free.
+
+What conditions on coupon validity, price and shipping make the sentence false?
+You do not need to write out the truth table but you may want to do so
+to find the answer.  Do state your variables and write out the
+formalization of the sentence.
+
+Do this without a chatbot first.  Then confirm your answer with the chatbot.
+If you find a discrepancy please add it into your problem set solutions.
+
+**Exercise 2**.  Formalize
+
+If it is not sunny and not warm then the picnic is cancelled.
+
+What kinds of weather and picnic scheduling make the sentence false?
+
+Same relationship to chatbot.  Formalize, try to find the values of
+variables that make the sentence false, then confirm with chatbot.
+
+**Exercise 3**.  Formalize
+
+You may enter the contest if and only if you are a member or you have paid the fee.
+
+Suppose you enter and the sentence is false.  What do we know about your
+membership and fee payments?
+
+# Reading code exercises
+
+**Exercise 4**.  Install the `dslabs` package from CRAN.  After
+```
+library(dslabs)
+```
+use `?murders` to get help on the murders dataset that was used last year.
+What is problematic about this dataset?
+
+**Exercise 5**.  Use the commands
+
+```
+cdcmurd <- read.csv("https://tinyurl.com/cdcmurder")
+dim(cdcmurd)
+```
+
+How many rows are available?
+
+**Exercise 6**.  Why would one use the command
+```
+table(table(head(cdcmurd$Location,120)))
+```
+Compare the result of
+```
+table(table(head(cdcmurd$Location,153)))
+```
+and
+```
+head(table(cdcmurd$Location))
+```
+What do you learn about the `cdcmurd` data.frame on the basis of these
+commands?  Hint: `table(cdcmurd$Location)` is quite unpleasant to look at.
+
+**Exercise 7**.  Before running the code, explain what
+```
+apply(cdcmurd,2,function(x) any(is.na(x)))
+``` 
+is doing.  Use `?apply` if necessary.  
+
+**Exercise 8**.  What is 
+```
+cdcmurd[which(is.na(cdcmurd$Death.Rate)),] |> nrow()
+```
+doing?  Run it.
+
+**Exercise 9.  Elegance of dplyr.**
+
+Be sure the dplyr package is installed.  Try
+
+```
+library(dplyr)
+cdcmurd |> filter(is.na(Death.Rate)) |> count()
+```
+What is the difference between the outcome here and that of Exercise 8?
