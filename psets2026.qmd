@@ -8,6 +8,8 @@ listing:
       - psets2026/pset-01-github.qmd
       - psets2026/pset-01b-notes.qmd
       - psets2026/pset-02-poly-md.qmd
+      - psets2026/pset-02a-logic.qmd
+      - psets2026/pset-02b-reading.qmd
     type: table
     fields: [title, date]
     date-format: "ddd, MMM DD"

@@ -1,0 +1,733 @@
+---
+format:
+  pdf:
+    include-in-header:
+      text: |
+        \usepackage{array}
+        \usepackage{colortbl}
+        \usepackage{geometry}
+        \geometry{margin=0.85in}
+        \definecolor{tblgray}{gray}{0.55}
+---
+
+# Propositional Logic Worksheet: Translating Sentences into Symbols
+
+**This document is provided for reference to lecture content, you do not need to submit this problem
+set.**
+
+**Notation:** ~ (not), $\wedge$ (and), $\lor$ (or), $\rightarrow$ (if...then), $\leftrightarrow$ (if and only if)
+
+### A note on the conditional
+
+A statement of the form P $\rightarrow$ Q is called a **conditional**. P is called the **antecedent** (the "if" part) and Q is called the **consequent** (the "then" part).
+
+The conditional is only *false* when a true antecedent leads to a false consequent — that is, when the statement makes a promise it doesn't keep. In every other case it is *true*. In particular, **whenever the antecedent is false, the conditional as a whole is true**, regardless of the truth value of the consequent. (Think of it this way: if the antecedent never happens, the conditional's promise is never broken, so it counts as true.)
+
+For each problem below, write your symbolic translation in the blank top cell of the right-hand column of the truth table, then fill in every row below it: the settings of the propositions on the left, and the resulting truth value of your formula on the right.
+
+---
+
+## Worked Example 1
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**Statement:** It is raining and it is cold.
+**Propositions:** R = it is raining, C = it is cold
+
+**Symbolic form:** R $\wedge$ C
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+R & C & \textbf{R $\wedge$ C} \\ \hline
+T & T & T \\ \hline
+T & F & F \\ \hline
+F & T & F \\ \hline
+F & F & F \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+## Worked Example 2
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**Statement:** If the alarm sounds, then the building will be evacuated.
+**Propositions:** A = the alarm sounds, E = the building is evacuated
+
+**Symbolic form:** A $\rightarrow$ E
+
+Here A (the alarm sounds) is the antecedent and E (the building is evacuated) is the consequent.
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+A & E & \textbf{A $\rightarrow$ E} \\ \hline
+T & T & T \\ \hline
+T & F & F \\ \hline
+F & T & T \\ \hline
+F & F & T \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+Notice the last two rows: whenever the antecedent A is false, the conditional is true no matter what E is.
+
+## Exercises
+
+### Part 1 — Single Connective
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**1.** It is raining and it is cold.
+*Propositions:* R = it is raining, C = it is cold
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+R & C &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**2.** Either Maria will call or she will text.
+*Propositions:* M = Maria calls, T = Maria texts
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+M & T &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**3.** If the alarm sounds, then the building will be evacuated.
+*Propositions:* A = the alarm sounds, E = the building is evacuated
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+A & E &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**4.** The store is not open.
+*Propositions:* O = the store is open
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+O &  \\ \hline
+ &  \\ \hline
+ &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**5.** John is tired, but he is not giving up.
+*Propositions:* T = John is tired, G = John is giving up
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+T & G &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+### Part 2 — Two Connectives
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**6.** If it snows and the roads are icy, then school will be closed.
+*Propositions:* S = it snows, I = the roads are icy, C = school is closed
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+S & I & C &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**7.** Either the printer is out of paper or it is jammed, and it needs attention.
+*Propositions:* P = printer is out of paper, J = printer is jammed, A = it needs attention
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+P & J & A &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**8.** If Sam is not home, then Lee will feed the cat.
+*Propositions:* H = Sam is home, F = Lee feeds the cat
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+H & F &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**9.** The flight is delayed or cancelled, but the passengers have not been notified.
+*Propositions:* D = the flight is delayed, C = the flight is cancelled, N = the passengers have been notified
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+D & C & N &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**10.** If the test is passed, then the license is issued and the fee is refunded.
+*Propositions:* T = the test is passed, L = the license is issued, F = the fee is refunded
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+T & L & F &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+### Part 3 — Negation with Conjunction/Disjunction
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**11.** It is neither raining nor snowing.
+*Propositions:* R = it is raining, S = it is snowing
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+R & S &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**12.** Not both the door and the window are locked.
+*Propositions:* D = the door is locked, W = the window is locked
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+D & W &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**13.** Either the battery is dead or the switch is broken, and it is not the fuse.
+*Propositions:* B = the battery is dead, S = the switch is broken, F = it is the fuse
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+B & S & F &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**14.** The report is late, and it was not reviewed.
+*Propositions:* L = the report is late, R = the report was reviewed
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+L & R &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+### Part 4 — Nested Conditionals and Mixed Structure
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**15.** If Ana studies, then if she rests well, she will pass the exam.
+*Propositions:* S = Ana studies, R = Ana rests well, P = Ana passes the exam
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+S & R & P &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**16.** If the power fails or the server crashes, then the backup system starts.
+*Propositions:* P = the power fails, S = the server crashes, B = the backup system starts
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+P & S & B &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**17.** If the coupon is valid, then the price is reduced or the shipping is free.
+*Propositions:* V = the coupon is valid, P = the price is reduced, F = the shipping is free
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+V & P & F &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**18.** If it is not sunny and not warm, then the picnic is cancelled.
+*Propositions:* S = it is sunny, W = it is warm, C = the picnic is cancelled
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+S & W & C &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+### Part 5 — Biconditional
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**19.** The light turns on if and only if the switch is up and the circuit is not broken.
+*Propositions:* L = the light turns on, S = the switch is up, C = the circuit is broken
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+L & S & C &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
+```{=latex}
+\begin{minipage}[t]{\textwidth}
+\setlength{\parskip}{\smallskipamount}
+```
+
+**20.** You may enter the contest if and only if you are a member or you have paid the fee.
+*Propositions:* E = you may enter the contest, M = you are a member, F = you have paid the fee
+
+**Truth table:**
+
+```{=latex}
+\begingroup
+\arrayrulecolor{tblgray}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{6pt}
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{1.05cm}|>{\centering\arraybackslash}p{4.5cm}|}
+\hline
+E & M & F &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}
+\end{center}
+\endgroup
+\end{minipage}
+```
+
