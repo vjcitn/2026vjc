@@ -97,7 +97,7 @@ You may enter the contest if and only if you are a member or you have paid the f
 Suppose you enter and the sentence is false.  What do we know about your
 membership and fee payments?
 
-# Reading code exercises
+# Reading and running code exercises
 
 **Exercise 4**.  Install the `dslabs` package from CRAN.  After
 ```
@@ -112,6 +112,12 @@ What is problematic about this dataset?
 cdcmurd <- read.csv("https://tinyurl.com/cdcmurder")
 dim(cdcmurd)
 ```
+
+This acquires a dataset from the CDC that describes murder rates
+over time in the 50 states and D.C.
+
+The dataset is available at [https://www.cdc.gov/nchs/state-stats/deaths/homicide.html](https://www.cdc.gov/nchs/state-stats/deaths/homicide.html).  Note the definition of
+the adjusted rate.  Does it make sense?
 
 How many rows are available?
 
@@ -162,4 +168,34 @@ cdcmurd |> filter(is.na(Death.Rate)) |>
     group_by(Location) |> summarise(mn=mean(Deaths))
 ```
 Now look at `median(cdcmurd$Deaths)`.  Form a conjecture on
-why the death rates are missing when they are?
+why the death rates are missing when they are?  Use AI to check your
+conjecture and report what you learned.
+
+**Exercise 10.  Visualization.**
+
+Ensure that ggplot2, ggbeeswarm, and plotly are installed in your version of R.
+Read this code before you run it.
+```
+myp <- cdcmurd |> filter(YEAR %in% c(2019,2020,2021,2022)) |> 
+  ggplot(aes(factor(YEAR), Death.Rate, text=Location)) + 
+  geom_beeswarm() + geom_boxplot() 
+ggplotly(myp)
+```
+Answer the following questions:
+
+- Line 1 will filter the cdcmurd data frame to how many rows?
+- Line 2 creates *aesthetic mappings* from the filtered cdcmurd dataset.
+Owing to the default parameterization of `aes`, which variable will be
+used to define the y coordinates of the plot?
+- Line 3 sets up two statistical views of the data.  What aspects of
+the data are presented in the boxplot?  What aspects are presented
+using beeswarm?  Try to answer the question using the R documentation,
+then compare your answer to that provided by a chatbot.  Provide
+both outputs.
+
+Run the code and hover over the points.  Note that for the points
+outside the boxplot, you need to put your mouse pointer right over the
+data point to get a report on the location and rate corresponding
+to the point.  Take a screenshot of your display and hand it to the
+GPT-Luna in the harvard AI sandbox.  Ask it for methods of improving
+the display.  Can you implement some?
