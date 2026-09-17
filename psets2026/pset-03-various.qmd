@@ -5,7 +5,8 @@ date: 2026-09-25
 
 # Overview
 
-If you use AI to help solve any problem, please
+If you use AI to help solve any problem (and some of the 
+problems request that you do so), please
 provide information on 1) the model in use, 2) the prompt used to get help,
 3) some comments on what you learned from the encounter.
 
@@ -213,8 +214,10 @@ aspects of gun control legislation in the US.  The source URL was
 
 Exercise 11.a. The download command is complex.  How can you make it
 more interpretable?
+
 Exercise 11.b. What is the purpose of the second argument to the `read_xlsx`
 command?
+
 Exercise 11.c. How many rows are returned?
 
 **Dynamic tabulation.**
@@ -269,5 +272,32 @@ Exercise 11.f.2: Plop the command given above (that generates the table) into
 the AI sandbox using GPT 5.6 Luna.  You will probably get some advice on
 how the command can be simplified.  Show the simplified approach and its result.
 
+Exercise 12.  With dplyr and ggplot2 attached, use
+```
+lawdat |> filter(Effect=="Permissive") |> 
+   summarize(n=n(), .by=`Effective Date Year`) |>  
+   ggplot(aes(x=`Effective Date Year`, y=n)) + geom_point()
+```
+Explain the code and the plot.  Would it be possible to associate
+each point with a US state?  Why or why not?
 
+Exercise 13.  Which state (or states, there may be ties) have the largest
+frequencies of legislative changes that have "Permissive" effects?
+Which state (or states) have the largest frequencies of legislative
+changes that have "Restrictive" effects?
 
+Exercise 14.  Careful linkage between the RAND and CDC datasets will
+be explored in future problem sets.  Explain the choice of
+states used in the plot below, and discuss the interpretation
+of any patterns you see.  With your interpretive remarks, include
+commentary on how to make the interpretation more precise with
+additional work on data filtering and combination.
+```
+cdcmurd |> filter(Location %in% c("CA", "NY", "MS", "TN")) |> 
+   ggplot(aes(x=YEAR, y=Death.Rate, colour=Location)) + geom_point() 
+```
+
+Extra credit exercise.  The file `https://raw.githubusercontent.com/vjcitn/2026vjc/main/fakeratemap.R` includes agentically generated code to produce a map with fabricated
+murder rate statistics.  Use download.file to get a copy on your local machine
+and modify it to use a set of rates from the `cdcmurd` data.frame.
+Embed the interactive map in your quarto document.
