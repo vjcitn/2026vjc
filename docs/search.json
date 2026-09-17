@@ -42,6 +42,20 @@
     "text": "Current overview\nWe can use the GitHub API to identify which repositories succeed in implementing the conditions of the problem.\n##       No repo Not full team   Not private            OK \n##            11            11             3            50\nPlease set your solutions properly even past the due date. Note that if I do not have your github handle exactly, I cannot find your solution. I wil be in touch with students who do not have a correct solution by end of week."
   },
   {
+    "objectID": "psets2026/pset-03-various.html",
+    "href": "psets2026/pset-03-various.html",
+    "title": "Problem set 3",
+    "section": "",
+    "text": "Overview\nIf you use AI to help solve any problem (and some of the problems request that you do so), please provide information on 1) the model in use, 2) the prompt used to get help, 3) some comments on what you learned from the encounter.\nSolutions to this problem set should be submitted as quarto documents. Place the required file in your bst260 repository in folder “solutions” as “pset03.qmd” Use the title “BST 260 Problem set 3: Logic, reading, guns and geography”, and put your name as author in the yaml header. Ensure that the HTML to which your quarto document compiles has a good appearance.\n\n\nPropositional logic exercises\nNotation: ~ (not), \\(\\wedge\\) (and), \\(\\lor\\) (or), \\(\\rightarrow\\) (if…then), \\(\\leftrightarrow\\) (if and only if)\nIn your document you can use annotation for these connectives:\n\ntilde for negation\n$\\wedge$ for ‘and’\n$\\lor$ for ‘or’\n$\\rightarrow$ for ‘if…then’\n$\\leftrightarrow$ for ‘if and only if’\n\nIllustration. We consider the sentence\nIf Ana studies, then if she rests well, she will pass the exam.\nWe can use propositional variables\n\nS = Ana studies\nR = Ana rests well\nP = Ana passes the exam\n\nWe will formalize the sentence as \\(S \\rightarrow (R \\rightarrow P)\\), and suppose that the sentence is TRUE. If Ana rested well and failed the exam, what can we say about whether she studied? Give all your reasoning.\nA formal approach could be based on writing out the truth table.\n\n\n\nS\nR\nP\nS → (R → P)\n\n\n\n\nT\nT\nT\nT\n\n\nT\nT\nF\nF\n\n\nT\nF\nT\nT\n\n\nT\nF\nF\nT\n\n\nF\nT\nT\nT\n\n\nF\nT\nF\nT\n\n\nF\nF\nT\nT\n\n\nF\nF\nF\nT\n\n\n\nWe asserted that the sentence is true but P is false and R is true. We can find this configuration only once in the truth table, on the sixth line. There S is F, so we conclude that Ana did not study.\nNote that when I submitted the problem to the Luna chatbot in the Harvard sandbox, it found\n“This is an application of modus tollens to the outer implication: if \\(S\\) were true, then \\(R \\rightarrow P\\) would have to be true, but it is false. Therefore \\(S\\) must be false.”\nThat’s interesting. I should be motivated to learn what modus tollens is, might connect it to modus ponens, and might learn a short cut relative to working out the truth table.\nExercise 1. Formalize\nIf the coupon is valid, then the price is reduced of the shipping is free.\nWhat conditions on coupon validity, price and shipping make the sentence false? You do not need to write out the truth table but you may want to do so to find the answer. Do state your variables and write out the formalization of the sentence.\nDo this without a chatbot first. Then confirm your answer with the chatbot. If you find a discrepancy please add it into your problem set solutions.\nExercise 2. Formalize\nIf it is not sunny and not warm then the picnic is cancelled.\nWhat kinds of weather and picnic scheduling make the sentence false?\nSame relationship to chatbot. Formalize, try to find the values of variables that make the sentence false, then confirm with chatbot.\nExercise 3. Formalize\nYou may enter the contest if and only if you are a member or you have paid the fee.\nSuppose you enter and the sentence is false. What do we know about your membership and fee payments?\n\n\nReading and running code exercises\nExercise 4. Install the dslabs package from CRAN. After\nlibrary(dslabs)\nuse ?murders to get help on the murders dataset that was used last year. What is problematic about this dataset?\nExercise 5. Use the commands\ncdcmurd &lt;- read.csv(\"https://tinyurl.com/cdcmurder\")\ndim(cdcmurd)\nThis acquires a dataset from the CDC that describes murder rates over time in the 50 states and D.C.\nThe dataset is available at https://www.cdc.gov/nchs/state-stats/deaths/homicide.html. Note the definition of the adjusted rate. Does it make sense?\nHow many rows are available?\nExercise 6. Why would one use the command\ntable(table(head(cdcmurd$Location,120)))\nCompare the result of\ntable(table(head(cdcmurd$Location,153)))\nand\nhead(table(cdcmurd$Location))\nWhat do you learn about the cdcmurd data.frame on the basis of these commands? Hint: table(cdcmurd$Location) is quite unpleasant to look at.\nYou can use AI to get some reasoning about the value of the table(table( construction. Report what you learn here.\nExercise 7. Before running the code, explain what\napply(cdcmurd,2,function(x) any(is.na(x)))\nis doing. Use ?apply if necessary.\nExercise 8. What is\ncdcmurd[which(is.na(cdcmurd$Death.Rate)),] |&gt; nrow()\ndoing? Run it.\nExercise 9. Elegance of dplyr.\nBe sure the dplyr package is installed. Try\nlibrary(dplyr)\ncdcmurd |&gt; filter(is.na(Death.Rate)) |&gt; count()\nWhat is the difference between the outcome here and that of Exercise 8?\nHere’s a two-line command, which you can run if the commands above have all suceeded.\ncdcmurd |&gt; filter(is.na(Death.Rate)) |&gt; \n    group_by(Location) |&gt; summarise(mn=mean(Deaths))\nNow look at median(cdcmurd$Deaths). Form a conjecture on why the death rates are missing when they are? Use AI to check your conjecture and report what you learned.\nExercise 10. Visualization.\nEnsure that ggplot2, ggbeeswarm, and plotly are installed in your version of R. Read this code before you run it.\nmyp &lt;- cdcmurd |&gt; filter(YEAR %in% c(2019,2020,2021,2022)) |&gt; \n  ggplot(aes(factor(YEAR), Death.Rate, text=Location)) + \n  geom_beeswarm() + geom_boxplot() \nggplotly(myp)\nAnswer the following questions:\n\nLine 1 will filter the cdcmurd data frame to how many rows?\nLine 2 creates aesthetic mappings from the filtered cdcmurd dataset. Owing to the default parameterization of aes, which variable will be used to define the y coordinates of the plot?\nLine 3 sets up two statistical views of the data. What aspects of the data are presented in the boxplot? What aspects are presented using beeswarm? Try to answer the question using the R documentation, then compare your answer to that provided by a chatbot. Provide both outputs.\n\nRun the code and hover over the points. Note that for the points outside the boxplot, you need to put your mouse pointer right over the data point to get a report on the location and rate corresponding to the point. Take a screenshot of your display and hand it to the GPT-Luna in the harvard AI sandbox. Ask it for methods of improving the display. Can you implement some?\nExercise 11: Gun safety legislation.\nEnsure that the readxl package is installed. Use\ndownload.file(\"https://tinyurl.com/randgunlaw\", (tf &lt;- tempfile()))\nlawdat = read_xlsx(tf, 2)\nThis will obtain a table assembled by the RAND Corporation summarizing aspects of gun control legislation in the US. The source URL was https://www.rand.org/pubs/tools/TLA243-2-v4.html.\nExercise 11.a. The download command is complex. How can you make it more interpretable?\nExercise 11.b. What is the purpose of the second argument to the read_xlsx command?\nExercise 11.c. How many rows are returned?\nDynamic tabulation.\nEnsure that the DT package has been installed. Use\ndatatable(lawdat[,c(1,3,6,8,9,10,12)])\nand note that you can set the number of lines displayed. You can also sort the rows of the table by clicking on the column names.\nExercise 11.d. Sort the table by “Effective Date Year”. What is the year of the earliest recorded gun legislation?\nExercise 11.e. Provide dplyr code that retrieves the year of the earliest recorded gun legislation. You can use AI to find the code. Tell what your prompt was, show the code and the result.\nExercise 11.f. Here’s another multiline command:\nlawdat |&gt; select(`Type of Change`, `Effect`) |&gt; \n   group_by(`Type of Change`, `Effect`) |&gt; \n   summarise(n=n()) |&gt; arrange(desc(n))\nWhen given to R with dplyr version 1.2.1, we get:\n`summarise()` has regrouped the output.\nℹ Summaries were computed grouped by Type of Change and Effect.\nℹ Output is grouped by Type of Change.\nℹ Use `summarise(.groups = \"drop_last\")` to silence this message.\nℹ Use `summarise(.by = c(Type of Change, Effect))` for per-operation grouping\n  (`?dplyr::dplyr_by`) instead.\n# A tibble: 7 × 3\n# Groups:   Type of Change [4]\n  `Type of Change` Effect          n\n  &lt;chr&gt;            &lt;chr&gt;       &lt;int&gt;\n1 Implement        Restrictive  1241\n2 Modify           Restrictive   215\n3 Modify           Permissive    192\n4 Implement        Permissive    187\n5 Repeal           Permissive     59\n6 Repeal           Restrictive     6\n7 See note         Permissive      2\nExercise 11.f.1: What do you regard as the “take home message” of the table above?\nExercise 11.f.2: Plop the command given above (that generates the table) into the AI sandbox using GPT 5.6 Luna. You will probably get some advice on how the command can be simplified. Show the simplified approach and its result.\nExercise 12. With dplyr and ggplot2 attached, use\nlawdat |&gt; filter(Effect==\"Permissive\") |&gt; \n   summarize(n=n(), .by=`Effective Date Year`) |&gt;  \n   ggplot(aes(x=`Effective Date Year`, y=n)) + geom_point()\nExplain the code and the plot. Would it be possible to associate each point with a US state? Why or why not?\nExercise 13. Which state (or states, there may be ties) have the largest frequencies of legislative changes that have “Permissive” effects? Which state (or states) have the largest frequencies of legislative changes that have “Restrictive” effects?\nExercise 14. Careful linkage between the RAND and CDC datasets will be explored in future problem sets. Explain the choice of states used in the plot below, and discuss the interpretation of any patterns you see. With your interpretive remarks, include commentary on how to make the interpretation more precise with additional work on data filtering and combination.\ncdcmurd |&gt; filter(Location %in% c(\"CA\", \"NY\", \"MS\", \"TN\")) |&gt; \n   ggplot(aes(x=YEAR, y=Death.Rate, colour=Location)) + geom_point() \nExtra credit exercise. The file https://raw.githubusercontent.com/vjcitn/2026vjc/main/fakeratemap.R includes agentically generated code to produce a map with fabricated murder rate statistics. Use download.file to get a copy on your local machine and modify it to use a set of rates from the cdcmurd data.frame. Embed the interactive map in your quarto document."
+  },
+  {
+    "objectID": "psets2026/PSET3/pset-03-various.html",
+    "href": "psets2026/PSET3/pset-03-various.html",
+    "title": "Problem set 2",
+    "section": "",
+    "text": "Overview\nIf you use AI to help solve any problem, please provide information on 1) the model in use, 2) the prompt used to get help, 3) some comments on what you learned from the encounter.\nSolutions to this problem set should be submitted as quarto documents. Place the required file in your bst260 repository in folder “solutions” as “pset03.qmd” Use the title “BST 260 Problem set 3: Logic, reading, guns and geography”, and put your name as author in the yaml header. Ensure that the HTML to which your quarto document compiles has a good appearance.\n\n\nPropositional logic exercises\nIllustration. We consider the sentence\nIf Ana studies, then if she rests well, she will pass the exam.\nWe can use propositional variables\n\nS = Ana studies\nR = Ana rests well\nP = Ana passes the exam\n\nWe will formalize the sentence as \\(S \\rightarrow (R \\rightarrow P)\\)"
+  },
+  {
     "objectID": "psets2026/pset-01-github.html",
     "href": "psets2026/pset-01-github.html",
     "title": "Problem set 1",
@@ -1412,7 +1426,7 @@
     "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-3",
     "title": "Parameters and Estimates",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157321.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4501258\n\nsd(x_hat) \n\n[1] 0.01574728"
+    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157321.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4499414\n\nsd(x_hat) \n\n[1] 0.01558351"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-4",
@@ -1706,7 +1720,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-16 12:55:31 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-16 16:55:31 GMT\""
+    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-17 00:29:13 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-17 04:29:13 GMT\""
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
@@ -1720,7 +1734,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 12\n\nnow() |&gt; minute() \n\n[1] 55\n\nnow() |&gt; second() \n\n[1] 31.62504"
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 0\n\nnow() |&gt; minute() \n\n[1] 29\n\nnow() |&gt; second() \n\n[1] 13.75338"
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
@@ -2245,14 +2259,14 @@
     "href": "slides/ml/41-knn.html#over-training",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$train$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.856 \n\n\nto\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.815"
+    "text": "Over-training\nCompare\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$train$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.858 \n\n\nto\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.815"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-1",
     "href": "slides/ml/41-knn.html#over-training-1",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.998\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
+    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.996\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-2",
@@ -3015,7 +3029,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.10932 62.02234 65.96530 70.08313 70.20575 72.92782 66.87293 72.99978\n [9] 66.90114 69.98048"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.05001 61.98916 66.14527 70.08956 70.00825 73.17826 67.00485 72.76654\n [9] 66.88519 69.94991"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -3351,7 +3365,7 @@
     "href": "slides/R/05-r-basics.html#setting-levels",
     "title": "R Basics",
     "section": "Setting Levels",
-    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Female Male   Female Male   Female Female Male   Male   Female Female\nLevels: Male Female\n\ny2[1:10]\n\n [1] Female Male   Female Male   Female Female Male   Male   Female Female\nLevels: Female Male"
+    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Male   Male   Female Female Female Female Female Male   Female Female\nLevels: Male Female\n\ny2[1:10]\n\n [1] Male   Male   Female Female Female Female Female Male   Female Female\nLevels: Female Male"
   },
   {
     "objectID": "slides/R/05-r-basics.html#categories-based-on-strata",
@@ -3526,7 +3540,7 @@
     "href": "slides/R/05-r-basics.html#lexical-scope-1",
     "title": "R Basics",
     "section": "Lexical Scope",
-    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x10babf2e0&gt;"
+    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x1227abd78&gt;"
   },
   {
     "objectID": "slides/R/05-r-basics.html#lexical-scope-example",
@@ -5017,7 +5031,7 @@
     "href": "slides/00-intro.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 74df8b2."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 624d874."
   },
   {
     "objectID": "slides/prob/20-intro-to-prob.html#probability",
@@ -5940,7 +5954,7 @@
     "href": "overview.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 74df8b2."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 624d874."
   },
   {
     "objectID": "init-repos.html",
@@ -6010,7 +6024,7 @@
     "href": "psets2026.html",
     "title": "Problem Sets, Fall 2026",
     "section": "",
-    "text": "Topic\n\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 02\n\n\n\n\n\n\nProblem set 1 comments\n\n\nWed, Sep 02\n\n\n\n\n\n\nProblem set 2\n\n\nFri, Sep 11\n\n\n\n\n\n\nPropositional Logic Worksheet: Translating Sentences into Symbols\n\n\n \n\n\n\n\n\n\nReading Before Writing: Code-Comprehension Worksheet for Problem Set 2\n\n\n \n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nDue date (at 11:59 PM)\n\n\n\n\n\n\n\n\nProblem set 1\n\n\nWed, Sep 02\n\n\n\n\n\n\nProblem set 1 comments\n\n\nWed, Sep 02\n\n\n\n\n\n\nProblem set 2\n\n\nFri, Sep 11\n\n\n\n\n\n\nPropositional Logic Worksheet: Translating Sentences into Symbols\n\n\n \n\n\n\n\n\n\nReading Before Writing: Code-Comprehension Worksheet for Problem Set 2\n\n\n \n\n\n\n\n\n\nProblem set 3\n\n\nFri, Sep 25\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Problem Sets 2026"
     ]
@@ -6020,7 +6034,7 @@
     "href": "index.html",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 74df8b2.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit 624d874.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -6030,7 +6044,7 @@
     "href": "index.html#course-information",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 74df8b2.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit 624d874.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -7892,7 +7906,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-2",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 514385 0.804\n 2  26473 0.804\n 3 581336 0.801\n 4 502341 0.788\n 5 723653 0.769\n 6 946014 0.766\n 7 754212 0.760\n 8 434275 0.756\n 9 704977 0.756\n10 181460 0.756\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.804."
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 707927 0.773\n 2 540446 0.767\n 3 991006 0.757\n 4 180605 0.757\n 5 840194 0.755\n 6 418270 0.755\n 7 207023 0.755\n 8 307781 0.753\n 9 299489 0.752\n10 910619 0.751\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.773."
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-3",
@@ -7927,7 +7941,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-7",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.894     0.138      6.49 0.00000126"
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.635     0.109      5.85 0.00000587"
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-8",
@@ -12211,7 +12225,7 @@
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-7",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4301041 0.4918959\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4092336 0.4707664\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
+    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4580172 0.5199828\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4141977 0.4758023\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-8",
@@ -12253,7 +12267,7 @@
     "href": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
     "title": "Confidence Intervals",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.948"
+    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9503"
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation-1",
@@ -13275,7 +13289,7 @@
     "href": "oral-evaluations.html",
     "title": "Oral Evaluations for 2026",
     "section": "",
-    "text": "Oral evaluations account for 20% of your final grade, divided into three separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code.\nImportant: You can only schedule an oral evaluation meeting after you have completed and submitted the problem sets included in that evaluation period.\nAn oral exam can include requests for information on any lecture or reading content or submitted problem set.\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nSeptember 21 - October 7\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nOctober 19 - October 31\nProblem Sets 1-5\n15 minutes\n5%\n\n\nOral Eval 3\nNov 31 - December 11\nProblem Sets 1-9\n20 minutes\n10%\n\n\n\n\n\n\nStudents will be assigned to Teaching Fellows in a posting to follow.\n\n\n\nYour oral evaluation will be graded on the following scale:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0/5\nNo meeting scheduled\n\n\n1/5\nNo understanding of the code/answers\n\n\n2/5\nLimited understanding of code/answers\n\n\n3/5\nModerate understanding of code/answers but with significant gaps in explanations\n\n\n4/5\nGood understanding of code/answers but moderate gaps in explanations\n\n\n5/5\nExcellent understanding of code/answers with either very little or no gaps in explanations\n\n\n\n\n\n\nDuring your meeting (15 minutes for the first two evaluations, 20 minutes for the final evaluation), your TF may ask you to:\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
+    "text": "Oral evaluations account for 20% of your final grade, divided into three separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code.\nImportant: You can only schedule an oral evaluation meeting after you have completed and submitted the problem sets included in that evaluation period.\nAn oral exam can include requests for information on any lecture or reading content or submitted problem set.\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nSeptember 25 - October 7\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nOctober 19 - October 31\nProblem Sets 1-5\n15 minutes\n5%\n\n\nOral Eval 3\nNov 31 - December 11\nProblem Sets 1-9\n20 minutes\n10%\n\n\n\n\n\n\nStudents will be assigned to Teaching Fellows in a posting to follow.\n\n\n\nYour oral evaluation will be graded on the following scale:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0/5\nNo meeting scheduled\n\n\n1/5\nNo understanding of the code/answers\n\n\n2/5\nLimited understanding of code/answers\n\n\n3/5\nModerate understanding of code/answers but with significant gaps in explanations\n\n\n4/5\nGood understanding of code/answers but moderate gaps in explanations\n\n\n5/5\nExcellent understanding of code/answers with either very little or no gaps in explanations\n\n\n\n\n\n\nDuring your meeting (15 minutes for the first two evaluations, 20 minutes for the final evaluation), your TF may ask you to:\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
     "crumbs": [
       "Oral Evaluations"
     ]
@@ -13285,7 +13299,7 @@
     "href": "oral-evaluations.html#evaluation-schedule",
     "title": "Oral Evaluations for 2026",
     "section": "",
-    "text": "Evaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nSeptember 21 - October 7\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nOctober 19 - October 31\nProblem Sets 1-5\n15 minutes\n5%\n\n\nOral Eval 3\nNov 31 - December 11\nProblem Sets 1-9\n20 minutes\n10%",
+    "text": "Evaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nSeptember 25 - October 7\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nOctober 19 - October 31\nProblem Sets 1-5\n15 minutes\n5%\n\n\nOral Eval 3\nNov 31 - December 11\nProblem Sets 1-9\n20 minutes\n10%",
     "crumbs": [
       "Oral Evaluations"
     ]

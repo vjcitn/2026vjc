@@ -10,6 +10,7 @@ listing:
       - psets2026/pset-02-poly-md.qmd
       - psets2026/pset-02a-logic.qmd
       - psets2026/pset-02b-reading.qmd
+      - psets2026/pset-03-various.qmd
     type: table
     fields: [title, date]
     date-format: "ddd, MMM DD"
