@@ -1,5 +1,5 @@
 ---
-title: Problem set 2 
+title: Problem set 3 
 date: 2026-09-25
 ---
 
@@ -199,3 +199,75 @@ data point to get a report on the location and rate corresponding
 to the point.  Take a screenshot of your display and hand it to the
 GPT-Luna in the harvard AI sandbox.  Ask it for methods of improving
 the display.  Can you implement some?
+
+**Exercise 11: Gun safety legislation.**
+
+Ensure that the readxl package is installed.  Use
+```
+download.file("https://tinyurl.com/randgunlaw", (tf <- tempfile()))
+lawdat = read_xlsx(tf, 2)
+```
+This will obtain a table assembled by the RAND Corporation summarizing
+aspects of gun control legislation in the US.  The source URL was
+[https://www.rand.org/pubs/tools/TLA243-2-v4.html](https://www.rand.org/pubs/tools/TLA243-2-v4.html).
+
+Exercise 11.a. The download command is complex.  How can you make it
+more interpretable?
+Exercise 11.b. What is the purpose of the second argument to the `read_xlsx`
+command?
+Exercise 11.c. How many rows are returned?
+
+**Dynamic tabulation.**
+
+Ensure that the DT package has been installed.  Use
+```
+datatable(lawdat[,c(1,3,6,8,9,10,12)])
+```
+and note that you can set the number of lines displayed.
+You can also sort the rows of the table by clicking on
+the column names.
+
+Exercise 11.d. Sort the table by "Effective Date Year".  What is the
+year of the earliest recorded gun legislation?
+
+Exercise 11.e. Provide dplyr code that retrieves the year of the earliest recorded
+gun legislation.  You can use AI to find the code.  Tell what your
+prompt was, show the code and the result.
+
+Exercise 11.f. Here's another multiline command:
+
+```
+lawdat |> select(`Type of Change`, `Effect`) |> 
+   group_by(`Type of Change`, `Effect`) |> 
+   summarise(n=n()) |> arrange(desc(n))
+```
+
+When given to R with dplyr version 1.2.1, we get:
+```
+`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by Type of Change and Effect.
+ℹ Output is grouped by Type of Change.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(Type of Change, Effect))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.
+# A tibble: 7 × 3
+# Groups:   Type of Change [4]
+  `Type of Change` Effect          n
+  <chr>            <chr>       <int>
+1 Implement        Restrictive  1241
+2 Modify           Restrictive   215
+3 Modify           Permissive    192
+4 Implement        Permissive    187
+5 Repeal           Permissive     59
+6 Repeal           Restrictive     6
+7 See note         Permissive      2
+```
+
+Exercise 11.f.1: What do you regard as the "take home message" of the table above?
+
+Exercise 11.f.2: Plop the command given above (that generates the table) into
+the AI sandbox using GPT 5.6 Luna.  You will probably get some advice on
+how the command can be simplified.  Show the simplified approach and its result.
+
+
+
