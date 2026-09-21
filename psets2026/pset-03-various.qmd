@@ -72,7 +72,7 @@ to working out the truth table.
 
 **Exercise 1**.  Formalize
 
-If the coupon is valid, then the price is reduced of the shipping is free.
+If the coupon is valid, then the price is reduced or the shipping is free.
 
 What conditions on coupon validity, price and shipping make the sentence false?
 You do not need to write out the truth table but you may want to do so

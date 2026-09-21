@@ -10,6 +10,13 @@ format:
     theme: solarized
 ---
 
+## Startup tasks
+
+- visit https://github.com/vjcitn/my-noble-r
+- fork the repo into your organization
+- start a codespace based on your fork of my-noble-r
+- follow the instructions in the README.md in my-noble-r
+
 ## Key concepts to date{.smaller}
 
 - designing tables: columns are features of interest, rows correspond
