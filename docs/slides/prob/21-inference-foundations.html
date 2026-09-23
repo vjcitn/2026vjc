@@ -285,7 +285,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
 <span id="cb2-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">ifelse</span>(color <span class="sc">==</span> <span class="st">"Red"</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>),  n, <span class="at">replace =</span> <span class="cn">TRUE</span>) </span>
 <span id="cb2-3"><a aria-label="3"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] </span>
-<span id="cb2-4"><a aria-label="4"></a><span class="co">#&gt;  [1]  1  1  1 -1  1  1 -1 -1  1  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a aria-label="4"></a><span class="co">#&gt;  [1] -1  1  1  1 -1  1  1  1 -1  1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="sampling-models-10" class="slide level2">
@@ -307,7 +307,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
 <span id="cb4-2"><a aria-label="2"></a>s <span class="ot">&lt;-</span> <span class="fu">sum</span>(x) </span>
 <span id="cb4-3"><a aria-label="3"></a>s </span>
-<span id="cb4-4"><a aria-label="4"></a><span class="co">#&gt; [1] 10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-4"><a aria-label="4"></a><span class="co">#&gt; [1] 44</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>If you rerun the code above, you see that <span class="math inline">\(S\)</span> changes every time.</p></li>
@@ -363,7 +363,7 @@
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
-<span id="cb7-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.0411</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.0436</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-probability-distribution-4" class="slide level2">
@@ -577,7 +577,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>B <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span> </span>
 <span id="cb10-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), B, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">19</span>, <span class="dv">10</span><span class="sc">/</span><span class="dv">19</span>)) </span>
 <span id="cb10-3"><a aria-label="3"></a><span class="fu">mean</span>(x) </span>
-<span id="cb10-4"><a aria-label="4"></a><span class="co">#&gt; [1] 0.0517</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-4"><a aria-label="4"></a><span class="co">#&gt; [1] 0.0522</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="the-expected-value-and-se-9" class="slide level2">
@@ -785,9 +785,9 @@
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">mean</span>(s) </span>
-<span id="cb15-2"><a aria-label="2"></a><span class="co">#&gt; [1] 52.6</span></span>
+<span id="cb15-2"><a aria-label="2"></a><span class="co">#&gt; [1] 53.1</span></span>
 <span id="cb15-3"><a aria-label="3"></a><span class="fu">sd</span>(s) </span>
-<span id="cb15-4"><a aria-label="4"></a><span class="co">#&gt; [1] 31.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-4"><a aria-label="4"></a><span class="co">#&gt; [1] 31.9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="central-limit-theorem-6" class="slide level2">
@@ -806,7 +806,7 @@
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">mean</span>(s <span class="sc">&lt;</span> <span class="dv">0</span>) </span>
-<span id="cb17-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.044</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.0444</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="how-large-is-large-in-the-clt" class="slide level2">

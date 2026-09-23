@@ -19,11 +19,11 @@ to which your quarto document compiles has a good appearance.
 
 # Propositional logic exercises
 
-Notation: ~ (not), $\wedge$ (and), $\lor$ (or), $\rightarrow$ (if...then), $\leftrightarrow$ (if and only if)
+Notation: $\neg$ (not), $\wedge$ (and), $\lor$ (or), $\rightarrow$ (if...then), $\leftrightarrow$ (if and only if)
 
 In your document you can use \LaTeX annotation for these connectives:
 
-- tilde for negation
+- `$\neg$` for negation
 - `$\wedge$` for 'and'
 - `$\lor$` for 'or'
 - `$\rightarrow$` for 'if...then'

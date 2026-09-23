@@ -331,7 +331,7 @@ p(\mathbf{x}) = \mbox{Pr}(Y = 1 \mid X_1 = x_1 , X_2 = x_2).
 <span id="cb11-2"><a aria-label="2"></a>y_hat_knn_1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_fit_1, mnist_27<span class="sc">$</span>train, <span class="at">type =</span> <span class="st">"class"</span>) </span>
 <span id="cb11-3"><a aria-label="3"></a><span class="fu">confusionMatrix</span>(y_hat_knn_1, mnist_27<span class="sc">$</span>train<span class="sc">$</span>y)<span class="sc">$</span>overall[[<span class="st">"Accuracy"</span>]] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.994</code></pre>
+<pre><code>[1] 0.993</code></pre>
 </div>
 </div>
 <p>to this:</p>
