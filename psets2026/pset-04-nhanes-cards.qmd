@@ -7,9 +7,17 @@ format: html
 # Doing problem set 4
 
 Retrieve this quarto document and place a copy in your bst260 repository.
+
+You can find a copy at [this URL](https://tinyurl.com/260pset04).
+
 Call it pset04.qmd.
-You will be editing the document directly to solve exercise 6.  Place your
-name as the author of the solutions in the yaml header above.  When
+
+You will be editing the document directly to solve exercise 6.  
+
+Place your
+name as the author of the solutions in the yaml header above.  
+
+When
 you have finished editing this document with your solutions
 place it and your compiled html in the solutions folder of your bst260
 repository.
