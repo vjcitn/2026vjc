@@ -1419,7 +1419,7 @@
     "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-3",
     "title": "Parameters and Estimates",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.45\n\nsd(x_hat) \n\n[1] 0.01559"
+    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4499\n\nsd(x_hat) \n\n[1] 0.01555"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-4",
@@ -1713,7 +1713,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-30 16:40:48 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-30 20:40:48 GMT\""
+    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-30 17:15:37 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-30 21:15:37 GMT\""
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
@@ -1727,7 +1727,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 16\n\nnow() |&gt; minute() \n\n[1] 40\n\nnow() |&gt; second() \n\n[1] 48.02"
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 17\n\nnow() |&gt; minute() \n\n[1] 15\n\nnow() |&gt; second() \n\n[1] 37.98"
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
@@ -2259,7 +2259,7 @@
     "href": "slides/ml/41-knn.html#over-training-1",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.996\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
+    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 1\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-2",
@@ -5178,7 +5178,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-2",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1  45801 0.808\n 2  37813 0.783\n 3 202603 0.776\n 4    655 0.763\n 5 711904 0.761\n 6 481832 0.759\n 7 270459 0.746\n 8 756447 0.746\n 9 640597 0.739\n10 273352 0.737\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.808."
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 517957 0.820\n 2 329183 0.781\n 3 580857 0.776\n 4 163107 0.774\n 5 376316 0.773\n 6 844339 0.767\n 7 915905 0.765\n 8 479515 0.763\n 9 914920 0.763\n10 976594 0.752\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.82."
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-3",
@@ -5213,7 +5213,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-7",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.479    0.0728      6.58 0.00000103"
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic     p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 x        0.718     0.104      6.88 0.000000519"
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-8",
@@ -7208,7 +7208,7 @@
     "href": "index.html",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 9d923ef.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit 9a8ffee.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -7218,7 +7218,7 @@
     "href": "index.html#course-information",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 9d923ef.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit 9a8ffee.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -7424,7 +7424,7 @@
     "href": "overview.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 9d923ef."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 9a8ffee."
   },
   {
     "objectID": "psets/pset-01-unix-quarto.html",
@@ -8410,7 +8410,7 @@
     "href": "slides/00-intro.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 9d923ef."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 9a8ffee."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#treatment-effect-models",
@@ -9978,7 +9978,7 @@
     "href": "slides/R/05-r-basics.html#setting-levels",
     "title": "R Basics",
     "section": "Setting Levels",
-    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Male   Male   Female Male   Male   Male   Female Female Male   Female\nLevels: Male Female\n\ny2[1:10]\n\n [1] Male   Male   Female Male   Male   Male   Female Female Male   Female\nLevels: Female Male"
+    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Male   Female Male   Male   Female Female Male   Female Female Male  \nLevels: Male Female\n\ny2[1:10]\n\n [1] Male   Female Male   Male   Female Female Male   Female Female Male  \nLevels: Female Male"
   },
   {
     "objectID": "slides/R/05-r-basics.html#categories-based-on-strata",
@@ -10153,7 +10153,7 @@
     "href": "slides/R/05-r-basics.html#lexical-scope-1",
     "title": "R Basics",
     "section": "Lexical Scope",
-    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x779c532858&gt;"
+    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x760e4d0548&gt;"
   },
   {
     "objectID": "slides/R/05-r-basics.html#lexical-scope-example",
@@ -10265,7 +10265,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.01 62.03 66.18 70.05 70.05 72.96 67.10 73.10 66.96 69.99"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.95 61.86 66.06 70.12 70.11 73.07 67.19 72.94 66.79 69.90"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -12386,7 +12386,7 @@
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-7",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4341 0.4959\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4301 0.4919\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
+    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.3805 0.4415\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4172 0.4788\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-8",
@@ -12428,7 +12428,7 @@
     "href": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
     "title": "Confidence Intervals",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9457"
+    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9517"
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation-1",
@@ -13560,7 +13560,7 @@
     "href": "syllabus.html#grade-distribution-from-2025-subject-to-change-in-2026",
     "title": "Syllabus",
     "section": "Grade Distribution – from 2025, subject to change in 2026",
-    "text": "Grade Distribution – from 2025, subject to change in 2026\n\n\n\nComponent\nWeight\n\n\n\n\n10 Problem Sets\n30%\n\n\n3 Oral Evaluations\n15%\n\n\nMidterm 1\n10%\n\n\nMidterm 2\n25%\n\n\nFinal Project\n20%",
+    "text": "Grade Distribution – from 2025, subject to change in 2026\n\n\n\nComponent\nWeight\n\n\n\n\n10 Problem Sets\n30%\n\n\n2 Oral Evaluations\n15%\n\n\nMidterm 1\n10%\n\n\nMidterm 2\n25%\n\n\nFinal Project\n20%",
     "crumbs": [
       "Syllabus"
     ]
@@ -13644,7 +13644,7 @@
     "href": "psets2026/pset-04-nhanes-cards.html",
     "title": "Problem set 4",
     "section": "",
-    "text": "Retrieve this quarto document and place a copy in your bst260 repository. Call it pset04.qmd. You will be editing the document directly to solve exercise 6. Place your name as the author of the solutions in the yaml header above. When you have finished editing this document with your solutions place it and your compiled html in the solutions folder of your bst260 repository."
+    "text": "Retrieve this quarto document and place a copy in your bst260 repository.\nYou can find a copy at https://tinyurl.com/260pset04 and retrieve by curl or wget, or by any other method.\nCall it pset04.qmd.\nYou will be editing the document directly to solve exercise 6, so use the document to present your solutions to all the problems. Place your text and executable code, properly marked up, after each query for each exercise. You might use a horizontal rule to help discriminate your material from the text of the problem set.\nPlace your name as the author of the solutions in the yaml header above.\nWhen you have finished editing this document with your solutions place it and your compiled html in the solutions folder of your bst260 repository."
   },
   {
     "objectID": "psets2026/pset-04-nhanes-cards.html#software-setup",

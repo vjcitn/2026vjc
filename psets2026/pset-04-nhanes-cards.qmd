@@ -13,7 +13,11 @@ retrieve by curl or wget, or by any other method.
 
 Call it pset04.qmd.
 
-You will be editing the document directly to solve exercise 6.  
+You will be editing the document directly to solve exercise 6, so use
+the document to present your solutions to all the problems.  Place your
+text and executable code, properly marked up, after each query for
+each exercise.  You might use a horizontal rule to help discriminate
+your material from the text of the problem set.
 
 Place your
 name as the author of the solutions in the yaml header above.  
