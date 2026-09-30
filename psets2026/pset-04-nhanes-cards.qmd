@@ -8,7 +8,8 @@ format: html
 
 Retrieve this quarto document and place a copy in your bst260 repository.
 
-You can find a copy at [this URL](https://tinyurl.com/260pset04).
+You can find a copy at [https://tinyurl.com/260pset04](https://tinyurl.com/260pset04) and
+retrieve by curl or wget, or by any other method.
 
 Call it pset04.qmd.
 
