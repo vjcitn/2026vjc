@@ -1,0 +1,309 @@
+---
+title: Problem set 4
+date: 2026-10-09
+format: html
+---
+
+# Doing problem set 4
+
+Retrieve this quarto document and place a copy in your bst260 repository.
+Call it pset04.qmd.
+You will be editing the document directly to solve exercise 6.  Place your
+name as the author of the solutions in the yaml header above.  When
+you have finished editing this document with your solutions
+place it and your compiled html in the solutions folder of your bst260
+repository.
+
+# Descriptive statistics for the NHANES dataset
+
+The NHANES package on CRAN includes a dataset called "NHANES"
+that addresses issues of sampling to permit direct statistical analyses.
+
+Example analyses of the weighted survey data assembled by
+the National Center for Health Statistics are available.  An
+example is [here](https://wwwn.cdc.gov/nchs/data/Tutorials/Code/DB303_R.r);
+also of interest is the nhanesA package, which leverages
+a containerized relational database.  A publication is [available](https://pmc.ncbi.nlm.nih.gov/articles/PMC11020206/).
+
+Here we use the 'resampled' version for simplicity.
+
+## Software setup
+
+Let's get the necessary software.  Use `install.packages` for
+any packages you are missing.
+
+```{r lknh, message=FALSE}
+library(NHANES)
+data(NHANES)
+library(dplyr)
+library(table1)
+library(ggplot2)
+nh11 = NHANES |> filter(SurveyYr == "2011_12")
+```
+
+## "Table 1"
+
+The `table1` package/function provides a powerful
+approach to producing summary statistics. We will focus
+on the measured quantity "diastolic blood pressure" as
+obtained by averaging several repeat measures for each
+participant visit.
+
+```{r femd, message=FALSE}
+#| tbl-cap: "Basic DBP statistics for females"
+#| results: asis
+table1(~BPDiaAve|Race3, data=nh11 |> filter(Sex=="female"))
+```
+
+```{r mald, message=FALSE}
+#| tbl-cap: "Basic DBP statistics for males"
+#| results: asis
+table1(~BPDiaAve|Race3, data=nh11 |> filter(Sex=="male"))
+```
+
+### Exercise 1.  
+
+Write and run the _dplyr_ code to reproduce the means,
+standard deviations and number of missing values for BPDiaAve in each table.
+The result should have column names "Sex", "Race3", "mean", "sd", "nmiss".
+Records for females should come first and rows should be sorted by race
+within gender.
+
+
+### Exercise 2.
+
+Something very implausible is present in the data.  Describe it and reproduce
+the table1 results and dplyr summaries after "fixing" it.
+
+### Exercise 3: Compact estimation procedures for averages
+
+R's built-in modeling functions can save a lot of
+filtering and summarization activity.  To estimate
+average diastolic blood pressures for combinations of race and gender, we can use
+
+```{r dolm1}
+lm1 = lm(BPDiaAve~Race3*Sex-1, data=nh11, na.action=na.omit)
+lm1$coef
+```
+The syntax `y ~ a * b - 1` for numerical `y` and factor variables `a` and `b`
+is described as fitting "first-order interactions".
+Subgroups of individuals are formed for
+every combination of factor levels, and the mean value of `y`
+is computed for each subgroup.  The `-1` suppresses an
+intercept term.
+
+R uses a peculiar naming convention for the estimated parameters.
+`Race3Asian` is used to show that the factor level for Race3 is Asian.
+`Sexmale` has a coefficient.  This indicates to us that the 'reference'
+sex is female.  Finally colon is used for combinations of
+factor values.  We can recover the mean value for
+Black males by adding the coefficients for Race3Black,
+Sexmale, and Race3Black:Sexmale.
+
+Create the compact estimates using the version of the data
+"repaired" in Exercise 2 and verify that the estimates
+from lm recover the dplyr summaries.
+
+### Exercise 4: Visualizing DBP distributions by age and race
+
+Here is classic R list manipulation and plotting code:
+```{r lkmmm}
+par(mfrow=c(3,2),las=2,mar=c(5,4,2,2))
+ss = split(nh11, nh11$Race3)
+tt = lapply(names(ss), function(x) {d = ss[[x]]; 
+   boxplot(split(d$BPDiaAve, d$AgeDecade), main=x, ylim=c(0,120))})
+```
+
+Write and run the ggplot2 code to produce a similar display.
+
+### Exercise 5: Do ethnic groups have comparable age distributions?
+
+
+Use the compact estimation procedure with Age as the "y"
+variable.  What do you see as the most prominent indications
+of heterogeneity in age distributions across the different
+group combinations?
+
+Describe how to form observed and expected counts in the
+cells of the table
+```{r lktab}
+with(nh11, table(AgeDecade, Race3))
+```
+
+### Exercise 6: Cards to Dice
+
+Modify all the quarto and R following to replace
+draws from a deck of shuffled
+cards with tosses of a single six-faced die.
+
+As an example, you might start with code like
+```
+die = c(1,2,3,4,5,6)
+roll = function(die) sample(die,size=1)
+set.seed(1234)
+table(replicate(100, roll(die)))
+```
+to model 100 tosses of a fair die.
+
+## Modeling cards and shuffled decks
+
+### Decks as vectors
+
+We followed online code to produce
+```{r do1}
+suits <- c("Spades", "Hearts", "Diamonds", "Clubs")
+ranks <- c("Ace", 2:10, "Jack", "Queen", "King")
+# Combine ranks and suits to make 52 unique cards
+deck <- paste(rep(ranks, 4), rep(suits, each = 13))
+```
+A deck is a vector with 52 elements.
+This vector "models" a deck of playing cards.
+
+## Draws as samples
+
+With R's `sample` function, we can model shuffling.
+We use `set.seed` to obtain a reproducible random
+number generation state.
+
+```{r lkshuf}
+top_card = function(x) { 
+   stopifnot(length(x)==52, is.atomic(x))
+   sample(x, size=1)
+}
+set.seed(1234)
+drs = replicate(2000, top_card(deck))
+head(table(drs))
+mean(table(drs))
+2000/52
+```
+
+## A model for fairness
+
+### Intuitions
+
+For a fair deck with thorough shuffling and replacement, we 
+have an intuition that each
+card type has the same chance of being drawn as the top card.
+
+In 2000 draws, the _expected_ number of appearances of "2 Hearts"
+is 2000/52, and that is the same for all card types.
+
+### Formalism
+
+Formally, we can abstract from the actual names of the cards and
+represent the shuffling/drawing procedure in this way:
+
+Let $i = 1, \ldots, 52$ denote card types
+
+Let $j = 1, \ldots, 2000$ denote shuffle/draw/replace events
+
+Define
+
+$$
+C_{ij} =
+\begin{cases}
+  1 & \text{if draw } j \text{ yields card type } i, \\
+  0 & \text{otherwise.}
+\end{cases}
+$$
+
+Now define $X_i = \sum_j C_{ij}$.  Our statement above about the
+intuitive expectation on the number of appearances of any given
+card type will be written
+$$
+EX_i = 2000/52 \text{ for all } i = 1,\ldots, 52.
+$$
+
+This is equivalent to the following formulation.  Let $p_i, i=1, \ldots, 52$
+denote the _probability_ (not yet defined in any formal way) that our shuffle/draw procedure
+yields card of type $i$.  Then $EX_i = 2000 p_i$ for all $i$.  For the
+general case of $n$ draws, $EX_i = n p_i$.
+
+## Measuring departure from fairness
+
+A well-established metric for assessing departure from fairness is
+called "chi-squared".  We will use the symbol $D$ to represent this
+measure.  Large values of $D$ can be indicative of departure of the
+observed frequencies from the expected values.
+
+$$
+D = \sum_{i=1}^{52} \frac{(X_i - EX_i)^2}{EX_i}
+$$
+
+We'll implement $D$ as `mystat` and show that it is equivalent to
+a quantity computed in R with `chisq.test`.
+
+```{r OmE}
+mystat = function(dat, expected) sum((table(dat)-expected)^2/expected)
+ExpectedCount = 2000/52
+sum((table(drs)-ExpectedCount)^2/ExpectedCount)
+chisq.test(table(drs))
+mystat(drs, ExpectedCount)
+```
+
+Note that `chisq.test` reports the same statistic as `mystat`, but
+includes values for `df` (degrees of freedom) and `p-value`.  "Degrees of freedom"
+refers here to the fact that we have a fixed number of count categories (52 card types),
+and if 51 are known, the value for the 52nd can be deduced -- it is "unfree".
+
+The p-value is a quantity that, when small, can be indicative of
+a departure from the expected outcome of an experiment.  We will
+return to that concept at a later date.
+
+## Replicating our test of fairness many times
+
+Any given collection of shuffle/draw events will yield
+a value of $D$.  Different series will yield different
+values of $D$, but when the deck is fair, the variation
+in $D$ is prescribed by the mathematics of probability.
+
+We will make a histogram of 100 replicates of 2000 draws
+to exhibit variation in $D$.
+
+```{r domore}
+set.seed(1234)
+predist = lapply(1:100, function(x) replicate(2000, top_card(deck)))
+dist = sapply(predist, function(x)mystat(x, expected=2000/52))
+hist(dist, prob=TRUE)
+```
+
+With 1000 replicates, we get a more pleasing display.
+
+```{r domore2, cache=TRUE}
+set.seed(1234)
+predist = lapply(1:1000, function(x) replicate(2000, top_card(deck)))
+dist = sapply(predist, function(x)mystat(x, expected=2000/52))
+hist(dist, probability=TRUE)
+```
+
+The form of this histogram (drawn in R with the `probability` argument set to TRUE)
+can be approximated by the density of the chi-squared distribution
+with 51 degrees of freedom.
+
+```{r lkdens}
+hist(dist, probability=TRUE)
+lines(1:100, dchisq(1:100, 51))
+```
+
+The "51" fixes the degrees of freedom of the model for which
+the density will be drawn.
+
+## Interpret
+
+What's the difference between these two runs?
+
+```{r lkbad}
+set.seed(1234)
+baddeck = deck
+baddeck[1] = baddeck[52]
+newdrs = replicate(2000, top_card(baddeck))
+mystat(newdrs, ExpectedCount)
+```
+
+```{r lkbad2}
+set.seed(1234)
+baddeck[2] = baddeck[51]
+newdrs = replicate(2000, top_card(baddeck))
+mystat(newdrs, ExpectedCount)
+```
+
