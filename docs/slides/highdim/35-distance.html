@@ -308,7 +308,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="fu">sum</span>((x_1 <span class="sc">-</span> x_2)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_1 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>), <span class="fu">sum</span>((x_2 <span class="sc">-</span> x_3)<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2319.867 2331.210 2518.969</code></pre>
+<pre><code>[1] 2320 2331 2519</code></pre>
 </div>
 </div>
 <ul>
@@ -330,7 +330,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_2), <span class="fu">crossprod</span>(x_1 <span class="sc">-</span> x_3), <span class="fu">crossprod</span>(x_2 <span class="sc">-</span> x_3)) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2319.867 2331.210 2518.969</code></pre>
+<pre><code>[1] 2320 2331 2519</code></pre>
 </div>
 </div>
 </section>
@@ -343,9 +343,9 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x[<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">17</span>,<span class="dv">16</span>),]) </span>
 <span id="cb9-2"><a aria-label="2"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         1        2
-2 2319.867         
-3 2331.210 2518.969</code></pre>
+<pre><code>     1    2
+2 2320     
+3 2331 2519</code></pre>
 </div>
 </div>
 <ul>
@@ -370,7 +370,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2518.969</code></pre>
+<pre><code>[1] 2519</code></pre>
 </div>
 </div>
 </section>

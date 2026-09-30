@@ -275,11 +275,11 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>d <span class="ot">&lt;-</span> <span class="fu">dist</span>(x) </span>
 <span id="cb2-2"><a aria-label="2"></a><span class="fu">as.matrix</span>(d)[<span class="dv">1</span>, <span class="dv">2</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5949407</code></pre>
+<pre><code>[1] 0.5949</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">as.matrix</span>(d)[<span class="dv">2</span>, <span class="dv">51</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.388275</code></pre>
+<pre><code>[1] 1.388</code></pre>
 </div>
 </div>
 <ul>
@@ -584,9 +584,9 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>A <span class="sc">%*%</span> <span class="fu">t</span>(A) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             [,1]         [,2]
-[1,] 1.000000e+00 1.014654e-17
-[2,] 1.014654e-17 1.000000e+00</code></pre>
+<pre><code>          [,1]      [,2]
+[1,] 1.000e+00 1.015e-17
+[2,] 1.015e-17 1.000e+00</code></pre>
 </div>
 </div>
 </section>
@@ -641,7 +641,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">colSums</span>(z<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>(z<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.98477912 0.01522088</code></pre>
+<pre><code>[1] 0.98478 0.01522</code></pre>
 </div>
 </div>
 <ul>
@@ -817,9 +817,9 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>pca<span class="sc">$</span>rotation </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            PC1        PC2
-[1,] -0.7071068  0.7071068
-[2,] -0.7071068 -0.7071068</code></pre>
+<pre><code>         PC1     PC2
+[1,] -0.7071  0.7071
+[2,] -0.7071 -0.7071</code></pre>
 </div>
 </div>
 </section>
@@ -832,7 +832,7 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.98477912 0.01522088</code></pre>
+<pre><code>[1] 0.98478 0.01522</code></pre>
 </div>
 </div>
 </section>
@@ -845,10 +845,10 @@ x_{i,2} = b_{1,2} z_{i,1} + b_{2,2} z_{i,2}
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="fu">summary</span>(pca) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
-                          PC1     PC2
-Standard deviation     1.4034 0.17448
-Proportion of Variance 0.9848 0.01522
-Cumulative Proportion  0.9848 1.00000</code></pre>
+                         PC1    PC2
+Standard deviation     1.403 0.1745
+Proportion of Variance 0.985 0.0152
+Cumulative Proportion  0.985 1.0000</code></pre>
 </div>
 </div>
 </section>
@@ -903,10 +903,10 @@ Levels: setosa versicolor virginica</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">cor</span>(x) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Sepal.Length Sepal.Width Petal.Length Petal.Width
-Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
-Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259
-Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654
-Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
+Sepal.Length       1.0000     -0.1176       0.8718      0.8179
+Sepal.Width       -0.1176      1.0000      -0.4284     -0.3661
+Petal.Length       0.8718     -0.4284       1.0000      0.9629
+Petal.Width        0.8179     -0.3661       0.9629      1.0000</code></pre>
 </div>
 </div>
 </section>
@@ -921,10 +921,10 @@ Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
 <span id="cb40-2"><a aria-label="2"></a><span class="fu">summary</span>(pca) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
-                          PC1     PC2    PC3     PC4
-Standard deviation     2.0563 0.49262 0.2797 0.15439
-Proportion of Variance 0.9246 0.05307 0.0171 0.00521
-Cumulative Proportion  0.9246 0.97769 0.9948 1.00000</code></pre>
+                         PC1    PC2    PC3     PC4
+Standard deviation     2.056 0.4926 0.2797 0.15439
+Proportion of Variance 0.925 0.0531 0.0171 0.00521
+Cumulative Proportion  0.925 0.9777 0.9948 1.00000</code></pre>
 </div>
 </div>
 </section>

@@ -243,20 +243,13 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">head</span>(results_us_election_2016) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         state electoral_votes  clinton    trump  johnson     stein  mcmullin
-1   California              55 61.72640 31.61711 3.374092 1.9649200 0.2792070
-2        Texas              38 43.23526 52.23469 3.160719 0.7978169 0.4723485
-3      Florida              29 47.82332 49.02194 2.197900 0.6836384 0.0000000
-4     New York              29 59.00604 36.51559 2.287108 1.3978457 0.1343400
-5     Illinois              20 55.82537 38.76175 3.785765 1.3872131 0.2105149
-6 Pennsylvania              20 47.46495 48.18334 2.379621 0.8100102 0.1049716
-      others
-1 1.03827531
-2 0.09917244
-3 0.27320481
-4 0.65907285
-5 0.02938720
-6 1.05711187</code></pre>
+<pre><code>         state electoral_votes clinton trump johnson  stein mcmullin  others
+1   California              55   61.73 31.62   3.374 1.9649   0.2792 1.03828
+2        Texas              38   43.24 52.23   3.161 0.7978   0.4723 0.09917
+3      Florida              29   47.82 49.02   2.198 0.6836   0.0000 0.27320
+4     New York              29   59.01 36.52   2.287 1.3978   0.1343 0.65907
+5     Illinois              20   55.83 38.76   3.786 1.3872   0.2105 0.02939
+6 Pennsylvania              20   47.46 48.18   2.380 0.8100   0.1050 1.05711</code></pre>
 </div>
 </div>
 </section>
@@ -291,20 +284,20 @@
 <span id="cb7-2"><a aria-label="2"></a>  <span class="fu">select</span>(<span class="sc">-</span>others) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">ev =</span> electoral_votes) </span>
 <span id="cb7-3"><a aria-label="3"></a><span class="fu">head</span>(tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       state abb region population total ev  clinton    trump  johnson
-1    Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169
-2     Alaska  AK   West     710231    19  3 36.55087 51.28151 5.877128
-3    Arizona  AZ   West    6392017   232 11 44.58042 48.08314 4.082188
-4   Arkansas  AR  South    2915918    93  6 33.65190 60.57191 2.648769
-5 California  CA   West   37253956  1257 55 61.72640 31.61711 3.374092
-6   Colorado  CO   West    5029196    65  9 48.15651 43.25098 5.183748
-      stein  mcmullin
-1 0.4422682 0.0000000
-2 1.8000176 0.0000000
-3 1.3185997 0.6699155
-4 0.8378174 1.1653206
-5 1.9649200 0.2792070
-6 1.3825031 1.0400874</code></pre>
+<pre><code>       state abb region population total ev clinton trump johnson  stein
+1    Alabama  AL  South    4779736   135  9   34.36 62.08   2.094 0.4423
+2     Alaska  AK   West     710231    19  3   36.55 51.28   5.877 1.8000
+3    Arizona  AZ   West    6392017   232 11   44.58 48.08   4.082 1.3186
+4   Arkansas  AR  South    2915918    93  6   33.65 60.57   2.649 0.8378
+5 California  CA   West   37253956  1257 55   61.73 31.62   3.374 1.9649
+6   Colorado  CO   West    5029196    65  9   48.16 43.25   5.184 1.3825
+  mcmullin
+1   0.0000
+2   0.0000
+3   0.6699
+4   1.1653
+5   0.2792
+6   1.0401</code></pre>
 </div>
 </div>
 </section>
@@ -516,13 +509,13 @@
 <span id="cb25-4"><a aria-label="4"></a>new_tab <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(tab_1, tab_2, tab_3) </span>
 <span id="cb25-5"><a aria-label="5"></a><span class="fu">head</span>(new_tab) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       state abb region population total ev  clinton    trump
-1    Alabama  AL  South    4779736   135  9 34.35795 62.08309
-2     Alaska  AK   West     710231    19  3 36.55087 51.28151
-3    Arizona  AZ   West    6392017   232 11 44.58042 48.08314
-4   Arkansas  AR  South    2915918    93  6 33.65190 60.57191
-5 California  CA   West   37253956  1257 55 61.72640 31.61711
-6   Colorado  CO   West    5029196    65  9 48.15651 43.25098</code></pre>
+<pre><code>       state abb region population total ev clinton trump
+1    Alabama  AL  South    4779736   135  9   34.36 62.08
+2     Alaska  AK   West     710231    19  3   36.55 51.28
+3    Arizona  AZ   West    6392017   232 11   44.58 48.08
+4   Arkansas  AR  South    2915918    93  6   33.65 60.57
+5 California  CA   West   37253956  1257 55   61.73 31.62
+6   Colorado  CO   West    5029196    65  9   48.16 43.25</code></pre>
 </div>
 </div>
 </section>
@@ -536,16 +529,11 @@
 <span id="cb27-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>,] </span>
 <span id="cb27-3"><a aria-label="3"></a><span class="fu">bind_rows</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     state abb region population total ev  clinton    trump  johnson     stein
-1  Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169 0.4422682
-2   Alaska  AK   West     710231    19  3 36.55087 51.28151 5.877128 1.8000176
-3  Arizona  AZ   West    6392017   232 11 44.58042 48.08314 4.082188 1.3185997
-4 Arkansas  AR  South    2915918    93  6 33.65190 60.57191 2.648769 0.8378174
-   mcmullin
-1 0.0000000
-2 0.0000000
-3 0.6699155
-4 1.1653206</code></pre>
+<pre><code>     state abb region population total ev clinton trump johnson  stein mcmullin
+1  Alabama  AL  South    4779736   135  9   34.36 62.08   2.094 0.4423   0.0000
+2   Alaska  AK   West     710231    19  3   36.55 51.28   5.877 1.8000   0.0000
+3  Arizona  AZ   West    6392017   232 11   44.58 48.08   4.082 1.3186   0.6699
+4 Arkansas  AR  South    2915918    93  6   33.65 60.57   2.649 0.8378   1.1653</code></pre>
 </div>
 </div>
 <ul>
@@ -596,14 +584,14 @@
 <span id="cb33-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
 <span id="cb33-3"><a aria-label="3"></a>dplyr<span class="sc">::</span><span class="fu">intersect</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       state abb region population total ev  clinton    trump  johnson
-1    Arizona  AZ   West    6392017   232 11 44.58042 48.08314 4.082188
-2   Arkansas  AR  South    2915918    93  6 33.65190 60.57191 2.648769
-3 California  CA   West   37253956  1257 55 61.72640 31.61711 3.374092
-      stein  mcmullin
-1 1.3185997 0.6699155
-2 0.8378174 1.1653206
-3 1.9649200 0.2792070</code></pre>
+<pre><code>       state abb region population total ev clinton trump johnson  stein
+1    Arizona  AZ   West    6392017   232 11   44.58 48.08   4.082 1.3186
+2   Arkansas  AR  South    2915918    93  6   33.65 60.57   2.649 0.8378
+3 California  CA   West   37253956  1257 55   61.73 31.62   3.374 1.9649
+  mcmullin
+1   0.6699
+2   1.1653
+3   0.2792</code></pre>
 </div>
 </div>
 </section>
@@ -634,22 +622,22 @@
 <span id="cb39-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
 <span id="cb39-3"><a aria-label="3"></a>dplyr<span class="sc">::</span><span class="fu">union</span>(tab_1, tab_2)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        state abb    region population total ev  clinton    trump  johnson
-1     Alabama  AL     South    4779736   135  9 34.35795 62.08309 2.094169
-2      Alaska  AK      West     710231    19  3 36.55087 51.28151 5.877128
-3     Arizona  AZ      West    6392017   232 11 44.58042 48.08314 4.082188
-4    Arkansas  AR     South    2915918    93  6 33.65190 60.57191 2.648769
-5  California  CA      West   37253956  1257 55 61.72640 31.61711 3.374092
-6    Colorado  CO      West    5029196    65  9 48.15651 43.25098 5.183748
-7 Connecticut  CT Northeast    3574097    97  7 54.56630 40.92691 2.959171
-      stein  mcmullin
-1 0.4422682 0.0000000
-2 1.8000176 0.0000000
-3 1.3185997 0.6699155
-4 0.8378174 1.1653206
-5 1.9649200 0.2792070
-6 1.3825031 1.0400874
-7 1.3885782 0.1281521</code></pre>
+<pre><code>        state abb    region population total ev clinton trump johnson  stein
+1     Alabama  AL     South    4779736   135  9   34.36 62.08   2.094 0.4423
+2      Alaska  AK      West     710231    19  3   36.55 51.28   5.877 1.8000
+3     Arizona  AZ      West    6392017   232 11   44.58 48.08   4.082 1.3186
+4    Arkansas  AR     South    2915918    93  6   33.65 60.57   2.649 0.8378
+5  California  CA      West   37253956  1257 55   61.73 31.62   3.374 1.9649
+6    Colorado  CO      West    5029196    65  9   48.16 43.25   5.184 1.3825
+7 Connecticut  CT Northeast    3574097    97  7   54.57 40.93   2.959 1.3886
+  mcmullin
+1   0.0000
+2   0.0000
+3   0.6699
+4   1.1653
+5   0.2792
+6   1.0401
+7   0.1282</code></pre>
 </div>
 </div>
 </section>
@@ -680,12 +668,9 @@
 <span id="cb45-2"><a aria-label="2"></a>tab_2 <span class="ot">&lt;-</span> tab[<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>,] </span>
 <span id="cb45-3"><a aria-label="3"></a>dplyr<span class="sc">::</span><span class="fu">setdiff</span>(tab_1, tab_2) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    state abb region population total ev  clinton    trump  johnson     stein
-1 Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169 0.4422682
-2  Alaska  AK   West     710231    19  3 36.55087 51.28151 5.877128 1.8000176
-  mcmullin
-1        0
-2        0</code></pre>
+<pre><code>    state abb region population total ev clinton trump johnson  stein mcmullin
+1 Alabama  AL  South    4779736   135  9   34.36 62.08   2.094 0.4423        0
+2  Alaska  AK   West     710231    19  3   36.55 51.28   5.877 1.8000        0</code></pre>
 </div>
 </div>
 </section>

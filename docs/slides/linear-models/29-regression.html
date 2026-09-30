@@ -336,7 +336,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>galton_heights <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(father, son)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4334102</code></pre>
+<pre><code>[1] 0.4334</code></pre>
 </div>
 </div>
 </section>
@@ -430,7 +430,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">mean</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4307393</code></pre>
+<pre><code>[1] 0.4307</code></pre>
 </div>
 </div>
 <ul>
@@ -439,7 +439,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">sd</span>(r) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1609393</code></pre>
+<pre><code>[1] 0.1609</code></pre>
 </div>
 </div>
 </section>
@@ -781,11 +781,11 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">mean</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 70.49368</code></pre>
+<pre><code>[1] 70.49</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">mean</span>(regression_prediction) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 70.50941</code></pre>
+<pre><code>[1] 70.51</code></pre>
 </div>
 </div>
 <ul>
@@ -794,11 +794,11 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">sd</span>(conditional_avg, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9635814</code></pre>
+<pre><code>[1] 0.9636</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">sd</span>(regression_prediction) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4520833</code></pre>
+<pre><code>[1] 0.4521</code></pre>
 </div>
 </div>
 </section>
@@ -1221,7 +1221,7 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 <span id="cb35-2"><a aria-label="2"></a>fit<span class="sc">$</span>coefficients </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)      father 
-  37.287605    0.461392 </code></pre>
+    37.2876      0.4614 </code></pre>
 </div>
 </div>
 <ul>
@@ -1243,19 +1243,19 @@ Call:
 lm(formula = son ~ father, data = galton_heights)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--9.3543 -1.5657 -0.0078  1.7263  9.4150 
+   Min     1Q Median     3Q    Max 
+-9.354 -1.566 -0.008  1.726  9.415 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 37.28761    4.98618   7.478 3.37e-12 ***
-father       0.46139    0.07211   6.398 1.36e-09 ***
+(Intercept)  37.2876     4.9862    7.48  3.4e-12 ***
+father        0.4614     0.0721    6.40  1.4e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.45 on 177 degrees of freedom
-Multiple R-squared:  0.1878,    Adjusted R-squared:  0.1833 
-F-statistic: 40.94 on 1 and 177 DF,  p-value: 1.36e-09</code></pre>
+Multiple R-squared:  0.188, Adjusted R-squared:  0.183 
+F-statistic: 40.9 on 1 and 177 DF,  p-value: 1.36e-09</code></pre>
 </div>
 </div>
 </section>
@@ -1314,9 +1314,9 @@ F-statistic: 40.94 on 1 and 177 DF,  p-value: 1.36e-09</code></pre>
 <span id="cb40-3"><a aria-label="3"></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span>  </span>
 <span id="cb40-4"><a aria-label="4"></a>  <span class="fu">coef</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>              Estimate Std. Error  t value     Pr(&gt;|t|)
-(Intercept) 24.5722201 11.0734543 2.219020 0.0312467290
-father       0.6479396  0.1602234 4.043975 0.0001896386</code></pre>
+<pre><code>            Estimate Std. Error t value  Pr(&gt;|t|)
+(Intercept)  24.5722    11.0735   2.219 0.0312467
+father        0.6479     0.1602   4.044 0.0001896</code></pre>
 </div>
 </div>
 </section>
@@ -1328,8 +1328,8 @@ father       0.6479396  0.1602234 4.043975 0.0001896386</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a>lse <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">se_0 =</span> <span class="fu">sd</span>(beta_0), <span class="at">se_1 =</span> <span class="fu">sd</span>(beta_1)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      se_0      se_1
-1 8.669471 0.1256726</code></pre>
+<pre><code>   se_0   se_1
+1 8.669 0.1257</code></pre>
 </div>
 </div>
 <ul>
@@ -1506,7 +1506,7 @@ r = Y - \widehat{Y} = Y - \left(\widehat{\beta}_0 - \widehat{\beta}_1 x_i\right)
 <section id="the-regression-fallacy-3" class="slide level2">
 <h2>The regression fallacy</h2>
 <ul>
-<li><p>In fact, the proportion of players that have a lower batting average during their sophomore year is 0.7053571.</p></li>
+<li><p>In fact, the proportion of players that have a lower batting average during their sophomore year is 0.7054.</p></li>
 <li><p>So is it “jitters” or “jinx”? To answer this question, let’s turn our attention to all the players that played the 2013 and 2014 seasons and batted more than 130 times (minimum to win Rookie of the Year).</p></li>
 </ul>
 </section>

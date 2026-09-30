@@ -134,7 +134,7 @@
     "href": "syllabus.html#grade-distribution-from-2025-subject-to-change-in-2026",
     "title": "Syllabus",
     "section": "Grade Distribution – from 2025, subject to change in 2026",
-    "text": "Grade Distribution – from 2025, subject to change in 2026\n\n\n\nComponent\nWeight\n\n\n\n\n10 Problem Sets\n30%\n\n\n3 Oral Evaluations\n20%\n\n\nMidterm 1\n10%\n\n\nMidterm 2\n20%\n\n\nFinal Project\n20%",
+    "text": "Grade Distribution – from 2025, subject to change in 2026\n\n\n\nComponent\nWeight\n\n\n\n\n10 Problem Sets\n30%\n\n\n3 Oral Evaluations\n15%\n\n\nMidterm 1\n10%\n\n\nMidterm 2\n25%\n\n\nFinal Project\n20%",
     "crumbs": [
       "Syllabus"
     ]
@@ -154,7 +154,7 @@
     "href": "syllabus.html#oral-evaluations",
     "title": "Syllabus",
     "section": "Oral Evaluations",
-    "text": "Oral Evaluations\nOral evaluations account for 20% of your final grade, divided into three separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code and approach.\nKey Details:\n\nFirst evaluation: 15 minutes, 5% of final grade, covers 2 problem sets\nSecond evaluation: 15 minutes, 5% of final grade, covers 3 problem sets\n\nFinal evaluation: 20 minutes, 10% of final grade, covers 4 problem sets\nStudents are assigned to TFs based on the first letter of their last name (see assignments on the full page)\nYou can only schedule a meeting after completing all problem sets included in that evaluation period\nMeetings are conducted via Zoom using dedicated Slack channels for scheduling\nFailure to schedule and attend a meeting results in 0 points for that evaluation\n\nDuring each session, your TF may ask you to:\n\nExplain specific sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss challenges you encountered and how you solved them\n\nGrading Scale: 0-5 points based on your demonstrated understanding, ranging from no understanding (0 points) to excellent understanding with minimal gaps (5 points).\nSee the Oral Evaluations page for complete details including scheduling instructions, TF assignments, and full grading criteria.",
+    "text": "Oral Evaluations\nOral evaluations account for 15% of your final grade, divided into two separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code and approach.\nKey Details:\n\nFirst evaluation: 15 minutes, 5% of final grade, covers 2 problem sets\nSecond evaluation: 15 minutes, 10% of final grade, covers 5 or 6 problem sets, more details to follow.\nStudents are assigned to TFs based on the first letter of their last name (see assignments on the full page)\nYou can only schedule a meeting after completing all problem sets included in that evaluation period\nMeetings are conducted via Zoom using dedicated Slack channels for scheduling\nFailure to schedule and attend a meeting results in 0 points for that evaluation\n\nDuring each session, your TF may ask you to:\n\nExplain specific sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss challenges you encountered and how you solved them\n\nGrading Scale: 0-5 points based on your demonstrated understanding, ranging from no understanding (0 points) to excellent understanding with minimal gaps (5 points).\nSee the Oral Evaluations page for complete details including scheduling instructions, TF assignments, and full grading criteria.",
     "crumbs": [
       "Syllabus"
     ]
@@ -174,7 +174,7 @@
     "href": "syllabus.html#final-project",
     "title": "Syllabus",
     "section": "Final Project",
-    "text": "Final Project\nYou will be assigned to a team of 4 or 5 students and a Teaching Fellow (TF) who will supervise your project throughout the semester.\nGrading: The final project accounts for 20% of your course grade, divided as follows:\n\nFinal Project Report: 10% of course grade\n\nOral Presentation: 10% of course grade\n\n\nProject Overview\nYour team will select from a list of available data science projects or propose a custom research topic (subject to TF approval). You will prepare a comprehensive 2,500-3,000 word academic-style report with sections including Abstract, Introduction, Methods, Results, and Discussion.\n\n\nKey Requirements\n\nTeam Collaboration: Work in assigned teams of 4-5 students\nReproducible Analysis: Submit via GitHub repository with all code and data\nOral Presentation: 20-minute team presentation scheduled between December 16-19\nIndividual Accountability: All team members must participate and demonstrate understanding of their contributions\n\n\n\nAI Policy\nStudents may use AI tools as complementary aids but must clearly document where AI was used in their analysis or writing.\nImportant: You should start working on your project after the first midterm. Do not wait until the last week. Teaching staff will be available during office hours to provide guidance.\nFor complete details including team assignments, project options, submission guidelines, grading rubrics, and formatting requirements, see the Final Project page.",
+    "text": "Final Project\nYou will be assigned to a team of 4 or 5 students and a Teaching Fellow (TF) who will supervise your project throughout the semester.\nGrading: The final project accounts for 20% of your course grade, divided as follows:\n\nFinal Project Report: 10% of course grade\n\nOral Presentation: 10% of course grade\n\n\nProject Overview\nYour team will select from a list of available data science projects or propose a custom research topic (subject to TF approval). You will prepare a comprehensive 2,500-3,000 word academic-style report with sections including Abstract, Introduction, Methods, Results, and Discussion.\n\n\nKey Requirements\n\nTeam Collaboration: Work in assigned teams of 4-5 students\nReproducible Analysis: Submit via GitHub repository with all code and data\nOral Presentation: 20-minute team presentation scheduled between December 15-18\nIndividual Accountability: All team members must participate and demonstrate understanding of their contributions\n\n\n\nAI Policy\nStudents may use AI tools as complementary aids but must clearly document where AI was used in their analysis or writing.\nImportant: You should start working on your project after the first midterm. Do not wait until the last week. Teaching staff will be available during office hours to provide guidance.\nFor complete details including team assignments, project options, submission guidelines, grading rubrics, and formatting requirements, see the Final Project page.",
     "crumbs": [
       "Syllabus"
     ]
@@ -194,7 +194,7 @@
     "href": "syllabus.html#key-dates",
     "title": "Syllabus",
     "section": "Key Dates",
-    "text": "Key Dates\n\n\n\nDate\nEvent\n\n\n\n\nSep 7\nNo class: Labor Day\n\n\nOct 12\nNo class: Indigenous People’s Day\n\n\nOct 14\nMidterm 1: covers material from Aug 31-Oct 07\n\n\nOct 19\nStart final project\n\n\nNov 11\nNo class: Veterans’ Day\n\n\nNov 23\nMidterm 2: cover material from Aug 31-Nov 18\n\n\nNov 25\nNo class: Thanksgiving Recess Begins\n\n\nDec 16\nFinal Project due; last day of class",
+    "text": "Key Dates\n\n\n\nDate\nEvent\n\n\n\n\nSep 7\nNo class: Labor Day\n\n\nOct 5-7\nOral Exam 1: Problem Sets 1-3\n\n\nOct 12\nNo class: Indigenous People’s Day\n\n\nOct 14\nMidterm 1: covers material from Aug 31-Oct 07\n\n\nOct 19\nStart final project\n\n\nNov 2-6\nOral Exam 2: material TBD\n\n\nNov 11\nNo class: Veterans’ Day\n\n\nNov 23\nMidterm 2: cover material from Aug 31-Nov 18\n\n\nNov 25\nNo class: Thanksgiving Recess Begins\n\n\nDec 15\nFinal Project due; last day of class\n\n\nDec 15-18\nFinal Project Presentations w/Your TF",
     "crumbs": [
       "Syllabus"
     ]
@@ -204,7 +204,7 @@
     "href": "oral-evaluations.html",
     "title": "Oral Evaluations for 2026",
     "section": "",
-    "text": "Oral evaluations account for 20% of your final grade, divided into three separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code.\nImportant: You can only schedule an oral evaluation meeting after you have completed and submitted the problem sets included in that evaluation period.\nAn oral exam can include requests for information on any lecture or reading content or submitted problem set.\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nSeptember 25 - October 7\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nOctober 19 - October 31\nProblem Sets 1-5\n15 minutes\n5%\n\n\nOral Eval 3\nNov 31 - December 11\nProblem Sets 1-9\n20 minutes\n10%\n\n\n\n\n\n\nStudents will be assigned to Teaching Fellows in a posting to follow.\n\n\n\nYour oral evaluation will be graded on the following scale:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0/5\nNo meeting scheduled\n\n\n1/5\nNo understanding of the code/answers\n\n\n2/5\nLimited understanding of code/answers\n\n\n3/5\nModerate understanding of code/answers but with significant gaps in explanations\n\n\n4/5\nGood understanding of code/answers but moderate gaps in explanations\n\n\n5/5\nExcellent understanding of code/answers with either very little or no gaps in explanations\n\n\n\n\n\n\nDuring your meeting (15 minutes for the first two evaluations, 20 minutes for the final evaluation), your TF may ask you to:\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
+    "text": "Oral evaluations account for 15% of your final grade, divided into three separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code.\nImportant: You can only schedule an oral evaluation meeting after you have completed and submitted the problem sets included in that evaluation period.\nAn oral exam can include requests for information on any lecture or reading content or submitted problem set.\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nOctober 5 - October 9\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nNovember 2 - November 6\nProblem Sets Covered TBD\n15 minutes\n10%\n\n\n\n\n\n\nStudents will be assigned to Teaching Fellows in a posting to follow.\n\n\n\nYour oral evaluation will be graded on the following scale:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0/5\nNo meeting scheduled\n\n\n1/5\nNo understanding of the code/answers\n\n\n2/5\nLimited understanding of code/answers\n\n\n3/5\nModerate understanding of code/answers but with significant gaps in explanations\n\n\n4/5\nGood understanding of code/answers but moderate gaps in explanations\n\n\n5/5\nExcellent understanding of code/answers with either very little or no gaps in explanations\n\n\n\n\n\n\nDuring your meeting (15 minutes for the first two evaluations, 20 minutes for the final evaluation), your TF may ask you to:\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
     "crumbs": [
       "Oral Evaluations"
     ]
@@ -214,7 +214,7 @@
     "href": "oral-evaluations.html#evaluation-schedule",
     "title": "Oral Evaluations for 2026",
     "section": "",
-    "text": "Evaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nSeptember 25 - October 7\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nOctober 19 - October 31\nProblem Sets 1-5\n15 minutes\n5%\n\n\nOral Eval 3\nNov 31 - December 11\nProblem Sets 1-9\n20 minutes\n10%",
+    "text": "Evaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nOctober 5 - October 9\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nNovember 2 - November 6\nProblem Sets Covered TBD\n15 minutes\n10%",
     "crumbs": [
       "Oral Evaluations"
     ]
@@ -835,14 +835,14 @@
     "href": "slides/inference/25-models.html#case-study-poll-aggregators-4",
     "title": "Data-driven models",
     "section": "Case study: poll aggregators",
-    "text": "Case study: poll aggregators\n\nBasically, we construct an estimate of the spread, let’s call it \\(\\mu\\), with a weighted average in the following way:\n\n\nmu_hat &lt;- polls |&gt;  \n  summarize(avg = sum(estimate*sample_size) / sum(sample_size)) |&gt;  \n  pull(avg) \nprint(mu_hat)\n\n[1] 0.0311474"
+    "text": "Case study: poll aggregators\n\nBasically, we construct an estimate of the spread, let’s call it \\(\\mu\\), with a weighted average in the following way:\n\n\nmu_hat &lt;- polls |&gt;  \n  summarize(avg = sum(estimate*sample_size) / sum(sample_size)) |&gt;  \n  pull(avg) \nprint(mu_hat)\n\n[1] 0.03115"
   },
   {
     "objectID": "slides/inference/25-models.html#case-study-poll-aggregators-5",
     "href": "slides/inference/25-models.html#case-study-poll-aggregators-5",
     "title": "Data-driven models",
     "section": "Case study: poll aggregators",
-    "text": "Case study: poll aggregators\n\nWe can reconstruct the margin of error as well:\n\n\np_hat &lt;- (1 + mu_hat)/2\nmoe &lt;- 2*1.96*sqrt(p_hat*(1 - p_hat)/sum(polls$sample_size))\nprint(moe)\n\n[1] 0.01845451\n\n\n\nWhich is much smaller than any of the individual polls."
+    "text": "Case study: poll aggregators\n\nWe can reconstruct the margin of error as well:\n\n\np_hat &lt;- (1 + mu_hat)/2\nmoe &lt;- 2*1.96*sqrt(p_hat*(1 - p_hat)/sum(polls$sample_size))\nprint(moe)\n\n[1] 0.01845\n\n\n\nWhich is much smaller than any of the individual polls."
   },
   {
     "objectID": "slides/inference/25-models.html#case-study-poll-aggregators-6",
@@ -877,7 +877,7 @@
     "href": "slides/inference/25-models.html#case-study-poll-aggregators-10",
     "title": "Data-driven models",
     "section": "Case study: poll aggregators",
-    "text": "Case study: poll aggregators\n\nWe construct a confidence interval assuming the data is from an urn model:\n\n\nmu_hat &lt;- polls |&gt;  \n  summarize(mu_hat = sum(spread*samplesize)/sum(samplesize)) |&gt;  \n  pull(mu_hat) \n\n\nand the standard error is:\n\n\np_hat &lt;- (mu_hat + 1)/2  \nmoe &lt;- 1.96*2*sqrt(p_hat*(1 - p_hat)/sum(polls$samplesize)) \nmoe \n\n[1] 0.006623178"
+    "text": "Case study: poll aggregators\n\nWe construct a confidence interval assuming the data is from an urn model:\n\n\nmu_hat &lt;- polls |&gt;  \n  summarize(mu_hat = sum(spread*samplesize)/sum(samplesize)) |&gt;  \n  pull(mu_hat) \n\n\nand the standard error is:\n\n\np_hat &lt;- (mu_hat + 1)/2  \nmoe &lt;- 1.96*2*sqrt(p_hat*(1 - p_hat)/sum(polls$samplesize)) \nmoe \n\n[1] 0.006623"
   },
   {
     "objectID": "slides/inference/25-models.html#case-study-poll-aggregators-11",
@@ -898,7 +898,7 @@
     "href": "slides/inference/25-models.html#case-study-poll-aggregators-13",
     "title": "Data-driven models",
     "section": "Case study: poll aggregators",
-    "text": "Case study: poll aggregators\n\nThe data does not appear to be normally distributed\nThe standard error appears to be larger than 0.0066232.\nThe theory is not working her\nThis motivates the use of a data-driven model."
+    "text": "Case study: poll aggregators\n\nThe data does not appear to be normally distributed\nThe standard error appears to be larger than 0.0066.\nThe theory is not working her\nThis motivates the use of a data-driven model."
   },
   {
     "objectID": "slides/inference/25-models.html#beyond-the-sampling-model",
@@ -996,7 +996,7 @@
     "href": "slides/inference/25-models.html#estimating-the-sd-2",
     "title": "Data-driven models",
     "section": "Estimating the SD",
-    "text": "Estimating the SD\n\nThe sd function in R computes the sample standard deviation:\n\n\nsd(one_poll_per_pollster$spread) \n\n[1] 0.02419369"
+    "text": "Estimating the SD\n\nThe sd function in R computes the sample standard deviation:\n\n\nsd(one_poll_per_pollster$spread) \n\n[1] 0.02419"
   },
   {
     "objectID": "slides/inference/25-models.html#computing-a-confidence-interval",
@@ -1059,7 +1059,7 @@
     "href": "slides/inference/25-models.html#the-t-distribution-7",
     "title": "Data-driven models",
     "section": "The t-distribution",
-    "text": "The t-distribution\n\nSo perhaps a better confidence interval for \\(\\mu\\) is:\n\n\nz &lt;- qt(0.975,  nrow(one_poll_per_pollster) - 1) \none_poll_per_pollster |&gt;  \n  summarize(avg = mean(spread), moe = z*sd(spread)/sqrt(length(spread))) |&gt;  \n  mutate(start = avg - moe, end = avg + moe)  \n\n# A tibble: 1 × 4\n     avg    moe  start    end\n   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 0.0290 0.0134 0.0156 0.0424\n\n\n\nA bit larger than the one using normal is:\n\n\nqt(0.975, 14) \n\n[1] 2.144787\n\nqnorm(0.975) \n\n[1] 1.959964"
+    "text": "The t-distribution\n\nSo perhaps a better confidence interval for \\(\\mu\\) is:\n\n\nz &lt;- qt(0.975,  nrow(one_poll_per_pollster) - 1) \none_poll_per_pollster |&gt;  \n  summarize(avg = mean(spread), moe = z*sd(spread)/sqrt(length(spread))) |&gt;  \n  mutate(start = avg - moe, end = avg + moe)  \n\n# A tibble: 1 × 4\n     avg    moe  start    end\n   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 0.0290 0.0134 0.0156 0.0424\n\n\n\nA bit larger than the one using normal is:\n\n\nqt(0.975, 14) \n\n[1] 2.145\n\nqnorm(0.975) \n\n[1] 1.96"
   },
   {
     "objectID": "slides/inference/25-models.html#the-t-distribution-8",
@@ -1087,7 +1087,7 @@
     "href": "slides/inference/25-models.html#the-t-distribution-11",
     "title": "Data-driven models",
     "section": "The t-distribution",
-    "text": "The t-distribution\n\npolls_us_election_2016 |&gt; \n  filter(state == \"Wisconsin\" & \n           enddate &gt;= \"2016-10-31\" &  \n           (grade %in% c(\"A+\", \"A\", \"A-\", \"B+\") | is.na(grade))) |&gt; \n  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100) |&gt; \n  mutate(state = as.character(state)) |&gt; \n  left_join(results_us_election_2016, by = \"state\") |&gt; \n  mutate(actual = clinton/100 - trump/100) |&gt; \n  summarize(actual = first(actual), avg = mean(spread),  \n            sd = sd(spread), n = n()) |&gt; \n  select(actual, avg, sd, n) \n\n        actual        avg         sd n\n1 -0.007643432 0.07106667 0.01041454 6"
+    "text": "The t-distribution\n\npolls_us_election_2016 |&gt; \n  filter(state == \"Wisconsin\" & \n           enddate &gt;= \"2016-10-31\" &  \n           (grade %in% c(\"A+\", \"A\", \"A-\", \"B+\") | is.na(grade))) |&gt; \n  mutate(spread = rawpoll_clinton/100 - rawpoll_trump/100) |&gt; \n  mutate(state = as.character(state)) |&gt; \n  left_join(results_us_election_2016, by = \"state\") |&gt; \n  mutate(actual = clinton/100 - trump/100) |&gt; \n  summarize(actual = first(actual), avg = mean(spread),  \n            sd = sd(spread), n = n()) |&gt; \n  select(actual, avg, sd, n) \n\n     actual     avg      sd n\n1 -0.007643 0.07107 0.01041 6"
   },
   {
     "objectID": "slides/inference/26-bayes.html#bayesian-statistics",
@@ -1234,21 +1234,21 @@
     "href": "slides/inference/26-bayes.html#example-2",
     "title": "Bayesian Models",
     "section": "Example",
-    "text": "Example\n\ntheta &lt;- 0 \ntau &lt;- 0.035 \nsigma &lt;- results$se \nx_bar &lt;- results$avg \nB &lt;- sigma^2 / (sigma^2 + tau^2) \nposterior_mean &lt;- B*theta + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/sigma^2 + 1/tau^2)) \nposterior_mean \n\n[1] 0.02808534\n\nposterior_se \n\n[1] 0.006149604"
+    "text": "Example\n\ntheta &lt;- 0 \ntau &lt;- 0.035 \nsigma &lt;- results$se \nx_bar &lt;- results$avg \nB &lt;- sigma^2 / (sigma^2 + tau^2) \nposterior_mean &lt;- B*theta + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/sigma^2 + 1/tau^2)) \nposterior_mean \n\n[1] 0.02809\n\nposterior_se \n\n[1] 0.00615"
   },
   {
     "objectID": "slides/inference/26-bayes.html#example-3",
     "href": "slides/inference/26-bayes.html#example-3",
     "title": "Bayesian Models",
     "section": "Example",
-    "text": "Example\n\nSince we know the posterior distribution is normal, we can construct a credible interval like this:\n\n\nposterior_mean + c(-1, 1) * qnorm(0.975) * posterior_se \n\n[1] 0.01603234 0.04013834"
+    "text": "Example\n\nSince we know the posterior distribution is normal, we can construct a credible interval like this:\n\n\nposterior_mean + c(-1, 1) * qnorm(0.975) * posterior_se \n\n[1] 0.01603 0.04014"
   },
   {
     "objectID": "slides/inference/26-bayes.html#example-4",
     "href": "slides/inference/26-bayes.html#example-4",
     "title": "Bayesian Models",
     "section": "Example",
-    "text": "Example\n\nFurthermore, we can now make the probabilistic statement that we could not make with the frequentists approach by computing the posterior probability of Hillary winning the popular vote.\nSpecifically, \\(\\mbox{Pr}(\\mu&gt;0 \\mid \\bar{X})\\) can be computed as follows:\n\n\n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.9999975"
+    "text": "Example\n\nFurthermore, we can now make the probabilistic statement that we could not make with the frequentists approach by computing the posterior probability of Hillary winning the popular vote.\nSpecifically, \\(\\mbox{Pr}(\\mu&gt;0 \\mid \\bar{X})\\) can be computed as follows:\n\n\n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 1"
   },
   {
     "objectID": "slides/inference/26-bayes.html#example-5",
@@ -1311,7 +1311,7 @@
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-7",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4400618 0.5019382\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4530256 0.5149744\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
+    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4381 0.4999\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4162 0.4778\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-8",
@@ -1332,28 +1332,28 @@
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-10",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nThe term in the middle is an approximately normal random variable with expected value 0 and standard error 1, which we have been denoting with \\(Z\\), so we have:\n\n\\[\n\\mbox{Pr}\\left(-1.96 \\leq Z \\leq  1.96\\right)\n\\]\n\nwhich we can quickly compute using :\n\n\npnorm(1.96) - pnorm(-1.96) \n\n[1] 0.9500042\n\n\n\nproving that we have a 95% probability."
+    "text": "Confidence intervals\n\nThe term in the middle is an approximately normal random variable with expected value 0 and standard error 1, which we have been denoting with \\(Z\\), so we have:\n\n\\[\n\\mbox{Pr}\\left(-1.96 \\leq Z \\leq  1.96\\right)\n\\]\n\nwhich we can quickly compute using :\n\n\npnorm(1.96) - pnorm(-1.96) \n\n[1] 0.95\n\n\n\nproving that we have a 95% probability."
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-11",
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-11",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nIf we want to have a larger probability, say 99%, we need to multiply by whatever z satisfies the following:\n\n\\[\n\\mbox{Pr}\\left(-z \\leq Z \\leq  z\\right) = 0.99\n\\]\n\nWe use:\n\n\nz &lt;- qnorm(0.995) \nz \n\n[1] 2.575829\n\npnorm(z) - pnorm(-z) \n\n[1] 0.99"
+    "text": "Confidence intervals\n\nIf we want to have a larger probability, say 99%, we need to multiply by whatever z satisfies the following:\n\n\\[\n\\mbox{Pr}\\left(-z \\leq Z \\leq  z\\right) = 0.99\n\\]\n\nWe use:\n\n\nz &lt;- qnorm(0.995) \nz \n\n[1] 2.576\n\npnorm(z) - pnorm(-z) \n\n[1] 0.99"
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-12",
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-12",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nIn statistics textbooks, confidence interval formulas are given for arbitraty probabilities written as \\(1-\\alpha\\).\nWe can obtain the \\(z\\) for the equation above using z = qnorm(1 - alpha / 2) because \\(1 - \\alpha/2 - \\alpha/2 = 1 - \\alpha\\).\nSo, for example, for \\(\\alpha=0.05\\), \\(1 - \\alpha/2 = 0.975\\) and we get the \\(z=1.96\\) we used above:\n\n\nqnorm(0.975) \n\n[1] 1.959964"
+    "text": "Confidence intervals\n\nIn statistics textbooks, confidence interval formulas are given for arbitraty probabilities written as \\(1-\\alpha\\).\nWe can obtain the \\(z\\) for the equation above using z = qnorm(1 - alpha / 2) because \\(1 - \\alpha/2 - \\alpha/2 = 1 - \\alpha\\).\nSo, for example, for \\(\\alpha=0.05\\), \\(1 - \\alpha/2 = 0.975\\) and we get the \\(z=1.96\\) we used above:\n\n\nqnorm(0.975) \n\n[1] 1.96"
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
     "href": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
     "title": "Confidence Intervals",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9477"
+    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9449"
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation-1",
@@ -3327,7 +3327,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-1",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nFirst, some simple examples of vectorization.\nLet’s convert the following heights in inches to meters:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\n\n\nRather than loop we use vectorization:\n\n\nheights*2.54/100\n\n [1] 1.7526 1.5748 1.6764 1.7780 1.7780 1.8542 1.7018 1.8542 1.7018 1.7780"
+    "text": "Vectorization\n\nFirst, some simple examples of vectorization.\nLet’s convert the following heights in inches to meters:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\n\n\nRather than loop we use vectorization:\n\n\nheights*2.54/100\n\n [1] 1.753 1.575 1.676 1.778 1.778 1.854 1.702 1.854 1.702 1.778"
   },
   {
     "objectID": "slides/R/06-vectorization.html#vectorization-2",
@@ -3341,14 +3341,14 @@
     "href": "slides/R/06-vectorization.html#vectorization-3",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nThis means we can compute standard units like this:\n\n\ns &lt;- sd(heights)\n(heights - avg)/s\n\n [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548\n [7] -0.50974519  1.28935548 -0.50974519  0.38980515\n\n\n\nThere is actually a function, scale, that does this. We describe it soon."
+    "text": "Vectorization\n\nThis means we can compute standard units like this:\n\n\ns &lt;- sd(heights)\n(heights - avg)/s\n\n [1]  0.08996 -2.00900 -0.80960  0.38981  0.38981  1.28936 -0.50975  1.28936\n [9] -0.50975  0.38981\n\n\n\nThere is actually a function, scale, that does this. We describe it soon."
   },
   {
     "objectID": "slides/R/06-vectorization.html#vectorization-4",
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 69.14948 62.13342 65.97714 69.82860 70.07170 73.13496 67.01823 73.09252\n [9] 67.06447 69.99199"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.96 61.90 65.93 70.03 69.94 73.06 66.94 73.04 66.97 69.79"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -3362,14 +3362,14 @@
     "href": "slides/R/06-vectorization.html#functions-that-vectorize",
     "title": "Vectorization",
     "section": "Functions that vectorize",
-    "text": "Functions that vectorize\n\nMost arithmetic functions work on vectors.\n\n\nx &lt;- 1:10\nsqrt(x)\n\n [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427\n [9] 3.000000 3.162278\n\nlog(x)\n\n [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101\n [8] 2.0794415 2.1972246 2.3025851\n\n2^x\n\n [1]    2    4    8   16   32   64  128  256  512 1024"
+    "text": "Functions that vectorize\n\nMost arithmetic functions work on vectors.\n\n\nx &lt;- 1:10\nsqrt(x)\n\n [1] 1.000 1.414 1.732 2.000 2.236 2.449 2.646 2.828 3.000 3.162\n\nlog(x)\n\n [1] 0.0000 0.6931 1.0986 1.3863 1.6094 1.7918 1.9459 2.0794 2.1972 2.3026\n\n2^x\n\n [1]    2    4    8   16   32   64  128  256  512 1024"
   },
   {
     "objectID": "slides/R/06-vectorization.html#functions-that-vectorize-1",
     "href": "slides/R/06-vectorization.html#functions-that-vectorize-1",
     "title": "Vectorization",
     "section": "Functions that vectorize",
-    "text": "Functions that vectorize\n\nscale(heights)\n\n             [,1]\n [1,]  0.08995503\n [2,] -2.00899575\n [3,] -0.80959530\n [4,]  0.38980515\n [5,]  0.38980515\n [6,]  1.28935548\n [7,] -0.50974519\n [8,]  1.28935548\n [9,] -0.50974519\n[10,]  0.38980515\nattr(,\"scaled:center\")\n[1] 68.7\nattr(,\"scaled:scale\")\n[1] 3.335\n\n\nprovides the same results,\n\n(heights - mean(heights))/sd(heights)\n\n [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548\n [7] -0.50974519  1.28935548 -0.50974519  0.38980515"
+    "text": "Functions that vectorize\n\nscale(heights)\n\n          [,1]\n [1,]  0.08996\n [2,] -2.00900\n [3,] -0.80960\n [4,]  0.38981\n [5,]  0.38981\n [6,]  1.28936\n [7,] -0.50975\n [8,]  1.28936\n [9,] -0.50975\n[10,]  0.38981\nattr(,\"scaled:center\")\n[1] 68.7\nattr(,\"scaled:scale\")\n[1] 3.335\n\n\nprovides the same results,\n\n(heights - mean(heights))/sd(heights)\n\n [1]  0.08996 -2.00900 -0.80960  0.38981  0.38981  1.28936 -0.50975  1.28936\n [9] -0.50975  0.38981"
   },
   {
     "objectID": "slides/R/06-vectorization.html#functions-that-vectorize-2",
@@ -3684,7 +3684,7 @@
     "href": "slides/R/05-r-basics.html#setting-levels",
     "title": "R Basics",
     "section": "Setting Levels",
-    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Male   Male   Male   Female Female Female Female Female Female Female\nLevels: Male Female\n\ny2[1:10]\n\n [1] Male   Male   Male   Female Female Female Female Female Female Female\nLevels: Female Male"
+    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Female Female Male   Male   Female Female Female Female Male   Female\nLevels: Male Female\n\ny2[1:10]\n\n [1] Female Female Male   Male   Female Female Female Female Male   Female\nLevels: Female Male"
   },
   {
     "objectID": "slides/R/05-r-basics.html#categories-based-on-strata",
@@ -3859,7 +3859,7 @@
     "href": "slides/R/05-r-basics.html#lexical-scope-1",
     "title": "R Basics",
     "section": "Lexical Scope",
-    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x7c68717070&gt;"
+    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x7888b02580&gt;"
   },
   {
     "objectID": "slides/R/05-r-basics.html#lexical-scope-example",
@@ -3992,7 +3992,7 @@
     "href": "slides/highdim/36-dimension-reduction.html#motivation-preserving-distance-5",
     "title": "Dimension Reduction",
     "section": "Motivation: preserving distance",
-    "text": "Motivation: preserving distance\n\nWe can compute these distances using dist:\n\n\nd &lt;- dist(x) \nas.matrix(d)[1, 2] \n\n[1] 0.5949407\n\nas.matrix(d)[2, 51] \n\n[1] 1.388275\n\n\n\nNote that the blue line is shorter.\nWe want our one dimension summary to approximate these distances."
+    "text": "Motivation: preserving distance\n\nWe can compute these distances using dist:\n\n\nd &lt;- dist(x) \nas.matrix(d)[1, 2] \n\n[1] 0.5949\n\nas.matrix(d)[2, 51] \n\n[1] 1.388\n\n\n\nNote that the blue line is shorter.\nWe want our one dimension summary to approximate these distances."
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#motivation-preserving-distance-6",
@@ -4139,7 +4139,7 @@
     "href": "slides/highdim/36-dimension-reduction.html#orthogonal-transformations",
     "title": "Dimension Reduction",
     "section": "Orthogonal transformations",
-    "text": "Orthogonal transformations\n\nWe refer to transformation with the property \\(\\mathbf{A} \\mathbf{A}^\\top = \\mathbf{I}\\) as orthogonal transformations.\nThese are guaranteed to preserve the distance between any two points.\nWe previously demonstrated our rotation has this property.\nWe can confirm using R:\n\n\nA %*% t(A) \n\n             [,1]         [,2]\n[1,] 1.000000e+00 1.014654e-17\n[2,] 1.014654e-17 1.000000e+00"
+    "text": "Orthogonal transformations\n\nWe refer to transformation with the property \\(\\mathbf{A} \\mathbf{A}^\\top = \\mathbf{I}\\) as orthogonal transformations.\nThese are guaranteed to preserve the distance between any two points.\nWe previously demonstrated our rotation has this property.\nWe can confirm using R:\n\n\nA %*% t(A) \n\n          [,1]      [,2]\n[1,] 1.000e+00 1.015e-17\n[2,] 1.015e-17 1.000e+00"
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#orthogonal-transformations-1",
@@ -4167,7 +4167,7 @@
     "href": "slides/highdim/36-dimension-reduction.html#transformations",
     "title": "Dimension Reduction",
     "section": "Transformations",
-    "text": "Transformations\n\nHere we compute the proportion of TSS attributed to each column, referred to as the variance explained or variance captured by each column, for \\(\\mathbf{X}\\):\n\n\ncolSums(x^2)/sum(x^2) \n\n[1] 0.5 0.5\n\n\n\nand \\(\\mathbf{Z}\\):\n\n\ncolSums(z^2)/sum(z^2) \n\n[1] 0.98477912 0.01522088\n\n\n\nWe now explain how useful this property can be."
+    "text": "Transformations\n\nHere we compute the proportion of TSS attributed to each column, referred to as the variance explained or variance captured by each column, for \\(\\mathbf{X}\\):\n\n\ncolSums(x^2)/sum(x^2) \n\n[1] 0.5 0.5\n\n\n\nand \\(\\mathbf{Z}\\):\n\n\ncolSums(z^2)/sum(z^2) \n\n[1] 0.98478 0.01522\n\n\n\nWe now explain how useful this property can be."
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#principal-component-analysis",
@@ -4279,21 +4279,21 @@
     "href": "slides/highdim/36-dimension-reduction.html#principal-component-analysis-15",
     "title": "Dimension Reduction",
     "section": "Principal Component Analysis",
-    "text": "Principal Component Analysis\n\nThe object pca includes the rotated data \\(Z\\) in pca$x and the rotation \\(\\mathbf{V}\\) in pca$rotation.\nWe can see that columns of the pca$rotation are indeed the rotation obtained with -45 (remember the sign is arbitrary):\n\n\npca$rotation \n\n            PC1        PC2\n[1,] -0.7071068  0.7071068\n[2,] -0.7071068 -0.7071068"
+    "text": "Principal Component Analysis\n\nThe object pca includes the rotated data \\(Z\\) in pca$x and the rotation \\(\\mathbf{V}\\) in pca$rotation.\nWe can see that columns of the pca$rotation are indeed the rotation obtained with -45 (remember the sign is arbitrary):\n\n\npca$rotation \n\n         PC1     PC2\n[1,] -0.7071  0.7071\n[2,] -0.7071 -0.7071"
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#principal-component-analysis-16",
     "href": "slides/highdim/36-dimension-reduction.html#principal-component-analysis-16",
     "title": "Dimension Reduction",
     "section": "Principal Component Analysis",
-    "text": "Principal Component Analysis\n\nThe square root of the variation of each column is included in the pca$sdev component.\nThis implies we can compute the variance explained by each PC using:\n\n\npca$sdev^2/sum(pca$sdev^2) \n\n[1] 0.98477912 0.01522088"
+    "text": "Principal Component Analysis\n\nThe square root of the variation of each column is included in the pca$sdev component.\nThis implies we can compute the variance explained by each PC using:\n\n\npca$sdev^2/sum(pca$sdev^2) \n\n[1] 0.98478 0.01522"
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#principal-component-analysis-17",
     "href": "slides/highdim/36-dimension-reduction.html#principal-component-analysis-17",
     "title": "Dimension Reduction",
     "section": "Principal Component Analysis",
-    "text": "Principal Component Analysis\n\nThe function summary performs this calculation:\n\n\nsummary(pca) \n\nImportance of components:\n                          PC1     PC2\nStandard deviation     1.4034 0.17448\nProportion of Variance 0.9848 0.01522\nCumulative Proportion  0.9848 1.00000"
+    "text": "Principal Component Analysis\n\nThe function summary performs this calculation:\n\n\nsummary(pca) \n\nImportance of components:\n                         PC1    PC2\nStandard deviation     1.403 0.1745\nProportion of Variance 0.985 0.0152\nCumulative Proportion  0.985 1.0000"
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#principal-component-analysis-18",
@@ -4321,14 +4321,14 @@
     "href": "slides/highdim/36-dimension-reduction.html#iris-example-2",
     "title": "Dimension Reduction",
     "section": "Iris example",
-    "text": "Iris example\n\nOur features matrix has four dimensions\nThree are very correlated:\n\n\ncor(x) \n\n             Sepal.Length Sepal.Width Petal.Length Petal.Width\nSepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411\nSepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259\nPetal.Length    0.8717538  -0.4284401    1.0000000   0.9628654\nPetal.Width     0.8179411  -0.3661259    0.9628654   1.0000000"
+    "text": "Iris example\n\nOur features matrix has four dimensions\nThree are very correlated:\n\n\ncor(x) \n\n             Sepal.Length Sepal.Width Petal.Length Petal.Width\nSepal.Length       1.0000     -0.1176       0.8718      0.8179\nSepal.Width       -0.1176      1.0000      -0.4284     -0.3661\nPetal.Length       0.8718     -0.4284       1.0000      0.9629\nPetal.Width        0.8179     -0.3661       0.9629      1.0000"
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#iris-example-3",
     "href": "slides/highdim/36-dimension-reduction.html#iris-example-3",
     "title": "Dimension Reduction",
     "section": "Iris example",
-    "text": "Iris example\n\nIf we apply PCA, we should be able to approximate this distance with just two dimensions, compressing the highly correlated dimensions.\nUsing the summary function, we can see the variability explained by each PC:\n\n\npca &lt;- prcomp(x) \nsummary(pca) \n\nImportance of components:\n                          PC1     PC2    PC3     PC4\nStandard deviation     2.0563 0.49262 0.2797 0.15439\nProportion of Variance 0.9246 0.05307 0.0171 0.00521\nCumulative Proportion  0.9246 0.97769 0.9948 1.00000"
+    "text": "Iris example\n\nIf we apply PCA, we should be able to approximate this distance with just two dimensions, compressing the highly correlated dimensions.\nUsing the summary function, we can see the variability explained by each PC:\n\n\npca &lt;- prcomp(x) \nsummary(pca) \n\nImportance of components:\n                         PC1    PC2    PC3     PC4\nStandard deviation     2.056 0.4926 0.2797 0.15439\nProportion of Variance 0.925 0.0531 0.0171 0.00521\nCumulative Proportion  0.925 0.9777 0.9948 1.00000"
   },
   {
     "objectID": "slides/highdim/36-dimension-reduction.html#iris-example-4",
@@ -4937,7 +4937,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-4",
     "title": "Treatment Effect Models",
     "section": "Comparing group means",
-    "text": "Comparing group means\n\nThis implies that we can easily compute the probability of observing a value as large as the one we obtained:\n\n\nstats &lt;- mice_weights |&gt;  \n  group_by(diet) |&gt;  \n  summarize(xbar = mean(body_weight), s = sd(body_weight), n = n())  \nt_stat &lt;- with(stats, (xbar[2] - xbar[1])/sqrt(s[2]^2/n[2] + s[1]^2/n[1])) \nt_stat \n\n[1] 9.339096\n\n\n\nHere \\(t\\) is well over 3, so we don’t really need to compute the p-value 1-pnorm(t_stat) as we know it will be very small."
+    "text": "Comparing group means\n\nThis implies that we can easily compute the probability of observing a value as large as the one we obtained:\n\n\nstats &lt;- mice_weights |&gt;  \n  group_by(diet) |&gt;  \n  summarize(xbar = mean(body_weight), s = sd(body_weight), n = n())  \nt_stat &lt;- with(stats, (xbar[2] - xbar[1])/sqrt(s[2]^2/n[2] + s[1]^2/n[1])) \nt_stat \n\n[1] 9.339\n\n\n\nHere \\(t\\) is well over 3, so we don’t really need to compute the p-value 1-pnorm(t_stat) as we know it will be very small."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#comparing-group-means-5",
@@ -4986,7 +4986,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-5",
     "title": "Treatment Effect Models",
     "section": "One factor design",
-    "text": "One factor design\n\nBecause diet is a factor with two entries, the lm function knows to fit the linear model above with a \\(x_i\\) a indicator variable.\nThe summary function shows us the resulting estimate, standard error, and p-value:\n\n\ncoefficients(summary(fit)) \n\n             Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 31.537005  0.3858192 81.740369 0.000000e+00\ndiethf       5.136078  0.5484506  9.364705 8.021959e-20"
+    "text": "One factor design\n\nBecause diet is a factor with two entries, the lm function knows to fit the linear model above with a \\(x_i\\) a indicator variable.\nThe summary function shows us the resulting estimate, standard error, and p-value:\n\n\ncoefficients(summary(fit)) \n\n            Estimate Std. Error t value  Pr(&gt;|t|)\n(Intercept)   31.537     0.3858  81.740 0.000e+00\ndiethf         5.136     0.5485   9.365 8.022e-20"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-6",
@@ -5000,7 +5000,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#one-factor-design-7",
     "title": "Treatment Effect Models",
     "section": "One factor design",
-    "text": "One factor design\n\nThe statistic computed here is the estimate divided by its standard error:\n\n\\[\\hat{\\beta}_1 / \\hat{\\mbox{SE}}(\\hat{\\beta}_1)\\]\n\nIn the case of the simple one-factor model, we can show that this statistic is almost equivalent to the t-statistics computed in the previous section:\n\n\nc(coefficients(summary(fit))[2,3], t_stat) \n\n[1] 9.364705 9.339096"
+    "text": "One factor design\n\nThe statistic computed here is the estimate divided by its standard error:\n\n\\[\\hat{\\beta}_1 / \\hat{\\mbox{SE}}(\\hat{\\beta}_1)\\]\n\nIn the case of the simple one-factor model, we can show that this statistic is almost equivalent to the t-statistics computed in the previous section:\n\n\nc(coefficients(summary(fit))[2,3], t_stat) \n\n[1] 9.365 9.339"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#two-factor-designs",
@@ -5133,14 +5133,14 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-1",
     "title": "Treatment Effect Models",
     "section": "Contrasts",
-    "text": "Contrasts\n\nWhen a factor is included in the formula, the default behavior for lm is to define the intercept term as the expected value for the first level, and the other coefficient are to represent the difference, or contrast, between the other levels and first.\nWe can see when we estimate the sex effect with lm like this:\n\n\nfit &lt;- lm(body_weight ~ sex, data = mice_weights) \ncoefficients(fit) \n\n(Intercept)        sexM \n  29.758844    8.820658"
+    "text": "Contrasts\n\nWhen a factor is included in the formula, the default behavior for lm is to define the intercept term as the expected value for the first level, and the other coefficient are to represent the difference, or contrast, between the other levels and first.\nWe can see when we estimate the sex effect with lm like this:\n\n\nfit &lt;- lm(body_weight ~ sex, data = mice_weights) \ncoefficients(fit) \n\n(Intercept)        sexM \n     29.759       8.821"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-2",
     "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-2",
     "title": "Treatment Effect Models",
     "section": "Contrasts",
-    "text": "Contrasts\n\nTo recover the expected mean for males, we can simply add the two coefficients:\n\n\nsum(fit$coefficients[1:2]) \n\n[1] 38.5795\n\n\n\nThe package emmeans simplifies the calculation and also calculates standard errors:\n\n\nlibrary(emmeans) \nemmeans(fit, ~sex) \n\n sex emmean    SE  df lower.CL upper.CL\n F     29.8 0.339 778     29.1     30.4\n M     38.6 0.346 778     37.9     39.3\n\nConfidence level used: 0.95"
+    "text": "Contrasts\n\nTo recover the expected mean for males, we can simply add the two coefficients:\n\n\nsum(fit$coefficients[1:2]) \n\n[1] 38.58\n\n\n\nThe package emmeans simplifies the calculation and also calculates standard errors:\n\n\nlibrary(emmeans) \nemmeans(fit, ~sex) \n\n sex emmean    SE  df lower.CL upper.CL\n F     29.8 0.339 778     29.1     30.4\n M     38.6 0.346 778     37.9     39.3\n\nConfidence level used: 0.95"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-3",
@@ -5168,7 +5168,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#contrasts-6",
     "title": "Treatment Effect Models",
     "section": "Contrasts",
-    "text": "Contrasts\n\nAny linear constraint will do as it adds a third equation to our system.\nA widely used constraint is to require \\(\\beta_1 + \\beta_2 = 0\\).\nTo achieve this in R, we can use the argument contrast in the following way:\n\n\nfit &lt;- lm(body_weight ~ sex, data = mice_weights,  \n          contrasts = list(sex = contr.sum)) \ncoefficients(fit) \n\n(Intercept)        sex1 \n  34.169173   -4.410329"
+    "text": "Contrasts\n\nAny linear constraint will do as it adds a third equation to our system.\nA widely used constraint is to require \\(\\beta_1 + \\beta_2 = 0\\).\nTo achieve this in R, we can use the argument contrast in the following way:\n\n\nfit &lt;- lm(body_weight ~ sex, data = mice_weights,  \n          contrasts = list(sex = contr.sum)) \ncoefficients(fit) \n\n(Intercept)        sex1 \n      34.17       -4.41"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#contrasts-7",
@@ -5231,7 +5231,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-1",
     "title": "Treatment Effect Models",
     "section": "Analysis of variance (ANOVA)",
-    "text": "Analysis of variance (ANOVA)\n\nSpecifically, the estimate of the factor variability is computed along with a statistic that can be used for hypothesis testing:\n\n\nsummary(aov(fit)) \n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)\ngen           4    294   73.50   1.128  0.342\nResiduals   775  50479   65.13"
+    "text": "Analysis of variance (ANOVA)\n\nSpecifically, the estimate of the factor variability is computed along with a statistic that can be used for hypothesis testing:\n\n\nsummary(aov(fit)) \n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)\ngen           4    294    73.5    1.13   0.34\nResiduals   775  50479    65.1"
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#analysis-of-variance-anova-2",
@@ -5245,7 +5245,7 @@
     "href": "slides/linear-models/31-treatment-effect-models.html#multiple-factors",
     "title": "Treatment Effect Models",
     "section": "Multiple factors",
-    "text": "Multiple factors\n\nANOVA was developed to analyze agricultural data, which included several factors.\nWe can perform ANOVA with multiple factors:\n\n\nsummary(aov(body_weight ~ sex + diet + gen,  data = mice_weights)) \n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \nsex           1  15165   15165 389.799 &lt;2e-16 ***\ndiet          1   5238    5238 134.642 &lt;2e-16 ***\ngen           4    295      74   1.895  0.109    \nResiduals   773  30074      39                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nThis analysis suggests that sex is the biggest source of variability, which is consistent with previously made exploratory plots."
+    "text": "Multiple factors\n\nANOVA was developed to analyze agricultural data, which included several factors.\nWe can perform ANOVA with multiple factors:\n\n\nsummary(aov(body_weight ~ sex + diet + gen,  data = mice_weights)) \n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \nsex           1  15165   15165  389.80 &lt;2e-16 ***\ndiet          1   5238    5238  134.64 &lt;2e-16 ***\ngen           4    295      74    1.89   0.11    \nResiduals   773  30074      39                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nThis analysis suggests that sex is the biggest source of variability, which is consistent with previously made exploratory plots."
   },
   {
     "objectID": "slides/linear-models/31-treatment-effect-models.html#array-representation",
@@ -5350,7 +5350,7 @@
     "href": "slides/00-intro.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 3226fe2."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit cd0ed7f."
   },
   {
     "objectID": "slides/prob/20b-chisq-cards.html",
@@ -5371,7 +5371,7 @@
     "href": "slides/prob/20b-chisq-cards.html#draws-as-samples",
     "title": "Chi-squared tests for unfair decks",
     "section": "Draws as samples",
-    "text": "Draws as samples\nWith R’s sample function, we can model shuffling. We use set.seed to obtain a reproducible random number generation state.\n\ntop_card = function(x) { \n   stopifnot(length(x)==52, is.atomic(x))\n   sample(x, size=1)\n}\nset.seed(1234)\ndrs = replicate(2000, top_card(deck))\nhead(table(drs))\n\ndrs\n   10 Clubs 10 Diamonds   10 Hearts   10 Spades     2 Clubs  2 Diamonds \n         39          36          44          30          43          45 \n\nmean(table(drs))\n\n[1] 38.46154\n\n2000/52\n\n[1] 38.46154"
+    "text": "Draws as samples\nWith R’s sample function, we can model shuffling. We use set.seed to obtain a reproducible random number generation state.\n\ntop_card = function(x) { \n   stopifnot(length(x)==52, is.atomic(x))\n   sample(x, size=1)\n}\nset.seed(1234)\ndrs = replicate(2000, top_card(deck))\nhead(table(drs))\n\ndrs\n   10 Clubs 10 Diamonds   10 Hearts   10 Spades     2 Clubs  2 Diamonds \n         39          36          44          30          43          45 \n\nmean(table(drs))\n\n[1] 38.46\n\n2000/52\n\n[1] 38.46"
   },
   {
     "objectID": "slides/prob/20b-chisq-cards.html#a-model-for-fairness",
@@ -5385,21 +5385,21 @@
     "href": "slides/prob/20b-chisq-cards.html#measuring-departure-from-fairness",
     "title": "Chi-squared tests for unfair decks",
     "section": "Measuring departure from fairness",
-    "text": "Measuring departure from fairness\nA well-established metric for assessing departure from fairness is called “chi-squared”. We will use the symbol \\(D\\) to represent this measure. Large values of \\(D\\) can be indicative of departure of the observed frequencies from the expected values.\n\\[\nD = \\sum_{i=1}^{52} \\frac{(X_i - EX_i)^2}{EX_i}\n\\]\nWe’ll implement \\(D\\) as mystat and show that it is equivalent to a quantity computed in R with chisq.test.\n\nmystat = function(dat, expected) sum((table(dat)-expected)^2/expected)\nExpectedCount = 2000/52\nsum((table(drs)-ExpectedCount)^2/ExpectedCount)\n\n[1] 60.188\n\nchisq.test(table(drs))\n\n\n    Chi-squared test for given probabilities\n\ndata:  table(drs)\nX-squared = 60.188, df = 51, p-value = 0.1774\n\nmystat(drs, ExpectedCount)\n\n[1] 60.188\n\n\nNote that chisq.test reports the same statistic as mystat, but includes values for df (degrees of freedom) and p-value. “Degrees of freedom” refers here to the fact that we have a fixed number of count categories (52 card types), and if 51 are known, the value for the 52nd can be deduced – it is “unfree”.\nThe p-value is a quantity that, when small, can be indicative of a departure from the expected outcome of an experiment. We will return to that concept at a later date."
+    "text": "Measuring departure from fairness\nA well-established metric for assessing departure from fairness is called “chi-squared”. We will use the symbol \\(D\\) to represent this measure. Large values of \\(D\\) can be indicative of departure of the observed frequencies from the expected values.\n\\[\nD = \\sum_{i=1}^{52} \\frac{(X_i - EX_i)^2}{EX_i}\n\\]\nWe’ll implement \\(D\\) as mystat and show that it is equivalent to a quantity computed in R with chisq.test.\n\nmystat = function(dat, expected) sum((table(dat)-expected)^2/expected)\nExpectedCount = 2000/52\nsum((table(drs)-ExpectedCount)^2/ExpectedCount)\n\n[1] 60.19\n\nchisq.test(table(drs))\n\n\n    Chi-squared test for given probabilities\n\ndata:  table(drs)\nX-squared = 60, df = 51, p-value = 0.2\n\nmystat(drs, ExpectedCount)\n\n[1] 60.19\n\n\nNote that chisq.test reports the same statistic as mystat, but includes values for df (degrees of freedom) and p-value. “Degrees of freedom” refers here to the fact that we have a fixed number of count categories (52 card types), and if 51 are known, the value for the 52nd can be deduced – it is “unfree”.\nThe p-value is a quantity that, when small, can be indicative of a departure from the expected outcome of an experiment. We will return to that concept at a later date."
   },
   {
     "objectID": "slides/prob/20b-chisq-cards.html#replicating-our-test-of-fairness-many-times",
     "href": "slides/prob/20b-chisq-cards.html#replicating-our-test-of-fairness-many-times",
     "title": "Chi-squared tests for unfair decks",
     "section": "Replicating our test of fairness many times",
-    "text": "Replicating our test of fairness many times\nAny given collection of shuffle/draw events will yield a value of \\(D\\). Different series will yield different values of \\(D\\), but when the deck is fair, the variation in \\(D\\) is prescribed by the mathematics of probability.\nWe will make a histogram of 100 replicates of 2000 draws to exhibit variation in \\(D\\).\n\nset.seed(1234)\npredist = lapply(1:100, function(x) replicate(2000, top_card(deck)))\ndist = sapply(predist, function(x)mystat(x, expected=2000/52))\nhist(dist, prob=TRUE)\n\n\n\n\n\n\n\n\nWith 1000 replicates, we get a more pleasing display.\n\nset.seed(1234)\npredist = lapply(1:1000, function(x) replicate(2000, top_card(deck)))\ndist = sapply(predist, function(x)mystat(x, expected=2000/52))\nhist(dist, probability=TRUE)\n\n\n\n\n\n\n\n\nThe form of this histogram (drawn in R with the probability argument set to TRUE) can be approximated by the density of the chi-squared distribution with 51 degrees of freedom.\n\nhist(dist, probability=TRUE)\nlines(1:100, dchisq(1:100, 51))\n\n\n\n\n\n\n\n\nThe “51” fixes the degrees of freedom of the model for which the density will be drawn.\nNota bene. The fact that we can approximate the shape of the histogram for this fairly complicated data generation process, using the ‘density function’ for the chi-squared probability model with specified degrees of freedom, is a minor miracle building on almost two centuries of mathematical, statistical, and computational research and development.\nWe might as well have a look at the density function for the chi-squared distribution with \\(k\\) degrees of freedom:\n\\[\nf(x; k) =\n\\begin{cases}\n  \\dfrac{1}{2^{k/2}\\,\\Gamma(k/2)}\\, x^{k/2 - 1} e^{-x/2}, & x &gt; 0, \\\\[1ex]\n  0, & \\text{otherwise},\n\\end{cases}\n\\qquad k = 1, 2, \\ldots\n\\]\nIn our call to dchisq we evaluated this function at points \\(x = 1, 2, ..., 100\\) with \\(k = 51\\). \\(e\\) is Euler’s constant 2.71828… \\(= \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^{n}\\) , and \\(\\Gamma\\) denotes the “Gamma function” defined as \\(\\Gamma(x) = \\int\\limits_{0}^{\\infty} e^{-t}t^{x-1}dt\\) which satisfies \\(\\Gamma(x+1) = x\\Gamma(x)\\)."
+    "text": "Replicating our test of fairness many times\nAny given collection of shuffle/draw events will yield a value of \\(D\\). Different series will yield different values of \\(D\\), but when the deck is fair, the variation in \\(D\\) is prescribed by the mathematics of probability.\nWe will make a histogram of 100 replicates of 2000 draws to exhibit variation in \\(D\\).\n\nset.seed(1234)\npredist = lapply(1:100, function(x) replicate(2000, top_card(deck)))\ndist = sapply(predist, function(x)mystat(x, expected=2000/52))\nhist(dist, prob=TRUE)\n\n\n\n\n\n\n\n\nWith 1000 replicates, we get a more pleasing display.\n\nset.seed(1234)\npredist = lapply(1:1000, function(x) replicate(2000, top_card(deck)))\ndist = sapply(predist, function(x)mystat(x, expected=2000/52))\nhist(dist, probability=TRUE)\n\n\n\n\n\n\n\n\nThe form of this histogram (drawn in R with the probability argument set to TRUE) can be approximated by the density of the chi-squared distribution with 51 degrees of freedom.\n\nhist(dist, probability=TRUE)\nlines(1:100, dchisq(1:100, 51))\n\n\n\n\n\n\n\n\nThe “51” fixes the degrees of freedom of the model for which the density will be drawn.\nNota bene. The fact that we can approximate the shape of the histogram for this fairly complicated data generation process, using the ‘density function’ for the chi-squared probability model with specified degrees of freedom, is a minor miracle building on almost two centuries of mathematical, statistical, and computational research and development.\nWe might as well have a look at the density function for the chi-squared distribution with \\(k\\) degrees of freedom:\n\\[\nf(x; k) =\n\\begin{cases}\n  \\dfrac{1}{2^{k/2}\\,\\Gamma(k/2)}\\, x^{k/2 - 1} e^{-x/2}, & x &gt; 0, \\\\[1ex]\n  0, & \\text{otherwise},\n\\end{cases}\n\\qquad k = 1, 2, \\ldots\n\\]\nIn our call to dchisq we evaluated this function at points \\(x = 1, 2, ..., 100\\) with \\(k = 51\\). \\(e\\) is Euler’s constant 2.7183… \\(= \\lim_{n \\to \\infty} \\left(1 + \\frac{1}{n}\\right)^{n}\\) , and \\(\\Gamma\\) denotes the “Gamma function” defined as \\(\\Gamma(x) = \\int\\limits_{0}^{\\infty} e^{-t}t^{x-1}dt\\) which satisfies \\(\\Gamma(x+1) = x\\Gamma(x)\\)."
   },
   {
     "objectID": "slides/prob/20b-chisq-cards.html#interpret",
     "href": "slides/prob/20b-chisq-cards.html#interpret",
     "title": "Chi-squared tests for unfair decks",
     "section": "Interpret",
-    "text": "Interpret\nWhat’s the difference between these two runs?\n\nset.seed(1234)\nbaddeck = deck\nbaddeck[1] = baddeck[52]\nnewdrs = replicate(2000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 92.08246\n\n\n\nset.seed(1234)\nbaddeck[2] = baddeck[51]\nnewdrs = replicate(2000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 146.4929\n\n\nHow is this different?\n\nset.seed(1234)\nbaddeck[2] = baddeck[52]\nnewdrs = replicate(2000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 199.8449\n\n\nWhat’s wrong here?\n\nset.seed(1234)\nbaddeck[2] = baddeck[52]\nnewdrs = replicate(1000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 496.3249"
+    "text": "Interpret\nWhat’s the difference between these two runs?\n\nset.seed(1234)\nbaddeck = deck\nbaddeck[1] = baddeck[52]\nnewdrs = replicate(2000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 92.08\n\n\n\nset.seed(1234)\nbaddeck[2] = baddeck[51]\nnewdrs = replicate(2000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 146.5\n\n\nHow is this different?\n\nset.seed(1234)\nbaddeck[2] = baddeck[52]\nnewdrs = replicate(2000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 199.8\n\n\nWhat’s wrong here?\n\nset.seed(1234)\nbaddeck[2] = baddeck[52]\nnewdrs = replicate(1000, top_card(baddeck))\nmystat(newdrs, ExpectedCount)\n\n[1] 496.3"
   },
   {
     "objectID": "slides/prob/20b-chisq-cards.html#caveat",
@@ -5616,7 +5616,7 @@
     "href": "slides/prob/20c-intro-to-prob.html#monte-carlo-1",
     "title": "Introduction to Probability",
     "section": "Monte Carlo",
-    "text": "Monte Carlo\n\nIf we repeat the experiment over and over, we can define the probability using the frequentists definition\n\n\nn &lt;- 10^7\nx &lt;- sample(beads, n, replace = TRUE)\ntable(x)/n\n\nx\n     blue       red \n0.6002232 0.3997768 \n\n\n\nNote the definition is for \\(n=\\infty\\). In practice we use very large numbers tp get very close."
+    "text": "Monte Carlo\n\nIf we repeat the experiment over and over, we can define the probability using the frequentists definition\n\n\nn &lt;- 10^7\nx &lt;- sample(beads, n, replace = TRUE)\ntable(x)/n\n\nx\n  blue    red \n0.6002 0.3998 \n\n\n\nNote the definition is for \\(n=\\infty\\). In practice we use very large numbers tp get very close."
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#probability-distributions",
@@ -5700,7 +5700,7 @@
     "href": "slides/prob/20c-intro-to-prob.html#cdf-2",
     "title": "Introduction to Probability",
     "section": "CDF",
-    "text": "CDF\n\nUsing the eCDF we obtain an answer by typing:\n\n\n1 - F(70) \n\n[1] 0.3768473\n\n\n\nThe CDF is a version of the eCDF that assigns theoretical probabilities for each \\(a\\) rather than proportions computed from data."
+    "text": "CDF\n\nUsing the eCDF we obtain an answer by typing:\n\n\n1 - F(70) \n\n[1] 0.3768\n\n\n\nThe CDF is a version of the eCDF that assigns theoretical probabilities for each \\(a\\) rather than proportions computed from data."
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#cdf-3",
@@ -5742,7 +5742,7 @@
     "href": "slides/prob/20c-intro-to-prob.html#probability-density-function-3",
     "title": "Introduction to Probability",
     "section": "Probability density function",
-    "text": "Probability density function\n\nAn example of such a continuous distribution is the normal distribution.\nThe probability density function is given by:\n\n\\[f(x) = e^{-\\frac{1}{2}\\left( \\frac{x-m}{s} \\right)^2} \\]\n\nThe cumulative distribution for the normal distribution is defined by a mathematical formula which in R can be obtained with the function pnorm."
+    "text": "Probability density function\n\nAn example of such a continuous distribution is the normal distribution.\nThe probability density function is given by:\n\n\\[f(x) = \\frac{1}{\\sqrt{2 \\pi s^2}} e^{-\\frac{1}{2}\\left( \\frac{x-m}{s} \\right)^2} \\]\n\nThe cumulative distribution for the normal distribution is defined by a mathematical formula which in R can be obtained with the function pnorm."
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#probability-density-function-4",
@@ -5756,7 +5756,7 @@
     "href": "slides/prob/20c-intro-to-prob.html#probability-density-function-5",
     "title": "Introduction to Probability",
     "section": "Probability density function",
-    "text": "Probability density function\n\nThis is useful because, if we are willing to use the normal approximation we don’t need the entire dataset to answer questions such as: What is the probability that a randomly selected student is taller then 70 inches?\nWe just need the average height and standard deviation:\n\n\nm &lt;- mean(x) \ns &lt;- sd(x) \n1 - pnorm(70.5, m, s) \n\n[1] 0.371369"
+    "text": "Probability density function\n\nThis is useful because, if we are willing to use the normal approximation we don’t need the entire dataset to answer questions such as: What is the probability that a randomly selected student is taller then 70 inches?\nWe just need the average height and standard deviation:\n\n\nm &lt;- mean(x) \ns &lt;- sd(x) \n1 - pnorm(70.5, m, s) \n\n[1] 0.3714"
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations",
@@ -5777,14 +5777,14 @@
     "href": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-2",
     "title": "Introduction to Probability",
     "section": "Distributions as approximations",
-    "text": "Distributions as approximations\n\nWhile most students rounded up their heights to the nearest inch, others reported values with more precision.\nOne student reported his height to be 69.6850393700787, which is 177 centimeters.\nThe probability assigned to this height is 0.0012315 or 1 in 812."
+    "text": "Distributions as approximations\n\nWhile most students rounded up their heights to the nearest inch, others reported values with more precision.\nOne student reported his height to be 69.6850393700787, which is 177 centimeters.\nThe probability assigned to this height is 0.0012 or 1 in 812."
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-3",
     "href": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-3",
     "title": "Introduction to Probability",
     "section": "Distributions as approximations",
-    "text": "Distributions as approximations\n\nThe probability for 70 inches is much higher at 0.1059113,\nDoes it really make sense to think of the probability of being exactly 70 inches as being different than 69.6850393700787?"
+    "text": "Distributions as approximations\n\nThe probability for 70 inches is much higher at 0.1059,\nDoes it really make sense to think of the probability of being exactly 70 inches as being different than 69.6850393700787?"
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-4",
@@ -5812,21 +5812,21 @@
     "href": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-7",
     "title": "Introduction to Probability",
     "section": "Distributions as approximations",
-    "text": "Distributions as approximations\n\nFor example, the normal distribution is useful for approximating the proportion of students reporting values in intervals like the following three:\n\n\nmean(x &lt;= 68.5) - mean(x &lt;= 67.5) \n\n[1] 0.114532\n\nmean(x &lt;= 69.5) - mean(x &lt;= 68.5) \n\n[1] 0.1194581\n\nmean(x &lt;= 70.5) - mean(x &lt;= 69.5) \n\n[1] 0.1219212"
+    "text": "Distributions as approximations\n\nFor example, the normal distribution is useful for approximating the proportion of students reporting values in intervals like the following three:\n\n\nmean(x &lt;= 68.5) - mean(x &lt;= 67.5) \n\n[1] 0.1145\n\nmean(x &lt;= 69.5) - mean(x &lt;= 68.5) \n\n[1] 0.1195\n\nmean(x &lt;= 70.5) - mean(x &lt;= 69.5) \n\n[1] 0.1219"
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-8",
     "href": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-8",
     "title": "Introduction to Probability",
     "section": "Distributions as approximations",
-    "text": "Distributions as approximations\n\nNote how close we get with the normal approximation:\n\n\npnorm(68.5, m, s) - pnorm(67.5, m, s)  \n\n[1] 0.1031077\n\npnorm(69.5, m, s) - pnorm(68.5, m, s)  \n\n[1] 0.1097121\n\npnorm(70.5, m, s) - pnorm(69.5, m, s)  \n\n[1] 0.1081743\n\n\n\nHowever, the approximation is not as useful for other intervals."
+    "text": "Distributions as approximations\n\nNote how close we get with the normal approximation:\n\n\npnorm(68.5, m, s) - pnorm(67.5, m, s)  \n\n[1] 0.1031\n\npnorm(69.5, m, s) - pnorm(68.5, m, s)  \n\n[1] 0.1097\n\npnorm(70.5, m, s) - pnorm(69.5, m, s)  \n\n[1] 0.1082\n\n\n\nHowever, the approximation is not as useful for other intervals."
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-9",
     "href": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-9",
     "title": "Introduction to Probability",
     "section": "Distributions as approximations",
-    "text": "Distributions as approximations\n\nFor instance, notice how the approximation breaks down when we try to estimate:\n\n\nmean(x &lt;= 70.9) - mean(x &lt;= 70.1) \n\n[1] 0.02216749\n\n\n\nwith:\n\n\npnorm(70.9, m, s) - pnorm(70.1, m, s) \n\n[1] 0.08359562"
+    "text": "Distributions as approximations\n\nFor instance, notice how the approximation breaks down when we try to estimate:\n\n\nmean(x &lt;= 70.9) - mean(x &lt;= 70.1) \n\n[1] 0.02217\n\n\n\nwith:\n\n\npnorm(70.9, m, s) - pnorm(70.1, m, s) \n\n[1] 0.0836"
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#distributions-as-approximations-10",
@@ -5868,7 +5868,7 @@
     "href": "slides/prob/20c-intro-to-prob.html#the-probability-density-4",
     "title": "Introduction to Probability",
     "section": "The probability density",
-    "text": "The probability density\n\nFor example, to use the normal approximation to estimate the probability of someone being taller than 76 inches, we use:\n\n\n1 - pnorm(76, m, s) \n\n[1] 0.03206008"
+    "text": "The probability density\n\nFor example, to use the normal approximation to estimate the probability of someone being taller than 76 inches, we use:\n\n\n1 - pnorm(76, m, s) \n\n[1] 0.03206"
   },
   {
     "objectID": "slides/prob/20c-intro-to-prob.html#the-probability-density-5",
@@ -6336,7 +6336,7 @@
     "href": "overview.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 3226fe2."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit cd0ed7f."
   },
   {
     "objectID": "init-repos.html",
@@ -6416,7 +6416,7 @@
     "href": "index.html",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 3226fe2.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit cd0ed7f.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -6426,7 +6426,7 @@
     "href": "index.html#course-information",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit 3226fe2.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit cd0ed7f.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -6436,7 +6436,7 @@
     "href": "index.html#lectures",
     "title": "BST 260 Introduction to Data Science",
     "section": "Lectures",
-    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below.\nNOTE FOR FALL 2026: Much of the content provided below is from the 2025 edition of the course, and will change.\n\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nAug 31\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 02, Sep 09\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git and GitHub Tutorial, Git and GitHub Book Reading\n\n\nSep 14, Sep 16\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 21, Sep 23\nR\nTidyverse, ggplot2, Tyding Data\ndplyr, ggplot2, Reshaping Data\n\n\nSep 28, Sep 30\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web Scraping, Joining tables\nImporting Data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 05, Oct 07\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 14\nMidterm 1\n\nCovers material from Aug 31-Oct 07\n\n\nOct 19\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables, Central Limit Theorem\n\n\nOct 21\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 26, Oct 28\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 02, Nov 04\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 09, Nov 11\nLinear models\nMultivariate Regression, Treatment Effect Models, Association is Not Causation\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association is Not Causation\n\n\nNov 16, Nov 18\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R, Distance, Dimension Reduction\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 23\nMidterm 2\n\nCovers material from Aug 31-Nov 11\n\n\nNov 30, Dec 02\nMachine Learning\nIntro, Metrics, Conditionals, Smoothing\nNotation and Terminology, Evaluation Metrics, Conditional Probabilities, Smoothing\n\n\nDec 07, Dec 09\nMachine Learning\nkNN, Resampling Methods, caret Package, Algorithms\nResampling Methods, ML Algorithms\n\n\nDec 14\nMachine Learning\nML in Practice\nML in Practice\n\n\nDec 16\nOther topics\nShiny Example Code\nShiny Basics",
+    "text": "Lectures\nLecture slides, class notes, and problem sets are linked below.\nNOTE FOR FALL 2026: Much of the content provided below is from the 2025 edition of the course, and will change.\n\n\n\n\nDates\nTopic\nSlides\nReading\n\n\n\n\nAug 31\nProductivity Tools\nIntro, Unix\nInstalling R and RStudio on Windows or Mac, Getting Started, Unix\n\n\nSep 02, Sep 09\nProductivity Tools\nRStudio, Quarto, Git and GitHub\nRStudio Projects, Quarto, Git and GitHub Tutorial, Git and GitHub Book Reading\n\n\nSep 14, Sep 16\nR\nR basics, Vectorization\nR Basics, Vectorization\n\n\nSep 21, Sep 23\nR\nTidyverse, ggplot2, Tyding Data\ndplyr, ggplot2, Reshaping Data\n\n\nSep 28, Sep 30\nWrangling\nIntro, Data Importing, Dates and Times, Locales, Data APIs, Web Scraping, Joining tables\nImporting Data, dates and times, Locales, Joining Tables, Extracting data from the web\n\n\nOct 05, Oct 07\nData visualization\nData Viz Principles, Distributions, Dataviz in practice\nDistributions, Dataviz Principles\n\n\nOct 14\nMidterm 1\n\nCovers material from Aug 31-Oct 07\n\n\nOct 19\nProbability\nIntro, Foundations for Inference\nMonte Carlo, Random Variables, Central Limit Theorem\n\n\nOct 21\nInference\nIntro, Parameter and estimates, Confidence Intervals\nParameters & Estimates, Confidence Intervals\n\n\nOct 26, Oct 28\nStatistical Models\nModels, Bayes, Hierarchical Models\nData-driven Models, Bayesian Statistics, Hierarchical Models\n\n\nNov 02, Nov 04\nLinear models\nIntro, Regression\nRegression, Multivariate Regression\n\n\nNov 09, Nov 11\nLinear models\nMultivariate Regression, Treatment Effect Models, Association is Not Causation\nMeasurement Error Models, Treatment Effect Models, Association Tests, Association is Not Causation\n\n\nNov 16, Nov 18\nHigh dimensional data\nIntro to Linear Algebra, Matrices in R, Distance, Dimension Reduction\nMatrices in R, Applied Linear Algebra, Dimension Reduction\n\n\nNov 23\nMidterm 2\n\nCovers material from Aug 31-Nov 18\n\n\nNov 30, Dec 02\nMachine Learning\nIntro, Metrics, Conditionals, Smoothing\nNotation and Terminology, Evaluation Metrics, Conditional Probabilities, Smoothing\n\n\nDec 07, Dec 09\nMachine Learning\nkNN, Resampling Methods, caret Package, Algorithms\nResampling Methods, ML Algorithms\n\n\nDec 14\nMachine Learning\nML in Practice\nML in Practice\n\n\nDec 16\nOther topics\nShiny Example Code\nShiny Basics",
     "crumbs": [
       "Home"
     ]
@@ -8295,7 +8295,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-2",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 971664 0.816\n 2 603596 0.802\n 3 846086 0.786\n 4 284324 0.777\n 5  55778 0.775\n 6 174158 0.764\n 7 722854 0.758\n 8 153241 0.750\n 9 879523 0.745\n10 641118 0.742\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.816."
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 996433 0.772\n 2 347103 0.772\n 3 960823 0.766\n 4 936510 0.766\n 5 497075 0.761\n 6 588044 0.754\n 7 580548 0.745\n 8 910475 0.741\n 9 507347 0.740\n10  41022 0.740\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.772."
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-3",
@@ -8330,7 +8330,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-7",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic     p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 x        0.768     0.113      6.77 0.000000663"
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x         1.02     0.175      5.83 0.00000617"
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-8",
@@ -8652,7 +8652,7 @@
     "href": "slides/linear-models/29-regression.html#the-correlation-coefficient-5",
     "title": "Regression",
     "section": "The correlation coefficient",
-    "text": "The correlation coefficient\n\nThe correlation, computed with the function cor, between father and son’s heights is about 0.5:\n\n\ngalton_heights |&gt; summarize(r = cor(father, son)) |&gt; pull(r) \n\n[1] 0.4334102"
+    "text": "The correlation coefficient\n\nThe correlation, computed with the function cor, between father and son’s heights is about 0.5:\n\n\ngalton_heights |&gt; summarize(r = cor(father, son)) |&gt; pull(r) \n\n[1] 0.4334"
   },
   {
     "objectID": "slides/linear-models/29-regression.html#the-correlation-coefficient-6",
@@ -8701,7 +8701,7 @@
     "href": "slides/linear-models/29-regression.html#sample-correlation-is-random-4",
     "title": "Regression",
     "section": "Sample correlation is random",
-    "text": "Sample correlation is random\n\nWe see that the expected value of r is the population correlation:\n\n\nmean(r) \n\n[1] 0.4307393\n\n\n\nand that it has a relatively high standard error relative to the range of values r can take:\n\n\nsd(r) \n\n[1] 0.1609393"
+    "text": "Sample correlation is random\n\nWe see that the expected value of r is the population correlation:\n\n\nmean(r) \n\n[1] 0.4307\n\n\n\nand that it has a relatively high standard error relative to the range of values r can take:\n\n\nsd(r) \n\n[1] 0.1609"
   },
   {
     "objectID": "slides/linear-models/29-regression.html#sample-correlation-is-random-5",
@@ -8946,7 +8946,7 @@
     "href": "slides/linear-models/29-regression.html#regression-improves-precision-2",
     "title": "Regression",
     "section": "Regression improves precision",
-    "text": "Regression improves precision\n\nAlthough the expected value of these two random variables is about the same:\n\n\nmean(conditional_avg, na.rm = TRUE) \n\n[1] 70.49368\n\nmean(regression_prediction) \n\n[1] 70.50941\n\n\n\nThe standard error for the regression prediction is substantially smaller:\n\n\nsd(conditional_avg, na.rm = TRUE) \n\n[1] 0.9635814\n\nsd(regression_prediction) \n\n[1] 0.4520833"
+    "text": "Regression improves precision\n\nAlthough the expected value of these two random variables is about the same:\n\n\nmean(conditional_avg, na.rm = TRUE) \n\n[1] 70.49\n\nmean(regression_prediction) \n\n[1] 70.51\n\n\n\nThe standard error for the regression prediction is substantially smaller:\n\n\nsd(conditional_avg, na.rm = TRUE) \n\n[1] 0.9636\n\nsd(regression_prediction) \n\n[1] 0.4521"
   },
   {
     "objectID": "slides/linear-models/29-regression.html#regression-improves-precision-3",
@@ -9268,14 +9268,14 @@
     "href": "slides/linear-models/29-regression.html#the-lm-function-1",
     "title": "Regression",
     "section": "The lm function",
-    "text": "The lm function\n\nfit &lt;- lm(son ~ father, data = galton_heights) \nfit$coefficients \n\n(Intercept)      father \n  37.287605    0.461392 \n\n\n\nThe most common way we use lm is by using the character ~ to let lm know which is the variable we are predicting (left of ~) and which we are using to predict (right of ~).\nThe intercept is added automatically to the model that will be fit."
+    "text": "The lm function\n\nfit &lt;- lm(son ~ father, data = galton_heights) \nfit$coefficients \n\n(Intercept)      father \n    37.2876      0.4614 \n\n\n\nThe most common way we use lm is by using the character ~ to let lm know which is the variable we are predicting (left of ~) and which we are using to predict (right of ~).\nThe intercept is added automatically to the model that will be fit."
   },
   {
     "objectID": "slides/linear-models/29-regression.html#the-lm-function-2",
     "href": "slides/linear-models/29-regression.html#the-lm-function-2",
     "title": "Regression",
     "section": "The lm function",
-    "text": "The lm function\n\nThe object fit includes more information.\nWe can use the function summary to extract more of this information:\n\n\nsummary(fit) \n\n\nCall:\nlm(formula = son ~ father, data = galton_heights)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-9.3543 -1.5657 -0.0078  1.7263  9.4150 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 37.28761    4.98618   7.478 3.37e-12 ***\nfather       0.46139    0.07211   6.398 1.36e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.45 on 177 degrees of freedom\nMultiple R-squared:  0.1878,    Adjusted R-squared:  0.1833 \nF-statistic: 40.94 on 1 and 177 DF,  p-value: 1.36e-09"
+    "text": "The lm function\n\nThe object fit includes more information.\nWe can use the function summary to extract more of this information:\n\n\nsummary(fit) \n\n\nCall:\nlm(formula = son ~ father, data = galton_heights)\n\nResiduals:\n   Min     1Q Median     3Q    Max \n-9.354 -1.566 -0.008  1.726  9.415 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  37.2876     4.9862    7.48  3.4e-12 ***\nfather        0.4614     0.0721    6.40  1.4e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.45 on 177 degrees of freedom\nMultiple R-squared:  0.188, Adjusted R-squared:  0.183 \nF-statistic: 40.9 on 1 and 177 DF,  p-value: 1.36e-09"
   },
   {
     "objectID": "slides/linear-models/29-regression.html#the-lm-function-3",
@@ -9317,14 +9317,14 @@
     "href": "slides/linear-models/29-regression.html#lse-are-random-variables-4",
     "title": "Regression",
     "section": "LSE are random variables",
-    "text": "LSE are random variables\n\nThe function summary shows us the standard error estimates:\n\n\nsample_n(galton_heights, N, replace = TRUE) |&gt;  \n  lm(son ~ father, data = _) |&gt;  \n  summary() |&gt;  \n  coef() \n\n              Estimate Std. Error  t value     Pr(&gt;|t|)\n(Intercept) 24.5722201 11.0734543 2.219020 0.0312467290\nfather       0.6479396  0.1602234 4.043975 0.0001896386"
+    "text": "LSE are random variables\n\nThe function summary shows us the standard error estimates:\n\n\nsample_n(galton_heights, N, replace = TRUE) |&gt;  \n  lm(son ~ father, data = _) |&gt;  \n  summary() |&gt;  \n  coef() \n\n            Estimate Std. Error t value  Pr(&gt;|t|)\n(Intercept)  24.5722    11.0735   2.219 0.0312467\nfather        0.6479     0.1602   4.044 0.0001896"
   },
   {
     "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-5",
     "href": "slides/linear-models/29-regression.html#lse-are-random-variables-5",
     "title": "Regression",
     "section": "LSE are random variables",
-    "text": "LSE are random variables\n\nYou can see that the standard errors estimates reported above are close to the standard errors from the simulation:\n\n\nlse |&gt; summarize(se_0 = sd(beta_0), se_1 = sd(beta_1)) \n\n      se_0      se_1\n1 8.669471 0.1256726\n\n\n\nThe summary function also reports t-statistics (t value) and p-values (Pr(&gt;|t|)).\nThe t-statistic is not actually based on the central limit theorem, but rather on the assumption that the \\(\\varepsilon\\)s follow a normal distribution."
+    "text": "LSE are random variables\n\nYou can see that the standard errors estimates reported above are close to the standard errors from the simulation:\n\n\nlse |&gt; summarize(se_0 = sd(beta_0), se_1 = sd(beta_1)) \n\n   se_0   se_1\n1 8.669 0.1257\n\n\n\nThe summary function also reports t-statistics (t value) and p-values (Pr(&gt;|t|)).\nThe t-statistic is not actually based on the central limit theorem, but rather on the assumption that the \\(\\varepsilon\\)s follow a normal distribution."
   },
   {
     "objectID": "slides/linear-models/29-regression.html#lse-are-random-variables-6",
@@ -9464,7 +9464,7 @@
     "href": "slides/linear-models/29-regression.html#the-regression-fallacy-3",
     "title": "Regression",
     "section": "The regression fallacy",
-    "text": "The regression fallacy\n\nIn fact, the proportion of players that have a lower batting average during their sophomore year is 0.7053571.\nSo is it “jitters” or “jinx”? To answer this question, let’s turn our attention to all the players that played the 2013 and 2014 seasons and batted more than 130 times (minimum to win Rookie of the Year)."
+    "text": "The regression fallacy\n\nIn fact, the proportion of players that have a lower batting average during their sophomore year is 0.7054.\nSo is it “jitters” or “jinx”? To answer this question, let’s turn our attention to all the players that played the 2013 and 2014 seasons and batted more than 130 times (minimum to win Rookie of the Year)."
   },
   {
     "objectID": "slides/linear-models/29-regression.html#the-regression-fallacy-4",
@@ -9660,7 +9660,7 @@
     "href": "slides/linear-models/30-multivariate-regression.html#confounding",
     "title": "Multivariate Regression",
     "section": "Confounding",
-    "text": "Confounding\n\nPreviously, we noted a strong relationship between Runs and BB.\nIf we find the regression line for predicting runs from bases on balls, we a get slope of:\n\n\nbb_slope &lt;- lm(r ~ bb, data = dat)$coef[2] \nbb_slope  \n\n       bb \n0.7388725"
+    "text": "Confounding\n\nPreviously, we noted a strong relationship between Runs and BB.\nIf we find the regression line for predicting runs from bases on balls, we a get slope of:\n\n\nbb_slope &lt;- lm(r ~ bb, data = dat)$coef[2] \nbb_slope  \n\n    bb \n0.7389"
   },
   {
     "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-1",
@@ -9674,14 +9674,14 @@
     "href": "slides/linear-models/30-multivariate-regression.html#confounding-2",
     "title": "Multivariate Regression",
     "section": "Confounding",
-    "text": "Confounding\n\nNote that, if we compute the regression line slope for singles, we get:\n\n\nlm(r ~ singles, data = dat)$coef[2] \n\n  singles \n0.4324101"
+    "text": "Confounding\n\nNote that, if we compute the regression line slope for singles, we get:\n\n\nlm(r ~ singles, data = dat)$coef[2] \n\nsingles \n 0.4324"
   },
   {
     "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-3",
     "href": "slides/linear-models/30-multivariate-regression.html#confounding-3",
     "title": "Multivariate Regression",
     "section": "Confounding",
-    "text": "Confounding\n\nHere we show the correlation between HR, BB, and singles:\n\n\ndat |&gt; summarize(cor(bb, hr), cor(singles, hr), cor(bb, singles)) \n\n  cor(bb, hr) cor(singles, hr) cor(bb, singles)\n1   0.4064585       -0.1862848      -0.05126617"
+    "text": "Confounding\n\nHere we show the correlation between HR, BB, and singles:\n\n\ndat |&gt; summarize(cor(bb, hr), cor(singles, hr), cor(bb, singles)) \n\n  cor(bb, hr) cor(singles, hr) cor(bb, singles)\n1      0.4065          -0.1863         -0.05127"
   },
   {
     "objectID": "slides/linear-models/30-multivariate-regression.html#confounding-4",
@@ -9849,14 +9849,14 @@
     "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-13",
     "title": "Multivariate Regression",
     "section": "Building a baseball team",
-    "text": "Building a baseball team\n\nIf you are a baseball fan, you will recognize the top 10 players:\n\n\nplayers |&gt; select(nameFirst, nameLast, POS, salary, r_hat) |&gt; arrange(desc(r_hat)) |&gt; head(10)  \n\n   nameFirst nameLast POS   salary    r_hat\n1      Barry    Bonds  LF 15000000 8.052460\n2      Larry   Walker  RF 12666667 7.960583\n3       Todd   Helton  1B  5000000 7.403074\n4      Manny  Ramirez  LF 15462727 7.352475\n5      Sammy     Sosa  RF 15000000 7.201670\n6       Jeff  Bagwell  1B 11000000 7.053805\n7       Mike   Piazza   C 10571429 6.993616\n8      Jason   Giambi  1B 10428571 6.916405\n9      Edgar Martinez  DH  7086668 6.912145\n10       Jim    Thome  1B  8000000 6.885270"
+    "text": "Building a baseball team\n\nIf you are a baseball fan, you will recognize the top 10 players:\n\n\nplayers |&gt; select(nameFirst, nameLast, POS, salary, r_hat) |&gt; arrange(desc(r_hat)) |&gt; head(10)  \n\n   nameFirst nameLast POS   salary r_hat\n1      Barry    Bonds  LF 15000000 8.052\n2      Larry   Walker  RF 12666667 7.961\n3       Todd   Helton  1B  5000000 7.403\n4      Manny  Ramirez  LF 15462727 7.352\n5      Sammy     Sosa  RF 15000000 7.202\n6       Jeff  Bagwell  1B 11000000 7.054\n7       Mike   Piazza   C 10571429 6.994\n8      Jason   Giambi  1B 10428571 6.916\n9      Edgar Martinez  DH  7086668 6.912\n10       Jim    Thome  1B  8000000 6.885"
   },
   {
     "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-14",
     "href": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-14",
     "title": "Multivariate Regression",
     "section": "Building a baseball team",
-    "text": "Building a baseball team\n\n\n\n\n\nnameFirst\nnameLast\nPOS\nsalary\nr_hat\n\n\n\n\nTodd\nHelton\n1B\n5000000\n7.403073\n\n\nMike\nPiazza\nC\n10571429\n6.993616\n\n\nEdgar\nMartinez\nDH\n7086668\n6.912145\n\n\nJim\nEdmonds\nCF\n7333333\n6.231373\n\n\nJeff\nKent\n2B\n6000000\n6.079064\n\n\nPhil\nNevin\n3B\n2600000\n5.857409\n\n\nMatt\nStairs\nRF\n500000\n5.758631\n\n\nHenry\nRodriguez\nLF\n300000\n5.640563\n\n\nJohn\nValentin\nSS\n550000\n5.000417"
+    "text": "Building a baseball team\n\n\n\n\n\nnameFirst\nnameLast\nPOS\nsalary\nr_hat\n\n\n\n\nTodd\nHelton\n1B\n5000000\n7.403\n\n\nMike\nPiazza\nC\n10571429\n6.994\n\n\nEdgar\nMartinez\nDH\n7086668\n6.912\n\n\nJim\nEdmonds\nCF\n7333333\n6.231\n\n\nJeff\nKent\n2B\n6000000\n6.079\n\n\nPhil\nNevin\n3B\n2600000\n5.857\n\n\nMatt\nStairs\nRF\n500000\n5.759\n\n\nHenry\nRodriguez\nLF\n300000\n5.641\n\n\nJohn\nValentin\nSS\n550000\n5.000"
   },
   {
     "objectID": "slides/linear-models/30-multivariate-regression.html#building-a-baseball-team-15",
@@ -9933,28 +9933,28 @@
     "href": "slides/highdim/35-distance.html#distance-5",
     "title": "Distance",
     "section": "Distance",
-    "text": "Distance\n\nDefine the features and labels:\n\n\nmnist &lt;- read_mnist()\nx &lt;- mnist$train$images  \ny &lt;- mnist$train$labels \n\n\nx_1 &lt;- x[6,] \nx_2 &lt;- x[17,] \nx_3 &lt;- x[16,] \n\n\nCompute the distances:\n\n\nc(sum((x_1 - x_2)^2), sum((x_1 - x_3)^2), sum((x_2 - x_3)^2)) |&gt; sqrt() \n\n[1] 2319.867 2331.210 2518.969\n\n\n\nChecks out:\n\n\ny[c(6,17,16)]\n\n[1] 2 2 7"
+    "text": "Distance\n\nDefine the features and labels:\n\n\nmnist &lt;- read_mnist()\nx &lt;- mnist$train$images  \ny &lt;- mnist$train$labels \n\n\nx_1 &lt;- x[6,] \nx_2 &lt;- x[17,] \nx_3 &lt;- x[16,] \n\n\nCompute the distances:\n\n\nc(sum((x_1 - x_2)^2), sum((x_1 - x_3)^2), sum((x_2 - x_3)^2)) |&gt; sqrt() \n\n[1] 2320 2331 2519\n\n\n\nChecks out:\n\n\ny[c(6,17,16)]\n\n[1] 2 2 7"
   },
   {
     "objectID": "slides/highdim/35-distance.html#distance-6",
     "href": "slides/highdim/35-distance.html#distance-6",
     "title": "Distance",
     "section": "Distance",
-    "text": "Distance\n\nIn R, the function crossprod(x) is convenient for computing norms.\nIt multiplies t(x) by x:\n\n\nc(crossprod(x_1 - x_2), crossprod(x_1 - x_3), crossprod(x_2 - x_3)) |&gt; sqrt() \n\n[1] 2319.867 2331.210 2518.969"
+    "text": "Distance\n\nIn R, the function crossprod(x) is convenient for computing norms.\nIt multiplies t(x) by x:\n\n\nc(crossprod(x_1 - x_2), crossprod(x_1 - x_3), crossprod(x_2 - x_3)) |&gt; sqrt() \n\n[1] 2320 2331 2519"
   },
   {
     "objectID": "slides/highdim/35-distance.html#distance-7",
     "href": "slides/highdim/35-distance.html#distance-7",
     "title": "Distance",
     "section": "Distance",
-    "text": "Distance\n\nWe can also compute all the distances at once:\n\n\nd &lt;- dist(x[c(6,17,16),]) \nd\n\n         1        2\n2 2319.867         \n3 2331.210 2518.969\n\n\n\ndist produces an object of class dist\n\n\nclass(d) \n\n[1] \"dist\"\n\n\n\nThere are several machine learning related functions in R that take objects of class dist as input."
+    "text": "Distance\n\nWe can also compute all the distances at once:\n\n\nd &lt;- dist(x[c(6,17,16),]) \nd\n\n     1    2\n2 2320     \n3 2331 2519\n\n\n\ndist produces an object of class dist\n\n\nclass(d) \n\n[1] \"dist\"\n\n\n\nThere are several machine learning related functions in R that take objects of class dist as input."
   },
   {
     "objectID": "slides/highdim/35-distance.html#distance-8",
     "href": "slides/highdim/35-distance.html#distance-8",
     "title": "Distance",
     "section": "Distance",
-    "text": "Distance\n\ndist objects are similar but not equal to a matrices.\nTo access the entries using row and column indices, we need to coerce it into a matrix.\n\n\nas.matrix(d)[2,3]\n\n[1] 2518.969"
+    "text": "Distance\n\ndist objects are similar but not equal to a matrices.\nTo access the entries using row and column indices, we need to coerce it into a matrix.\n\n\nas.matrix(d)[2,3]\n\n[1] 2519"
   },
   {
     "objectID": "slides/highdim/35-distance.html#distance-9",
@@ -10360,14 +10360,14 @@
     "href": "slides/R/07-tidyverse.html#subsetting-with-filter",
     "title": "Tidyverse",
     "section": "Subsetting with filter",
-    "text": "Subsetting with filter\n\nfilter(murders, rate &lt;= 0.71)\n\n          state abb        region population total      rate\n1        Hawaii  HI          West    1360301     7 0.5145920\n2          Iowa  IA North Central    3046355    21 0.6893484\n3 New Hampshire  NH     Northeast    1316470     5 0.3798036\n4  North Dakota  ND North Central     672591     4 0.5947151\n5       Vermont  VT     Northeast     625741     2 0.3196211"
+    "text": "Subsetting with filter\n\nfilter(murders, rate &lt;= 0.71)\n\n          state abb        region population total   rate\n1        Hawaii  HI          West    1360301     7 0.5146\n2          Iowa  IA North Central    3046355    21 0.6893\n3 New Hampshire  NH     Northeast    1316470     5 0.3798\n4  North Dakota  ND North Central     672591     4 0.5947\n5       Vermont  VT     Northeast     625741     2 0.3196"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#selecting-columns-with-select",
     "href": "slides/R/07-tidyverse.html#selecting-columns-with-select",
     "title": "Tidyverse",
     "section": "Selecting columns with select",
-    "text": "Selecting columns with select\n\nnew_table &lt;- select(murders, state, region, rate)\nfilter(new_table, rate &lt;= 0.71)\n\n          state        region      rate\n1        Hawaii          West 0.5145920\n2          Iowa North Central 0.6893484\n3 New Hampshire     Northeast 0.3798036\n4  North Dakota North Central 0.5947151\n5       Vermont     Northeast 0.3196211"
+    "text": "Selecting columns with select\n\nnew_table &lt;- select(murders, state, region, rate)\nfilter(new_table, rate &lt;= 0.71)\n\n          state        region   rate\n1        Hawaii          West 0.5146\n2          Iowa North Central 0.6893\n3 New Hampshire     Northeast 0.3798\n4  North Dakota North Central 0.5947\n5       Vermont     Northeast 0.3196"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#transforming-variables",
@@ -10402,7 +10402,7 @@
     "href": "slides/R/07-tidyverse.html#the-pipe-1",
     "title": "Tidyverse",
     "section": "The pipe: |>",
-    "text": "The pipe: |&gt;\n\nThe code looks like this:\n\n\nmurders |&gt; select(state, region, rate) |&gt; filter(rate &lt;= 0.71)\n\n          state        region      rate\n1        Hawaii          West 0.5145920\n2          Iowa North Central 0.6893484\n3 New Hampshire     Northeast 0.3798036\n4  North Dakota North Central 0.5947151\n5       Vermont     Northeast 0.3196211\n\n\n\nThe object on the left of the pipe is used as the first argument for the function on the right.\nThe second argument becomes the first, the third the second, and so on…"
+    "text": "The pipe: |&gt;\n\nThe code looks like this:\n\n\nmurders |&gt; select(state, region, rate) |&gt; filter(rate &lt;= 0.71)\n\n          state        region   rate\n1        Hawaii          West 0.5146\n2          Iowa North Central 0.6893\n3 New Hampshire     Northeast 0.3798\n4  North Dakota North Central 0.5947\n5       Vermont     Northeast 0.3196\n\n\n\nThe object on the left of the pipe is used as the first argument for the function on the right.\nThe second argument becomes the first, the third the second, and so on…"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#the-pipe-2",
@@ -10416,14 +10416,14 @@
     "href": "slides/R/07-tidyverse.html#summarizing-data",
     "title": "Tidyverse",
     "section": "Summarizing data",
-    "text": "Summarizing data\n\nWe use the dplyr summarize function, not to be confused with summary from R base.\nHere is an example of how it works:\n\n\nmurders |&gt; summarize(avg = mean(rate))\n\n       avg\n1 2.779125\n\n\n\nLet’s compute murder rate for the US. Is the number we just computed an estimate of that rate?"
+    "text": "Summarizing data\n\nWe use the dplyr summarize function, not to be confused with summary from R base.\nHere is an example of how it works:\n\n\nmurders |&gt; summarize(avg = mean(rate))\n\n    avg\n1 2.779\n\n\n\nLet’s compute murder rate for the US. Is the number we just computed an estimate of that rate?"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#summarizing-data-1",
     "href": "slides/R/07-tidyverse.html#summarizing-data-1",
     "title": "Tidyverse",
     "section": "Summarizing data",
-    "text": "Summarizing data\n\nNo, the rate is NOT the average of rates.\nThe correct calculation is the total number of murders divided by total population:\n\n\nmurders |&gt; summarize(rate = sum(total)/sum(population)*100000)\n\n      rate\n1 3.034555"
+    "text": "Summarizing data\n\nNo, the rate is NOT the average of rates.\nThe correct calculation is the total number of murders divided by total population:\n\n\nmurders |&gt; summarize(rate = sum(total)/sum(population)*100000)\n\n   rate\n1 3.035"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#multiple-summaries",
@@ -10493,28 +10493,28 @@
     "href": "slides/R/07-tidyverse.html#pull-1",
     "title": "Tidyverse",
     "section": "pull",
-    "text": "pull\n\nTo get a numeric use pull:\n\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  pull(rate) \n\n[1] 3.034555"
+    "text": "pull\n\nTo get a numeric use pull:\n\n\nmurders |&gt; \n  summarize(rate = sum(total)/sum(population)*100000) |&gt;\n  pull(rate) \n\n[1] 3.035"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#sorting-data-frames",
     "href": "slides/R/07-tidyverse.html#sorting-data-frames",
     "title": "Tidyverse",
     "section": "Sorting data frames",
-    "text": "Sorting data frames\n\nStates order by rate\n\n\nmurders |&gt; arrange(rate) |&gt; head()\n\n          state abb        region population total      rate\n1       Vermont  VT     Northeast     625741     2 0.3196211\n2 New Hampshire  NH     Northeast    1316470     5 0.3798036\n3        Hawaii  HI          West    1360301     7 0.5145920\n4  North Dakota  ND North Central     672591     4 0.5947151\n5          Iowa  IA North Central    3046355    21 0.6893484\n6         Idaho  ID          West    1567582    12 0.7655102"
+    "text": "Sorting data frames\n\nStates order by rate\n\n\nmurders |&gt; arrange(rate) |&gt; head()\n\n          state abb        region population total   rate\n1       Vermont  VT     Northeast     625741     2 0.3196\n2 New Hampshire  NH     Northeast    1316470     5 0.3798\n3        Hawaii  HI          West    1360301     7 0.5146\n4  North Dakota  ND North Central     672591     4 0.5947\n5          Iowa  IA North Central    3046355    21 0.6893\n6         Idaho  ID          West    1567582    12 0.7655"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#sorting-data-frames-1",
     "href": "slides/R/07-tidyverse.html#sorting-data-frames-1",
     "title": "Tidyverse",
     "section": "Sorting data frames",
-    "text": "Sorting data frames\n\nIf we want decreasing we can either use the negative or, for more readability, use desc:\n\n\nmurders |&gt; arrange(desc(rate)) |&gt; head()\n\n                 state abb        region population total      rate\n1 District of Columbia  DC         South     601723    99 16.452753\n2            Louisiana  LA         South    4533372   351  7.742581\n3             Missouri  MO North Central    5988927   321  5.359892\n4             Maryland  MD         South    5773552   293  5.074866\n5       South Carolina  SC         South    4625364   207  4.475323\n6             Delaware  DE         South     897934    38  4.231937"
+    "text": "Sorting data frames\n\nIf we want decreasing we can either use the negative or, for more readability, use desc:\n\n\nmurders |&gt; arrange(desc(rate)) |&gt; head()\n\n                 state abb        region population total   rate\n1 District of Columbia  DC         South     601723    99 16.453\n2            Louisiana  LA         South    4533372   351  7.743\n3             Missouri  MO North Central    5988927   321  5.360\n4             Maryland  MD         South    5773552   293  5.075\n5       South Carolina  SC         South    4625364   207  4.475\n6             Delaware  DE         South     897934    38  4.232"
   },
   {
     "objectID": "slides/R/07-tidyverse.html#sorting-data-frames-2",
     "href": "slides/R/07-tidyverse.html#sorting-data-frames-2",
     "title": "Tidyverse",
     "section": "Sorting data frames",
-    "text": "Sorting data frames\n\nWe can use two variables as well:\n\n\nmurders |&gt; arrange(region, desc(rate)) |&gt; head(11)\n\n                  state abb    region population total       rate\n1          Pennsylvania  PA Northeast   12702379   457  3.5977513\n2            New Jersey  NJ Northeast    8791894   246  2.7980319\n3           Connecticut  CT Northeast    3574097    97  2.7139722\n4              New York  NY Northeast   19378102   517  2.6679599\n5         Massachusetts  MA Northeast    6547629   118  1.8021791\n6          Rhode Island  RI Northeast    1052567    16  1.5200933\n7                 Maine  ME Northeast    1328361    11  0.8280881\n8         New Hampshire  NH Northeast    1316470     5  0.3798036\n9               Vermont  VT Northeast     625741     2  0.3196211\n10 District of Columbia  DC     South     601723    99 16.4527532\n11            Louisiana  LA     South    4533372   351  7.7425810"
+    "text": "Sorting data frames\n\nWe can use two variables as well:\n\n\nmurders |&gt; arrange(region, desc(rate)) |&gt; head(11)\n\n                  state abb    region population total    rate\n1          Pennsylvania  PA Northeast   12702379   457  3.5978\n2            New Jersey  NJ Northeast    8791894   246  2.7980\n3           Connecticut  CT Northeast    3574097    97  2.7140\n4              New York  NY Northeast   19378102   517  2.6680\n5         Massachusetts  MA Northeast    6547629   118  1.8022\n6          Rhode Island  RI Northeast    1052567    16  1.5201\n7                 Maine  ME Northeast    1328361    11  0.8281\n8         New Hampshire  NH Northeast    1316470     5  0.3798\n9               Vermont  VT Northeast     625741     2  0.3196\n10 District of Columbia  DC     South     601723    99 16.4528\n11            Louisiana  LA     South    4533372   351  7.7426"
   },
   {
     "objectID": "slides/R/08-ggplot2.html#ggplot2",
@@ -11494,14 +11494,14 @@
     "href": "slides/ml/41-knn.html#over-training",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$train$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.858 \n\n\nto\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.815"
+    "text": "Over-training\nCompare\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$train$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.856 \n\n\nto\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.815"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-1",
     "href": "slides/ml/41-knn.html#over-training-1",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.996\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
+    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.998\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-2",
@@ -11550,7 +11550,7 @@
     "href": "slides/wrangling/16-joining-tables.html#joining-tables-2",
     "title": "Joining Tables",
     "section": "Joining tables",
-    "text": "Joining tables\n\nand electoral votes in this one:\n\n\nhead(results_us_election_2016) \n\n         state electoral_votes  clinton    trump  johnson     stein  mcmullin\n1   California              55 61.72640 31.61711 3.374092 1.9649200 0.2792070\n2        Texas              38 43.23526 52.23469 3.160719 0.7978169 0.4723485\n3      Florida              29 47.82332 49.02194 2.197900 0.6836384 0.0000000\n4     New York              29 59.00604 36.51559 2.287108 1.3978457 0.1343400\n5     Illinois              20 55.82537 38.76175 3.785765 1.3872131 0.2105149\n6 Pennsylvania              20 47.46495 48.18334 2.379621 0.8100102 0.1049716\n      others\n1 1.03827531\n2 0.09917244\n3 0.27320481\n4 0.65907285\n5 0.02938720\n6 1.05711187"
+    "text": "Joining tables\n\nand electoral votes in this one:\n\n\nhead(results_us_election_2016) \n\n         state electoral_votes clinton trump johnson  stein mcmullin  others\n1   California              55   61.73 31.62   3.374 1.9649   0.2792 1.03828\n2        Texas              38   43.24 52.23   3.161 0.7978   0.4723 0.09917\n3      Florida              29   47.82 49.02   2.198 0.6836   0.0000 0.27320\n4     New York              29   59.01 36.52   2.287 1.3978   0.1343 0.65907\n5     Illinois              20   55.83 38.76   3.786 1.3872   0.2105 0.02939\n6 Pennsylvania              20   47.46 48.18   2.380 0.8100   0.1050 1.05711"
   },
   {
     "objectID": "slides/wrangling/16-joining-tables.html#joining-tables-3",
@@ -11571,7 +11571,7 @@
     "href": "slides/wrangling/16-joining-tables.html#joins-1",
     "title": "Joining Tables",
     "section": "Joins",
-    "text": "Joins\n\nNotice what happens if we join the two tables above by state using left_join:\n\n\ntab &lt;- left_join(murders, results_us_election_2016, by = \"state\") |&gt; \n  select(-others) |&gt; rename(ev = electoral_votes) \nhead(tab) \n\n       state abb region population total ev  clinton    trump  johnson\n1    Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169\n2     Alaska  AK   West     710231    19  3 36.55087 51.28151 5.877128\n3    Arizona  AZ   West    6392017   232 11 44.58042 48.08314 4.082188\n4   Arkansas  AR  South    2915918    93  6 33.65190 60.57191 2.648769\n5 California  CA   West   37253956  1257 55 61.72640 31.61711 3.374092\n6   Colorado  CO   West    5029196    65  9 48.15651 43.25098 5.183748\n      stein  mcmullin\n1 0.4422682 0.0000000\n2 1.8000176 0.0000000\n3 1.3185997 0.6699155\n4 0.8378174 1.1653206\n5 1.9649200 0.2792070\n6 1.3825031 1.0400874"
+    "text": "Joins\n\nNotice what happens if we join the two tables above by state using left_join:\n\n\ntab &lt;- left_join(murders, results_us_election_2016, by = \"state\") |&gt; \n  select(-others) |&gt; rename(ev = electoral_votes) \nhead(tab) \n\n       state abb region population total ev clinton trump johnson  stein\n1    Alabama  AL  South    4779736   135  9   34.36 62.08   2.094 0.4423\n2     Alaska  AK   West     710231    19  3   36.55 51.28   5.877 1.8000\n3    Arizona  AZ   West    6392017   232 11   44.58 48.08   4.082 1.3186\n4   Arkansas  AR  South    2915918    93  6   33.65 60.57   2.649 0.8378\n5 California  CA   West   37253956  1257 55   61.73 31.62   3.374 1.9649\n6   Colorado  CO   West    5029196    65  9   48.16 43.25   5.184 1.3825\n  mcmullin\n1   0.0000\n2   0.0000\n3   0.6699\n4   1.1653\n5   0.2792\n6   1.0401"
   },
   {
     "objectID": "slides/wrangling/16-joining-tables.html#joins-2",
@@ -11676,14 +11676,14 @@
     "href": "slides/wrangling/16-joining-tables.html#binding-columns-2",
     "title": "Joining Tables",
     "section": "Binding columns",
-    "text": "Binding columns\n\nFor example, here we break up the tab data frame and then bind them back together:\n\n\ntab_1 &lt;- tab[, 1:3] \ntab_2 &lt;- tab[, 4:6] \ntab_3 &lt;- tab[, 7:8] \nnew_tab &lt;- bind_cols(tab_1, tab_2, tab_3) \nhead(new_tab) \n\n       state abb region population total ev  clinton    trump\n1    Alabama  AL  South    4779736   135  9 34.35795 62.08309\n2     Alaska  AK   West     710231    19  3 36.55087 51.28151\n3    Arizona  AZ   West    6392017   232 11 44.58042 48.08314\n4   Arkansas  AR  South    2915918    93  6 33.65190 60.57191\n5 California  CA   West   37253956  1257 55 61.72640 31.61711\n6   Colorado  CO   West    5029196    65  9 48.15651 43.25098"
+    "text": "Binding columns\n\nFor example, here we break up the tab data frame and then bind them back together:\n\n\ntab_1 &lt;- tab[, 1:3] \ntab_2 &lt;- tab[, 4:6] \ntab_3 &lt;- tab[, 7:8] \nnew_tab &lt;- bind_cols(tab_1, tab_2, tab_3) \nhead(new_tab) \n\n       state abb region population total ev clinton trump\n1    Alabama  AL  South    4779736   135  9   34.36 62.08\n2     Alaska  AK   West     710231    19  3   36.55 51.28\n3    Arizona  AZ   West    6392017   232 11   44.58 48.08\n4   Arkansas  AR  South    2915918    93  6   33.65 60.57\n5 California  CA   West   37253956  1257 55   61.73 31.62\n6   Colorado  CO   West    5029196    65  9   48.16 43.25"
   },
   {
     "objectID": "slides/wrangling/16-joining-tables.html#binding-by-rows",
     "href": "slides/wrangling/16-joining-tables.html#binding-by-rows",
     "title": "Joining Tables",
     "section": "Binding by rows",
-    "text": "Binding by rows\n\nThe bind_rows function is similar to bind_cols, but binds rows instead of columns:\n\n\ntab_1 &lt;- tab[1:2,] \ntab_2 &lt;- tab[3:4,] \nbind_rows(tab_1, tab_2) \n\n     state abb region population total ev  clinton    trump  johnson     stein\n1  Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169 0.4422682\n2   Alaska  AK   West     710231    19  3 36.55087 51.28151 5.877128 1.8000176\n3  Arizona  AZ   West    6392017   232 11 44.58042 48.08314 4.082188 1.3185997\n4 Arkansas  AR  South    2915918    93  6 33.65190 60.57191 2.648769 0.8378174\n   mcmullin\n1 0.0000000\n2 0.0000000\n3 0.6699155\n4 1.1653206\n\n\n\nThis is based on an R-base function rbind."
+    "text": "Binding by rows\n\nThe bind_rows function is similar to bind_cols, but binds rows instead of columns:\n\n\ntab_1 &lt;- tab[1:2,] \ntab_2 &lt;- tab[3:4,] \nbind_rows(tab_1, tab_2) \n\n     state abb region population total ev clinton trump johnson  stein mcmullin\n1  Alabama  AL  South    4779736   135  9   34.36 62.08   2.094 0.4423   0.0000\n2   Alaska  AK   West     710231    19  3   36.55 51.28   5.877 1.8000   0.0000\n3  Arizona  AZ   West    6392017   232 11   44.58 48.08   4.082 1.3186   0.6699\n4 Arkansas  AR  South    2915918    93  6   33.65 60.57   2.649 0.8378   1.1653\n\n\n\nThis is based on an R-base function rbind."
   },
   {
     "objectID": "slides/wrangling/16-joining-tables.html#set-operators",
@@ -11704,7 +11704,7 @@
     "href": "slides/wrangling/16-joining-tables.html#intersect-1",
     "title": "Joining Tables",
     "section": "Intersect",
-    "text": "Intersect\n\nTo make sure we use the dplyr version of intersect rather than the base R version, we can use dplyr::intersect like this:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::intersect(tab_1, tab_2) \n\n       state abb region population total ev  clinton    trump  johnson\n1    Arizona  AZ   West    6392017   232 11 44.58042 48.08314 4.082188\n2   Arkansas  AR  South    2915918    93  6 33.65190 60.57191 2.648769\n3 California  CA   West   37253956  1257 55 61.72640 31.61711 3.374092\n      stein  mcmullin\n1 1.3185997 0.6699155\n2 0.8378174 1.1653206\n3 1.9649200 0.2792070"
+    "text": "Intersect\n\nTo make sure we use the dplyr version of intersect rather than the base R version, we can use dplyr::intersect like this:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::intersect(tab_1, tab_2) \n\n       state abb region population total ev clinton trump johnson  stein\n1    Arizona  AZ   West    6392017   232 11   44.58 48.08   4.082 1.3186\n2   Arkansas  AR  South    2915918    93  6   33.65 60.57   2.649 0.8378\n3 California  CA   West   37253956  1257 55   61.73 31.62   3.374 1.9649\n  mcmullin\n1   0.6699\n2   1.1653\n3   0.2792"
   },
   {
     "objectID": "slides/wrangling/16-joining-tables.html#union",
@@ -11718,7 +11718,7 @@
     "href": "slides/wrangling/16-joining-tables.html#union-1",
     "title": "Joining Tables",
     "section": "Union",
-    "text": "Union\n\ndplyr includes a version of union that combines all the rows of two tables with the same column names.\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::union(tab_1, tab_2)  \n\n        state abb    region population total ev  clinton    trump  johnson\n1     Alabama  AL     South    4779736   135  9 34.35795 62.08309 2.094169\n2      Alaska  AK      West     710231    19  3 36.55087 51.28151 5.877128\n3     Arizona  AZ      West    6392017   232 11 44.58042 48.08314 4.082188\n4    Arkansas  AR     South    2915918    93  6 33.65190 60.57191 2.648769\n5  California  CA      West   37253956  1257 55 61.72640 31.61711 3.374092\n6    Colorado  CO      West    5029196    65  9 48.15651 43.25098 5.183748\n7 Connecticut  CT Northeast    3574097    97  7 54.56630 40.92691 2.959171\n      stein  mcmullin\n1 0.4422682 0.0000000\n2 1.8000176 0.0000000\n3 1.3185997 0.6699155\n4 0.8378174 1.1653206\n5 1.9649200 0.2792070\n6 1.3825031 1.0400874\n7 1.3885782 0.1281521"
+    "text": "Union\n\ndplyr includes a version of union that combines all the rows of two tables with the same column names.\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::union(tab_1, tab_2)  \n\n        state abb    region population total ev clinton trump johnson  stein\n1     Alabama  AL     South    4779736   135  9   34.36 62.08   2.094 0.4423\n2      Alaska  AK      West     710231    19  3   36.55 51.28   5.877 1.8000\n3     Arizona  AZ      West    6392017   232 11   44.58 48.08   4.082 1.3186\n4    Arkansas  AR     South    2915918    93  6   33.65 60.57   2.649 0.8378\n5  California  CA      West   37253956  1257 55   61.73 31.62   3.374 1.9649\n6    Colorado  CO      West    5029196    65  9   48.16 43.25   5.184 1.3825\n7 Connecticut  CT Northeast    3574097    97  7   54.57 40.93   2.959 1.3886\n  mcmullin\n1   0.0000\n2   0.0000\n3   0.6699\n4   1.1653\n5   0.2792\n6   1.0401\n7   0.1282"
   },
   {
     "objectID": "slides/wrangling/16-joining-tables.html#setdiff",
@@ -11732,7 +11732,7 @@
     "href": "slides/wrangling/16-joining-tables.html#setdiff-1",
     "title": "Joining Tables",
     "section": "setdiff",
-    "text": "setdiff\n\nAs with the functions shown above, dplyr has a version for data frames:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::setdiff(tab_1, tab_2) \n\n    state abb region population total ev  clinton    trump  johnson     stein\n1 Alabama  AL  South    4779736   135  9 34.35795 62.08309 2.094169 0.4422682\n2  Alaska  AK   West     710231    19  3 36.55087 51.28151 5.877128 1.8000176\n  mcmullin\n1        0\n2        0"
+    "text": "setdiff\n\nAs with the functions shown above, dplyr has a version for data frames:\n\n\ntab_1 &lt;- tab[1:5,] \ntab_2 &lt;- tab[3:7,] \ndplyr::setdiff(tab_1, tab_2) \n\n    state abb region population total ev clinton trump johnson  stein mcmullin\n1 Alabama  AL  South    4779736   135  9   34.36 62.08   2.094 0.4423        0\n2  Alaska  AK   West     710231    19  3   36.55 51.28   5.877 1.8000        0"
   },
   {
     "objectID": "slides/wrangling/16-joining-tables.html#setequal",
@@ -12040,7 +12040,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-27 18:29:11 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-27 22:29:11 GMT\""
+    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-09-30 13:45:22 EDT\"\n\nnow(\"GMT\") \n\n[1] \"2026-09-30 17:45:22 GMT\""
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
@@ -12054,7 +12054,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 18\n\nnow() |&gt; minute() \n\n[1] 29\n\nnow() |&gt; second() \n\n[1] 11.69224"
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 13\n\nnow() |&gt; minute() \n\n[1] 45\n\nnow() |&gt; second() \n\n[1] 22.63"
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
@@ -12334,7 +12334,7 @@
     "href": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-2",
     "title": "Parameters and Estimates",
     "section": "Properties of our estimate",
-    "text": "Properties of our estimate\n\nThe plot shows that we would need a poll of over 10,000 people to achieve a standard error that low.\nWe rarely see polls of this size due in part to the associated costs.\nAccording to the Real Clear Politics table, sample sizes in opinion polls range from 500-3,500 people.\nFor a sample size of 1,000 and \\(p=0.51\\), the standard error is:\n\n\nsqrt(p*(1 - p))/sqrt(1000) \n\n[1] 0.01580823"
+    "text": "Properties of our estimate\n\nThe plot shows that we would need a poll of over 10,000 people to achieve a standard error that low.\nWe rarely see polls of this size due in part to the associated costs.\nAccording to the Real Clear Politics table, sample sizes in opinion polls range from 500-3,500 people.\nFor a sample size of 1,000 and \\(p=0.51\\), the standard error is:\n\n\nsqrt(p*(1 - p))/sqrt(1000) \n\n[1] 0.01581"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#properties-of-our-estimate-3",
@@ -12376,21 +12376,21 @@
     "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-4",
     "title": "Parameters and Estimates",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\n\nIn our first sample, we had 12 blue and 13 red, so \\(\\bar{X} = 0.48\\) and our estimate of standard error is:\n\n\nx_hat &lt;- 0.48 \nse &lt;- sqrt(x_hat*(1-x_hat)/25) \nse \n\n[1] 0.09991997"
+    "text": "Central Limit Theorem\n\nIn our first sample, we had 12 blue and 13 red, so \\(\\bar{X} = 0.48\\) and our estimate of standard error is:\n\n\nx_hat &lt;- 0.48 \nse &lt;- sqrt(x_hat*(1-x_hat)/25) \nse \n\n[1] 0.09992"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-5",
     "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-5",
     "title": "Parameters and Estimates",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\n\nNow, we can answer the question of the probability of being close to \\(p\\).\nThe answer is:\n\n\npnorm(0.01/se) - pnorm(-0.01/se) \n\n[1] 0.07971926\n\n\n\nTherefore, there is a small chance that we will be close."
+    "text": "Central Limit Theorem\n\nNow, we can answer the question of the probability of being close to \\(p\\).\nThe answer is:\n\n\npnorm(0.01/se) - pnorm(-0.01/se) \n\n[1] 0.07972\n\n\n\nTherefore, there is a small chance that we will be close."
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-6",
     "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-6",
     "title": "Parameters and Estimates",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\n\nEarlier, we mentioned the margin of error.\nNow, we can define it simply as two times the standard error, which we can now estimate.\n\n\n1.96*se \n\n[1] 0.1958431"
+    "text": "Central Limit Theorem\n\nEarlier, we mentioned the margin of error.\nNow, we can define it simply as two times the standard error, which we can now estimate.\n\n\n1.96*se \n\n[1] 0.1958"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-7",
@@ -12404,7 +12404,7 @@
     "href": "slides/inference/23-parameters-estimates.html#central-limit-theorem-8",
     "title": "Parameters and Estimates",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\nToo see this:\n\npnorm(1.96) - pnorm(-1.96) \n\n[1] 0.9500042"
+    "text": "Central Limit Theorem\nToo see this:\n\npnorm(1.96) - pnorm(-1.96) \n\n[1] 0.95"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#central-limit-theorem-9",
@@ -12439,7 +12439,7 @@
     "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-3",
     "title": "Parameters and Estimates",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157321.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4498078\n\nsd(x_hat) \n\n[1] 0.01592837"
+    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4499\n\nsd(x_hat) \n\n[1] 0.01582"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-4",
@@ -12768,7 +12768,7 @@
     "href": "slides/inference/27-hierarchical-models.html#computing-a-posterior-5",
     "title": "Hierarchical Models",
     "section": "Computing a posterior",
-    "text": "Computing a posterior\n\nIf we redo the Bayesian calculation taking this variability into account, we obtain a result much closer to FiveThirtyEight’s:\n\n\nmu &lt;- 0 \ntau &lt;- 0.035 \nB &lt;- se^2/(se^2 + tau^2) \nposterior_mean &lt;- B*mu + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/se^2 + 1/tau^2)) \n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.8414884\n\n\n\nBy accounting for the general bias term, we produce a posterior probability similar to that reported by FiveThirtyEight."
+    "text": "Computing a posterior\n\nIf we redo the Bayesian calculation taking this variability into account, we obtain a result much closer to FiveThirtyEight’s:\n\n\nmu &lt;- 0 \ntau &lt;- 0.035 \nB &lt;- se^2/(se^2 + tau^2) \nposterior_mean &lt;- B*mu + (1 - B)*x_bar \nposterior_se &lt;- sqrt(1/(1/se^2 + 1/tau^2)) \n1 - pnorm(0, posterior_mean, posterior_se) \n\n[1] 0.8415\n\n\n\nBy accounting for the general bias term, we produce a posterior probability similar to that reported by FiveThirtyEight."
   },
   {
     "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college",
@@ -12782,7 +12782,7 @@
     "href": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-1",
     "title": "Hierarchical Models",
     "section": "Predicting the electoral college",
-    "text": "Predicting the electoral college\n\nHere are the top 5 states ranked by electoral votes in 2016:\n\n\nresults_us_election_2016 |&gt; top_n(5, electoral_votes) \n\n         state electoral_votes  clinton    trump  johnson     stein  mcmullin\n1   California              55 61.72640 31.61711 3.374092 1.9649200 0.2792070\n2        Texas              38 43.23526 52.23469 3.160719 0.7978169 0.4723485\n3      Florida              29 47.82332 49.02194 2.197900 0.6836384 0.0000000\n4     New York              29 59.00604 36.51559 2.287108 1.3978457 0.1343400\n5     Illinois              20 55.82537 38.76175 3.785765 1.3872131 0.2105149\n6 Pennsylvania              20 47.46495 48.18334 2.379621 0.8100102 0.1049716\n      others\n1 1.03827531\n2 0.09917244\n3 0.27320481\n4 0.65907285\n5 0.02938720\n6 1.05711187\n\n\n\nWith some minor exceptions the electoral votes are won on an all-or-nothing basis."
+    "text": "Predicting the electoral college\n\nHere are the top 5 states ranked by electoral votes in 2016:\n\n\nresults_us_election_2016 |&gt; top_n(5, electoral_votes) \n\n         state electoral_votes clinton trump johnson  stein mcmullin  others\n1   California              55   61.73 31.62   3.374 1.9649   0.2792 1.03828\n2        Texas              38   43.24 52.23   3.161 0.7978   0.4723 0.09917\n3      Florida              29   47.82 49.02   2.198 0.6836   0.0000 0.27320\n4     New York              29   59.01 36.52   2.287 1.3978   0.1343 0.65907\n5     Illinois              20   55.83 38.76   3.786 1.3872   0.2105 0.02939\n6 Pennsylvania              20   47.46 48.18   2.380 0.8100   0.1050 1.05711\n\n\n\nWith some minor exceptions the electoral votes are won on an all-or-nothing basis."
   },
   {
     "objectID": "slides/inference/27-hierarchical-models.html#predicting-the-electoral-college-2",
@@ -12929,7 +12929,7 @@
     "href": "slides/inference/27-hierarchical-models.html#forecasting-2",
     "title": "Hierarchical Models",
     "section": "Forecasting",
-    "text": "Forecasting\n\nSince there is no pollster effect, then perhaps the theoretical standard error matches the data-derived standard deviation.\nWe compute both here:\n\n\nse &lt;- one_pollster |&gt;  \n  summarize(empirical = sd(spread),  \n            theoretical = 2*sqrt(mean(spread)*(1 - mean(spread))/min(samplesize))) \nse \n\n   empirical theoretical\n1 0.04025194  0.03256719"
+    "text": "Forecasting\n\nSince there is no pollster effect, then perhaps the theoretical standard error matches the data-derived standard deviation.\nWe compute both here:\n\n\nse &lt;- one_pollster |&gt;  \n  summarize(empirical = sd(spread),  \n            theoretical = 2*sqrt(mean(spread)*(1 - mean(spread))/min(samplesize))) \nse \n\n  empirical theoretical\n1   0.04025     0.03257"
   },
   {
     "objectID": "slides/inference/27-hierarchical-models.html#forecasting-3",

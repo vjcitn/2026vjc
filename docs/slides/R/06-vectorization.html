@@ -230,7 +230,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>heights<span class="sc">*</span><span class="fl">2.54</span><span class="sc">/</span><span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.7526 1.5748 1.6764 1.7780 1.7780 1.8542 1.7018 1.8542 1.7018 1.7780</code></pre>
+<pre><code> [1] 1.753 1.575 1.676 1.778 1.778 1.854 1.702 1.854 1.702 1.778</code></pre>
 </div>
 </div>
 </section>
@@ -257,8 +257,8 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(heights)</span>
 <span id="cb6-2"><a aria-label="2"></a>(heights <span class="sc">-</span> avg)<span class="sc">/</span>s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
- [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
+<pre><code> [1]  0.08996 -2.00900 -0.80960  0.38981  0.38981  1.28936 -0.50975  1.28936
+ [9] -0.50975  0.38981</code></pre>
 </div>
 </div>
 <ul>
@@ -276,8 +276,7 @@
 <span id="cb8-2"><a aria-label="2"></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(heights), <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
 <span id="cb8-3"><a aria-label="3"></a>heights <span class="sc">+</span> error</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 69.14948 62.13342 65.97714 69.82860 70.07170 73.13496 67.01823 73.09252
- [9] 67.06447 69.99199</code></pre>
+<pre><code> [1] 68.96 61.90 65.93 70.03 69.94 73.06 66.94 73.04 66.97 69.79</code></pre>
 </div>
 </div>
 </section>
@@ -297,13 +296,11 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb10-2"><a aria-label="2"></a><span class="fu">sqrt</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751 2.828427
- [9] 3.000000 3.162278</code></pre>
+<pre><code> [1] 1.000 1.414 1.732 2.000 2.236 2.449 2.646 2.828 3.000 3.162</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">log</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
- [8] 2.0794415 2.1972246 2.3025851</code></pre>
+<pre><code> [1] 0.0000 0.6931 1.0986 1.3863 1.6094 1.7918 1.9459 2.0794 2.1972 2.3026</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="dv">2</span><span class="sc">^</span>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -316,17 +313,17 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">scale</span>(heights)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             [,1]
- [1,]  0.08995503
- [2,] -2.00899575
- [3,] -0.80959530
- [4,]  0.38980515
- [5,]  0.38980515
- [6,]  1.28935548
- [7,] -0.50974519
- [8,]  1.28935548
- [9,] -0.50974519
-[10,]  0.38980515
+<pre><code>          [,1]
+ [1,]  0.08996
+ [2,] -2.00900
+ [3,] -0.80960
+ [4,]  0.38981
+ [5,]  0.38981
+ [6,]  1.28936
+ [7,] -0.50975
+ [8,]  1.28936
+ [9,] -0.50975
+[10,]  0.38981
 attr(,"scaled:center")
 [1] 68.7
 attr(,"scaled:scale")
@@ -337,8 +334,8 @@ attr(,"scaled:scale")
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>(heights <span class="sc">-</span> <span class="fu">mean</span>(heights))<span class="sc">/</span><span class="fu">sd</span>(heights)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.08995503 -2.00899575 -0.80959530  0.38980515  0.38980515  1.28935548
- [7] -0.50974519  1.28935548 -0.50974519  0.38980515</code></pre>
+<pre><code> [1]  0.08996 -2.00900 -0.80960  0.38981  0.38981  1.28936 -0.50975  1.28936
+ [9] -0.50975  0.38981</code></pre>
 </div>
 </div>
 </section>

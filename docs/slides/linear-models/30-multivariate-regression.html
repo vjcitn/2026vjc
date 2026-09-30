@@ -377,8 +377,8 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>bb_slope <span class="ot">&lt;-</span> <span class="fu">lm</span>(r <span class="sc">~</span> bb, <span class="at">data =</span> dat)<span class="sc">$</span>coef[<span class="dv">2</span>] </span>
 <span id="cb6-2"><a aria-label="2"></a>bb_slope  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       bb 
-0.7388725 </code></pre>
+<pre><code>    bb 
+0.7389 </code></pre>
 </div>
 </div>
 </section>
@@ -397,8 +397,8 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">lm</span>(r <span class="sc">~</span> singles, <span class="at">data =</span> dat)<span class="sc">$</span>coef[<span class="dv">2</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  singles 
-0.4324101 </code></pre>
+<pre><code>singles 
+ 0.4324 </code></pre>
 </div>
 </div>
 </section>
@@ -411,7 +411,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>dat <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">cor</span>(bb, hr), <span class="fu">cor</span>(singles, hr), <span class="fu">cor</span>(bb, singles)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  cor(bb, hr) cor(singles, hr) cor(bb, singles)
-1   0.4064585       -0.1862848      -0.05126617</code></pre>
+1      0.4065          -0.1863         -0.05127</code></pre>
 </div>
 </div>
 </section>
@@ -705,17 +705,17 @@ Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \beta_3 x_{i,3}+ \beta_4 x_{
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>players <span class="sc">|&gt;</span> <span class="fu">select</span>(nameFirst, nameLast, POS, salary, r_hat) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(r_hat)) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">10</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   nameFirst nameLast POS   salary    r_hat
-1      Barry    Bonds  LF 15000000 8.052460
-2      Larry   Walker  RF 12666667 7.960583
-3       Todd   Helton  1B  5000000 7.403074
-4      Manny  Ramirez  LF 15462727 7.352475
-5      Sammy     Sosa  RF 15000000 7.201670
-6       Jeff  Bagwell  1B 11000000 7.053805
-7       Mike   Piazza   C 10571429 6.993616
-8      Jason   Giambi  1B 10428571 6.916405
-9      Edgar Martinez  DH  7086668 6.912145
-10       Jim    Thome  1B  8000000 6.885270</code></pre>
+<pre><code>   nameFirst nameLast POS   salary r_hat
+1      Barry    Bonds  LF 15000000 8.052
+2      Larry   Walker  RF 12666667 7.961
+3       Todd   Helton  1B  5000000 7.403
+4      Manny  Ramirez  LF 15462727 7.352
+5      Sammy     Sosa  RF 15000000 7.202
+6       Jeff  Bagwell  1B 11000000 7.054
+7       Mike   Piazza   C 10571429 6.994
+8      Jason   Giambi  1B 10428571 6.916
+9      Edgar Martinez  DH  7086668 6.912
+10       Jim    Thome  1B  8000000 6.885</code></pre>
 </div>
 </div>
 </section>
@@ -739,63 +739,63 @@ Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \beta_3 x_{i,3}+ \beta_4 x_{
 <td style="text-align: left;">Helton</td>
 <td style="text-align: left;">1B</td>
 <td style="text-align: right;">5000000</td>
-<td style="text-align: right;">7.403073</td>
+<td style="text-align: right;">7.403</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mike</td>
 <td style="text-align: left;">Piazza</td>
 <td style="text-align: left;">C</td>
 <td style="text-align: right;">10571429</td>
-<td style="text-align: right;">6.993616</td>
+<td style="text-align: right;">6.994</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Edgar</td>
 <td style="text-align: left;">Martinez</td>
 <td style="text-align: left;">DH</td>
 <td style="text-align: right;">7086668</td>
-<td style="text-align: right;">6.912145</td>
+<td style="text-align: right;">6.912</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Jim</td>
 <td style="text-align: left;">Edmonds</td>
 <td style="text-align: left;">CF</td>
 <td style="text-align: right;">7333333</td>
-<td style="text-align: right;">6.231373</td>
+<td style="text-align: right;">6.231</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Jeff</td>
 <td style="text-align: left;">Kent</td>
 <td style="text-align: left;">2B</td>
 <td style="text-align: right;">6000000</td>
-<td style="text-align: right;">6.079064</td>
+<td style="text-align: right;">6.079</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Phil</td>
 <td style="text-align: left;">Nevin</td>
 <td style="text-align: left;">3B</td>
 <td style="text-align: right;">2600000</td>
-<td style="text-align: right;">5.857409</td>
+<td style="text-align: right;">5.857</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Matt</td>
 <td style="text-align: left;">Stairs</td>
 <td style="text-align: left;">RF</td>
 <td style="text-align: right;">500000</td>
-<td style="text-align: right;">5.758631</td>
+<td style="text-align: right;">5.759</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Henry</td>
 <td style="text-align: left;">Rodriguez</td>
 <td style="text-align: left;">LF</td>
 <td style="text-align: right;">300000</td>
-<td style="text-align: right;">5.640563</td>
+<td style="text-align: right;">5.641</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">John</td>
 <td style="text-align: left;">Valentin</td>
 <td style="text-align: left;">SS</td>
 <td style="text-align: right;">550000</td>
-<td style="text-align: right;">5.000417</td>
+<td style="text-align: right;">5.000</td>
 </tr>
 </tbody>
 </table>

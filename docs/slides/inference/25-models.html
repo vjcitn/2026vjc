@@ -287,7 +287,7 @@
 <span id="cb4-3"><a aria-label="3"></a>  <span class="fu">pull</span>(avg) </span>
 <span id="cb4-4"><a aria-label="4"></a><span class="fu">print</span>(mu_hat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0311474</code></pre>
+<pre><code>[1] 0.03115</code></pre>
 </div>
 </div>
 </section>
@@ -301,7 +301,7 @@
 <span id="cb6-2"><a aria-label="2"></a>moe <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">1.96</span><span class="sc">*</span><span class="fu">sqrt</span>(p_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> p_hat)<span class="sc">/</span><span class="fu">sum</span>(polls<span class="sc">$</span>sample_size))</span>
 <span id="cb6-3"><a aria-label="3"></a><span class="fu">print</span>(moe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01845451</code></pre>
+<pre><code>[1] 0.01845</code></pre>
 </div>
 </div>
 <ul>
@@ -365,7 +365,7 @@
 <span id="cb11-2"><a aria-label="2"></a>moe <span class="ot">&lt;-</span> <span class="fl">1.96</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(p_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> p_hat)<span class="sc">/</span><span class="fu">sum</span>(polls<span class="sc">$</span>samplesize)) </span>
 <span id="cb11-3"><a aria-label="3"></a>moe </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.006623178</code></pre>
+<pre><code>[1] 0.006623</code></pre>
 </div>
 </div>
 </section>
@@ -386,7 +386,7 @@
 <h2>Case study: poll aggregators</h2>
 <ul>
 <li><p>The data does not appear to be normally distributed</p></li>
-<li><p>The standard error appears to be larger than 0.0066232.</p></li>
+<li><p>The standard error appears to be larger than 0.0066.</p></li>
 <li><p>The theory is not working her</p></li>
 <li><p>This motivates the use of a <strong>data-driven model</strong>.</p></li>
 </ul>
@@ -556,7 +556,7 @@ s = \sqrt{ \frac{1}{N-1} \sum_{i=1}^N (X_i - \bar{X})^2 }
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">sd</span>(one_poll_per_pollster<span class="sc">$</span>spread) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02419369</code></pre>
+<pre><code>[1] 0.02419</code></pre>
 </div>
 </div>
 </section>
@@ -692,11 +692,11 @@ t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="dv">14</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.144787</code></pre>
+<pre><code>[1] 2.145</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.959964</code></pre>
+<pre><code>[1] 1.96</code></pre>
 </div>
 </div>
 </section>
@@ -743,8 +743,8 @@ t = \frac{\bar{X} - \mu}{s/\sqrt{N}}
 <span id="cb31-10"><a aria-label="10"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(spread), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
 <span id="cb31-11"><a aria-label="11"></a>  <span class="fu">select</span>(actual, avg, sd, n) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        actual        avg         sd n
-1 -0.007643432 0.07106667 0.01041454 6</code></pre>
+<pre><code>     actual     avg      sd n
+1 -0.007643 0.07107 0.01041 6</code></pre>
 </div>
 </div>
 

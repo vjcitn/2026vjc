@@ -317,11 +317,11 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">table</span>(drs))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 38.46154</code></pre>
+<pre><code>[1] 38.46</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">52</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 38.46154</code></pre>
+<pre><code>[1] 38.46</code></pre>
 </div>
 </div>
 </section>
@@ -363,7 +363,7 @@ D = \sum_{i=1}^{52} \frac{(X_i - EX_i)^2}{EX_i}
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ExpectedCount <span class="ot">=</span> <span class="dv">2000</span><span class="sc">/</span><span class="dv">52</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((<span class="fu">table</span>(drs)<span class="sc">-</span>ExpectedCount)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>ExpectedCount)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 60.188</code></pre>
+<pre><code>[1] 60.19</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(drs))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -371,11 +371,11 @@ D = \sum_{i=1}^{52} \frac{(X_i - EX_i)^2}{EX_i}
     Chi-squared test for given probabilities
 
 data:  table(drs)
-X-squared = 60.188, df = 51, p-value = 0.1774</code></pre>
+X-squared = 60, df = 51, p-value = 0.2</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(drs, ExpectedCount)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 60.188</code></pre>
+<pre><code>[1] 60.19</code></pre>
 </div>
 </div>
 <p>Note that <code>chisq.test</code> reports the same statistic as <code>mystat</code>, but includes values for <code>df</code> (degrees of freedom) and <code>p-value</code>. “Degrees of freedom” refers here to the fact that we have a fixed number of count categories (52 card types), and if 51 are known, the value for the 52nd can be deduced – it is “unfree”.</p>
@@ -435,7 +435,7 @@ f(x; k) =
 \end{cases}
 \qquad k = 1, 2, \ldots
 \]</span></p>
-<p>In our call to <code>dchisq</code> we evaluated this function at points <span class="math inline">\(x = 1, 2, ..., 100\)</span> with <span class="math inline">\(k = 51\)</span>. <span class="math inline">\(e\)</span> is Euler’s constant 2.71828… <span class="math inline">\(= \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{n}\)</span> , and <span class="math inline">\(\Gamma\)</span> denotes the “Gamma function” defined as <span class="math inline">\(\Gamma(x) = \int\limits_{0}^{\infty} e^{-t}t^{x-1}dt\)</span> which satisfies <span class="math inline">\(\Gamma(x+1) = x\Gamma(x)\)</span>.</p>
+<p>In our call to <code>dchisq</code> we evaluated this function at points <span class="math inline">\(x = 1, 2, ..., 100\)</span> with <span class="math inline">\(k = 51\)</span>. <span class="math inline">\(e\)</span> is Euler’s constant 2.7183… <span class="math inline">\(= \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{n}\)</span> , and <span class="math inline">\(\Gamma\)</span> denotes the “Gamma function” defined as <span class="math inline">\(\Gamma(x) = \int\limits_{0}^{\infty} e^{-t}t^{x-1}dt\)</span> which satisfies <span class="math inline">\(\Gamma(x+1) = x\Gamma(x)\)</span>.</p>
 </section>
 <section id="interpret" class="level2">
 <h2 class="anchored" data-anchor-id="interpret">Interpret</h2>
@@ -447,7 +447,7 @@ f(x; k) =
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>newdrs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(baddeck))</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(newdrs, ExpectedCount)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 92.08246</code></pre>
+<pre><code>[1] 92.08</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -456,7 +456,7 @@ f(x; k) =
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>newdrs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(baddeck))</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(newdrs, ExpectedCount)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 146.4929</code></pre>
+<pre><code>[1] 146.5</code></pre>
 </div>
 </div>
 <p>How is this different?</p>
@@ -466,7 +466,7 @@ f(x; k) =
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>newdrs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(baddeck))</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(newdrs, ExpectedCount)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 199.8449</code></pre>
+<pre><code>[1] 199.8</code></pre>
 </div>
 </div>
 <p>What’s wrong here?</p>
@@ -476,7 +476,7 @@ f(x; k) =
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>newdrs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">top_card</span>(baddeck))</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(newdrs, ExpectedCount)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 496.3249</code></pre>
+<pre><code>[1] 496.3</code></pre>
 </div>
 </div>
 </section>

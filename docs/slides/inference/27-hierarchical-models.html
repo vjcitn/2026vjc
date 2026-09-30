@@ -568,7 +568,7 @@ X_{i,j} | \, h_j, b &amp;\sim \mbox{N}\left(\mu + h_j, \sqrt{p(1-p)/N}\right)
 <span id="cb9-5"><a aria-label="5"></a>posterior_se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">/</span>se<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>tau<span class="sc">^</span><span class="dv">2</span>)) </span>
 <span id="cb9-6"><a aria-label="6"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">0</span>, posterior_mean, posterior_se) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8414884</code></pre>
+<pre><code>[1] 0.8415</code></pre>
 </div>
 </div>
 <ul>
@@ -611,20 +611,13 @@ X_{i,j} | \, h_j, b &amp;\sim \mbox{N}\left(\mu + h_j, \sqrt{p(1-p)/N}\right)
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>results_us_election_2016 <span class="sc">|&gt;</span> <span class="fu">top_n</span>(<span class="dv">5</span>, electoral_votes) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         state electoral_votes  clinton    trump  johnson     stein  mcmullin
-1   California              55 61.72640 31.61711 3.374092 1.9649200 0.2792070
-2        Texas              38 43.23526 52.23469 3.160719 0.7978169 0.4723485
-3      Florida              29 47.82332 49.02194 2.197900 0.6836384 0.0000000
-4     New York              29 59.00604 36.51559 2.287108 1.3978457 0.1343400
-5     Illinois              20 55.82537 38.76175 3.785765 1.3872131 0.2105149
-6 Pennsylvania              20 47.46495 48.18334 2.379621 0.8100102 0.1049716
-      others
-1 1.03827531
-2 0.09917244
-3 0.27320481
-4 0.65907285
-5 0.02938720
-6 1.05711187</code></pre>
+<pre><code>         state electoral_votes clinton trump johnson  stein mcmullin  others
+1   California              55   61.73 31.62   3.374 1.9649   0.2792 1.03828
+2        Texas              38   43.24 52.23   3.161 0.7978   0.4723 0.09917
+3      Florida              29   47.82 49.02   2.198 0.6836   0.0000 0.27320
+4     New York              29   59.01 36.52   2.287 1.3978   0.1343 0.65907
+5     Illinois              20   55.83 38.76   3.786 1.3872   0.2105 0.02939
+6 Pennsylvania              20   47.46 48.18   2.380 0.8100   0.1050 1.05711</code></pre>
 </div>
 </div>
 <ul>
@@ -902,8 +895,8 @@ X_{i,j} | \, h_j, b &amp;\sim \mbox{N}\left(\mu + h_j, \sqrt{p(1-p)/N}\right)
 <span id="cb27-3"><a aria-label="3"></a>            <span class="at">theoretical =</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">mean</span>(spread)<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">mean</span>(spread))<span class="sc">/</span><span class="fu">min</span>(samplesize))) </span>
 <span id="cb27-4"><a aria-label="4"></a>se </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   empirical theoretical
-1 0.04025194  0.03256719</code></pre>
+<pre><code>  empirical theoretical
+1   0.04025     0.03257</code></pre>
 </div>
 </div>
 </section>

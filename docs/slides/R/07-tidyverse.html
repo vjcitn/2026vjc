@@ -306,12 +306,12 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">filter</span>(murders, rate <span class="sc">&lt;=</span> <span class="fl">0.71</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          state abb        region population total      rate
-1        Hawaii  HI          West    1360301     7 0.5145920
-2          Iowa  IA North Central    3046355    21 0.6893484
-3 New Hampshire  NH     Northeast    1316470     5 0.3798036
-4  North Dakota  ND North Central     672591     4 0.5947151
-5       Vermont  VT     Northeast     625741     2 0.3196211</code></pre>
+<pre><code>          state abb        region population total   rate
+1        Hawaii  HI          West    1360301     7 0.5146
+2          Iowa  IA North Central    3046355    21 0.6893
+3 New Hampshire  NH     Northeast    1316470     5 0.3798
+4  North Dakota  ND North Central     672591     4 0.5947
+5       Vermont  VT     Northeast     625741     2 0.3196</code></pre>
 </div>
 </div>
 </section>
@@ -321,12 +321,12 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>new_table <span class="ot">&lt;-</span> <span class="fu">select</span>(murders, state, region, rate)</span>
 <span id="cb7-2"><a aria-label="2"></a><span class="fu">filter</span>(new_table, rate <span class="sc">&lt;=</span> <span class="fl">0.71</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          state        region      rate
-1        Hawaii          West 0.5145920
-2          Iowa North Central 0.6893484
-3 New Hampshire     Northeast 0.3798036
-4  North Dakota North Central 0.5947151
-5       Vermont     Northeast 0.3196211</code></pre>
+<pre><code>          state        region   rate
+1        Hawaii          West 0.5146
+2          Iowa North Central 0.6893
+3 New Hampshire     Northeast 0.3798
+4  North Dakota North Central 0.5947
+5       Vermont     Northeast 0.3196</code></pre>
 </div>
 </div>
 </section>
@@ -388,12 +388,12 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">select</span>(state, region, rate) <span class="sc">|&gt;</span> <span class="fu">filter</span>(rate <span class="sc">&lt;=</span> <span class="fl">0.71</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          state        region      rate
-1        Hawaii          West 0.5145920
-2          Iowa North Central 0.6893484
-3 New Hampshire     Northeast 0.3798036
-4  North Dakota North Central 0.5947151
-5       Vermont     Northeast 0.3196211</code></pre>
+<pre><code>          state        region   rate
+1        Hawaii          West 0.5146
+2          Iowa North Central 0.6893
+3 New Hampshire     Northeast 0.3798
+4  North Dakota North Central 0.5947
+5       Vermont     Northeast 0.3196</code></pre>
 </div>
 </div>
 <ul>
@@ -422,8 +422,8 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(rate))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       avg
-1 2.779125</code></pre>
+<pre><code>    avg
+1 2.779</code></pre>
 </div>
 </div>
 <ul>
@@ -439,8 +439,8 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">rate =</span> <span class="fu">sum</span>(total)<span class="sc">/</span><span class="fu">sum</span>(population)<span class="sc">*</span><span class="dv">100000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      rate
-1 3.034555</code></pre>
+<pre><code>   rate
+1 3.035</code></pre>
 </div>
 </div>
 </section>
@@ -633,7 +633,7 @@
 <span id="cb40-2"><a aria-label="2"></a>  <span class="fu">summarize</span>(<span class="at">rate =</span> <span class="fu">sum</span>(total)<span class="sc">/</span><span class="fu">sum</span>(population)<span class="sc">*</span><span class="dv">100000</span>) <span class="sc">|&gt;</span></span>
 <span id="cb40-3"><a aria-label="3"></a>  <span class="fu">pull</span>(rate) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.034555</code></pre>
+<pre><code>[1] 3.035</code></pre>
 </div>
 </div>
 </section>
@@ -645,13 +645,13 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">arrange</span>(rate) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          state abb        region population total      rate
-1       Vermont  VT     Northeast     625741     2 0.3196211
-2 New Hampshire  NH     Northeast    1316470     5 0.3798036
-3        Hawaii  HI          West    1360301     7 0.5145920
-4  North Dakota  ND North Central     672591     4 0.5947151
-5          Iowa  IA North Central    3046355    21 0.6893484
-6         Idaho  ID          West    1567582    12 0.7655102</code></pre>
+<pre><code>          state abb        region population total   rate
+1       Vermont  VT     Northeast     625741     2 0.3196
+2 New Hampshire  NH     Northeast    1316470     5 0.3798
+3        Hawaii  HI          West    1360301     7 0.5146
+4  North Dakota  ND North Central     672591     4 0.5947
+5          Iowa  IA North Central    3046355    21 0.6893
+6         Idaho  ID          West    1567582    12 0.7655</code></pre>
 </div>
 </div>
 </section>
@@ -663,13 +663,13 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(rate)) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                 state abb        region population total      rate
-1 District of Columbia  DC         South     601723    99 16.452753
-2            Louisiana  LA         South    4533372   351  7.742581
-3             Missouri  MO North Central    5988927   321  5.359892
-4             Maryland  MD         South    5773552   293  5.074866
-5       South Carolina  SC         South    4625364   207  4.475323
-6             Delaware  DE         South     897934    38  4.231937</code></pre>
+<pre><code>                 state abb        region population total   rate
+1 District of Columbia  DC         South     601723    99 16.453
+2            Louisiana  LA         South    4533372   351  7.743
+3             Missouri  MO North Central    5988927   321  5.360
+4             Maryland  MD         South    5773552   293  5.075
+5       South Carolina  SC         South    4625364   207  4.475
+6             Delaware  DE         South     897934    38  4.232</code></pre>
 </div>
 </div>
 </section>
@@ -681,18 +681,18 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-label="1"></a>murders <span class="sc">|&gt;</span> <span class="fu">arrange</span>(region, <span class="fu">desc</span>(rate)) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">11</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                  state abb    region population total       rate
-1          Pennsylvania  PA Northeast   12702379   457  3.5977513
-2            New Jersey  NJ Northeast    8791894   246  2.7980319
-3           Connecticut  CT Northeast    3574097    97  2.7139722
-4              New York  NY Northeast   19378102   517  2.6679599
-5         Massachusetts  MA Northeast    6547629   118  1.8021791
-6          Rhode Island  RI Northeast    1052567    16  1.5200933
-7                 Maine  ME Northeast    1328361    11  0.8280881
-8         New Hampshire  NH Northeast    1316470     5  0.3798036
-9               Vermont  VT Northeast     625741     2  0.3196211
-10 District of Columbia  DC     South     601723    99 16.4527532
-11            Louisiana  LA     South    4533372   351  7.7425810</code></pre>
+<pre><code>                  state abb    region population total    rate
+1          Pennsylvania  PA Northeast   12702379   457  3.5978
+2            New Jersey  NJ Northeast    8791894   246  2.7980
+3           Connecticut  CT Northeast    3574097    97  2.7140
+4              New York  NY Northeast   19378102   517  2.6680
+5         Massachusetts  MA Northeast    6547629   118  1.8022
+6          Rhode Island  RI Northeast    1052567    16  1.5201
+7                 Maine  ME Northeast    1328361    11  0.8281
+8         New Hampshire  NH Northeast    1316470     5  0.3798
+9               Vermont  VT Northeast     625741     2  0.3196
+10 District of Columbia  DC     South     601723    99 16.4528
+11            Louisiana  LA     South    4533372   351  7.7426</code></pre>
 </div>
 </div>
 

@@ -337,7 +337,7 @@ t = \frac{\bar{X}_1 - \bar{X}_0}{\sqrt{\frac{s_1^2}{N_1} + \frac{s_0^2}{N_0}}}
 <span id="cb5-4"><a aria-label="4"></a>t_stat <span class="ot">&lt;-</span> <span class="fu">with</span>(stats, (xbar[<span class="dv">2</span>] <span class="sc">-</span> xbar[<span class="dv">1</span>])<span class="sc">/</span><span class="fu">sqrt</span>(s[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">2</span>] <span class="sc">+</span> s[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>n[<span class="dv">1</span>])) </span>
 <span id="cb5-5"><a aria-label="5"></a>t_stat </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.339096</code></pre>
+<pre><code>[1] 9.339</code></pre>
 </div>
 </div>
 <ul>
@@ -438,9 +438,9 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">coefficients</span>(<span class="fu">summary</span>(fit)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             Estimate Std. Error   t value     Pr(&gt;|t|)
-(Intercept) 31.537005  0.3858192 81.740369 0.000000e+00
-diethf       5.136078  0.5484506  9.364705 8.021959e-20</code></pre>
+<pre><code>            Estimate Std. Error t value  Pr(&gt;|t|)
+(Intercept)   31.537     0.3858  81.740 0.000e+00
+diethf         5.136     0.5485   9.365 8.022e-20</code></pre>
 </div>
 </div>
 </section>
@@ -472,7 +472,7 @@ diethf       5.136078  0.5484506  9.364705 8.021959e-20</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="fu">coefficients</span>(<span class="fu">summary</span>(fit))[<span class="dv">2</span>,<span class="dv">3</span>], t_stat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.364705 9.339096</code></pre>
+<pre><code>[1] 9.365 9.339</code></pre>
 </div>
 </div>
 </section>
@@ -695,7 +695,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
 <span id="cb23-2"><a aria-label="2"></a><span class="fu">coefficients</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)        sexM 
-  29.758844    8.820658 </code></pre>
+     29.759       8.821 </code></pre>
 </div>
 </div>
 </section>
@@ -707,7 +707,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1}  + \beta_2 x_{i,2}   + \varepsilon_i
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">sum</span>(fit<span class="sc">$</span>coefficients[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 38.5795</code></pre>
+<pre><code>[1] 38.58</code></pre>
 </div>
 </div>
 <ul>
@@ -767,7 +767,7 @@ Y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \varepsilon_i
 <span id="cb29-3"><a aria-label="3"></a><span class="fu">coefficients</span>(fit) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)        sex1 
-  34.169173   -4.410329 </code></pre>
+      34.17       -4.41 </code></pre>
 </div>
 </div>
 </section>
@@ -879,8 +879,8 @@ P value adjustment: fdr method for 5 tests </code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(fit)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)
-gen           4    294   73.50   1.128  0.342
-Residuals   775  50479   65.13               </code></pre>
+gen           4    294    73.5    1.13   0.34
+Residuals   775  50479    65.1               </code></pre>
 </div>
 </div>
 </section>
@@ -927,9 +927,9 @@ Residuals   775  50479   65.13               </code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">summary</span>(<span class="fu">aov</span>(body_weight <span class="sc">~</span> sex <span class="sc">+</span> diet <span class="sc">+</span> gen,  <span class="at">data =</span> mice_weights)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
-sex           1  15165   15165 389.799 &lt;2e-16 ***
-diet          1   5238    5238 134.642 &lt;2e-16 ***
-gen           4    295      74   1.895  0.109    
+sex           1  15165   15165  389.80 &lt;2e-16 ***
+diet          1   5238    5238  134.64 &lt;2e-16 ***
+gen           4    295      74    1.89   0.11    
 Residuals   773  30074      39                   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>

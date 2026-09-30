@@ -501,8 +501,8 @@
 <span id="cb14-3"><a aria-label="3"></a><span class="fu">table</span>(x)<span class="sc">/</span>n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x
-     blue       red 
-0.6002232 0.3997768 </code></pre>
+  blue    red 
+0.6002 0.3998 </code></pre>
 </div>
 </div>
 <ul>
@@ -671,7 +671,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">F</span>(<span class="dv">70</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3768473</code></pre>
+<pre><code>[1] 0.3768</code></pre>
 </div>
 </div>
 <ul>
@@ -733,7 +733,7 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <li><p>An example of such a continuous distribution is the normal distribution.</p></li>
 <li><p>The probability density function is given by:</p></li>
 </ul>
-<p><span class="math display">\[f(x) = e^{-\frac{1}{2}\left( \frac{x-m}{s} \right)^2} \]</span></p>
+<p><span class="math display">\[f(x) = \frac{1}{\sqrt{2 \pi s^2}} e^{-\frac{1}{2}\left( \frac{x-m}{s} \right)^2} \]</span></p>
 <ul>
 <li>The cumulative distribution for the normal distribution is defined by a mathematical formula which in R can be obtained with the function <code>pnorm</code>.</li>
 </ul>
@@ -758,7 +758,7 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <span id="cb28-2"><a aria-label="2"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x) </span>
 <span id="cb28-3"><a aria-label="3"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">70.5</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.371369</code></pre>
+<pre><code>[1] 0.3714</code></pre>
 </div>
 </div>
 </section>
@@ -784,13 +784,13 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <ul>
 <li><p>While most students rounded up their heights to the nearest inch, others reported values with more precision.</p></li>
 <li><p>One student reported his height to be 69.6850393700787, which is 177 centimeters.</p></li>
-<li><p>The probability assigned to this height is 0.0012315 or 1 in 812.</p></li>
+<li><p>The probability assigned to this height is 0.0012 or 1 in 812.</p></li>
 </ul>
 </section>
 <section id="distributions-as-approximations-3" class="slide level2">
 <h2>Distributions as approximations</h2>
 <ul>
-<li><p>The probability for 70 inches is much higher at 0.1059113,</p></li>
+<li><p>The probability for 70 inches is much higher at 0.1059,</p></li>
 <li><p>Does it really make sense to think of the probability of being exactly 70 inches as being different than 69.6850393700787?</p></li>
 </ul>
 </section>
@@ -823,15 +823,15 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">68.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">67.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.114532</code></pre>
+<pre><code>[1] 0.1145</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">69.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">68.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1194581</code></pre>
+<pre><code>[1] 0.1195</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.5</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">69.5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1219212</code></pre>
+<pre><code>[1] 0.1219</code></pre>
 </div>
 </div>
 </section>
@@ -843,15 +843,15 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">68.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">67.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1031077</code></pre>
+<pre><code>[1] 0.1031</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">69.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">68.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1097121</code></pre>
+<pre><code>[1] 0.1097</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">70.5</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">69.5</span>, m, s)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1081743</code></pre>
+<pre><code>[1] 0.1082</code></pre>
 </div>
 </div>
 <ul>
@@ -866,7 +866,7 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.9</span>) <span class="sc">-</span> <span class="fu">mean</span>(x <span class="sc">&lt;=</span> <span class="fl">70.1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02216749</code></pre>
+<pre><code>[1] 0.02217</code></pre>
 </div>
 </div>
 <ul>
@@ -875,7 +875,7 @@ F(b) - F(a) = \int_a^b f(x)\,dx
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">70.9</span>, m, s) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">70.1</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.08359562</code></pre>
+<pre><code>[1] 0.0836</code></pre>
 </div>
 </div>
 </section>
@@ -932,7 +932,7 @@ F(a) = \mbox{Pr}(X\leq a) = \int_{-\infty}^a f(x)\, dx
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-label="1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">76</span>, m, s) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.03206008</code></pre>
+<pre><code>[1] 0.03206</code></pre>
 </div>
 </div>
 </section>

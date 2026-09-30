@@ -272,7 +272,7 @@
 <span id="cb2-3"><a aria-label="3"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
 <span id="cb2-4"><a aria-label="4"></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4400618 0.5019382</code></pre>
+<pre><code>[1] 0.4381 0.4999</code></pre>
 </div>
 </div>
 <ul>
@@ -284,7 +284,7 @@
 <span id="cb4-3"><a aria-label="3"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> x_hat)<span class="sc">/</span>N) </span>
 <span id="cb4-4"><a aria-label="4"></a><span class="fu">c</span>(x_hat <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat, x_hat <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>se_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4530256 0.5149744</code></pre>
+<pre><code>[1] 0.4162 0.4778</code></pre>
 </div>
 </div>
 <ul>
@@ -323,7 +323,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">1.96</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.96</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9500042</code></pre>
+<pre><code>[1] 0.95</code></pre>
 </div>
 </div>
 <ul>
@@ -345,7 +345,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>z <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.995</span>) </span>
 <span id="cb8-2"><a aria-label="2"></a>z </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.575829</code></pre>
+<pre><code>[1] 2.576</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">pnorm</span>(z) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>z) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -363,7 +363,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.959964</code></pre>
+<pre><code>[1] 1.96</code></pre>
 </div>
 </div>
 </section>
@@ -383,7 +383,7 @@
 <span id="cb14-8"><a aria-label="8"></a>}) </span>
 <span id="cb14-9"><a aria-label="9"></a><span class="fu">mean</span>(inside) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9477</code></pre>
+<pre><code>[1] 0.9449</code></pre>
 </div>
 </div>
 </section>

@@ -356,7 +356,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">sqrt</span>(p<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> p))<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">1000</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01580823</code></pre>
+<pre><code>[1] 0.01581</code></pre>
 </div>
 </div>
 </section>
@@ -420,7 +420,7 @@
 <span id="cb4-2"><a aria-label="2"></a>se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x_hat<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>x_hat)<span class="sc">/</span><span class="dv">25</span>) </span>
 <span id="cb4-3"><a aria-label="3"></a>se </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09991997</code></pre>
+<pre><code>[1] 0.09992</code></pre>
 </div>
 </div>
 </section>
@@ -433,7 +433,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">0.01</span><span class="sc">/</span>se) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">0.01</span><span class="sc">/</span>se) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.07971926</code></pre>
+<pre><code>[1] 0.07972</code></pre>
 </div>
 </div>
 <ul>
@@ -449,7 +449,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fl">1.96</span><span class="sc">*</span>se </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1958431</code></pre>
+<pre><code>[1] 0.1958</code></pre>
 </div>
 </div>
 </section>
@@ -475,7 +475,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">pnorm</span>(<span class="fl">1.96</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.96</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9500042</code></pre>
+<pre><code>[1] 0.95</code></pre>
 </div>
 </div>
 </section>
@@ -530,17 +530,17 @@
 <section id="a-monte-carlo-simulation-3" class="slide level2">
 <h2>A Monte Carlo simulation</h2>
 <ul>
-<li><p>To review, the theory tells us that <span class="math inline">\(\bar{X}\)</span> is approximately normally distributed, has expected value <span class="math inline">\(p=\)</span> 0.45, and standard error <span class="math inline">\(\sqrt{p(1-p)/N}\)</span> = 0.0157321.</p></li>
+<li><p>To review, the theory tells us that <span class="math inline">\(\bar{X}\)</span> is approximately normally distributed, has expected value <span class="math inline">\(p=\)</span> 0.45, and standard error <span class="math inline">\(\sqrt{p(1-p)/N}\)</span> = 0.0157.</p></li>
 <li><p>The simulation confirms this:</p></li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">mean</span>(x_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4498078</code></pre>
+<pre><code>[1] 0.4499</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">sd</span>(x_hat) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01592837</code></pre>
+<pre><code>[1] 0.01582</code></pre>
 </div>
 </div>
 </section>
