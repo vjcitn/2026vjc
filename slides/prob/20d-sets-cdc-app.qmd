@@ -1,0 +1,140 @@
+---
+title: "Reviewing content of Sept 30 meeting of BST 2026"
+Date: 2026-09-30
+---
+# Finite and infinite sets
+
+There is an intimate connection between probability modeling
+in data science and the mathematics of sets.  We distinguished
+
+- Finite sets: the elements can be mapped one-to-one to the set $\{1, \ldots, n\}$ for
+a fixed and specified number $n$.
+- Countably infinite sets: not finite, and elements can be mapped one-to-one to the natural numbers.  
+- Uncountably infinite sets: not finite, but there is no one-to-one mapping to the
+natural numbers.  The existence of such sets was 
+demonstrated by [Georg Cantor](https://en.wikipedia.org/wiki/Georg_Cantor).
+
+# Discrete and continuous probability models
+
+## Discrete models
+
+We have been informal in our treatment of random outcomes in chance
+situations, such as drawing a card from a well-shuffed deck.  The [notes from
+September 27](https://vjcitn.github.io/2026vjc/slides/prob/20b-chisq-cards.html#a-model-for-fairness)
+provide some formalism.  We focused on the concepts of
+
+- defining the index sets for components of experiments (e.g., let $i = 1, \ldots, 52$ denote the
+different card faces available, let $j = 1, \ldots , 1000$ denote the number of draws)
+- clarifying assumptions of independence
+- recalling the form of the chi-squared statistic
+$$
+\sum_{i=1}^K \frac{(O_i-E_i)^2}{E_i}
+$$
+where $O_i$ and $E_i$ are observed and expected counts for events of category $i$.
+When the contributions to the observed counts are independent and
+all categories are equiprobable, this sum
+can be referred to the chi-squared distribution with $K-1$ degrees of freedom.
+
+We also used the murders dataset to form a contingency table and test the
+goodness of fit of a model prescribing equal risk of death by homicide
+across all states and D.C.
+
+## Continuous models
+
+Measures like height and blood pressure are typically regarded as real numbers,
+and we use double-precision floating point numbers to compute on these.  The fact
+that our computations are based on data values that are recorded with limited precision
+does not prevent us from using continuous probability models for such outcomes.
+
+We reviewed relevant content in the Intro to Probability slide deck and corrected
+the form of the Gaussian density in [this slide](https://vjcitn.github.io/2026vjc/slides/prob/20c-intro-to-prob.html#/probability-density-function-3).
+
+# Exploring the CDC waterborne/food-related illness API response
+```
+library(httr)
+z = GET("https://data.cdc.gov/api/v3/views/5xkq-dg7x/query.json")
+```
+We used `zc = content(z)` but then saved the result of that to
+`waterborne.rda`.  Note that the API content was 29MB, but
+the compressed data in RDA format is 2.9MB in size.
+
+We began "getting a sense"
+of the CDC data on waterborne and food disease outbreaks.
+
+This means looking at a list of lists, and learning the
+names for concepts handled in one of the lists.  It may
+not be the case that all elements of the top level
+list have identical structure.  How
+would you find that out?
+
+Here we go, without addressing that question.
+First we learn about the overall list length.
+```{r lk1}
+load("waterborne.rda")
+zc = waterborne
+class(zc)
+length(zc)
+```
+Then we probe one element.
+```{r lk1el}
+zc[[1]]
+```
+
+We can use an applicative functional
+to _try to_ grab date data from each element.
+`sapply` is nice because it will simplify to
+a vector or array if possible.
+```{r lksapp}
+years = sapply( zc, function(x) x$year)
+head(years)
+length(years)
+```
+
+To get a sense of history of the data 
+collected, a histogram of year values would be good.
+But it turns out the data are character!
+We have to coerce.
+```{r lkhist}
+try(hist(years))
+hist(as.numeric(years))
+```
+
+Mode of disease incidence is of interest:
+```{r lkmode}
+modes = sapply( zc, function(x) x$primary_mode)
+table(modes)
+```
+
+
+Here we realize that some elements have
+no information for some fields.
+```{r chkset}
+settings = sapply( zc, function(x) x$setting)
+head(settings)
+table(sapply(settings,length))
+```
+So we decide to create a more intelligent
+collection function.
+
+```{r domoret}
+etio = sapply( zc, function(x) x$etiology)
+table(sapply(etio,length))
+etio = sapply( zc, function(x) { tmp = x$etiology; if(length(tmp)==0) return(NA); return(tmp)} )
+table(etio) |> sort() |> tail(20)
+```
+OK, we are satisfied that we can get
+interesting information from the list.
+But let's try to have AI analyze the
+structure and produce an app that
+simplifies our exploration of the resource.
+
+We wrote out a subset of the data so as not
+to overwhelm the chatbot.  But I made an error, using [5000] instead of [1:5000]...
+```
+library(jsonlite)
+write_json(zc[1:5000], "cdc.json")
+```
+
+While it was dramatic to ask the chatbot to "create an app that we can
+use to explore the data", it would have been more reasonable to start
+with creation of a tidy data table ...
