@@ -528,7 +528,7 @@ ggplot(mapping = aes(x, y)) +
 
 - The probability density function is given by:
 
-$$f(x) = e^{-\frac{1}{2}\left( \frac{x-m}{s} \right)^2} $$ 
+$$f(x) = \frac{1}{\sqrt{2 \pi s^2}} e^{-\frac{1}{2}\left( \frac{x-m}{s} \right)^2} $$ 
 
 - The cumulative distribution for the normal distribution is defined by a mathematical formula which in R can be obtained with the function `pnorm`.
 

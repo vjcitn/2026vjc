@@ -1,0 +1,182 @@
+---
+title: "Collaborative analysis of gun legislation time series"
+author: "BST 260 students"
+---
+
+# Data acquisition
+
+Grab the gun legislation data (originally from [https://www.rand.org/pubs/tools/TLA243-2-v4.html](https://www.rand.org/pubs/tools/TLA243-2-v4.html)).
+
+```{r getd,message=FALSE}
+library(readxl)
+if (!exists("lawdat")) {
+  download.file("https://tinyurl.com/randgunlaw", (tf <- tempfile()))
+  lawdat = read_xlsx(tf, 2)
+}
+```
+
+# Data massaging for ease of use
+
+Rename the variables for convenience.
+
+```{r lk1,message=FALSE}
+library(dplyr)
+nd = lawdat |> rename( id=`Law ID`, state=State, 
+  abbr=`State Postal Abbreviation`, fips=`FIPS Code`, 
+  numclass=`Law Class (num)`, lawclass=`Law Class`, lawclasssub=`Law Class Subtype`, 
+  handorlong=`Handguns or Long Guns`, effect=`Effect`, 
+  changetype=`Type of Change`, edatenote=`Effective Date Note`, 
+  effyear=`Effective Date Year`, effmonth=`Effective Date Month`, 
+  effday=`Effective Date Day`, citation=`Statutory Citation`, 
+  content=`Content`, supyear=`Supersession Date Year`, 
+  supmonth=`Supersession Date Month`, supday=`Supersession Date Day`, 
+  ageformin=`Age for Minimum Age Laws`, 
+  handwaitdays=`Length of Waiting Period (days, handguns)`, 
+  addit=`Additional Context and Notes`, 
+  discrep=`Discrepancies`)
+```
+
+Use lubridate to create `effdate`, a Date-valued column.
+```{r dodate,message=FALSE}
+library(lubridate)
+nd = nd |> mutate(effdate=ymd(paste(effyear, effmonth, effday, sep="-")))
+```
+
+# Data visualization
+
+## Static
+
+Visualize the big picture of counts of legislative
+events classified as Restrictive or Permissive after 1985.
+
+```{r lkcounts,message=FALSE}
+library(ggplot2)
+ggplot(nd |> filter(effect=="Restrictive", effdate > ymd("1985-01-01")), 
+   aes(x=effdate)) + geom_histogram(binwidth=365) + ylim(0,350) +
+   ggtitle("Counts of restrictive legislative changes after 1985")
+ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01")), 
+   aes(x=effdate)) + geom_histogram(binwidth=365) + ylim(0,350) +
+   ggtitle("Counts of permissive legislative changes after 1985")
+```
+
+## Interactive
+
+Here we use plotly so that we can hover over elements
+of the plot to get more information.
+
+```{r doply,message=FALSE}
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01")), 
+   aes(x=effdate, text=paste(state,lawclass))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes after 1985")
+ggplotly(g1)
+```
+
+# Per-state sections
+
+## Alabama
+
+```{r somecode,echo=FALSE}
+# this code written by claude opus 5.5
+wrap_hover <- function(x, width = 40, max_lines = Inf, sep = "<br>", escape = TRUE) {
+  x <- as.character(x)
+  vapply(x, function(s) {
+    if (is.na(s) || !nzchar(s)) return(s)
+    if (escape) {                       # keep "<", ">", "&" from being read as HTML
+      s <- gsub("&", "&amp;", s, fixed = TRUE)
+      s <- gsub("<", "&lt;",  s, fixed = TRUE)
+      s <- gsub(">", "&gt;",  s, fixed = TRUE)
+    }
+    # split any word longer than the line width (long IDs, snake_case names, URLs)
+    s <- gsub(sprintf("(\\S{%d})(?=\\S)", width - 1), "\\1 ", s, perl = TRUE)
+    lines <- strwrap(s, width = width)
+    if (length(lines) > max_lines) {
+      lines <- lines[seq_len(max_lines)]
+      lines[max_lines] <- paste0(lines[max_lines], " \u2026")
+    }
+    paste(lines, collapse = sep)
+  }, character(1), USE.NAMES = FALSE)
+}
+```
+
+```{r doplyAL}
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), state=="Alabama"), 
+   aes(x=effdate, text=paste(state,lawclass,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes in Alabama after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+```
+## Alaska
+
+```{r doplyAK}
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Restrictive", effdate > ymd("1985-01-01"), state=="Alaska"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of restrictive legislative changes in Alaska after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), state=="Alaska"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes in Alaska after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+```
+## Arizona
+## Arkansas
+## California
+
+```{r doplyCA}
+library(plotly)
+g1 = ggplot(nd |> filter(effect=="Restrictive", effdate > ymd("1985-01-01"), state=="California"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of restrictive legislative changes in California after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+g1 = ggplot(nd |> filter(effect=="Permissive", effdate > ymd("1985-01-01"), state=="California"), 
+   aes(x=effdate, text=paste(state,lawclass,changetype,wrap_hover(content)))) + geom_histogram(binwidth=365) +
+   ggtitle("Counts of permissive legislative changes in California after 1985")
+ggplotly(g1) |> plotly::style(hoverlabel = list(align = "left"))
+```
+## Colorado
+## Connecticut
+## Delaware
+## Florida
+## Georgia
+## Hawaii
+## Idaho
+## Illinois
+## Indiana
+## Iowa
+## Kansas
+## Kentucky
+## Louisiana
+## Maine
+## Maryland
+## Massachusetts
+## Michigan
+## Minnesota
+## Mississippi
+## Missouri
+## Montana
+## Nebraska
+## Nevada
+## New Hampshire
+## New Jersey
+## New Mexico
+## New York
+## North Carolina
+## North Dakota
+## Ohio
+## Oklahoma
+## Oregon
+## Pennsylvania
+## Rhode Island
+## South Carolina
+## South Dakota
+## Tennessee
+## Texas
+## Utah
+## Vermont
+## Virginia
+## Washington
+## West Virginia
+## Wisconsin
+## Wyoming

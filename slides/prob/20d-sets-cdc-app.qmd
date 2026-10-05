@@ -1,6 +1,8 @@
 ---
 title: "Reviewing content of Sept 30 meeting of BST 2026"
-Date: 2026-09-30
+keywords: "Probability"
+date: 2026-09-30
+format: html
 ---
 # Finite and infinite sets
 
