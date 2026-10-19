@@ -1,12 +1,12 @@
 ---
 title: Problem set 5
-date: 2026-10-23
+date: 2026-10-26
 ---
 
 # Overview
 
-If you use AI to help solve any problem (and some of the 
-problems request that you do so), please
+If you use AI to help solve any problem (and some
+problems on certain problem sets request that you do so), please
 provide information on 1) the model in use, 2) the prompt used to get help,
 3) some comments on what you learned from the encounter.
 
@@ -113,7 +113,7 @@ Provide code and an illustration.**
 
 ## Discrete probability
 
-Read chapter 5 and provide solutions to these exercises.
+Read chapter 5 and provide solutions to these exercises, numbered as found in the textbook.
 
 **9. Two teams, say the Cavaliers and the Warriors, are playing a seven-game series. The teams are equally good, so they each have a 50-50 chance of winning each game. If the Cavaliers lose the first game, what is the probability that they win the series?**
 

@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://vjcitn.github.io/2026vjc/psets2026/pset-05-dist.html</loc>
-    <lastmod>2026-10-19T09:38:49.397Z</lastmod>
+    <lastmod>2026-10-19T19:38:41.818Z</lastmod>
   </url>
   <url>
     <loc>https://vjcitn.github.io/2026vjc/psets2026/pset-04-nhanes-cards.html</loc>
@@ -157,56 +157,60 @@
     <lastmod>2026-09-11T20:59:59.113Z</lastmod>
   </url>
   <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-08-linear-models.html</loc>
-    <lastmod>2026-07-30T10:23:04.599Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-06-prob.html</loc>
-    <lastmod>2026-07-30T10:23:04.588Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-05-dataviz.html</loc>
-    <lastmod>2026-07-30T10:23:04.576Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-07-election.html</loc>
-    <lastmod>2026-07-30T10:23:04.564Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-01-unix-quarto.html</loc>
-    <lastmod>2026-07-30T10:23:04.552Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/overview.html</loc>
-    <lastmod>2026-08-29T12:50:26.507Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/init-repos.html</loc>
-    <lastmod>2026-08-06T21:57:55.045Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-09-matrices.html</loc>
-    <lastmod>2026-07-30T10:23:04.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-03-tidyverse.html</loc>
-    <lastmod>2026-07-30T10:23:04.558Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-10-ml.html</loc>
-    <lastmod>2026-07-30T10:23:04.570Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets/pset-02-r-vectorization.html</loc>
-    <lastmod>2026-07-30T10:23:04.582Z</lastmod>
+    <loc>https://vjcitn.github.io/2026vjc/psets2026.html</loc>
+    <lastmod>2026-10-19T09:39:31.711Z</lastmod>
   </url>
   <url>
     <loc>https://vjcitn.github.io/2026vjc/psets/pset-04-wrangling.html</loc>
     <lastmod>2026-07-30T10:23:04.594Z</lastmod>
   </url>
   <url>
-    <loc>https://vjcitn.github.io/2026vjc/psets2026.html</loc>
-    <lastmod>2026-10-19T09:39:31.711Z</lastmod>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-02-r-vectorization.html</loc>
+    <lastmod>2026-07-30T10:23:04.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-10-ml.html</loc>
+    <lastmod>2026-07-30T10:23:04.570Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-03-tidyverse.html</loc>
+    <lastmod>2026-07-30T10:23:04.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-09-matrices.html</loc>
+    <lastmod>2026-07-30T10:23:04.546Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/init-repos.html</loc>
+    <lastmod>2026-08-06T21:57:55.045Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/overview.html</loc>
+    <lastmod>2026-08-29T12:50:26.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-01-unix-quarto.html</loc>
+    <lastmod>2026-07-30T10:23:04.552Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-07-election.html</loc>
+    <lastmod>2026-07-30T10:23:04.564Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-05-dataviz.html</loc>
+    <lastmod>2026-07-30T10:23:04.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-06-prob.html</loc>
+    <lastmod>2026-07-30T10:23:04.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/psets/pset-08-linear-models.html</loc>
+    <lastmod>2026-07-30T10:23:04.599Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vjcitn.github.io/2026vjc/oct19.html</loc>
+    <lastmod>2026-10-19T13:48:52.909Z</lastmod>
   </url>
   <url>
     <loc>https://vjcitn.github.io/2026vjc/index.html</loc>
