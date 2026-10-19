@@ -1,0 +1,196 @@
+---
+title: Problem set 5
+date: 2026-10-23
+---
+
+# Overview
+
+If you use AI to help solve any problem (and some of the 
+problems request that you do so), please
+provide information on 1) the model in use, 2) the prompt used to get help,
+3) some comments on what you learned from the encounter.
+
+Solutions to this problem set should be submitted as quarto documents.
+Place the required file in your bst260 repository in folder "solutions" as "pset05.qmd"
+Use the title "BST 260 Problem set 5: Using distributions"
+and put your
+name as author in the yaml header.  Ensure that the HTML
+to which your quarto document compiles has a good appearance.
+
+Produce your solution document as a quarto document in your bst260
+repository, called `pset05.qmd`.  Verify that the document renders
+properly to html.
+
+# Hypergeometric distribution
+
+Consider the outcome of drawing five cards from a fair deck.
+Our outcome is the number of hearts.  We are drawing without
+replacement.  There are a total of $\binom{52}{5}$ ways
+of selecting 5 cards, and the number of
+ways of obtaining $k$ hearts is $\binom{13}{k} \times \binom{39}{5-k}$.
+Thus
+$$
+Pr(X = k) = \frac{\binom{13}{k} \binom{39}{5-k}}{\binom{52}{5}}, k = 0, \ldots, 5.
+$$
+
+Our card-shuffling setup is used here to estimate the probability
+of getting a hand with exactly two hearts.  
+
+```{r lkh}
+deck = apply(expand.grid(c("A", 2:10, "J", "Q", "K"), c("Hearts", "Spades", 
+    "Clubs", "Diamonds")), 1, paste, collapse=" ")
+head(deck)
+has2h = function(x) length(grep("Hearts", x))==2
+set.seed(1234)
+table(replicate(100, has2h(sample(deck,5,replace=FALSE))))
+```
+
+**Exercise 1a:** Improve the simulation to get an accurate estimate of the probability of
+getting exactly two hearts and compare your estimate against the theoretical
+probability of the event under the hypergeometric model for $Pr(\# \mbox{hearts} = 2),
+using `dhyper`.
+
+
+
+**Exercise 1b:**
+Here we are counting the number of hearts in each hand dealt.
+```{r doexp}
+nhearts = function(x) length(grep("Hearts", x))
+hc = replicate(5000, nhearts(sample(deck,5,replace=FALSE)))
+table(hc)
+mean(hc)
+var(hc)
+```
+
+Use the expressions for mean and variance of the hypergeometric
+distribution (see the manual page for `dypher`) to obtain exact values for expectation and
+variance of the number of hearts in draws of five cards
+without replacement.
+
+
+# Reading and exercises from the data science book.
+
+## Numerical summaries; robustness
+
+Read chapter 2 of the [course textbook](https://rafalab.dfci.harvard.edu/dsbook-part-2).
+
+Exercises from the book to be solved in this problem set:
+
+Load the Galton data and create a vector x, consisting solely of the child heights:
+
+```{r getd,message=FALSE}
+library(HistData)
+x <- Galton$child
+```
+
+Provide the code to solve each problem after its statement.
+
+**9. Compute the average and SD of these data.**
+
+**10. Compute the median and median absolute deviation of these data.**
+
+**11.** Now suppose Galton made a mistake when entering the first value and forgot to use the decimal point. You can imitate this error by typing:
+
+```{r p11}
+x_with_error <- x
+x_with_error[1] <- x_with_error[1]*10
+```
+
+Enter your answers as numbers below.
+
+**How many inches does the average grow after this mistake?**
+
+**12. How many inches does the SD grow after this mistake?**
+
+**13. How many inches does the median grow after this mistake?**
+
+**14. How many inches does the MAD grow after this mistake?**
+
+**15. How could you use exploratory data analysis to detect that an error was made?
+Provide code and an illustration.**
+
+**16. How much can the average accidentally grow with mistakes like this? Write a function called error_avg that takes in a value k. This function should replace the first entry of the vector x with the value k, then compute and return the average of this modified x. Show the results for k=10000 and k=-10000.**
+
+## Discrete probability
+
+Read chapter 5 and provide solutions to these exercises.
+
+**9. Two teams, say the Cavaliers and the Warriors, are playing a seven-game series. The teams are equally good, so they each have a 50-50 chance of winning each game. If the Cavaliers lose the first game, what is the probability that they win the series?**
+
+**10. Confirm the results of the previous question with a Monte Carlo simulation.**
+
+**11. Two teams, 𝐴 and 𝐵, are playing a seven-game series. Team 𝐴 is better than team 𝐵 and has a 𝑝 >0.5 chance of winning each game. Given a value 𝑝, the probability of the underdog team 𝐵 winning the series can be estimated with a Monte Carlo simulation using the following function:**
+
+```
+prob_win <- function(p, B =10000){
+  result <- replicate(B, {
+    b_win <- sample(c(1,0), 7, replace = TRUE, prob = c(1 - p, p))
+    sum(b_win) >= 4
+  })
+  mean(result)
+}
+```
+
+**For `p <- seq(0.5, 0.95, 0.025)`, use the function `sapply` to compute the corresponding probabilities of winning, call it ws. Then plot the result.**
+
+## Continuous probability
+
+Read chapter 6 and provide solutions to all exercises, some slightly reworded, here: 
+
+**1. Assume the distribution of female heights is approximated by a normal distribution with a mean of 64 inches and a standard deviation of 3 inches. If we pick a female at random, what is the probability that she is 5 feet or shorter?**
+
+**2. Assume the same distribution as the previous exercise. If we pick a female at random, what is the probability that she is 6 feet or taller?**
+
+**3. Assume the same distribution as the previous exercise. If we pick a female at random, what is the probability that she is between 61 and 67 inches?**
+
+**4. Repeat the exercise above, but convert everything to centimeters. That is, multiply every height, including the mean and standard deviation, by 2.54. What is the answer now?**
+
+**5. Notice that the answers to the previous two exercises are identical even when you change units. This makes sense since the standard deviations from the average for an entry in a list are not affected by what units we use. In fact, if you look closely, you notice that 61 and 67 are both 1 SD away from the average. Compute the probability that a randomly picked, normally distributed random outcome is within 1 SD of the average.  Provide the code and
+explain its components.**
+
+**6. To understand the mathematical rationale that explains why the answers to exercises 3, 4, and 5 are the same, suppose we have a random outcome $X$ with average $\mu$ and standard deviation $\sigma$ and that we ask what the probability of $X$ being smaller than or equal to $\alpha$ is. The notation for this probability assertion is:
+
+$$
+\mbox{Pr}(X \leq \alpha)
+$$
+
+Remember from Chapter 2’s discussion of standardized units that $\alpha$ is $|\alpha - \mu|/\sigma$ 
+standard deviations 
+away from the average $\mu$. In our event description, we can subtract $\mu$ from 
+both sides (this is often called centering) and then divide both sides by $\sigma$:
+
+$$
+\mbox{Pr}(X \leq \alpha) = \mbox{Pr}\left( \frac{X-\mu}{\sigma} \leq \frac{\alpha - \mu}{\sigma}\right)
+$$
+
+
+The quantity on the left has an 
+average of 0 and a standard deviation of 1. We will call it $Z$:
+
+$$
+\mbox{Pr}(X \leq \alpha) = \mbox{Pr}\left(  Z \leq \frac{\alpha - \mu}{\sigma}\right)
+$$
+
+So, no matter the units of $X$ the probability of $X \leq \alpha$ is 
+the same as the probability of a centered standardized variable being less than $(\alpha - \mu)/\sigma$.
+
+Let $X$ have mean $\mu$ and standard deviation (SD) $\sigma$, 
+and let $Y = cX$ for a conversion factor $c \gt 0$ (e.g., $c = 2.54$).
+
+(a) What are the mean and SD of $Y$?
+
+(b) Show that $(Y − c\mu)/(c\sigma) = (X − \mu)/\sigma$. What units does this quantity have?
+
+(c) Now assume $X$ is normally distributed. Which of the following equal $Pr(X \leq a)$? Select all that apply.
+
+```
+A. pnorm(a, mu, sigma)
+B. pnorm((a - mu)/sigma)
+C. pnorm(2.54*a, 2.54*mu, 2.54*sigma)
+D. pnorm((a - mu)/sigma, mu, sigma)
+E. pnorm(a)
+```
+
+**7. Imagine the distribution of male adults is approximately normal with a mean of 69 and a standard deviation of 3. How tall is the male in the 99th percentile? Hint: use qnorm.**
+
+**8. IQ scores are approximately normally distributed, with a mean of 100 and a standard deviation of 15. Suppose we want to know what the distribution of the highest IQ would look like across all high school graduating classes if 10,000 people are born each year in a school district. Run a Monte Carlo simulation with B = 1000, where each iteration generates 10,000 IQ scores and records the highest value. Then, create a histogram to visualize the distribution of the maximum IQ in the district.**
