@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-10-19">
+<meta name="keywords" content="Inference">
+
+<title>Notes for Oct 19 2026: CIs, lm, lme, glm – DRAFT FOR 2026 fall of BST 260: Introduction to Data Science</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-802e7a38cf28819fe2f2f4f18fc37193.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Notes for Oct 19 2026: CIs, lm, lme, glm</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/vjcitn/2026vjc" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../psets2026.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Problem Sets 2026</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../psets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Past Problem Sets (for 2025 edition)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../oral-evaluations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Oral Evaluations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../final-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#model-adequacy-for-categorical-and-continuous-outcomes" id="toc-model-adequacy-for-categorical-and-continuous-outcomes" class="nav-link" data-scroll-target="#model-adequacy-for-categorical-and-continuous-outcomes">Model adequacy for categorical and continuous outcomes</a>
+  <ul class="collapse">
+  <li><a href="#categorical" id="toc-categorical" class="nav-link" data-scroll-target="#categorical">Categorical</a></li>
+  <li><a href="#continuous" id="toc-continuous" class="nav-link" data-scroll-target="#continuous">Continuous</a></li>
+  <li><a href="#manipulations-underlying-sqrtn-rate-of-uncertainty-reduction" id="toc-manipulations-underlying-sqrtn-rate-of-uncertainty-reduction" class="nav-link" data-scroll-target="#manipulations-underlying-sqrtn-rate-of-uncertainty-reduction">Manipulations underlying <span class="math inline">\(\sqrt{n}\)</span> rate of “uncertainty reduction”</a></li>
+  <li><a href="#a-demonstrative-app" id="toc-a-demonstrative-app" class="nav-link" data-scroll-target="#a-demonstrative-app">A demonstrative app</a></li>
+  <li><a href="#setup-for-standard-linear-model" id="toc-setup-for-standard-linear-model" class="nav-link" data-scroll-target="#setup-for-standard-linear-model">Setup for standard linear model</a></li>
+  <li><a href="#hierarchical-sources-of-variation" id="toc-hierarchical-sources-of-variation" class="nav-link" data-scroll-target="#hierarchical-sources-of-variation">Hierarchical sources of variation</a>
+  <ul class="collapse">
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#application-of-lme" id="toc-application-of-lme" class="nav-link" data-scroll-target="#application-of-lme">Application of “lme”</a></li>
+  </ul></li>
+  <li><a href="#generalized-linear-models" id="toc-generalized-linear-models" class="nav-link" data-scroll-target="#generalized-linear-models">Generalized linear models</a></li>
+  <li><a href="#further-work" id="toc-further-work" class="nav-link" data-scroll-target="#further-work">Further work</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/vjcitn/2026vjc/blob/main/slides/inference/22b-modeling-oct19.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Notes for Oct 19 2026: CIs, lm, lme, glm</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 19, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Inference</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<ul>
+<li><p>review of chi-squared criterion, analogy to “t-statistic”</p></li>
+<li><p>manipulations of sample statistics underlying <span class="math inline">\(\sqrt{n}\)</span> rate of “uncertainty reduction”</p>
+<ul>
+<li>assumes “iid”</li>
+<li>application to “confidence intervals”</li>
+</ul></li>
+<li><p>sources of variability: Galton’s family data on heights</p>
+<ul>
+<li>invalid standard errors with routine linear model application</li>
+<li>components of mixed effect models</li>
+</ul></li>
+<li><p>dissecting “main effects” and “interactions” in NHANES</p>
+<ul>
+<li>Wilkinson-Rogers notation</li>
+</ul></li>
+<li><p>murder rates by region: Poisson regression</p></li>
+</ul>
+</section>
+<section id="model-adequacy-for-categorical-and-continuous-outcomes" class="level1">
+<h1>Model adequacy for categorical and continuous outcomes</h1>
+<section id="categorical" class="level2">
+<h2 class="anchored" data-anchor-id="categorical">Categorical</h2>
+<p>Does our approach to computing expectations in table cells “fit the data”?</p>
+<p>If the row and column classifications are independent, the expected count in cell <span class="math inline">\((i,j)\)</span> is <span class="math display">\[
+E_{ij} = \frac{(\text{row } i \text{ total})(\text{column } j \text{ total})}{n}.
+\]</span></p>
+<p>The statistic <span class="math display">\[
+X^2 = \sum_{i=1}^{r}\sum_{j=1}^{c} \frac{(O_{ij}-E_{ij})^2}{E_{ij}}
+\]</span> approximately follows a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\((r-1)(c-1)\)</span> degrees of freedom when the independence model holds and the expected counts are not too small (a common rule of thumb: all <span class="math inline">\(E_{ij} \ge 5\)</span>).</p>
+</section>
+<section id="continuous" class="level2">
+<h2 class="anchored" data-anchor-id="continuous">Continuous</h2>
+<p>Does our hypothesized expected value <span class="math inline">\(\mu\)</span> agree with the sample mean? <span class="math display">\[
+t = \frac{\bar{x}-\mu}{s/\sqrt{n}}
+\]</span> For a sample of <span class="math inline">\(n\)</span> independent identically distributed Gaussian outcomes, when the hypothesized mean value <span class="math inline">\(\mu\)</span> is correctly specified, this quantity exactly follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. When the Gaussian assumption does not hold, the <span class="math inline">\(t\)</span> distribution is approximate.</p>
+</section>
+<section id="manipulations-underlying-sqrtn-rate-of-uncertainty-reduction" class="level2">
+<h2 class="anchored" data-anchor-id="manipulations-underlying-sqrtn-rate-of-uncertainty-reduction">Manipulations underlying <span class="math inline">\(\sqrt{n}\)</span> rate of “uncertainty reduction”</h2>
+<p><span class="math inline">\(X\)</span> denotes a random variable; <span class="math inline">\(x_i, i = 1, \ldots, n\)</span> denote independent and identically distributed realizations. We assume <span class="math display">\[
+EX = \mu, \mbox{Var}X = EX^2-E^2X = \sigma^2 &lt; \infty.
+\]</span></p>
+<p>The <span class="math inline">\(\bar{x}\)</span> denotes <span class="math inline">\(\sum_i x_i/n\)</span>, the sample mean. The sample variance is <span class="math inline">\(s^2 =\sum_i (x_i - \bar{x})^2/n\)</span>.</p>
+<p>Fact 1: <span class="math inline">\(E(a+bX) = a+b\cdot EX\)</span></p>
+<p>Fact 2: <span class="math inline">\(\mbox{Var}(a+bX) = b^2 \cdot \mbox{Var}X\)</span></p>
+<p>From these we derive the sampling variance of <span class="math inline">\(\bar{X}\)</span> as <span class="math inline">\(n^{-1}\sigma^2\)</span>. Since we want to work in the scale of units of <span class="math inline">\(X\)</span> we take the square root and define the <strong>standard error</strong> of the mean as <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+<p>We create a large-sample two-sided <span class="math inline">\((1-\alpha)\)</span> per cent confidence interval for <span class="math inline">\(\mu\)</span> as <span class="math display">\[
+\bar{x} \pm z_{1-\alpha/2}s/\sqrt{n}
+\]</span></p>
+<p>The coverage assertion assumes contributions to the sample mean are “iid” (independent and identically distributed).</p>
+</section>
+<section id="a-demonstrative-app" class="level2">
+<h2 class="anchored" data-anchor-id="a-demonstrative-app">A demonstrative app</h2>
+<p>See <a href="https://vjcitn.shinyapps.io/bst260CIAPP">https://vjcitn.shinyapps.io/bst260CIAPP</a></p>
+</section>
+<section id="setup-for-standard-linear-model" class="level2">
+<h2 class="anchored" data-anchor-id="setup-for-standard-linear-model">Setup for standard linear model</h2>
+<p>We have <span class="math inline">\(y_i, i = 1, \ldots, n\)</span> regarded as independent realizations of a random variable <span class="math inline">\(Y\)</span> with mean <span class="math inline">\(\mu_i\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. We write <span class="math inline">\(\mu_i = \alpha + \beta x_i, i = 1, \ldots, n\)</span>, where <span class="math inline">\(x_i\)</span> is a scalar “covariate”.</p>
+<p>Our objectives include <strong>point estimation</strong> of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> along with confidence intervals analogous to those defined above for the sample mean. Example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NHANES)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nh11 <span class="ot">=</span> NHANES <span class="sc">|&gt;</span> <span class="fu">filter</span>(SurveyYr <span class="sc">==</span> <span class="st">"2011_12"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">=</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> Age, <span class="at">data=</span>nh11)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">3</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = BPSysAve ~ Age, data = nh11)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-52.06  -8.82  -1.19   7.91  98.25 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 100.1443     0.5069   197.6   &lt;2e-16 ***
+Age           0.4522     0.0111    40.9   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.7 on 4279 degrees of freedom
+  (719 observations deleted due to missingness)
+Multiple R-squared:  0.281, Adjusted R-squared:  0.281 
+F-statistic: 1.67e+03 on 1 and 4279 DF,  p-value: &lt;2e-16</code></pre>
+</div>
+</div>
+<p>This model has the property that the intercept is the expected systolic blood pressure for an individual aged 0 years. We can improve interpretability of the intercept by centering the covariate about some reference value of interest.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lm1c <span class="ot">=</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> <span class="fu">I</span>(Age<span class="dv">-50</span>), <span class="at">data=</span>nh11)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = BPSysAve ~ I(Age - 50), data = nh11)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-52.06  -8.82  -1.19   7.91  98.25 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 122.7543     0.2462   498.6   &lt;2e-16 ***
+I(Age - 50)   0.4522     0.0111    40.9   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.7 on 4279 degrees of freedom
+  (719 observations deleted due to missingness)
+Multiple R-squared:  0.281, Adjusted R-squared:  0.281 
+F-statistic: 1.67e+03 on 1 and 4279 DF,  p-value: &lt;2e-16</code></pre>
+</div>
+</div>
+<p>Note that there are other quantities presented. We elaborate the model to assess whether participant sex is associated with average blood pressure.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lm1cs <span class="ot">=</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> <span class="fu">I</span>(Age<span class="dv">-50</span>)<span class="sc">*</span>Sex, <span class="at">data=</span>nh11)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1cs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = BPSysAve ~ I(Age - 50) * Sex, data = nh11)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-52.53  -8.70  -0.68   7.75  97.05 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         121.4697     0.3403  356.96  &lt; 2e-16 ***
+I(Age - 50)           0.5224     0.0151   34.68  &lt; 2e-16 ***
+Sexmale               2.4758     0.4863    5.09  3.7e-07 ***
+I(Age - 50):Sexmale  -0.1444     0.0219   -6.60  4.5e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.6 on 4277 degrees of freedom
+  (719 observations deleted due to missingness)
+Multiple R-squared:   0.3,  Adjusted R-squared:  0.299 
+F-statistic:  610 on 3 and 4277 DF,  p-value: &lt;2e-16</code></pre>
+</div>
+</div>
+<p>Base R includes a simple diagnostic plot procedure for fitted linear model objects.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm1c, <span class="at">pch=</span><span class="st">"."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="22b-modeling-oct19_files/figure-html/lkdiag-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This display indicates two conditions that are of concern in performing valid statistical inference using the model.</p>
+<p>Challenge: How do the factors Age, Sex and “Race3” associate with average systolic blood pressure in the NHANES 2011-2012 subset?</p>
+</section>
+<section id="hierarchical-sources-of-variation" class="level2">
+<h2 class="anchored" data-anchor-id="hierarchical-sources-of-variation">Hierarchical sources of variation</h2>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model">Model</h3>
+<p>The GaltonFamilies dataset in HistData package motivates us to deal with a specific exception to the assumption of independence of observations in a linear modeling context.</p>
+<p>The formalism now addresses <span class="math inline">\(N\)</span> independently sampled families; <span class="math inline">\(y_{ij}\)</span> is the response of child <span class="math inline">\(j\)</span> in family <span class="math inline">\(i\)</span>, <span class="math inline">\(i = 1, \ldots, N\)</span>, <span class="math inline">\(j = 1, \ldots, n_i\)</span>, where <span class="math inline">\(n_i\)</span> denotes the number of children in family <span class="math inline">\(i\)</span>.</p>
+<p>The model is now <span class="math display">\[
+y_{ij} = \alpha + x_{ij}^t \beta + a_i + e_{ij}
+\]</span> in which we have</p>
+<ul>
+<li><span class="math inline">\(x_{ij}\)</span> a p-vector of covariates,</li>
+<li><span class="math inline">\(\alpha\)</span> is a scalar parameter and <span class="math inline">\(\beta\)</span> is a p-vector of “fixed effects” parameters to be estimated,</li>
+<li><span class="math inline">\(a_i\)</span> representing a “random intercept”, <span class="math inline">\(a_i \sim N(0, \sigma^2_b)\)</span>,</li>
+<li><span class="math inline">\(e_{ij}\)</span> representing residual variation <span class="math inline">\(e_{ij}|a_i \sim N(0, \sigma^2_e)\)</span></li>
+</ul>
+<p>The quantity known as “intraclass correlation” is defined as <span class="math display">\[
+\rho_{icc} = \frac{\sigma^2_b}{\sigma^2_b + \sigma^2_e}
+\]</span> and is bounded between 0 and 1; larger values are indicative of stronger clustering within families.</p>
+</section>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<p>Claude suggested this code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(HistData); <span class="fu">library</span>(dplyr); <span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">subset</span>(GaltonFamilies, gender <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(family) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">fmean =</span> <span class="fu">mean</span>(childHeight), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">family =</span> <span class="fu">reorder</span>(family, fmean))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(m, <span class="fu">aes</span>(family, childHeight, <span class="at">group =</span> family)) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"grey60"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> fmean), <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">shape =</span> <span class="dv">95</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="22b-modeling-oct19_files/figure-html/lkcl-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="application-of-lme" class="level3">
+<h3 class="anchored" data-anchor-id="application-of-lme">Application of “lme”</h3>
+<p>This is a very superficial illustration of model fitting for the hierarchical situation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lme1 <span class="ot">=</span> <span class="fu">lme</span>(childHeight<span class="sc">~</span><span class="dv">1</span>, <span class="at">random=</span><span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>family, <span class="at">data=</span>m)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lme1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed-effects model fit by REML
+  Data: m 
+   AIC  BIC logLik
+  2233 2246  -1114
+
+Random effects:
+ Formula: ~1 | family
+        (Intercept) Residual
+StdDev:        1.62     2.06
+
+Fixed effects:  childHeight ~ 1 
+            Value Std.Error  DF t-value p-value
+(Intercept)  69.3     0.159 302     437       0
+
+Standardized Within-Group Residuals:
+    Min      Q1     Med      Q3     Max 
+-3.6195 -0.5766  0.0537  0.5776  2.9173 
+
+Number of Observations: 481
+Number of Groups: 179 </code></pre>
+</div>
+</div>
+<p>The estimate of intraclass correlation can be extracted from the “Random effects” subtable entries.</p>
+<p>Challenge: Using a similar modeing approach, compute the intraclass correlation coefficient for female child’s heights in the Galton families.</p>
+<p>Challenge: How would you address the hypothesis that average child height is associated with family size?</p>
+</section>
+</section>
+<section id="generalized-linear-models" class="level2">
+<h2 class="anchored" data-anchor-id="generalized-linear-models">Generalized linear models</h2>
+<p>The models we’ve looked at work for symmetrically distributed continuous responses. Important generalizations are available for responses that have binary, counted, and skewed distributions. As an illustration we consider a Poisson model for the murders dataset. We will model the rate of murders per 100000 individuals.</p>
+<p>To do this, we introduce the concept of an offset. We have two components of our response, the count of murders, which is assumed to follow the Poisson model with mean <span class="math inline">\(\mu_i\)</span> for region <span class="math inline">\(i\)</span>, and the number of units at risk, <span class="math inline">\(n_i\)</span> which is a fixed quantity for each region. The rate <span class="math inline">\(r_i = \mu_i/n_i\)</span>, and we will model <span class="math inline">\(\log r_i = \log \mu_i - \log n_i\)</span>. Equivalently <span class="math inline">\(\log \mu_i = \log r_i + \log n_i\)</span>. The log of the population factor is an “offset” that has no associated parameter, it ensures that the rate is scaled as we desire.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(murders)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">5</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(murders, <span class="fu">sum</span>(total)<span class="sc">/</span><span class="fu">sum</span>(population<span class="sc">/</span><span class="dv">100000</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.0346</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>poi1 <span class="ot">=</span> <span class="fu">glm</span>(total<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span><span class="fu">offset</span>(<span class="fu">log</span>(population<span class="sc">/</span><span class="dv">100000</span>)), </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">family=</span><span class="st">"poisson"</span>, <span class="at">data=</span>murders)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(poi1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = total ~ 1 + offset(log(population/1e+05)), family = "poisson", 
+    data = murders)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   1.1101     0.0103     108   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 1570.6  on 50  degrees of freedom
+Residual deviance: 1570.6  on 50  degrees of freedom
+AIC: 1888
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(poi1)[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.0346</code></pre>
+</div>
+</div>
+<p>Let’s use the framework to assess variation in rate by region:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>poi2 <span class="ot">=</span> <span class="fu">glm</span>(total<span class="sc">~</span>region<span class="sc">+</span><span class="fu">offset</span>(<span class="fu">log</span>(population<span class="sc">/</span><span class="dv">100000</span>)), </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">family=</span><span class="st">"poisson"</span>, <span class="at">data=</span>murders)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(poi2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = total ~ region + offset(log(population/1e+05)), 
+    family = "poisson", data = murders)
+
+Coefficients:
+                    Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)          0.97667    0.02609   37.43   &lt;2e-16 ***
+regionSouth          0.31162    0.03032   10.28   &lt;2e-16 ***
+regionNorth Central  0.02812    0.03504    0.80     0.42    
+regionWest           0.00022    0.03470    0.01     0.99    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 1570.6  on 50  degrees of freedom
+Residual deviance: 1361.1  on 47  degrees of freedom
+AIC: 1685
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>Challenge: use the coefficients obtained here to derive region-specific rates. Compare them to rates you compute by hand using summarise with dplyr.</p>
+</section>
+<section id="further-work" class="level2">
+<h2 class="anchored" data-anchor-id="further-work">Further work</h2>
+<p>We need to get clearer on methods of estimation and on the properties of residuals and other features of model fits that are used for criticism and establishment of reliability.</p>
+<p>For Poisson distributed random variable <span class="math inline">\(X\)</span>, <span class="math inline">\(\mbox{Var} X = EX\)</span>. Overall, the counts in murders dataset will not satisfy this condition. Diagnostics and model alternatives must be explored. A basic diagnostic: if the Poisson model is appropriate, the variance of the Pearson residual should be close to 1.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vjcitn\.github\.io\/2026vjc\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vjcitn/2026vjc/blob/main/slides/inference/22b-modeling-oct19.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

@@ -237,7 +237,16 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#categorical" id="toc-categorical" class="nav-link" data-scroll-target="#categorical">Categorical</a></li>
   <li><a href="#continuous" id="toc-continuous" class="nav-link" data-scroll-target="#continuous">Continuous</a></li>
-  <li><a href="#hierarchical-sources-of-variation-visualization" id="toc-hierarchical-sources-of-variation-visualization" class="nav-link" data-scroll-target="#hierarchical-sources-of-variation-visualization">Hierarchical sources of variation: visualization</a></li>
+  <li><a href="#manipulations-underlying-sqrtn-rate-of-uncertainty-reduction" id="toc-manipulations-underlying-sqrtn-rate-of-uncertainty-reduction" class="nav-link" data-scroll-target="#manipulations-underlying-sqrtn-rate-of-uncertainty-reduction">Manipulations underlying <span class="math inline">\(\sqrt{n}\)</span> rate of “uncertainty reduction”</a></li>
+  <li><a href="#setup-for-standard-linear-model" id="toc-setup-for-standard-linear-model" class="nav-link" data-scroll-target="#setup-for-standard-linear-model">Setup for standard linear model</a></li>
+  <li><a href="#hierarchical-sources-of-variation" id="toc-hierarchical-sources-of-variation" class="nav-link" data-scroll-target="#hierarchical-sources-of-variation">Hierarchical sources of variation</a>
+  <ul class="collapse">
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">Model</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#application-of-lme" id="toc-application-of-lme" class="nav-link" data-scroll-target="#application-of-lme">Application of “lme”</a></li>
+  </ul></li>
+  <li><a href="#generalized-linear-models" id="toc-generalized-linear-models" class="nav-link" data-scroll-target="#generalized-linear-models">Generalized linear models</a></li>
+  <li><a href="#further-work" id="toc-further-work" class="nav-link" data-scroll-target="#further-work">Further work</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/vjcitn/2026vjc/blob/main/oct19.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -274,7 +283,7 @@ window.Quarto = {
 <h1>Overview</h1>
 <ul>
 <li><p>review of chi-squared criterion, analogy to “t-statistic”</p></li>
-<li><p>manipulations underlying <span class="math inline">\(\sqrt{n}\)</span> rate of “uncertainty reduction”</p>
+<li><p>manipulations of sample statistics underlying <span class="math inline">\(\sqrt{n}\)</span> rate of “uncertainty reduction”</p>
 <ul>
 <li>assumes “iid”</li>
 <li>application to “confidence intervals”</li>
@@ -309,17 +318,153 @@ X^2 = \sum_{i=1}^{r}\sum_{j=1}^{c} \frac{(O_{ij}-E_{ij})^2}{E_{ij}}
 t = \frac{\bar{x}-\mu}{s/\sqrt{n}}
 \]</span> For a sample of <span class="math inline">\(n\)</span> independent identically distributed Gaussian outcomes, when the hypothesized mean value <span class="math inline">\(\mu\)</span> is correctly specified, this quantity exactly follows a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. When the Gaussian assumption does not hold, the <span class="math inline">\(t\)</span> distribution is approximate.</p>
 </section>
-<section id="hierarchical-sources-of-variation-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="hierarchical-sources-of-variation-visualization">Hierarchical sources of variation: visualization</h2>
+<section id="manipulations-underlying-sqrtn-rate-of-uncertainty-reduction" class="level2">
+<h2 class="anchored" data-anchor-id="manipulations-underlying-sqrtn-rate-of-uncertainty-reduction">Manipulations underlying <span class="math inline">\(\sqrt{n}\)</span> rate of “uncertainty reduction”</h2>
+<p><span class="math inline">\(X\)</span> denotes a random variable; <span class="math inline">\(x_i, i = 1, \ldots, n\)</span> denote independent and identically distributed realizations. We assume <span class="math display">\[
+EX = \mu, \mbox{Var}X = EX^2-E^2X = \sigma^2 &lt; \infty.
+\]</span></p>
+<p>The <span class="math inline">\(\bar{x}\)</span> denotes <span class="math inline">\(\sum_i x_i/n\)</span>, the sample mean. The sample variance is <span class="math inline">\(s^2 =\sum_i (x_i - \bar{x})^2/n\)</span>.</p>
+<p>Fact 1: <span class="math inline">\(E(a+bX) = a+b\cdot EX\)</span></p>
+<p>Fact 2: <span class="math inline">\(\mbox{Var}(a+bX) = b^2 \cdot \mbox{Var}X\)</span></p>
+<p>From these we derive the sampling variance of <span class="math inline">\(\bar{X}\)</span> as <span class="math inline">\(n^{-1}\sigma^2\)</span>. Since we want to work in the scale of units of <span class="math inline">\(X\)</span> we take the square root and define the <strong>standard error</strong> of the mean as <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+<p>We create a large-sample two-sided <span class="math inline">\((1-\alpha)\)</span> per cent confidence interval for <span class="math inline">\(\mu\)</span> as <span class="math display">\[
+\bar{x} \pm z_{1-\alpha/2}s/\sqrt{n}
+\]</span></p>
+<p>The coverage assertion assumes contributions to the sample mean are “iid” (independent and identically distributed).</p>
+</section>
+<section id="setup-for-standard-linear-model" class="level2">
+<h2 class="anchored" data-anchor-id="setup-for-standard-linear-model">Setup for standard linear model</h2>
+<p>We have <span class="math inline">\(y_i, i = 1, \ldots, n\)</span> regarded as independent realizations of a random variable <span class="math inline">\(Y\)</span> with mean <span class="math inline">\(\mu_i\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. We write <span class="math inline">\(\mu_i = \alpha + \beta x_i, i = 1, \ldots, n\)</span>, where <span class="math inline">\(x_i\)</span> is a scalar “covariate”.</p>
+<p>Our objectives include <strong>point estimation</strong> of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> along with confidence intervals analogous to those defined above for the sample mean. Example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(HistData); <span class="fu">library</span>(dplyr); <span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">subset</span>(GaltonFamilies, gender <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(family) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">fmean =</span> <span class="fu">mean</span>(childHeight), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">family =</span> <span class="fu">reorder</span>(family, fmean))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(m, <span class="fu">aes</span>(family, childHeight, <span class="at">group =</span> family)) <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"grey60"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> fmean), <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">shape =</span> <span class="dv">95</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NHANES)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nh11 <span class="ot">=</span> NHANES <span class="sc">|&gt;</span> <span class="fu">filter</span>(SurveyYr <span class="sc">==</span> <span class="st">"2011_12"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">=</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> Age, <span class="at">data=</span>nh11)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">3</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = BPSysAve ~ Age, data = nh11)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-52.06  -8.82  -1.19   7.91  98.25 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 100.1443     0.5069   197.6   &lt;2e-16 ***
+Age           0.4522     0.0111    40.9   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.7 on 4279 degrees of freedom
+  (719 observations deleted due to missingness)
+Multiple R-squared:  0.281, Adjusted R-squared:  0.281 
+F-statistic: 1.67e+03 on 1 and 4279 DF,  p-value: &lt;2e-16</code></pre>
+</div>
+</div>
+<p>This model has the property that the intercept is the expected systolic blood pressure for an individual aged 0 years. We can improve interpretability of the intercept by centering the covariate about some reference value of interest.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>lm1c <span class="ot">=</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> <span class="fu">I</span>(Age<span class="dv">-50</span>), <span class="at">data=</span>nh11)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = BPSysAve ~ I(Age - 50), data = nh11)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-52.06  -8.82  -1.19   7.91  98.25 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 122.7543     0.2462   498.6   &lt;2e-16 ***
+I(Age - 50)   0.4522     0.0111    40.9   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.7 on 4279 degrees of freedom
+  (719 observations deleted due to missingness)
+Multiple R-squared:  0.281, Adjusted R-squared:  0.281 
+F-statistic: 1.67e+03 on 1 and 4279 DF,  p-value: &lt;2e-16</code></pre>
+</div>
+</div>
+<p>Note that there are other quantities presented. We elaborate the model to assess whether participant sex is associated with average blood pressure.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lm1cs <span class="ot">=</span> <span class="fu">lm</span>(BPSysAve <span class="sc">~</span> <span class="fu">I</span>(Age<span class="dv">-50</span>)<span class="sc">*</span>Sex, <span class="at">data=</span>nh11)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1cs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = BPSysAve ~ I(Age - 50) * Sex, data = nh11)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-52.53  -8.70  -0.68   7.75  97.05 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)         121.4697     0.3403  356.96  &lt; 2e-16 ***
+I(Age - 50)           0.5224     0.0151   34.68  &lt; 2e-16 ***
+Sexmale               2.4758     0.4863    5.09  3.7e-07 ***
+I(Age - 50):Sexmale  -0.1444     0.0219   -6.60  4.5e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 14.6 on 4277 degrees of freedom
+  (719 observations deleted due to missingness)
+Multiple R-squared:   0.3,  Adjusted R-squared:  0.299 
+F-statistic:  610 on 3 and 4277 DF,  p-value: &lt;2e-16</code></pre>
+</div>
+</div>
+<p>Base R includes a simple diagnostic plot procedure for fitted linear model objects.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lm1c, <span class="at">pch=</span><span class="st">"."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="oct19_files/figure-html/lkdiag-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This display indicates two conditions that are of concern in performing valid statistical inference using the model.</p>
+<p>Challenge: How do the factors Age, Sex and “Race3” associate with average systolic blood pressure in the NHANES 2011-2012 subset?</p>
+</section>
+<section id="hierarchical-sources-of-variation" class="level2">
+<h2 class="anchored" data-anchor-id="hierarchical-sources-of-variation">Hierarchical sources of variation</h2>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model">Model</h3>
+<p>The GaltonFamilies dataset in HistData package motivates us to deal with a specific exception to the assumption of independence of observations in a linear modeling context.</p>
+<p>The formalism now addresses <span class="math inline">\(N\)</span> independently sampled families; <span class="math inline">\(y_{ij}\)</span> is the response of child <span class="math inline">\(j\)</span> in family <span class="math inline">\(i\)</span>, <span class="math inline">\(i = 1, \ldots, N\)</span>, <span class="math inline">\(j = 1, \ldots, n_i\)</span>, where <span class="math inline">\(n_i\)</span> denotes the number of children in family <span class="math inline">\(i\)</span>.</p>
+<p>The model is now <span class="math display">\[
+y_{ij} = \alpha + x_{ij}^t \beta + a_i + e_{ij}
+\]</span> in which we have</p>
+<ul>
+<li><span class="math inline">\(x_{ij}\)</span> a p-vector of covariates,</li>
+<li><span class="math inline">\(\alpha\)</span> is a scalar parameter and <span class="math inline">\(\beta\)</span> is a p-vector of “fixed effects” parameters to be estimated,</li>
+<li><span class="math inline">\(a_i\)</span> representing a “random intercept”, <span class="math inline">\(a_i \sim N(0, \sigma^2_b)\)</span>,</li>
+<li><span class="math inline">\(e_{ij}\)</span> representing residual variation <span class="math inline">\(e_{ij}|a_i \sim N(0, \sigma^2_e)\)</span></li>
+</ul>
+<p>The quantity known as “intraclass correlation” is defined as <span class="math display">\[
+\rho_{icc} = \frac{\sigma^2_b}{\sigma^2_b + \sigma^2_e}
+\]</span> and is bounded between 0 and 1; larger values are indicative of stronger clustering within families.</p>
+</section>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<p>Claude suggested this code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(HistData); <span class="fu">library</span>(dplyr); <span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">subset</span>(GaltonFamilies, gender <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(family) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">fmean =</span> <span class="fu">mean</span>(childHeight), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">family =</span> <span class="fu">reorder</span>(family, fmean))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(m, <span class="fu">aes</span>(family, childHeight, <span class="at">group =</span> family)) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"grey60"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> fmean), <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">shape =</span> <span class="dv">95</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -328,6 +473,117 @@ t = \frac{\bar{x}-\mu}{s/\sqrt{n}}
 </div>
 </div>
 </div>
+</section>
+<section id="application-of-lme" class="level3">
+<h3 class="anchored" data-anchor-id="application-of-lme">Application of “lme”</h3>
+<p>This is a very superficial illustration of model fitting for the hierarchical situation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lme1 <span class="ot">=</span> <span class="fu">lme</span>(childHeight<span class="sc">~</span><span class="dv">1</span>, <span class="at">random=</span><span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>family, <span class="at">data=</span>m)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lme1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed-effects model fit by REML
+  Data: m 
+   AIC  BIC logLik
+  2233 2246  -1114
+
+Random effects:
+ Formula: ~1 | family
+        (Intercept) Residual
+StdDev:        1.62     2.06
+
+Fixed effects:  childHeight ~ 1 
+            Value Std.Error  DF t-value p-value
+(Intercept)  69.3     0.159 302     437       0
+
+Standardized Within-Group Residuals:
+    Min      Q1     Med      Q3     Max 
+-3.6195 -0.5766  0.0537  0.5776  2.9173 
+
+Number of Observations: 481
+Number of Groups: 179 </code></pre>
+</div>
+</div>
+<p>The estimate of intraclass correlation can be extracted from the “Random effects” subtable entries.</p>
+<p>Challenge: Using a similar modeing approach, compute the intraclass correlation coefficient for female child’s heights in the Galton families.</p>
+<p>Challenge: How would you address the hypothesis that average child height is associated with family size?</p>
+</section>
+</section>
+<section id="generalized-linear-models" class="level2">
+<h2 class="anchored" data-anchor-id="generalized-linear-models">Generalized linear models</h2>
+<p>The models we’ve looked at work for symmetrically distributed continuous responses. Important generalizations are available for responses that have binary, counted, and skewed distributions. As an illustration we consider a Poisson model for the murders dataset. We will model the rate of murders per 100000 individuals.</p>
+<p>To do this, we introduce the concept of an offset. We have two components of our response, the count of murders, which is assumed to follow the Poisson model with mean <span class="math inline">\(\mu_i\)</span> for region <span class="math inline">\(i\)</span>, and the number of units at risk, <span class="math inline">\(n_i\)</span> which is a fixed quantity for each region. The rate <span class="math inline">\(r_i = \mu_i/n_i\)</span>, and we will model <span class="math inline">\(\log r_i = \log \mu_i - \log n_i\)</span>. Equivalently <span class="math inline">\(\log \mu_i = \log r_i + \log n_i\)</span>. The log of the population factor is an “offset” that has no associated parameter, it ensures that the rate is scaled as we desire.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(murders)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">5</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(murders, <span class="fu">sum</span>(total)<span class="sc">/</span><span class="fu">sum</span>(population<span class="sc">/</span><span class="dv">100000</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.0346</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>poi1 <span class="ot">=</span> <span class="fu">glm</span>(total<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span><span class="fu">offset</span>(<span class="fu">log</span>(population<span class="sc">/</span><span class="dv">100000</span>)), </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">family=</span><span class="st">"poisson"</span>, <span class="at">data=</span>murders)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(poi1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = total ~ 1 + offset(log(population/1e+05)), family = "poisson", 
+    data = murders)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   1.1101     0.0103     108   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 1570.6  on 50  degrees of freedom
+Residual deviance: 1570.6  on 50  degrees of freedom
+AIC: 1888
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(poi1)[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.0346</code></pre>
+</div>
+</div>
+<p>Let’s use the framework to assess variation in rate by region:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>poi2 <span class="ot">=</span> <span class="fu">glm</span>(total<span class="sc">~</span>region<span class="sc">+</span><span class="fu">offset</span>(<span class="fu">log</span>(population<span class="sc">/</span><span class="dv">100000</span>)), </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">family=</span><span class="st">"poisson"</span>, <span class="at">data=</span>murders)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(poi2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = total ~ region + offset(log(population/1e+05)), 
+    family = "poisson", data = murders)
+
+Coefficients:
+                    Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)          0.97667    0.02609   37.43   &lt;2e-16 ***
+regionSouth          0.31162    0.03032   10.28   &lt;2e-16 ***
+regionNorth Central  0.02812    0.03504    0.80     0.42    
+regionWest           0.00022    0.03470    0.01     0.99    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 1570.6  on 50  degrees of freedom
+Residual deviance: 1361.1  on 47  degrees of freedom
+AIC: 1685
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>Challenge: use the coefficients obtained here to derive region-specific rates. Compare them to rates you compute by hand using summarise with dplyr.</p>
+</section>
+<section id="further-work" class="level2">
+<h2 class="anchored" data-anchor-id="further-work">Further work</h2>
+<p>We need to get clearer on methods of estimation and on the properties of residuals and other features of model fits that are used for criticism and establishment of reliability.</p>
+<p>For Poisson distributed random variable <span class="math inline">\(X\)</span>, <span class="math inline">\(\mbox{Var} X = EX\)</span>. Overall, the counts in murders dataset will not satisfy this condition. Diagnostics and model alternatives must be explored. A basic diagnostic: if the Poisson model is appropriate, the variance of the Pearson residual should be close to 1.</p>
 
 
 </section>

@@ -58,7 +58,8 @@ library(tidyverse)
 ```{r digit-images-example, echo=FALSE, cache=TRUE, message=FALSE} 
 library(dslabs) 
 #mnist <- read_mnist(destdir = "~/Downloads/mnist", download = TRUE) 
-mnist <- read_mnist()
+source("../ml/read_mnist2.R")
+mnist <- read_mnist2()
 x <- mnist$train$images  
 y <- mnist$train$labels 
 tmp <- lapply( c(1,4,5), function(i){ 

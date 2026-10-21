@@ -155,8 +155,9 @@ $$
 * Define the features and labels:
 
 ```{r, echo=FALSE}
-library(dslabs) 
-mnist <- read_mnist()
+#library(dslabs) 
+source("../ml/read_mnist2.R")
+mnist <- read_mnist2()
 x <- mnist$train$images  
 y <- mnist$train$labels 
 ```

@@ -1,0 +1,256 @@
+---
+title: "Notes for Oct 19 2026: CIs, lm, lme, glm"
+keywords: "Inference"
+date: 2026-10-19
+---
+
+# Overview
+
+- review of chi-squared criterion, analogy to "t-statistic"
+
+- manipulations of sample statistics underlying $\sqrt{n}$ rate of "uncertainty reduction"
+    - assumes "iid"
+    - application to "confidence intervals"
+
+- sources of variability: Galton's family data on heights
+
+   - invalid standard errors with routine linear model application
+   - components of mixed effect models
+
+- dissecting "main effects" and "interactions" in NHANES
+    - Wilkinson-Rogers notation
+
+- murder rates by region: Poisson regression
+
+# Model adequacy for categorical and continuous outcomes
+
+## Categorical
+
+Does our approach to computing expectations in table cells "fit the data"?
+
+If the row and column classifications are independent, the expected count in
+cell $(i,j)$ is
+$$
+E_{ij} = \frac{(\text{row } i \text{ total})(\text{column } j \text{ total})}{n}.
+$$
+
+The statistic
+$$
+X^2 = \sum_{i=1}^{r}\sum_{j=1}^{c} \frac{(O_{ij}-E_{ij})^2}{E_{ij}}
+$$
+approximately follows a $\chi^2$ distribution with $(r-1)(c-1)$ degrees of freedom
+when the independence model holds and the expected counts are not too small
+(a common rule of thumb: all $E_{ij} \ge 5$).
+
+## Continuous
+
+Does our hypothesized expected value $\mu$ agree with the sample mean?
+$$
+t = \frac{\bar{x}-\mu}{s/\sqrt{n}}
+$$
+For a sample of $n$ independent identically distributed Gaussian outcomes, when
+the hypothesized mean value $\mu$ is correctly specified, this quantity exactly follows a
+$t$ distribution with $n-1$ degrees of freedom.  When the Gaussian assumption does
+not hold, the $t$ distribution is approximate.
+
+## Manipulations underlying $\sqrt{n}$ rate of "uncertainty reduction"
+
+$X$ denotes a random variable; $x_i, i = 1, \ldots, n$ denote independent and
+identically distributed realizations.  We assume 
+$$
+EX = \mu, \mbox{Var}X = EX^2-E^2X = \sigma^2 < \infty.
+$$
+
+The $\bar{x}$ denotes $\sum_i x_i/n$, the sample mean.  The sample variance
+is $s^2 =\sum_i (x_i - \bar{x})^2/n$.
+
+Fact 1:  $E(a+bX) = a+b\cdot EX$
+
+Fact 2: $\mbox{Var}(a+bX) = b^2 \cdot \mbox{Var}X$
+
+From these we derive the sampling variance of $\bar{X}$ as $n^{-1}\sigma^2$.  Since
+we want to work in the scale of units of $X$ we take the square root and define the
+**standard error** of the mean as $\sigma/\sqrt{n}$.
+
+We create a large-sample two-sided $(1-\alpha)$ per cent confidence interval for $\mu$
+as 
+$$
+\bar{x} \pm z_{1-\alpha/2}s/\sqrt{n}
+$$
+
+The coverage assertion assumes contributions to the sample mean are "iid" (independent
+and identically distributed).
+
+## A demonstrative app
+
+See [https://vjcitn.shinyapps.io/bst260CIAPP](https://vjcitn.shinyapps.io/bst260CIAPP)
+
+## Setup for standard linear model
+
+We have $y_i, i = 1, \ldots, n$ regarded as independent realizations of a random variable $Y$
+with mean $\mu_i$ and variance $\sigma^2$.  We write $\mu_i = \alpha + \beta x_i, i = 1, \ldots, n$,
+where $x_i$ is a scalar "covariate".
+
+Our objectives include **point estimation** of $\alpha$ and $\beta$ along with
+confidence intervals analogous to those defined above for the sample mean.  Example:
+
+```{r lknh,message=FALSE}
+library(NHANES)
+library(dplyr)
+nh11 = NHANES |> filter(SurveyYr == "2011_12")
+lm1 = lm(BPSysAve ~ Age, data=nh11)
+options(digits=3)
+summary(lm1)
+```
+
+This model has the property that the intercept is the
+expected systolic blood pressure for an individual
+aged 0 years.  We can improve interpretability
+of the intercept by centering the covariate about
+some reference value of interest.
+
+```{r docent}
+lm1c = lm(BPSysAve ~ I(Age-50), data=nh11)
+summary(lm1c)
+```
+
+Note that there are other quantities presented.  We 
+elaborate the model to assess whether participant
+sex is associated with average blood pressure.
+
+```{r docentsex}
+lm1cs = lm(BPSysAve ~ I(Age-50)*Sex, data=nh11)
+summary(lm1cs)
+```
+
+Base R includes a simple diagnostic plot procedure
+for fitted linear model objects.
+
+```{r lkdiag}
+par(mfrow=c(2,2), mar=c(4,3,2,2))
+plot(lm1c, pch=".")
+```
+
+This display indicates two conditions that
+are of concern in performing valid statistical inference
+using the model.
+
+Challenge: How do the factors Age, Sex and "Race3" associate with
+average systolic blood pressure in the NHANES 2011-2012 subset?
+
+
+## Hierarchical sources of variation
+
+### Model
+
+The GaltonFamilies dataset in HistData package motivates
+us to deal with a specific exception to the assumption
+of independence of observations in a linear modeling context.
+
+The formalism now addresses $N$ independently
+sampled families; $y_{ij}$ is the response of
+child $j$ in family $i$, $i = 1, \ldots, N$,  $j = 1, \ldots, n_i$,
+where $n_i$ denotes the number of children in family $i$.
+
+The model is now
+$$
+y_{ij} = \alpha + x_{ij}^t \beta + a_i + e_{ij}
+$$
+in which we have 
+
+- $x_{ij}$ a p-vector of covariates,
+- $\alpha$ is a scalar parameter and $\beta$ is a p-vector of "fixed effects" parameters to be estimated,
+- $a_i$ representing a "random intercept", $a_i \sim N(0, \sigma^2_b)$, 
+- $e_{ij}$ representing residual variation $e_{ij}|a_i \sim N(0, \sigma^2_e)$
+
+The quantity known as "intraclass correlation" is defined as
+$$
+\rho_{icc} = \frac{\sigma^2_b}{\sigma^2_b + \sigma^2_e}
+$$
+and is bounded between 0 and 1; larger values are indicative of
+stronger clustering within families.
+
+### Visualization
+
+Claude suggested this code:
+
+```{r lkcl,message=FALSE}
+library(HistData); library(dplyr); library(ggplot2)
+m <- subset(GaltonFamilies, gender == "male") |>
+  group_by(family) |> mutate(fmean = mean(childHeight), n = n()) |> ungroup() |>
+  mutate(family = reorder(family, fmean))
+ggplot(m, aes(family, childHeight, group = family)) +
+  geom_line(colour = "grey60") + geom_point(size = .8) +
+  geom_point(aes(y = fmean), colour = "red", shape = 95, size = 4) +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
+```
+
+### Application of "lme"
+
+This is a very superficial illustration of model fitting
+for the hierarchical situation.
+
+```{r lklme,message=FALSE}
+library(nlme)
+lme1 = lme(childHeight~1, random=~1|family, data=m)
+summary(lme1)
+```
+
+The estimate of intraclass correlation can be extracted from
+the "Random effects" subtable entries.
+
+Challenge: Using a similar modeing approach, compute the intraclass correlation coefficient for female child's heights
+in the Galton families.
+
+Challenge: How would you address the hypothesis that average child height is associated with family size?
+
+## Generalized linear models
+
+The models we've looked at work for symmetrically distributed continuous
+responses.  Important generalizations are available for responses
+that have binary,
+counted, and skewed distributions.  As an illustration we
+consider a Poisson model for the murders dataset.  We will
+model the rate of murders per 100000 individuals.
+
+To do this, we introduce the concept of an offset.  We have
+two components of our response, the count of murders, which
+is assumed to follow the Poisson model with mean $\mu_i$ for
+region $i$, and the number of units at risk, $n_i$ which is
+a fixed quantity for each region.  The rate $r_i = \mu_i/n_i$,
+and we will model $\log r_i = \log \mu_i - \log n_i$.  Equivalently
+$\log \mu_i = \log r_i + \log n_i$.  The log of the population factor
+is an "offset" that has no associated parameter, it ensures that
+the rate is scaled as we desire.
+
+```{r lkglm,message=FALSE}
+library(dslabs)
+data(murders)
+options(digits=5)
+with(murders, sum(total)/sum(population/100000))
+poi1 = glm(total~1+offset(log(population/100000)), 
+   family="poisson", data=murders)
+summary(poi1)
+exp(coef(poi1)[[1]])
+```
+Let's use the framework to assess variation in rate by region:
+```{r doratr}
+poi2 = glm(total~region+offset(log(population/100000)), 
+        family="poisson", data=murders)
+summary(poi2)
+```
+Challenge: use the coefficients obtained here to derive region-specific rates.
+Compare them to rates you compute by hand using summarise with dplyr.
+
+## Further work
+
+We need to get clearer on methods of estimation and on the properties
+of residuals and other features of model fits that are used for
+criticism and establishment of reliability.
+
+For Poisson distributed random variable $X$, $\mbox{Var} X = EX$.
+Overall, the counts in murders dataset will not satisfy this condition.
+Diagnostics and model alternatives must be explored.  A basic diagnostic:
+if the Poisson model is appropriate, the variance of the Pearson residual
+should be close to 1.
+

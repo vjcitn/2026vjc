@@ -33,7 +33,8 @@ $$
 ```{r two-or-seven-images-large-x1, echo=FALSE, message=FALSE, warning=FALSE} 
 library(tidyverse)
 library(dslabs)
-if (!exists("mnist")) mnist <- read_mnist() 
+source("read_mnist2.R")
+if (!exists("mnist")) mnist <- read_mnist2() 
 is <- mnist_27$index_train[c(which.min(mnist_27$train$x_1), which.max(mnist_27$train$x_1))] 
 titles <- c("smallest","largest") 
 tmp <- lapply(1:2, function(i){ 

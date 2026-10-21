@@ -33,7 +33,8 @@ mnist <- read_mnist()
 library(caret)
 library(randomForest)
 library(dslabs) 
-mnist <- read_mnist() 
+source("read_mnist2.R")
+mnist <- read_mnist2() 
 ``` 
 
 

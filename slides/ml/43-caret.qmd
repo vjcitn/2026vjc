@@ -328,8 +328,9 @@ mnist <- read_mnist()
 ``` 
 
 ```{r, message=FALSE, warning=FALSE,echo=FALSE} 
-library(dslabs) 
-mnist <- read_mnist() 
+#library(dslabs) 
+source("read_mnist2.R") # caches
+mnist <- read_mnist2() 
 ``` 
 
 ## Preprocessing

@@ -110,7 +110,8 @@ mnist_27$train |> ggplot(aes(x_1, x_2, color = y)) + geom_point()
 ## Example: Is it a 2 or a 7?
 
 ```{r two-or-seven-images-large-x1, echo=FALSE, out.width="100%", fig.height=3, fig.width=6.5} 
-if (!exists("mnist")) mnist <- read_mnist() 
+source("read_mnist2.R")
+if (!exists("mnist")) mnist <- read_mnist2() 
 is <- mnist_27$index_train[c(which.min(mnist_27$train$x_1), which.max(mnist_27$train$x_1))] 
 titles <- c("smallest","largest") 
 tmp <- lapply(1:2, function(i){ 
