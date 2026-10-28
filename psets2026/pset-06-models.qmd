@@ -1,0 +1,317 @@
+---
+title: Problem set 6
+date: 2026-11-04
+---
+
+# Overview
+
+If you use AI to help solve any problem, please
+provide information on 1) the model in use, 2) the prompt used to get help,
+3) some comments on what you learned from the encounter.
+
+Solutions to this problem set should be submitted as quarto documents.
+Place the required file in your bst260 repository in folder "solutions" as "pset06.qmd"
+Use the title "BST 260 Problem set 6: Using and critiquing models"
+and put your
+name as author in the yaml header.  Ensure that the HTML
+to which your quarto document compiles has a good appearance.
+
+
+# Anscombe's data: Simple linear regression
+
+Q1.  Write the formalism for a simple linear regression for Anscombe's
+`y1` and `x1`.  You can use notation like $y_i, i = 1, \ldots$ to define
+the response and predictor data.  Your notations will reflect the basic
+"mantra" `Data = Fit + Residual`.
+
+Q2.  Fill in the blanks based on the use of `lm` with `y1` and `x1`.
+$$
+y_1 = \_\_\_\_ + \_\_\_\_ \cdot x_1 + \_\_\_\_
+$$
+
+Q3.  Using `y1` and `x1`, what is an approximate 99\% confidence interval for the slope parameter?
+
+Q4.  Define and fit a model in which $y_i$ is given by Anscombe's `y2`, $x_{1i}$ is given by
+Anscombe's `x2`, and $x_{i2}$ is given by `I(x2^2)`.  Fill in the blanks:
+$$
+y_1 = \_\_\_\_ + \_\_\_\_ \cdot x_{11} + \_\_\_\_ \cdot x_{12} + \_\_\_\_
+$$
+
+Q5.  Use the `rlm` function from the MASS package to fit a robust linear model
+for `y3` and `x3` from the Anscombe dataset.  Use base R graphics to plot the data.  Use
+abline to add the trace of the model fit to the scatterplot.
+
+For this model, fill in the blanks
+$$
+y_1 = \_\_\_\_ + \_\_\_\_ \cdot x_1 + \_\_\_\_
+$$
+
+# Modeling murders data: Poisson regression
+
+Q6.  Obtain the murders dataset from the dslabs package.  Define new regions
+"far northeast" consisting of ME, NH, VT and "far southeast" consisting
+of FL, GA, AL. 
+
+a) Use dplyr to estimate the gun murder rate per 100,000 population
+in these two regions.
+
+b) Obtain log rate estimates using glm with a "poisson" family setting
+and suitable setting of the offset parameter.  Transform them back to
+rate per 100,000 population.
+
+c) Obtain model based confidence intervals for the log of each new region's rate,
+and transform the limits to the "per 100,000" scale.
+
+# Modeling hypertension prevalence: Logistic regression
+
+## Background
+
+We need to define a number of quantities.  Suppose a binary event occurs
+with probability $p$, $0 \lt p \lt 1$.  We define the odds in favor of the event
+as the quantity $p/(1-p)$.  Thus an event that occurs with probability 1/2
+has "odds in favor" 1.0.  An event that occurs with probability 2/3 has odds
+2:1 in favor.  The log odds is the natural log of the odds transformation
+of the probability $p$.
+
+We'll illustrate this concept with a simulation.  Recall
+the definition of the Binomial distribution [here](https://vjcitn.github.io/2026vjc/slides/prob/20e-moments-models.html#the-binomial-distribution).  We'll
+define
+$$
+Y_1, \ldots, Y_{100} \sim_{iid} \mbox{Bin}(1, 2/3)
+$$
+to be realized in a vector `y`.  We then use `glm`
+to estimate the log odds in favor of $Y = 1$.
+```{r lkbin}
+set.seed(12345)
+y = rbinom(100, 1, 2/3)
+bmod = glm(y~1, data=data.frame(y=y), family="binomial")
+summary(bmod)
+phat = mean(y)
+phat
+oddsy = mean(y)/(1-mean(y))
+oddsy
+log(oddsy)
+bmod$coef
+```
+We simulated a vector
+of binary outcomes with success probability 2/3.  We work with the 
+data and the fitted model in a few ways.
+
+- The estimated success probability
+is computed as $\hat{p} =~$`mean(y)`. 
+
+- The odds in favor are
+estimated directly as $\hat{p}/(1-\hat{p}) = `r oddsy`$.  
+
+- The log of the odds in favor
+is computed by `glm` as $\hat{\beta} = `r bmod$coef[1]`$, the sole coefficient estimate of `bmod`.
+
+- We can recover $\hat{p}$ from the GLM fit by taking the "antilogit" of the estimated log 
+odds: 
+$$
+\frac{\exp{\hat{\beta}}}{1+\exp{\hat{\beta}}} = `r plogis(bmod$coef[1])`
+$$
+
+Q7.  Use the NHANES data, filter to `SurveyYr` `2011_12`; call the resulting
+data.frame `nh11`.
+
+Define the binary response HTN as 1 if BPSysAve > 125 or BPDiaAve > 85, 0 otherwise.
+If either component is missing, omit the observation.  
+
+Here are two ways of visualizing prevalence of HTN in association with participant age.
+
+```{r lkhtn,message=FALSE}
+library(NHANES)
+library(dplyr)
+nh11 = NHANES |> filter(SurveyYr == "2011_12", !is.na(BPDiaAve))
+nh11$HTN = 1*(nh11$BPSysAve > 125 | nh11$BPDiaAve > 85)
+aged = cut(nh11$Age, c(-1,seq(10,85,10)))
+ps = sapply(split(nh11$HTN, aged), mean, na.rm=TRUE)
+logit = function(x) log(x/(1-x))
+mpts = seq(5,84,10)
+par(mfrow=c(1,2),las=2)
+plot(ps~mpts, main="observed prevalence", xlab="age midpoints")
+plot(logit(ps)~mpts, main="logit prevalence", xlab="age midpoints")
+```
+Notice that the y-values for data displayed on the left lie in (0,1).
+In the display on the right, the logit transformation
+"unconstrains" the vertical scale we use to plot the transformed prevalence statistics.
+
+Notice further that on the logit scale, there is an approximately linear trajectory
+in the estimated prevalences
+as ages exceed 25 or so.  We will use this observation to motivate modeling
+the prevalence of HTN across the adult ages with a lower bound of 25 years.
+We use both a logistic regression with glm, and a linear regression.
+
+Logistic:
+
+```{r dom1}
+m1 = glm(HTN~I(Age-50), data=nh11 |> filter(Age > 25), family="binomial")
+m1nc = glm(HTN~Age, data=nh11 |> filter(Age > 25), family="binomial")
+summary(m1)
+```
+
+Linear:
+
+```{r thelin}
+lm1 = lm(HTN~Age, data=nh11 |> filter(Age > 25))
+summary(lm1)
+```
+We'll add the fitted lines to the summary scatterplots.
+
+```{r dopl2}
+par(mfrow=c(1,2),las=2)
+plot(ps~mpts, main="observed prevalence", xlab="age midpoints")
+abline(coef(lm1)[1], coef(lm1)[2], lty=2)
+plot(logit(ps)~mpts, main="logit prevalence", xlab="age midpoints")
+abline(coef(m1nc)[1], coef(m1nc)[2], lty=2)
+```
+
+a) What, according to the model `m1`, is the estimated probability of HTN for
+a participant aged 50 years?  Remember that the parameters are obtained
+on the logit scale.
+
+b) Explain the relevance and approximate concordance of the following calculations.
+Note that the `plogis` function computes, for argument x, `exp(x)/(1+exp(x))`.
+```{r lkplo}
+plogis(-.4621+20*0.04865)
+mean(nh11$HTN[nh11$Age > 67.5 & nh11$Age < 72.5], na.rm=TRUE)
+```
+
+c) What is an approximate confidence interval for the log odds ratio
+comparing risk of HTN for two individuals with an age difference of one year?
+(To learn more about confidence intervals, be acquainted with [this](https://rafalab.dfci.harvard.edu/dsbook-part-2/inference/estimates-confidence-intervals.html#confidence-intervals) and following
+sections of the course textbook.)
+
+d) Consider the following modified model: `m2 = update(m1, .~.*Sex)`.  What
+does the `*` operator do?  What is a qualitative interpretation of the
+coefficients of this model?
+
+# Large sample theory
+
+There are two facts that we appeal to in motivating and justifying
+our interpretation of model estimates and confidence intervals.
+
+## Law of large numbers
+
+This law says that with sufficient sampling, the sample mean cannot take a value
+differing very much from the "true mean".  Formally, for any
+$\epsilon > 0$, for $X_1, \ldots, X_n$ independent with mean $\mu$ and finite variance,
+$$
+\mbox{Pr}(|\bar{X} - \mu|>\epsilon) \rightarrow 0 ~\mbox{as}~ n \rightarrow \infty.
+$$
+
+
+Q8.  In this code chunk, we use simulation of
+data from a probability model with an asymmetric (positively skewed)
+density: $\chi^2_3$.  
+Note that some density traces are "clipped" at the top; expand the upper y boundary to see
+the change in data concentration.  Note also that the density estimates have been scaled down
+by a factor of 4 to improve visibility of the concentration process.
+
+```{r dosimlln}
+set.seed(1234)
+x = seq(0,5,.1)
+plot(x, dchisq(x,3), pch=".", col="blue", type="l", ylim=c(0,.4))
+x5 = replicate(1000, mean(rchisq(5, 3)))
+x50 = replicate(1000, mean(rchisq(50, 3)))
+x150 = replicate(1000, mean(rchisq(150, 3)))
+x500 = replicate(1000, mean(rchisq(500, 3)))
+x5000 = replicate(1000, mean(rchisq(5000, 3)))
+sdens = function(x,sc=4) {d = density(x); list(x=d$x, y=d$y/sc)}
+lines(sdens(x5), lty=3)
+lines(sdens(x50), lty=4)
+lines(sdens(x150), lty=5, col="gold")
+lines(sdens(x500), lty=6)
+lines(sdens(x5000), lty=7, col="brown", lwd=1.5)
+legend("topright", legend="N=150", col="gold", lty=5)
+```
+
+a. Describe in words how the various
+traces of densities for the sample means for increasing
+sample sizes illustrate the law of large numbers.
+
+b. Improve the legend in this display by including
+entries for all traces in the plot.
+
+Q9. Here is a code chunk examining the same phenomenon for the $t$ distribution with 3 degrees of freedom.  
+```{r lkt3} 
+set.seed(1234) 
+x = seq(-5,5,.1)
+tdf = 3
+plot(x, dt(x,tdf), pch=".", col="blue", type="l", ylim=c(0,.4))
+x5 = replicate(1000, mean(rt(5, tdf)))
+x50 = replicate(1000, mean(rt(50, tdf)))
+x150 = replicate(1000, mean(rt(150, tdf)))
+x500 = replicate(1000, mean(rt(500, tdf)))
+x5000 = replicate(1000, mean(rt(5000, tdf)))
+sdens = function(x,sc=4) {d = density(x); list(x=d$x, y=d$y/sc)}
+lines(sdens(x5), lty=3)
+lines(sdens(x50), lty=4)
+lines(sdens(x150), lty=5, col="gold")
+lines(sdens(x500), lty=6)
+lines(sdens(x5000), lty=7, col="brown", lwd=1.5)
+legend("topright", lty=5, legend="N=150", col="gold")
+```
+
+Change the value of `tdf` to 1 and produce the associated plot.
+
+a.  What are the qualitative differences between the traces found with
+3 degrees and 1 degree of freedom?
+
+b.  What is another name for the $t$ distribution with 1 degree of freedom?
+What makes this distribution distinctive in statistics?
+
+## Central limit theorem
+
+In its simplest form, assuming
+$X_1, \ldots, X_n$ independent with mean $\mu$ and finite variance $\sigma^2$,
+we have
+$$
+\sqrt{n}\left( \frac{\bar{X} - \mu}{\sigma} \right) \rightarrow_d N(0,1)~\mbox{as}~n \rightarrow \infty
+$$
+We use $\rightarrow_d$ to denote "convergence in distribution", which you can learn
+about in detail in a course on probability.  (When we estimate $\sigma$ and
+use the sample standard deviation in the denominator, the convergence to
+$N(0,1)$ is preserved.)
+
+Here is a code chunk to illustrate one aspect of this form of convergence.
+We are looking at the upper tail of the distribution of the t statistic 
+for samples of varying sizes drawn from a distribution that is right-skewed.
+
+
+```{r lkclt1}
+set.seed(1234)
+x = seq(-5,5,.05)
+plot(x, dnorm(x), col="blue", type="l", lwd=2, xlim=c(1.5,4), ylim=c(-.01,.12))
+tstat = function(x,truemean=3) {n = length(x); sqrt(n)*(mean(x)-truemean)/sd(x)}
+R = 5000
+x5 = replicate(R, tstat(rchisq(5, 3)))
+x50 = replicate(R, tstat(rchisq(50, 3)))
+x150 = replicate(R, tstat(rchisq(150, 3)))
+x500 = replicate(R, tstat(rchisq(500, 3)))
+x5000 = replicate(R, tstat(rchisq(5000, 3)))
+lines(density(x5), lty=2,col="red")
+lines(density(x50), lty=3,col="orange")
+lines(density(x150), lty=4, col="gold")
+lines(density(x500), lty=5,col="black")
+lines(density(x5000), lty=6, col="brown", lwd=1.5)
+legend("topright", lty=c(2:6), 
+  legend=paste("N=", c(5,50,150,500,5000),sep=""), 
+  col=c("red", "orange", "gold", "black", "brown"))
+```
+
+Q10 a.  How does this display help to illustrate the central limit theorem?
+What are some limitations of this approach?
+
+Q10 b.  Produce qqnorm plots of `x5` and `x500` adding the line 
+of identity to each plot.
+
+Q10 c.  What is your interpretation of the confidence intervals produced
+by the following code?  What is the rationale for choosing 2.576 as
+threshold for tabulating the simulated data?
+
+```{r dobin}
+binom.test(sum(x5<2.576), length(x5), p=.995)
+binom.test(sum(x500<2.576), length(x500), p=.995)
+```
