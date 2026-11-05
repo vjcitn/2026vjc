@@ -1,0 +1,188 @@
+---
+title: "Notes for Nov 2 2026: least squares and maximum likelihood"
+keywords: "Linear Models"
+date: 2026-11-02
+---
+
+# Objectives
+
+- get acquainted with matrix operations underlying least squares fitting
+of linear regression models
+- review the steps leading to closed-form expressions for estimates
+of linear regression parameters and their standard errors
+- (postponed) review the optimality of least squares estimates as exhibited
+in the "Gauss-Markov Theorem"
+- understand the formulation of the likelihood function for
+binary responses and the creation of maximum likelihood estimates
+of logistic regression parameters
+
+# Vectors and matrices: notation and operations
+
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bx}{\mathbf{x}}
+
+## Notation
+
+Column vector $\by_{n \times 1}$ collects responses $y_1, \ldots, y_n$
+
+"Transpose" of a column vector produces a row vector
+
+Row vector $\bx_{p \times 1}^t$ collects values of $p$ covariates; the first
+value is assumed to be 1 unless otherwise specified.
+
+The stack of $n$ row vectors produces the matrix $\bf{X}_{n \times p}$
+
+Elements of $\bf{X}$ are denoted $x_{ij}, i = 1, \ldots, n$, $j = 1, \ldots p$
+
+## Operations
+
+
+Matrix transpose: $\bf{X}^t$ is $p \times n$ with $i,j$ element given by $x_{ji}$
+
+Matrix-vector product: $\bf{X}^t\bf{y}$ is $p \times 1$ and has $k$th element $\sum_i x_{ki} \cdot y_i$
+
+Matrix-matrix product: $\bf{X}_{m \times n}\bf{W}_{n \times q}$ is $m \times q$ and 
+has $ij$ element $\sum\limits_{k=1}^n x_{ik} \cdot w_{kj}$
+
+Matrix rank: the rank of a matrix is the number of linearly independent columns
+
+Matrix inverse, identity matrix: solve $\bA \bx = \bb$ for $x$: $\bx = \bA ^{-1} \bb$; 
+$\bA^{-1} \bA = \mathbf{I}$, the latter a diagonal matrix with unit values
+on diagonal and zeroes elsewhere
+
+Some "lemmas": Let $\bf{A}$ denote a $p \times p$ matrix of real numbers, $\bf{b}$ and $\bf{c}$ denote
+$p$-vectors (column vectors)
+
+- Lemma 1: $(\bA \bb)^t = \bb^t \bA^t$
+- Lemma 2: $(\bc - \bA \bb)^t(\bc - \bA \bb) = \bc^t \bc - 2 \bc ^t \bA^t \bb + \bb ^t \bA ^t \bA \bb$
+- Lemma 3: "Derivative of matrix-vector product":  
+$$
+f( \bb ) = (\bA \bb )^t(\bA \bb) 
+$$
+is a scalar function with vector input; $\nabla f = 2 \bA^t \bA \bb$
+
+## Application to least-squares estimation
+
+Model is $\by = \bX \beta + \be$, squared error is given by $\be (\beta)^t \be(\beta)$.  Rewrite:
+$$
+f(\beta) = (\by - \bX \beta)^t(\by - \bX \beta) = \by ^t \by - 2 \by^t \bX^t \beta + \beta ^t \bX^t \bX \beta
+$$ 
+To minimize, differentiate $f$ with respect to $\beta$ and equate to zero:
+$$
+\nabla f = 0 \rightarrow \bX^t(\by - \bX \beta) = 0
+$$
+yielding $\hat{\beta} = (\bX ^t \bX)^{-1}\bX ^t \by$.  Note that this formulation
+is not used to compute least-squares estimates.
+
+Challenge: derive the standard errors for $\hat{\beta}$.
+
+## Optimality
+
+Gauss-Markov
+
+## Likelihood concepts applied to logistic regression
+
+### Basics
+
+Definition: the likeihood function for a statistical model is a 
+function of parameters proportional to the joint density of the data
+as prescribed by the model.
+
+### "Joint density"
+
+Suppose $Y$ is a random variable with density function $f(y;\theta)$; $\theta$
+is a vector of parameters.  As an example, for the Normal density 
+with mean $\mu$ and variance $\sigma^2$ we would have a parameter vector $\theta = (\mu, \sigma^2)^t$.  The
+realizations of $Y$ are denoted $y_1, \ldots, y_n$, and these are
+assumed to be independent.  Then the joint density is the product
+$$
+\prod_i f(y_i; \theta)
+$$
+and the likelihood function is any function of $\theta$ proportional to this quantity.
+
+### Example with binary data
+
+Here we have $Y \sim \mbox{bin}(1, 1/3)$, with 100 realizations in the vector `y`.
+We form the log likelihood function with unknown parameter $p$ and plot
+it for a series of values of $p$.  The definition of `myl` below
+should be examined carefully: it is a _closure_, a function that returns
+a function.  The design is that the call to `myl` supplies the
+data for evaluating the likelihood.  The function that is returned
+has "binding" for `x`, and a single argument `p`.  We create `lik`,
+which is a function of `p`, and then evaluate it over `pcand`, a grid of values of `p`.
+
+Example:
+```{r lkfli}
+set.seed(1234)
+y = rbinom(100, 1, 1/3)
+myl = function(x) function(p) sum(log(dbinom(x, 1, p)))
+pcand = seq(.1,.6,.01)
+lik = myl(y)
+ll = sapply(pcand, lik)
+plot(pcand, ll)
+```
+
+### Maximizing the likelihood
+
+Maximum likelihood estimation of parameters proceeds by numerical
+or analytical optimization of the likelihood function.  For various
+reasons we typically work with the log likelihood, or negative two
+times the log likelihood.
+
+```{r lkopt1}
+optim(.5, lik, control=list(fnscale=-1))
+```
+
+Challenge: for the binary data problem, provide the analytical maximum
+of the likelihood function.
+
+### Multiparameter optimization
+
+Here we have a contrived logistic regression model of a particular
+definition of hypertension, fit with `glm` and binomial family.
+Before running `glm`,
+estimates are produced by maximizing the likelihood function
+directly, again using a closure.
+
+```{r donh,message=FALSE}
+library(NHANES)
+library(dplyr)
+nh11 = NHANES |> filter(SurveyYr=="2011_12")
+nh11$hyp = nh11$BPSysAve > 130
+blclo = function(dat) function(beta) sum(log(dbinom(dat$hyp, 1, 
+  plogis(beta[1]+(dat$Sex=="male")*beta[2]+(dat$Age)*beta[3]))))
+blik = blclo(na.omit(nh11[,c("hyp", "Sex", "Age")]))
+optim(c(-4,0,0), blik, control=list(fnscale=-1))
+summary(glm(hyp~Sex+Age, family="binomial", data=nh11))
+```
+
+Note that the output of optim and the parameter estimates
+from glm are very close.  The computations are completely
+different.  Let's unpack the log likelihood computation above.
+
+```
+blclo = function(dat) function(beta) sum(log(dbinom(dat$hyp, 1, 
+  plogis(beta[1]+(dat$Sex=="male")*beta[2]+(dat$Age)*beta[3]))))
+```
+
+The important part is `function(beta)` which is returned with
+bindings for `dat`, a data.frame that is assumed to
+have variables `hyp`, `Sex`, `Age`.  The outcome we are
+modeling is `dat$hyp` which is a binary variable.  We
+are modeling it as $\mbox{bin}(1,p)$.
+
+$p$ is a quantity that satisfies $p \in (0,1)$.  We
+use `plogis(x)` to evaluate
+$$
+p(x) = \frac{e^x}{1+e^x}
+$$ 
+which also lives in the unit interval.  However, we use
+the regression formulation 
+$$
+\beta_1+\beta_2 \cdot \mbox{Sex} + \beta_3 \cdot \mbox{Age}
+$$
