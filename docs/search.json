@@ -161,6 +161,118 @@
     "text": "Modeling cards and shuffled decks\nWe followed online code to produce\n\nsuits &lt;- c(\"Spades\", \"Hearts\", \"Diamonds\", \"Clubs\")\nranks &lt;- c(\"Ace\", 2:10, \"Jack\", \"Queen\", \"King\")\n# Combine ranks and suits to make 52 unique cards\ndeck &lt;- paste(rep(ranks, 4), rep(suits, each = 13))\ntable(deck)\n\ndeck\n      10 Clubs    10 Diamonds      10 Hearts      10 Spades        2 Clubs \n             1              1              1              1              1 \n    2 Diamonds       2 Hearts       2 Spades        3 Clubs     3 Diamonds \n             1              1              1              1              1 \n      3 Hearts       3 Spades        4 Clubs     4 Diamonds       4 Hearts \n             1              1              1              1              1 \n      4 Spades        5 Clubs     5 Diamonds       5 Hearts       5 Spades \n             1              1              1              1              1 \n       6 Clubs     6 Diamonds       6 Hearts       6 Spades        7 Clubs \n             1              1              1              1              1 \n    7 Diamonds       7 Hearts       7 Spades        8 Clubs     8 Diamonds \n             1              1              1              1              1 \n      8 Hearts       8 Spades        9 Clubs     9 Diamonds       9 Hearts \n             1              1              1              1              1 \n      9 Spades      Ace Clubs   Ace Diamonds     Ace Hearts     Ace Spades \n             1              1              1              1              1 \n    Jack Clubs  Jack Diamonds    Jack Hearts    Jack Spades     King Clubs \n             1              1              1              1              1 \n King Diamonds    King Hearts    King Spades    Queen Clubs Queen Diamonds \n             1              1              1              1              1 \n  Queen Hearts   Queen Spades \n             1              1 \n\nset.seed(1234)\nsample(deck, 1)\n\n[1] \"2 Diamonds\"\n\n\n\n\nExploring the US CDC API\nWe visited the CDC dataset section:\n\n\n\nCDC topics\n\n\nI used the old-fashioned httr package to extract a file on waterborne illness.\n\nlibrary(httr)\nz = GET(\"https://data.cdc.gov/api/v3/views/5xkq-dg7x/query.json\")\nzc = content(z)\n\nTo see the tree structure of the data\n\nlibrary(listviewer)\njsonedit(zc)\n\nWe will have exercises related to this dataset. But let’s have one exploration. Let’s look for the largest waterborne outbreak in the dataset. How should we compute nill so that the following succeeds? Can you verify the report?\n&gt; which(as.numeric(nill)&gt;10000)\n[1] 510 652 872\n&gt; summary(as.numeric(nill))\n     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. \n     2.00      5.00     14.00     33.25     30.00 403000.00 \n&gt; which(as.numeric(nill)&gt;100000)\n[1] 872\n&gt; unlist(zc[[872]])\n                       :id                   :version \n      \"row-b73t.nv5m_99ab\"        \"rv-3pp5.uift.8zmu\" \n               :created_at                :updated_at \n\"2024-12-20T19:57:31.962Z\" \"2024-12-20T19:57:31.962Z\" \n                      year                      month \n                    \"1993\"                        \"3\" \n                     state               primary_mode \n               \"Wisconsin\"                    \"Water\" \n                  etiology            etiology_status \n  \"Cryptosporidium parvum\"                \"Confirmed\" \n                   setting                  illnesses \n  \"Community/municipality\"                   \"403000\" \n                    deaths             water_exposure \n                      \"50\"           \"Drinking water\""
   },
   {
+    "objectID": "final-project26.html",
+    "href": "final-project26.html",
+    "title": "Final Project, 2026 edition",
+    "section": "",
+    "text": "In contrast to last year, the final project is an individual process. Your main products will be\nan R package containing a quarto document in the vignettes folder"
+  },
+  {
+    "objectID": "final-project26.html#github-repository-setup",
+    "href": "final-project26.html#github-repository-setup",
+    "title": "Final Project, 2026 edition",
+    "section": "GitHub Repository Setup",
+    "text": "GitHub Repository Setup\n\nCreating Your Team Repository\nRepository Naming Convention: bst-260-2026F-team# (where # is your team number, e.g., bst-260-2026F-team1, bst-260-2026F-team15)\nSetup Process:\n\nOne team member creates the repository on GitHub with the exact naming convention above\nMake the repository private\nAdd all team members as collaborators with write access\nAdd your assigned TF and instructor vjcitn as a collaborator with write access\nSet up the initial directory structure (see requirements below)\n\n\n\nNotifying Your TF\nOnce your repository is created:\n\nPost the repository URL in your TF’s Slack channel (see table above)\nInclude your team number and all team member names\nYour TF will confirm access and provide initial feedback\n\nExample Slack message:\nTeam 5 Repository: https://github.com/username/bst-260-2026F-team5\nMembers: [list of member names]\nReady for initial review of `Outline.txt`"
+  },
+  {
+    "objectID": "final-project26.html#communication-guidelines",
+    "href": "final-project26.html#communication-guidelines",
+    "title": "Final Project, 2026 edition",
+    "section": "Communication Guidelines",
+    "text": "Communication Guidelines\nAll project communication must go through your assigned TF using your team’s private Slack channel:\n\nYour TF is your primary point of contact for all project matters\nTFs will approve your Outline.txt and provide ongoing feedback\nTFs will review and approve your final project submission\nTFs will conduct your oral evaluation\nOnly your TF can escalate issues to instructors if necessary"
+  },
+  {
+    "objectID": "final-project26.html#project-framework-1-nhanes-data-analysis",
+    "href": "final-project26.html#project-framework-1-nhanes-data-analysis",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Framework 1: NHANES Data Analysis",
+    "text": "Project Framework 1: NHANES Data Analysis\nAll teams will work with the NHANES (National Health and Nutrition Examination Survey) dataset using the NHANES R package. You must choose between two versions and justify your choice:\n\nNHANES: A probability sample from the US population (recommended for most analyses)\nNHANESraw: Survey-weighted population data (recommended for teams interested in epidemiological methods using survey weights)\n\nProject Differentiation: Each team must have a distinct project through different age groups, outcomes, or methodological approaches."
+  },
+  {
+    "objectID": "final-project26.html#project-framework-2-gun-legislation-and-risk-of-handgun-death",
+    "href": "final-project26.html#project-framework-2-gun-legislation-and-risk-of-handgun-death",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Framework 2: Gun legislation and risk of handgun death",
+    "text": "Project Framework 2: Gun legislation and risk of handgun death\n\ngunleg – we have already worked on the gunleg package, many students have forked https://github.com/vjcitn/gunleg\nTasks could involve analysis of trends in restrictive or permissive legislative processes over time, across states and national regions\nOne outcome could be an update to the dslabs “murders” dataset\nAn important part of the evaluation concerns the quality of the proposal"
+  },
+  {
+    "objectID": "final-project26.html#project-framework-3-birth-outcomes-in-the-us-in-2025",
+    "href": "final-project26.html#project-framework-3-birth-outcomes-in-the-us-in-2025",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Framework 3: Birth outcomes in the US in 2025",
+    "text": "Project Framework 3: Birth outcomes in the US in 2025\n\nThis is an advanced data science project involving choices of data representation, use of cloud storage, “OLAP” technology for analytic processing within large-scale databases\nModels for prediction of birth outcomes are a basic target\nMaterials available at https://github.com/vjcitn/nchsNatality"
+  },
+  {
+    "objectID": "final-project26.html#project-planning-requirements",
+    "href": "final-project26.html#project-planning-requirements",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Planning Requirements",
+    "text": "Project Planning Requirements\nWithin one week of team assignment, you must:\n\nCreate your GitHub repository (see setup instructions above)\nChoose your specific project focus (see options below)\nCreate a file called Outline.txt (plain text) in your GitHub repository with:\n\nYour analysis plan and research questions\nTeam member responsibilities for each activity\nWeekly breakdown of tasks and deliverables\n\nNotify your TF via Slack when ready for review and feedback\n\nYou should update this outline document throughout the project to track progress and any changes to your plan."
+  },
+  {
+    "objectID": "final-project26.html#project-timeline-deadlines",
+    "href": "final-project26.html#project-timeline-deadlines",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Timeline & Deadlines",
+    "text": "Project Timeline & Deadlines\n\n\n\n\n\n\n\n\nMilestone\nDeadline\nResponsibility\n\n\n\n\nOutline.txt Submission\nNovember 13, 2026\nTeams post in their Slack channel\n\n\nOutline.txt Feedback\nNovember 16, 2026\nTFs provide approval/revision requests\n\n\nRevised Outline (if needed)\nNovember 19, 2026\nTeams address TF feedback\n\n\nOral Presentation Scheduling\nDecember 7, 2026\nTeams schedule with TF for December 9-16 window\n\n\nFinal Project Submission\nDecember 18, 2026\nTeams notify TF when repository is complete\n\n\n\nImportant: All deadlines are firm. Late submissions will result in grade penalties."
+  },
+  {
+    "objectID": "final-project26.html#available-project-approaches-for-framework-1",
+    "href": "final-project26.html#available-project-approaches-for-framework-1",
+    "title": "Final Project, 2026 edition",
+    "section": "Available Project Approaches for Framework 1",
+    "text": "Available Project Approaches for Framework 1\n\nOption 1: Age-Specific Health Analysis\nFocus on one of these age groups with appropriate health outcomes:\n\nAges 2-18: Growth patterns, childhood health indicators (note: different BMI/growth relationships than adults)\nAges 19-40: Young adult health patterns, lifestyle factors\nAges 40+: Disease risk factors, aging-related health patterns\n\nKey considerations: Include important covariates (age, sex, race) and their interactions. Consult relevant literature for risk factors specific to your chosen age group and outcome.\n\n\nOption 2: Statistical Methodology Focus\nInstead of focusing on specific health outcomes, examine statistical approaches:\n\nMultiple imputation methods for handling missing data patterns\nSpline models for interpretable non-linear associations with continuous variables\nSurvey methods for population-level estimates and inference\nMachine learning approaches (logistic regression, random forests) for data structure exploration\nInteractive applications using Shiny/Posit Connect for data exploration tools\n\n\n\nOption 3: Missing Data Analysis\nInvestigate missing data patterns in NHANES:\n\nUnderstand why observations are missing for different variables\nApply modern missing data methods\nCompare analytical approaches under different missingness assumptions\n\n\n\nOption 4: Custom Research Question\nPropose your own research question using NHANES data, subject to TF approval. Must demonstrate clear analytical approach and feasibility."
+  },
+  {
+    "objectID": "final-project26.html#available-project-approaches-for-framework-2",
+    "href": "final-project26.html#available-project-approaches-for-framework-2",
+    "title": "Final Project, 2026 edition",
+    "section": "Available Project Approaches for Framework 2",
+    "text": "Available Project Approaches for Framework 2\nCustom research question (as above)"
+  },
+  {
+    "objectID": "final-project26.html#available-project-approaches-for-framework-3",
+    "href": "final-project26.html#available-project-approaches-for-framework-3",
+    "title": "Final Project, 2026 edition",
+    "section": "Available Project Approaches for Framework 3",
+    "text": "Available Project Approaches for Framework 3\nCustom research and development questions (tasks involve software and documentation improvements)"
+  },
+  {
+    "objectID": "final-project26.html#important-data-considerations-for-framework-1",
+    "href": "final-project26.html#important-data-considerations-for-framework-1",
+    "title": "Final Project, 2026 edition",
+    "section": "Important Data Considerations for Framework 1",
+    "text": "Important Data Considerations for Framework 1\nMissing Values: Many NHANES variables have substantial missing data. Consider whether this affects your analysis or could be the focus of your study.\nOutcome Variables: Examples include systolic blood pressure, diabetes risk, depression scores, sleep patterns, smoking status, BMI. Continuous outcomes may be easier to model initially."
+  },
+  {
+    "objectID": "final-project26.html#project-submission-requirements",
+    "href": "final-project26.html#project-submission-requirements",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Submission Requirements",
+    "text": "Project Submission Requirements\nYou will submit your project using Git. Your project should be completely reproducible, meaning all the code and data needed to render your report from scratch should be in the repository.\nRequired Submissions to your TF:\n\nGitHub Repository: Submit the link to your team’s GitHub repository with all components below\nOral Presentation: Each team must schedule a 20-minute oral presentation with their assigned TF via Zoom. Scheduling must be completed by December 7, 2026, for presentations during December 9-16, 2026. All team members must be present during the presentation. The TF will ask each team member specific questions about different aspects of the project based on their individual contributions detailed in the contribution summary document (e.g., if a member contributed to data analysis, they may be asked about model choice, coding decisions, statistical methods, etc.).\n\n\nOral Presentation Evaluation Rubric\nThe oral presentation will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0-1\nNo meeting scheduled or major absence of team members\n\n\n2-3\nLimited understanding of project components; significant gaps in explanations\n\n\n4-5\nModerate understanding of project components; difficulty explaining individual contributions/methodological choices\n\n\n6-7\nGood understanding of project components; able to explain most individual contributions/methodological choices\n\n\n8-9\nVery good understanding of all project components; strong defense of analytical approaches with minimal gaps\n\n\n10\nExcellent understanding of all project components; exceptional ability to defend and discuss all aspects of the analysis\n\n\n\n\n\nFinal Report Evaluation Rubric\nThe final report will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n9-10 (Excellent)\nClear, well-structured report with sophisticated analysis.\n\n\n8-8.9 (Very Good)\nWell-written report with good analysis.\n\n\n7-7.9 (Good)\nAdequate report structure with acceptable analysis.\n\n\n6-6.9 (Satisfactory)\nReport meets basic requirements but has several areas for improvement.\n\n\n4-5.9 (Needs Improvement)\nReport has significant structural problems or analysis errors.\n\n\n0-3.9 (Inadequate)\nReport does not meet basic requirements.\n\n\n\nDetailed Criteria:\n9-10 Points (Excellent): Clear, well-structured report with sophisticated analysis. All sections meet word count requirements. Exceptional use of statistical methods, excellent data visualization, and insightful interpretation. Professional formatting with proper citations. Demonstrates deep understanding of data and chosen methodology.\n8-8.9 Points (Very Good): Well-written report with good analysis. Minor issues in structure or presentation. Good use of statistical methods and visualizations. Most sections meet requirements with solid interpretation of results.\n7-7.9 Points (Good): Adequate report structure with acceptable analysis. Some sections may be slightly under/over word count. Basic statistical methods applied correctly. Visualizations present but could be improved. Interpretation shows understanding but lacks depth.\n6-6.9 Points (Satisfactory): Report meets basic requirements but has several areas for improvement. Statistical analysis is basic or contains minor errors. Limited interpretation of results. Some formatting or structural issues.\n4-5.9 Points (Needs Improvement): Report has significant structural problems or analysis errors. Poor data visualization or interpretation. Major sections missing or substantially under word count. Limited understanding of methodology.\n0-3.9 Points (Inadequate): Report does not meet basic requirements. Major analysis errors, missing key sections, or demonstrates poor understanding of the data and methods. Unprofessional presentation.\n\n\nTF Feedback Process\nYour TF will provide detailed feedback and final grades through GitHub Issues:\n\nAfter your final submission, your TF will create Issues in your repository for:\n\nOverall project feedback and final grade breakdown\nSpecific comments on analysis, methods, or presentation\nIndividual contribution assessment based on commit history and contribution files\n\nGrade breakdown will include:\n\nFinal Report Score (out of 10 points)\nOral Presentation Score (out of 10 points)\nOverall Final Project Grade calculation\n\nTeams can respond to TF feedback through Issue comments if clarification is needed\n\nNote: Check your repository for Issues after the final project deadline for comprehensive feedback and grades."
+  },
+  {
+    "objectID": "final-project26.html#report-structure",
+    "href": "final-project26.html#report-structure",
+    "title": "Final Project, 2026 edition",
+    "section": "Report Structure",
+    "text": "Report Structure\nYou will prepare a comprehensive report following the style of an academic paper. This report will be divided into the following five structured sections, with approximate word counts to help you reach a target of 2,500 to 3,000 words, up to four figures and up to two tables.\n\nAbstract (150-200 words)\n\nPurpose: The abstract provides a concise summary of your project, including its objectives, key findings, and significance. Write this section last, after completing all other sections, to accurately reflect your project’s focus and main results.\nGuidelines: Limit this section to 150-200 words. Briefly outline the purpose of your study, the approach you used, and the primary results and conclusions. The abstract should be clear, succinct, and give readers an immediate understanding of what your project entails.\n\n\n\nIntroduction (500-600 words)\n\nPurpose: The introduction sets the stage for your project, presenting the background and rationale for your analysis. Explain why the topic is significant and justify your choice of dataset and analysis strategy.\nGuidelines: Start with a broad overview of the topic, gradually narrowing down to your specific focus. Conclude with a clear statement of your research questions, hypotheses, or objectives. Use 2-3 paragraphs to establish a solid foundation for the rest of the paper.\n\n\n\nMethods (600-700 words)\n\nPurpose: This section details the data sources, methods, and analytical techniques you used to conduct your analysis. It should be specific enough that someone else could replicate your study using the same resources and approach.\nGuidelines: Describe the dataset version you used and justify your choice. Outline your approach for cleaning and analyzing the data, including any statistical or computational methods applied. Clearly explain any assumptions or limitations in your approach, particularly regarding missing data handling.\n\n\n\nResults (500-600 words)\n\nPurpose: The results section presents the main findings of your analysis without interpretation. Organize the data logically to highlight key insights, using tables, figures, and charts to illustrate trends and comparisons.\nGuidelines: For each result, briefly describe it and refer to relevant visuals or tables where appropriate. Do not provide explanations or discuss implications in this section; focus only on presenting the findings clearly and accurately.\n\n\n\nUse of AI Tools\nStudents are welcome to use AI tools as a complementary aid, but they must clearly state in their report where AI was used (e.g., text generation, editing, data analysis suggestions, or AI-assisted conclusions). AI should serve as a productivity and learning tool, not as the primary author of the report.\n\n\nDiscussion (600-700 words)\n\nPurpose: In the discussion, interpret the significance of your findings, explore potential implications, and relate the results back to your initial research questions or hypotheses. This section allows you to discuss any patterns, unexpected findings, or limitations and suggest possible future research.\nGuidelines: Analyze your results in the context of your research question and relevant health literature. Consider what your findings reveal, any limitations they may have (particularly regarding missing data or survey design), and how they might impact future work or policy. End with a brief conclusion summarizing your main insights.\n\nYour final report should be professionally formatted, with each section clearly labeled and referenced. Aim for clarity, precision, and a well-organized presentation of your analysis.\nTotal Word Count: Approximately 2,500-3,000 words."
+  },
+  {
+    "objectID": "final-project26.html#supplementary-methods-no-limit",
+    "href": "final-project26.html#supplementary-methods-no-limit",
+    "title": "Final Project, 2026 edition",
+    "section": "Supplementary Methods (no limit)",
+    "text": "Supplementary Methods (no limit)\nYou can include a separate document titled Supplementary Methods.\n\nPurpose: Share any mathematical derivations, data visualizations, or tables needed to justify the choices described in the Methods Section. You can also provide further support for the claims made in the Results Section. You can refer to this document in the main report.\nGuidelines: There is no limits in the length of this section nor on the number of figures and tables. However, be careful not to drown the graders with too much information."
+  },
+  {
+    "objectID": "final-project26.html#github-repository-requirements",
+    "href": "final-project26.html#github-repository-requirements",
+    "title": "Final Project, 2026 edition",
+    "section": "GitHub Repository Requirements",
+    "text": "GitHub Repository Requirements\nYour repository must include:\n\nDirectory structure: code, data, and docs directories\nAnalysis scripts: At least one script for data wrangling in the code directory\nMain report: One file called final-project.qmd that renders to produce the final report (can be in code or home directory)\nREADME file: Explaining how to reproduce all results\nProject outline: Outline.txt with your initial plan and progress updates\nIndividual contribution files: Each team member creates a file with their name documenting their specific contributions and effort (hours/week)\nData handling: Include code that loads all relevant data via the R package (no need to store raw data)\n\nGit Requirements: We expect to see at least five meaningful commits by each person demonstrating collaborative development throughout the project timeline."
+  },
+  {
     "objectID": "extra/git_tutorial.html",
     "href": "extra/git_tutorial.html",
     "title": "Git and GitHub Tutorial",
@@ -219,119 +331,9 @@
   {
     "objectID": "final-project.html",
     "href": "final-project.html",
-    "title": "Final Project, 2025 edition",
+    "title": "Final Project, 2026 edition",
     "section": "",
-    "text": "This material is provided as illustration only; for the 2026 edition of the course a different approach will be taken",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#github-repository-setup",
-    "href": "final-project.html#github-repository-setup",
-    "title": "Final Project, 2025 edition",
-    "section": "GitHub Repository Setup",
-    "text": "GitHub Repository Setup\n\nCreating Your Team Repository\nRepository Naming Convention: bst-260-2025F-team# (where # is your team number, e.g., bst-260-2025F-team1, bst-260-2025F-team15)\nSetup Process:\n\nOne team member creates the repository on GitHub with the exact naming convention above\nMake the repository private\nAdd all team members as collaborators with write access\nAdd your assigned TF as a collaborator with write access\nSet up the initial directory structure (see requirements below)\n\n\n\nNotifying Your TF\nOnce your repository is created:\n\nPost the repository URL in your TF’s Slack channel (see table above)\nInclude your team number and all team member names\nYour TF will confirm access and provide initial feedback\n\nExample Slack message:\nTeam 5 Repository: https://github.com/username/bst-260-2025F-team5\nMembers: Siwei Guo, Hannah Hamling, Shuying Han, Runpeng Hu\nReady for initial review of `Outline.txt`",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#communication-guidelines",
-    "href": "final-project.html#communication-guidelines",
-    "title": "Final Project, 2025 edition",
-    "section": "Communication Guidelines",
-    "text": "Communication Guidelines\nAll project communication must go through your assigned TF using your team’s private Slack channel:\n\nYour TF is your primary point of contact for all project matters\nTFs will approve your Outline.txt and provide ongoing feedback\nTFs will review and approve your final project submission\nTFs will conduct your oral evaluation\nOnly your TF can escalate issues to instructors if necessary",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#project-framework-nhanes-data-analysis",
-    "href": "final-project.html#project-framework-nhanes-data-analysis",
-    "title": "Final Project, 2025 edition",
-    "section": "Project Framework: NHANES Data Analysis",
-    "text": "Project Framework: NHANES Data Analysis\nAll teams will work with the NHANES (National Health and Nutrition Examination Survey) dataset using the NHANES R package. You must choose between two versions and justify your choice:\n\nNHANES: A probability sample from the US population (recommended for most analyses)\nNHANESraw: Survey-weighted population data (recommended for teams interested in epidemiological methods using survey weights)\n\nProject Differentiation: Each team must have a distinct project through different age groups, outcomes, or methodological approaches.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#project-planning-requirements",
-    "href": "final-project.html#project-planning-requirements",
-    "title": "Final Project, 2025 edition",
-    "section": "Project Planning Requirements",
-    "text": "Project Planning Requirements\nWithin one week of team assignment, you must:\n\nCreate your GitHub repository (see setup instructions above)\nChoose your specific project focus (see options below)\nCreate a file called Outline.txt (plain text) in your GitHub repository with:\n\nYour analysis plan and research questions\nTeam member responsibilities for each activity\nWeekly breakdown of tasks and deliverables\n\nNotify your TF via Slack when ready for review and feedback\n\nYou should update this outline document throughout the project to track progress and any changes to your plan.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#project-timeline-deadlines",
-    "href": "final-project.html#project-timeline-deadlines",
-    "title": "Final Project, 2025 edition",
-    "section": "Project Timeline & Deadlines",
-    "text": "Project Timeline & Deadlines\n\n\n\n\n\n\n\n\nMilestone\nDeadline\nResponsibility\n\n\n\n\nOutline.txt Submission\nOctober 31, 2025\nTeams post in their Slack channel\n\n\nOutline.txt Feedback\nNovember 7, 2025\nTFs provide approval/revision requests\n\n\nRevised Outline (if needed)\nNovember 12\nTeams address TF feedback\n\n\nOral Presentation Scheduling\nDecember 12, 2025\nTeams schedule with TF for December 16-19 window\n\n\nFinal Project Submission\nDecember 15, 2025\nTeams notify TF when repository is complete\n\n\n\nImportant: All deadlines are firm. Late submissions will result in grade penalties.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#available-project-approaches",
-    "href": "final-project.html#available-project-approaches",
-    "title": "Final Project, 2025 edition",
-    "section": "Available Project Approaches",
-    "text": "Available Project Approaches\n\nOption 1: Age-Specific Health Analysis\nFocus on one of these age groups with appropriate health outcomes:\n\nAges 2-18: Growth patterns, childhood health indicators (note: different BMI/growth relationships than adults)\nAges 19-40: Young adult health patterns, lifestyle factors\nAges 40+: Disease risk factors, aging-related health patterns\n\nKey considerations: Include important covariates (age, sex, race) and their interactions. Consult relevant literature for risk factors specific to your chosen age group and outcome.\n\n\nOption 2: Statistical Methodology Focus\nInstead of focusing on specific health outcomes, examine statistical approaches:\n\nMultiple imputation methods for handling missing data patterns\nSpline models for interpretable non-linear associations with continuous variables\nSurvey methods for population-level estimates and inference\nMachine learning approaches (logistic regression, random forests) for data structure exploration\nInteractive applications using Shiny/Posit Connect for data exploration tools\n\n\n\nOption 3: Missing Data Analysis\nInvestigate missing data patterns in NHANES:\n\nUnderstand why observations are missing for different variables\nApply modern missing data methods\nCompare analytical approaches under different missingness assumptions\n\n\n\nOption 4: Custom Research Question\nPropose your own research question using NHANES data, subject to TF approval. Must demonstrate clear analytical approach and feasibility.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#important-data-considerations",
-    "href": "final-project.html#important-data-considerations",
-    "title": "Final Project, 2025 edition",
-    "section": "Important Data Considerations",
-    "text": "Important Data Considerations\nMissing Values: Many NHANES variables have substantial missing data. Consider whether this affects your analysis or could be the focus of your study.\nOutcome Variables: Examples include systolic blood pressure, diabetes risk, depression scores, sleep patterns, smoking status, BMI. Continuous outcomes may be easier to model initially.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#project-submission-requirements",
-    "href": "final-project.html#project-submission-requirements",
-    "title": "Final Project, 2025 edition",
-    "section": "Project Submission Requirements",
-    "text": "Project Submission Requirements\nYou will submit your project using Git. Your project should be completely reproducible, meaning all the code and data needed to render your report from scratch should be in the repository.\nRequired Submissions to your TF:\n\nGitHub Repository: Submit the link to your team’s GitHub repository with all components below\nOral Presentation: Each team must schedule a 20-minute oral presentation with their assigned TF via Zoom. Scheduling must be completed by December 12, 2025, for presentations during December 16-19, 2025. All team members must be present during the presentation. The TF will ask each team member specific questions about different aspects of the project based on their individual contributions detailed in the contribution summary document (e.g., if a member contributed to data analysis, they may be asked about model choice, coding decisions, statistical methods, etc.).\n\n\nOral Presentation Evaluation Rubric\nThe oral presentation will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0-1\nNo meeting scheduled or major absence of team members\n\n\n2-3\nLimited understanding of project components; significant gaps in explanations\n\n\n4-5\nModerate understanding of project components; difficulty explaining individual contributions/methodological choices\n\n\n6-7\nGood understanding of project components; able to explain most individual contributions/methodological choices\n\n\n8-9\nVery good understanding of all project components; strong defense of analytical approaches with minimal gaps\n\n\n10\nExcellent understanding of all project components; exceptional ability to defend and discuss all aspects of the analysis\n\n\n\n\n\nFinal Report Evaluation Rubric\nThe final report will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n9-10 (Excellent)\nClear, well-structured report with sophisticated analysis.\n\n\n8-8.9 (Very Good)\nWell-written report with good analysis.\n\n\n7-7.9 (Good)\nAdequate report structure with acceptable analysis.\n\n\n6-6.9 (Satisfactory)\nReport meets basic requirements but has several areas for improvement.\n\n\n4-5.9 (Needs Improvement)\nReport has significant structural problems or analysis errors.\n\n\n0-3.9 (Inadequate)\nReport does not meet basic requirements.\n\n\n\nDetailed Criteria:\n9-10 Points (Excellent): Clear, well-structured report with sophisticated analysis. All sections meet word count requirements. Exceptional use of statistical methods, excellent data visualization, and insightful interpretation. Professional formatting with proper citations. Demonstrates deep understanding of NHANES data and chosen methodology.\n8-8.9 Points (Very Good): Well-written report with good analysis. Minor issues in structure or presentation. Good use of statistical methods and visualizations. Most sections meet requirements with solid interpretation of results.\n7-7.9 Points (Good): Adequate report structure with acceptable analysis. Some sections may be slightly under/over word count. Basic statistical methods applied correctly. Visualizations present but could be improved. Interpretation shows understanding but lacks depth.\n6-6.9 Points (Satisfactory): Report meets basic requirements but has several areas for improvement. Statistical analysis is basic or contains minor errors. Limited interpretation of results. Some formatting or structural issues.\n4-5.9 Points (Needs Improvement): Report has significant structural problems or analysis errors. Poor data visualization or interpretation. Major sections missing or substantially under word count. Limited understanding of methodology.\n0-3.9 Points (Inadequate): Report does not meet basic requirements. Major analysis errors, missing key sections, or demonstrates poor understanding of the data and methods. Unprofessional presentation.\n\n\nTF Feedback Process\nYour TF will provide detailed feedback and final grades through GitHub Issues:\n\nAfter your final submission, your TF will create Issues in your repository for:\n\nOverall project feedback and final grade breakdown\nSpecific comments on analysis, methods, or presentation\nIndividual contribution assessment based on commit history and contribution files\n\nGrade breakdown will include:\n\nFinal Report Score (out of 10 points)\nOral Presentation Score (out of 10 points)\nOverall Final Project Grade calculation\n\nTeams can respond to TF feedback through Issue comments if clarification is needed\n\nNote: Check your repository for Issues after the final project deadline for comprehensive feedback and grades.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#report-structure",
-    "href": "final-project.html#report-structure",
-    "title": "Final Project, 2025 edition",
-    "section": "Report Structure",
-    "text": "Report Structure\nYou will prepare a comprehensive report following the style of an academic paper. This report will be divided into the following five structured sections, with approximate word counts to help you reach a target of 2,500 to 3,000 words, up to four figures and up to two tables.\n\nAbstract (150-200 words)\n\nPurpose: The abstract provides a concise summary of your project, including its objectives, key findings, and significance. Write this section last, after completing all other sections, to accurately reflect your project’s focus and main results.\nGuidelines: Limit this section to 150-200 words. Briefly outline the purpose of your study, the approach you used, and the primary results and conclusions. The abstract should be clear, succinct, and give readers an immediate understanding of what your project entails.\n\n\n\nIntroduction (500-600 words)\n\nPurpose: The introduction sets the stage for your project, presenting the background and rationale for your analysis. Explain why the topic is significant and justify your choice of NHANES vs. NHANESraw.\nGuidelines: Start with a broad overview of the topic, gradually narrowing down to your specific focus. Conclude with a clear statement of your research questions, hypotheses, or objectives. Use 2-3 paragraphs to establish a solid foundation for the rest of the paper.\n\n\n\nMethods (600-700 words)\n\nPurpose: This section details the data sources, methods, and analytical techniques you used to conduct your analysis. It should be specific enough that someone else could replicate your study using the same resources and approach.\nGuidelines: Describe the NHANES dataset version you used and justify your choice. Outline your approach for cleaning and analyzing the data, including any statistical or computational methods applied. Clearly explain any assumptions or limitations in your approach, particularly regarding missing data handling.\n\n\n\nResults (500-600 words)\n\nPurpose: The results section presents the main findings of your analysis without interpretation. Organize the data logically to highlight key insights, using tables, figures, and charts to illustrate trends and comparisons.\nGuidelines: For each result, briefly describe it and refer to relevant visuals or tables where appropriate. Do not provide explanations or discuss implications in this section; focus only on presenting the findings clearly and accurately.\n\n\n\nUse of AI Tools\nStudents are welcome to use AI tools as a complementary aid, but they must clearly state in their report where AI was used (e.g., text generation, editing, data analysis suggestions, or AI-assisted conclusions). AI should serve as a productivity and learning tool, not as the primary author of the report.\n\n\nDiscussion (600-700 words)\n\nPurpose: In the discussion, interpret the significance of your findings, explore potential implications, and relate the results back to your initial research questions or hypotheses. This section allows you to discuss any patterns, unexpected findings, or limitations and suggest possible future research.\nGuidelines: Analyze your results in the context of your research question and relevant health literature. Consider what your findings reveal, any limitations they may have (particularly regarding missing data or survey design), and how they might impact future work or policy. End with a brief conclusion summarizing your main insights.\n\nYour final report should be professionally formatted, with each section clearly labeled and referenced. Aim for clarity, precision, and a well-organized presentation of your analysis.\nTotal Word Count: Approximately 2,500-3,000 words.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#supplementary-methods-no-limit",
-    "href": "final-project.html#supplementary-methods-no-limit",
-    "title": "Final Project, 2025 edition",
-    "section": "Supplementary Methods (no limit)",
-    "text": "Supplementary Methods (no limit)\nYou can include a separate document titled Supplementary Methods.\n\nPurpose: Share any mathematical derivations, data visualizations, or tables needed to justify the choices described in the Methods Section. You can also provide further support for the claims made in the Results Section. You can refer to this document in the main report.\nGuidelines: There is no limits in the length of this section nor on the number of figures and tables. However, be careful not to drown the graders with too much information.",
-    "crumbs": [
-      "Final Project"
-    ]
-  },
-  {
-    "objectID": "final-project.html#github-repository-requirements",
-    "href": "final-project.html#github-repository-requirements",
-    "title": "Final Project, 2025 edition",
-    "section": "GitHub Repository Requirements",
-    "text": "GitHub Repository Requirements\nYour repository must include:\n\nDirectory structure: code, data, and docs directories\nAnalysis scripts: At least one script for data wrangling in the code directory\nMain report: One file called final-project.qmd that renders to produce the final report (can be in code or home directory)\nREADME file: Explaining how to reproduce all results\nProject outline: Outline.txt with your initial plan and progress updates\nIndividual contribution files: Each team member creates a file with their name documenting their specific contributions and effort (hours/week)\nData handling: Include code that loads NHANES data via the R package (no need to store raw data)\n\nGit Requirements: We expect to see at least five meaningful commits by each person demonstrating collaborative development throughout the project timeline.",
+    "text": "For 2026, final project will be individual and will consist of the production of a pkgdown web site using GitHub Pages\nSpecific deadlines\n\ncreate your draft pkgdown web site by Nov 16 2026, instructions at the template repo\n\nforking the “template” repo, changing the name and settings, and running pkgdown to produce the initial draft should take no more than 20 minutes\nafter successfully running pkgdown, you should be able to install your finalproject package with `devtools::install_github(“[yourGHusername]/finalproject”)\n\ncreate your proposal document and post in your web site by Nov 18 2026. In this document you will identify the datasets and scientific questions you wish to explore\n\nthis proposal document is stored as vignettes/proposal.qmd\n\nyour repo will be checked for success on Nov 17.\nyour proposal.qmd will be checked for success on Nov 19.\nwe will discuss further checkpoints on your project progress in classes after Thanksgiving",
     "crumbs": [
       "Final Project"
     ]
@@ -1566,7 +1568,7 @@
     "href": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-3",
     "title": "Parameters and Estimates",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4502\n\nsd(x_hat) \n\n[1] 0.01554"
+    "text": "A Monte Carlo simulation\n\nTo review, the theory tells us that \\(\\bar{X}\\) is approximately normally distributed, has expected value \\(p=\\) 0.45, and standard error \\(\\sqrt{p(1-p)/N}\\) = 0.0157.\nThe simulation confirms this:\n\n\nmean(x_hat) \n\n[1] 0.4501\n\nsd(x_hat) \n\n[1] 0.0157"
   },
   {
     "objectID": "slides/inference/23-parameters-estimates.html#a-monte-carlo-simulation-4",
@@ -1860,7 +1862,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-9",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-11-04 21:01:53 EST\"\n\nnow(\"GMT\") \n\n[1] \"2026-11-05 02:01:53 GMT\""
+    "text": "The lubridate package\n\nThe lubridate package is also useful for dealing with times.\nIn base R, you can get the current time typing Sys.time().\nThe lubridate package provides a slightly more advanced function, now, that permits you to define the time zone:\n\n\nnow() \n\n[1] \"2026-11-13 08:22:55 EST\"\n\nnow(\"GMT\") \n\n[1] \"2026-11-13 13:22:55 GMT\""
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-10",
@@ -1874,7 +1876,7 @@
     "href": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-11",
     "title": "Dates And Times",
     "section": "The lubridate package",
-    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 21\n\nnow() |&gt; minute() \n\n[1] 1\n\nnow() |&gt; second() \n\n[1] 53.75"
+    "text": "The lubridate package\n\nWe can also extract hours, minutes, and seconds:\n\n\nnow() |&gt; hour() \n\n[1] 8\n\nnow() |&gt; minute() \n\n[1] 22\n\nnow() |&gt; second() \n\n[1] 55.81"
   },
   {
     "objectID": "slides/wrangling/12-dates-and-times.html#the-lubridate-package-12",
@@ -2399,14 +2401,14 @@
     "href": "slides/ml/41-knn.html#over-training",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$train$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.859 \n\n\nto\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.815"
+    "text": "Over-training\nCompare\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$train$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.86 \n\n\nto\n\ny_hat_knn &lt;- predict(knn_fit, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n   0.815"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-1",
     "href": "slides/ml/41-knn.html#over-training-1",
     "title": "k-nearest neighbors (knn)",
     "section": "Over-training",
-    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.995\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
+    "text": "Over-training\nCompare this:\n\nknn_fit_1 &lt;- knn3(y ~ ., data = mnist_27$train, k = 1) \ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$train, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$train$y)$overall[[\"Accuracy\"]] \n\n[1] 0.996\n\n\nto this:\n\ny_hat_knn_1 &lt;- predict(knn_fit_1, mnist_27$test, type = \"class\") \nconfusionMatrix(y_hat_knn_1, mnist_27$test$y)$overall[\"Accuracy\"] \n\nAccuracy \n    0.81 \n\n\n\nWe can see the over-fitting problem by plotting the decision rule boundaries produced by \\(p(\\mathbf{x})\\):"
   },
   {
     "objectID": "slides/ml/41-knn.html#over-training-2",
@@ -4849,7 +4851,7 @@
     "href": "slides/00-intro.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit daaa80e."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 06d6579."
   },
   {
     "objectID": "slides/prob/20d-sets-cdc-app.html",
@@ -6095,7 +6097,7 @@
     "href": "index.html",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit daaa80e.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit 06d6579.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -6105,7 +6107,7 @@
     "href": "index.html#course-information",
     "title": "BST 260 Introduction to Data Science",
     "section": "",
-    "text": "Last built from commit daaa80e.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
+    "text": "Last built from commit 06d6579.\n\nInstructor: Vincent Carey\nTeaching fellows: Ethan Lee, Qianyu Fan, Gabrielle Gonzalez, Yiyang Zhang\nLocation: Kresge G1, HSPH\nDate and time: Mon & Wed 9:45 am - 11:15 am\nTextbooks: DS Book (Part 1), DS Book (Part 2)\nSlack: BST 260 Slack Workspace\nCanvas: Home Page\nGitHub: Course Repository\nRemember to read the syllabus",
     "crumbs": [
       "Home"
     ]
@@ -6131,11 +6133,11 @@
     ]
   },
   {
-    "objectID": "index.html#final-projects-for-2026.-to-be-determined.",
-    "href": "index.html#final-projects-for-2026.-to-be-determined.",
+    "objectID": "index.html#final-projects-for-2026.-see-httpsvjcitn.github.iobst260project-template.-briefly",
+    "href": "index.html#final-projects-for-2026.-see-httpsvjcitn.github.iobst260project-template.-briefly",
     "title": "BST 260 Introduction to Data Science",
-    "section": "Final projects for 2026. To be determined.",
-    "text": "Final projects for 2026. To be determined.",
+    "section": "Final projects for 2026. See https://vjcitn.github.io/bst260project-template/. Briefly:",
+    "text": "Final projects for 2026. See https://vjcitn.github.io/bst260project-template/. Briefly:\n\nFor 2026, final project will be individual and will consist of the production of a pkgdown web site using GitHub Pages\nSpecific deadlines\n\ncreate your draft pkgdown web site by Nov 16 2026, instructions at the template repo\n\nforking the “template” repo, changing the name and settings, and running pkgdown to produce the initial draft should take no more than 20 minutes\nafter successfully running pkgdown, you should be able to install your finalproject package with `devtools::install_github(“[yourGHusername]/finalproject”)\n\ncreate your proposal document and post in your web site by Nov 18 2026. In this document you will identify the datasets and scientific questions you wish to explore\n\nthis proposal document is stored as vignettes/proposal.qmd\n\nyour repo will be checked for success on Nov 17.\nyour proposal.qmd will be checked for success on Nov 19.\nwe will discuss further checkpoints on your project progress in classes after Thanksgiving",
     "crumbs": [
       "Home"
     ]
@@ -6169,6 +6171,90 @@
     "crumbs": [
       "Home"
     ]
+  },
+  {
+    "objectID": "old-final-project.html",
+    "href": "old-final-project.html",
+    "title": "Final Project, 2025 edition",
+    "section": "",
+    "text": "This material is provided as illustration only; for the 2026 edition of the course a different approach will be taken"
+  },
+  {
+    "objectID": "old-final-project.html#github-repository-setup",
+    "href": "old-final-project.html#github-repository-setup",
+    "title": "Final Project, 2025 edition",
+    "section": "GitHub Repository Setup",
+    "text": "GitHub Repository Setup\n\nCreating Your Team Repository\nRepository Naming Convention: bst-260-2025F-team# (where # is your team number, e.g., bst-260-2025F-team1, bst-260-2025F-team15)\nSetup Process:\n\nOne team member creates the repository on GitHub with the exact naming convention above\nMake the repository private\nAdd all team members as collaborators with write access\nAdd your assigned TF as a collaborator with write access\nSet up the initial directory structure (see requirements below)\n\n\n\nNotifying Your TF\nOnce your repository is created:\n\nPost the repository URL in your TF’s Slack channel (see table above)\nInclude your team number and all team member names\nYour TF will confirm access and provide initial feedback\n\nExample Slack message:\nTeam 5 Repository: https://github.com/username/bst-260-2025F-team5\nMembers: Siwei Guo, Hannah Hamling, Shuying Han, Runpeng Hu\nReady for initial review of `Outline.txt`"
+  },
+  {
+    "objectID": "old-final-project.html#communication-guidelines",
+    "href": "old-final-project.html#communication-guidelines",
+    "title": "Final Project, 2025 edition",
+    "section": "Communication Guidelines",
+    "text": "Communication Guidelines\nAll project communication must go through your assigned TF using your team’s private Slack channel:\n\nYour TF is your primary point of contact for all project matters\nTFs will approve your Outline.txt and provide ongoing feedback\nTFs will review and approve your final project submission\nTFs will conduct your oral evaluation\nOnly your TF can escalate issues to instructors if necessary"
+  },
+  {
+    "objectID": "old-final-project.html#project-framework-nhanes-data-analysis",
+    "href": "old-final-project.html#project-framework-nhanes-data-analysis",
+    "title": "Final Project, 2025 edition",
+    "section": "Project Framework: NHANES Data Analysis",
+    "text": "Project Framework: NHANES Data Analysis\nAll teams will work with the NHANES (National Health and Nutrition Examination Survey) dataset using the NHANES R package. You must choose between two versions and justify your choice:\n\nNHANES: A probability sample from the US population (recommended for most analyses)\nNHANESraw: Survey-weighted population data (recommended for teams interested in epidemiological methods using survey weights)\n\nProject Differentiation: Each team must have a distinct project through different age groups, outcomes, or methodological approaches."
+  },
+  {
+    "objectID": "old-final-project.html#project-planning-requirements",
+    "href": "old-final-project.html#project-planning-requirements",
+    "title": "Final Project, 2025 edition",
+    "section": "Project Planning Requirements",
+    "text": "Project Planning Requirements\nWithin one week of team assignment, you must:\n\nCreate your GitHub repository (see setup instructions above)\nChoose your specific project focus (see options below)\nCreate a file called Outline.txt (plain text) in your GitHub repository with:\n\nYour analysis plan and research questions\nTeam member responsibilities for each activity\nWeekly breakdown of tasks and deliverables\n\nNotify your TF via Slack when ready for review and feedback\n\nYou should update this outline document throughout the project to track progress and any changes to your plan."
+  },
+  {
+    "objectID": "old-final-project.html#project-timeline-deadlines",
+    "href": "old-final-project.html#project-timeline-deadlines",
+    "title": "Final Project, 2025 edition",
+    "section": "Project Timeline & Deadlines",
+    "text": "Project Timeline & Deadlines\n\n\n\n\n\n\n\n\nMilestone\nDeadline\nResponsibility\n\n\n\n\nOutline.txt Submission\nOctober 31, 2025\nTeams post in their Slack channel\n\n\nOutline.txt Feedback\nNovember 7, 2025\nTFs provide approval/revision requests\n\n\nRevised Outline (if needed)\nNovember 12\nTeams address TF feedback\n\n\nOral Presentation Scheduling\nDecember 12, 2025\nTeams schedule with TF for December 16-19 window\n\n\nFinal Project Submission\nDecember 15, 2025\nTeams notify TF when repository is complete\n\n\n\nImportant: All deadlines are firm. Late submissions will result in grade penalties."
+  },
+  {
+    "objectID": "old-final-project.html#available-project-approaches",
+    "href": "old-final-project.html#available-project-approaches",
+    "title": "Final Project, 2025 edition",
+    "section": "Available Project Approaches",
+    "text": "Available Project Approaches\n\nOption 1: Age-Specific Health Analysis\nFocus on one of these age groups with appropriate health outcomes:\n\nAges 2-18: Growth patterns, childhood health indicators (note: different BMI/growth relationships than adults)\nAges 19-40: Young adult health patterns, lifestyle factors\nAges 40+: Disease risk factors, aging-related health patterns\n\nKey considerations: Include important covariates (age, sex, race) and their interactions. Consult relevant literature for risk factors specific to your chosen age group and outcome.\n\n\nOption 2: Statistical Methodology Focus\nInstead of focusing on specific health outcomes, examine statistical approaches:\n\nMultiple imputation methods for handling missing data patterns\nSpline models for interpretable non-linear associations with continuous variables\nSurvey methods for population-level estimates and inference\nMachine learning approaches (logistic regression, random forests) for data structure exploration\nInteractive applications using Shiny/Posit Connect for data exploration tools\n\n\n\nOption 3: Missing Data Analysis\nInvestigate missing data patterns in NHANES:\n\nUnderstand why observations are missing for different variables\nApply modern missing data methods\nCompare analytical approaches under different missingness assumptions\n\n\n\nOption 4: Custom Research Question\nPropose your own research question using NHANES data, subject to TF approval. Must demonstrate clear analytical approach and feasibility."
+  },
+  {
+    "objectID": "old-final-project.html#important-data-considerations",
+    "href": "old-final-project.html#important-data-considerations",
+    "title": "Final Project, 2025 edition",
+    "section": "Important Data Considerations",
+    "text": "Important Data Considerations\nMissing Values: Many NHANES variables have substantial missing data. Consider whether this affects your analysis or could be the focus of your study.\nOutcome Variables: Examples include systolic blood pressure, diabetes risk, depression scores, sleep patterns, smoking status, BMI. Continuous outcomes may be easier to model initially."
+  },
+  {
+    "objectID": "old-final-project.html#project-submission-requirements",
+    "href": "old-final-project.html#project-submission-requirements",
+    "title": "Final Project, 2025 edition",
+    "section": "Project Submission Requirements",
+    "text": "Project Submission Requirements\nYou will submit your project using Git. Your project should be completely reproducible, meaning all the code and data needed to render your report from scratch should be in the repository.\nRequired Submissions to your TF:\n\nGitHub Repository: Submit the link to your team’s GitHub repository with all components below\nOral Presentation: Each team must schedule a 20-minute oral presentation with their assigned TF via Zoom. Scheduling must be completed by December 12, 2025, for presentations during December 16-19, 2025. All team members must be present during the presentation. The TF will ask each team member specific questions about different aspects of the project based on their individual contributions detailed in the contribution summary document (e.g., if a member contributed to data analysis, they may be asked about model choice, coding decisions, statistical methods, etc.).\n\n\nOral Presentation Evaluation Rubric\nThe oral presentation will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0-1\nNo meeting scheduled or major absence of team members\n\n\n2-3\nLimited understanding of project components; significant gaps in explanations\n\n\n4-5\nModerate understanding of project components; difficulty explaining individual contributions/methodological choices\n\n\n6-7\nGood understanding of project components; able to explain most individual contributions/methodological choices\n\n\n8-9\nVery good understanding of all project components; strong defense of analytical approaches with minimal gaps\n\n\n10\nExcellent understanding of all project components; exceptional ability to defend and discuss all aspects of the analysis\n\n\n\n\n\nFinal Report Evaluation Rubric\nThe final report will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n9-10 (Excellent)\nClear, well-structured report with sophisticated analysis.\n\n\n8-8.9 (Very Good)\nWell-written report with good analysis.\n\n\n7-7.9 (Good)\nAdequate report structure with acceptable analysis.\n\n\n6-6.9 (Satisfactory)\nReport meets basic requirements but has several areas for improvement.\n\n\n4-5.9 (Needs Improvement)\nReport has significant structural problems or analysis errors.\n\n\n0-3.9 (Inadequate)\nReport does not meet basic requirements.\n\n\n\nDetailed Criteria:\n9-10 Points (Excellent): Clear, well-structured report with sophisticated analysis. All sections meet word count requirements. Exceptional use of statistical methods, excellent data visualization, and insightful interpretation. Professional formatting with proper citations. Demonstrates deep understanding of NHANES data and chosen methodology.\n8-8.9 Points (Very Good): Well-written report with good analysis. Minor issues in structure or presentation. Good use of statistical methods and visualizations. Most sections meet requirements with solid interpretation of results.\n7-7.9 Points (Good): Adequate report structure with acceptable analysis. Some sections may be slightly under/over word count. Basic statistical methods applied correctly. Visualizations present but could be improved. Interpretation shows understanding but lacks depth.\n6-6.9 Points (Satisfactory): Report meets basic requirements but has several areas for improvement. Statistical analysis is basic or contains minor errors. Limited interpretation of results. Some formatting or structural issues.\n4-5.9 Points (Needs Improvement): Report has significant structural problems or analysis errors. Poor data visualization or interpretation. Major sections missing or substantially under word count. Limited understanding of methodology.\n0-3.9 Points (Inadequate): Report does not meet basic requirements. Major analysis errors, missing key sections, or demonstrates poor understanding of the data and methods. Unprofessional presentation.\n\n\nTF Feedback Process\nYour TF will provide detailed feedback and final grades through GitHub Issues:\n\nAfter your final submission, your TF will create Issues in your repository for:\n\nOverall project feedback and final grade breakdown\nSpecific comments on analysis, methods, or presentation\nIndividual contribution assessment based on commit history and contribution files\n\nGrade breakdown will include:\n\nFinal Report Score (out of 10 points)\nOral Presentation Score (out of 10 points)\nOverall Final Project Grade calculation\n\nTeams can respond to TF feedback through Issue comments if clarification is needed\n\nNote: Check your repository for Issues after the final project deadline for comprehensive feedback and grades."
+  },
+  {
+    "objectID": "old-final-project.html#report-structure",
+    "href": "old-final-project.html#report-structure",
+    "title": "Final Project, 2025 edition",
+    "section": "Report Structure",
+    "text": "Report Structure\nYou will prepare a comprehensive report following the style of an academic paper. This report will be divided into the following five structured sections, with approximate word counts to help you reach a target of 2,500 to 3,000 words, up to four figures and up to two tables.\n\nAbstract (150-200 words)\n\nPurpose: The abstract provides a concise summary of your project, including its objectives, key findings, and significance. Write this section last, after completing all other sections, to accurately reflect your project’s focus and main results.\nGuidelines: Limit this section to 150-200 words. Briefly outline the purpose of your study, the approach you used, and the primary results and conclusions. The abstract should be clear, succinct, and give readers an immediate understanding of what your project entails.\n\n\n\nIntroduction (500-600 words)\n\nPurpose: The introduction sets the stage for your project, presenting the background and rationale for your analysis. Explain why the topic is significant and justify your choice of NHANES vs. NHANESraw.\nGuidelines: Start with a broad overview of the topic, gradually narrowing down to your specific focus. Conclude with a clear statement of your research questions, hypotheses, or objectives. Use 2-3 paragraphs to establish a solid foundation for the rest of the paper.\n\n\n\nMethods (600-700 words)\n\nPurpose: This section details the data sources, methods, and analytical techniques you used to conduct your analysis. It should be specific enough that someone else could replicate your study using the same resources and approach.\nGuidelines: Describe the NHANES dataset version you used and justify your choice. Outline your approach for cleaning and analyzing the data, including any statistical or computational methods applied. Clearly explain any assumptions or limitations in your approach, particularly regarding missing data handling.\n\n\n\nResults (500-600 words)\n\nPurpose: The results section presents the main findings of your analysis without interpretation. Organize the data logically to highlight key insights, using tables, figures, and charts to illustrate trends and comparisons.\nGuidelines: For each result, briefly describe it and refer to relevant visuals or tables where appropriate. Do not provide explanations or discuss implications in this section; focus only on presenting the findings clearly and accurately.\n\n\n\nUse of AI Tools\nStudents are welcome to use AI tools as a complementary aid, but they must clearly state in their report where AI was used (e.g., text generation, editing, data analysis suggestions, or AI-assisted conclusions). AI should serve as a productivity and learning tool, not as the primary author of the report.\n\n\nDiscussion (600-700 words)\n\nPurpose: In the discussion, interpret the significance of your findings, explore potential implications, and relate the results back to your initial research questions or hypotheses. This section allows you to discuss any patterns, unexpected findings, or limitations and suggest possible future research.\nGuidelines: Analyze your results in the context of your research question and relevant health literature. Consider what your findings reveal, any limitations they may have (particularly regarding missing data or survey design), and how they might impact future work or policy. End with a brief conclusion summarizing your main insights.\n\nYour final report should be professionally formatted, with each section clearly labeled and referenced. Aim for clarity, precision, and a well-organized presentation of your analysis.\nTotal Word Count: Approximately 2,500-3,000 words."
+  },
+  {
+    "objectID": "old-final-project.html#supplementary-methods-no-limit",
+    "href": "old-final-project.html#supplementary-methods-no-limit",
+    "title": "Final Project, 2025 edition",
+    "section": "Supplementary Methods (no limit)",
+    "text": "Supplementary Methods (no limit)\nYou can include a separate document titled Supplementary Methods.\n\nPurpose: Share any mathematical derivations, data visualizations, or tables needed to justify the choices described in the Methods Section. You can also provide further support for the claims made in the Results Section. You can refer to this document in the main report.\nGuidelines: There is no limits in the length of this section nor on the number of figures and tables. However, be careful not to drown the graders with too much information."
+  },
+  {
+    "objectID": "old-final-project.html#github-repository-requirements",
+    "href": "old-final-project.html#github-repository-requirements",
+    "title": "Final Project, 2025 edition",
+    "section": "GitHub Repository Requirements",
+    "text": "GitHub Repository Requirements\nYour repository must include:\n\nDirectory structure: code, data, and docs directories\nAnalysis scripts: At least one script for data wrangling in the code directory\nMain report: One file called final-project.qmd that renders to produce the final report (can be in code or home directory)\nREADME file: Explaining how to reproduce all results\nProject outline: Outline.txt with your initial plan and progress updates\nIndividual contribution files: Each team member creates a file with their name documenting their specific contributions and effort (hours/week)\nData handling: Include code that loads NHANES data via the R package (no need to store raw data)\n\nGit Requirements: We expect to see at least five meaningful commits by each person demonstrating collaborative development throughout the project timeline."
   },
   {
     "objectID": "oct19.html",
@@ -6385,7 +6471,7 @@
     "href": "overview.html#take-home-tasks",
     "title": "Overview of BST 260 Introduction to Data Science",
     "section": "Take home tasks",
-    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit daaa80e."
+    "text": "Take home tasks\n\ncreate repository `bst260’ in your organization (account)\ninvite teaching team as collaborators\ncreate folder ‘task-01’\nadd file README.md in that folder, with a header # Overview\n\nLast built from commit 06d6579."
   },
   {
     "objectID": "init-repos.html",
@@ -6459,6 +6545,111 @@
     "crumbs": [
       "Problem Sets 2026"
     ]
+  },
+  {
+    "objectID": "final-project26munge.html#github-repository-setup",
+    "href": "final-project26munge.html#github-repository-setup",
+    "title": "Final Project, 2026 edition",
+    "section": "GitHub Repository Setup",
+    "text": "GitHub Repository Setup\n\nCreating Your Team Repository\nRepository Naming Convention: bst-260-2026F-team# (where # is your team number, e.g., bst-260-2026F-team1, bst-260-2026F-team15)\nSetup Process:\n\nOne team member creates the repository on GitHub with the exact naming convention above\nMake the repository private\nAdd all team members as collaborators with write access\nAdd your assigned TF and instructor vjcitn as a collaborator with write access\nSet up the initial directory structure (see requirements below)\n\n\n\nNotifying Your TF\nOnce your repository is created:\n\nPost the repository URL in your TF’s Slack channel (see table above)\nInclude your team number and all team member names\nYour TF will confirm access and provide initial feedback\n\nExample Slack message:\nTeam 5 Repository: https://github.com/username/bst-260-2026F-team5\nMembers: [list of member names]\nReady for initial review of `Outline.txt`"
+  },
+  {
+    "objectID": "final-project26munge.html#communication-guidelines",
+    "href": "final-project26munge.html#communication-guidelines",
+    "title": "Final Project, 2026 edition",
+    "section": "Communication Guidelines",
+    "text": "Communication Guidelines\nAll project communication must go through your assigned TF using your team’s private Slack channel:\n\nYour TF is your primary point of contact for all project matters\nTFs will approve your Outline.txt and provide ongoing feedback\nTFs will review and approve your final project submission\nTFs will conduct your oral evaluation\nOnly your TF can escalate issues to instructors if necessary"
+  },
+  {
+    "objectID": "final-project26munge.html#project-framework-1-nhanes-data-analysis",
+    "href": "final-project26munge.html#project-framework-1-nhanes-data-analysis",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Framework 1: NHANES Data Analysis",
+    "text": "Project Framework 1: NHANES Data Analysis\nAll teams will work with the NHANES (National Health and Nutrition Examination Survey) dataset using the NHANES R package. You must choose between two versions and justify your choice:\n\nNHANES: A probability sample from the US population (recommended for most analyses)\nNHANESraw: Survey-weighted population data (recommended for teams interested in epidemiological methods using survey weights)\n\nProject Differentiation: Each team must have a distinct project through different age groups, outcomes, or methodological approaches."
+  },
+  {
+    "objectID": "final-project26munge.html#project-framework-2-gun-legislation-and-risk-of-handgun-death",
+    "href": "final-project26munge.html#project-framework-2-gun-legislation-and-risk-of-handgun-death",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Framework 2: Gun legislation and risk of handgun death",
+    "text": "Project Framework 2: Gun legislation and risk of handgun death\n\ngunleg – we have already worked on the gunleg package, many students have forked https://github.com/vjcitn/gunleg\nTasks could involve analysis of trends in restrictive or permissive legislative processes over time, across states and national regions\nOne outcome could be an update to the dslabs “murders” dataset\nAn important part of the evaluation concerns the quality of the proposal"
+  },
+  {
+    "objectID": "final-project26munge.html#project-framework-3-birth-outcomes-in-the-us-in-2025",
+    "href": "final-project26munge.html#project-framework-3-birth-outcomes-in-the-us-in-2025",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Framework 3: Birth outcomes in the US in 2025",
+    "text": "Project Framework 3: Birth outcomes in the US in 2025\n\nThis is an advanced data science project involving choices of data representation, use of cloud storage, “OLAP” technology for analytic processing within large-scale databases\nModels for prediction of birth outcomes are a basic target\nMaterials available at https://github.com/vjcitn/nchsNatality"
+  },
+  {
+    "objectID": "final-project26munge.html#project-planning-requirements",
+    "href": "final-project26munge.html#project-planning-requirements",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Planning Requirements",
+    "text": "Project Planning Requirements\nWithin one week of team assignment, you must:\n\nCreate your GitHub repository (see setup instructions above)\nChoose your specific project focus (see options below)\nCreate a file called Outline.txt (plain text) in your GitHub repository with:\n\nYour analysis plan and research questions\nTeam member responsibilities for each activity\nWeekly breakdown of tasks and deliverables\n\nNotify your TF via Slack when ready for review and feedback\n\nYou should update this outline document throughout the project to track progress and any changes to your plan."
+  },
+  {
+    "objectID": "final-project26munge.html#project-timeline-deadlines",
+    "href": "final-project26munge.html#project-timeline-deadlines",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Timeline & Deadlines",
+    "text": "Project Timeline & Deadlines\n\n\n\n\n\n\n\n\nMilestone\nDeadline\nResponsibility\n\n\n\n\nOutline.txt Submission\nNovember 13, 2026\nTeams post in their Slack channel\n\n\nOutline.txt Feedback\nNovember 16, 2026\nTFs provide approval/revision requests\n\n\nRevised Outline (if needed)\nNovember 19, 2026\nTeams address TF feedback\n\n\nOral Presentation Scheduling\nDecember 7, 2026\nTeams schedule with TF for December 9-16 window\n\n\nFinal Project Submission\nDecember 18, 2026\nTeams notify TF when repository is complete\n\n\n\nImportant: All deadlines are firm. Late submissions will result in grade penalties."
+  },
+  {
+    "objectID": "final-project26munge.html#available-project-approaches-for-framework-1",
+    "href": "final-project26munge.html#available-project-approaches-for-framework-1",
+    "title": "Final Project, 2026 edition",
+    "section": "Available Project Approaches for Framework 1",
+    "text": "Available Project Approaches for Framework 1\n\nOption 1: Age-Specific Health Analysis\nFocus on one of these age groups with appropriate health outcomes:\n\nAges 2-18: Growth patterns, childhood health indicators (note: different BMI/growth relationships than adults)\nAges 19-40: Young adult health patterns, lifestyle factors\nAges 40+: Disease risk factors, aging-related health patterns\n\nKey considerations: Include important covariates (age, sex, race) and their interactions. Consult relevant literature for risk factors specific to your chosen age group and outcome.\n\n\nOption 2: Statistical Methodology Focus\nInstead of focusing on specific health outcomes, examine statistical approaches:\n\nMultiple imputation methods for handling missing data patterns\nSpline models for interpretable non-linear associations with continuous variables\nSurvey methods for population-level estimates and inference\nMachine learning approaches (logistic regression, random forests) for data structure exploration\nInteractive applications using Shiny/Posit Connect for data exploration tools\n\n\n\nOption 3: Missing Data Analysis\nInvestigate missing data patterns in NHANES:\n\nUnderstand why observations are missing for different variables\nApply modern missing data methods\nCompare analytical approaches under different missingness assumptions\n\n\n\nOption 4: Custom Research Question\nPropose your own research question using NHANES data, subject to TF approval. Must demonstrate clear analytical approach and feasibility."
+  },
+  {
+    "objectID": "final-project26munge.html#available-project-approaches-for-framework-2",
+    "href": "final-project26munge.html#available-project-approaches-for-framework-2",
+    "title": "Final Project, 2026 edition",
+    "section": "Available Project Approaches for Framework 2",
+    "text": "Available Project Approaches for Framework 2\nCustom research question (as above)"
+  },
+  {
+    "objectID": "final-project26munge.html#available-project-approaches-for-framework-3",
+    "href": "final-project26munge.html#available-project-approaches-for-framework-3",
+    "title": "Final Project, 2026 edition",
+    "section": "Available Project Approaches for Framework 3",
+    "text": "Available Project Approaches for Framework 3\nCustom research and development questions (tasks involve software and documentation improvements)"
+  },
+  {
+    "objectID": "final-project26munge.html#important-data-considerations-for-framework-1",
+    "href": "final-project26munge.html#important-data-considerations-for-framework-1",
+    "title": "Final Project, 2026 edition",
+    "section": "Important Data Considerations for Framework 1",
+    "text": "Important Data Considerations for Framework 1\nMissing Values: Many NHANES variables have substantial missing data. Consider whether this affects your analysis or could be the focus of your study.\nOutcome Variables: Examples include systolic blood pressure, diabetes risk, depression scores, sleep patterns, smoking status, BMI. Continuous outcomes may be easier to model initially."
+  },
+  {
+    "objectID": "final-project26munge.html#project-submission-requirements",
+    "href": "final-project26munge.html#project-submission-requirements",
+    "title": "Final Project, 2026 edition",
+    "section": "Project Submission Requirements",
+    "text": "Project Submission Requirements\nYou will submit your project using Git. Your project should be completely reproducible, meaning all the code and data needed to render your report from scratch should be in the repository.\nRequired Submissions to your TF:\n\nGitHub Repository: Submit the link to your team’s GitHub repository with all components below\nOral Presentation: Each team must schedule a 20-minute oral presentation with their assigned TF via Zoom. Scheduling must be completed by December 7, 2026, for presentations during December 9-16, 2026. All team members must be present during the presentation. The TF will ask each team member specific questions about different aspects of the project based on their individual contributions detailed in the contribution summary document (e.g., if a member contributed to data analysis, they may be asked about model choice, coding decisions, statistical methods, etc.).\n\n\nOral Presentation Evaluation Rubric\nThe oral presentation will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0-1\nNo meeting scheduled or major absence of team members\n\n\n2-3\nLimited understanding of project components; significant gaps in explanations\n\n\n4-5\nModerate understanding of project components; difficulty explaining individual contributions/methodological choices\n\n\n6-7\nGood understanding of project components; able to explain most individual contributions/methodological choices\n\n\n8-9\nVery good understanding of all project components; strong defense of analytical approaches with minimal gaps\n\n\n10\nExcellent understanding of all project components; exceptional ability to defend and discuss all aspects of the analysis\n\n\n\n\n\nFinal Report Evaluation Rubric\nThe final report will be evaluated as a group grade out of 10 points based on the following criteria:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n9-10 (Excellent)\nClear, well-structured report with sophisticated analysis.\n\n\n8-8.9 (Very Good)\nWell-written report with good analysis.\n\n\n7-7.9 (Good)\nAdequate report structure with acceptable analysis.\n\n\n6-6.9 (Satisfactory)\nReport meets basic requirements but has several areas for improvement.\n\n\n4-5.9 (Needs Improvement)\nReport has significant structural problems or analysis errors.\n\n\n0-3.9 (Inadequate)\nReport does not meet basic requirements.\n\n\n\nDetailed Criteria:\n9-10 Points (Excellent): Clear, well-structured report with sophisticated analysis. All sections meet word count requirements. Exceptional use of statistical methods, excellent data visualization, and insightful interpretation. Professional formatting with proper citations. Demonstrates deep understanding of data and chosen methodology.\n8-8.9 Points (Very Good): Well-written report with good analysis. Minor issues in structure or presentation. Good use of statistical methods and visualizations. Most sections meet requirements with solid interpretation of results.\n7-7.9 Points (Good): Adequate report structure with acceptable analysis. Some sections may be slightly under/over word count. Basic statistical methods applied correctly. Visualizations present but could be improved. Interpretation shows understanding but lacks depth.\n6-6.9 Points (Satisfactory): Report meets basic requirements but has several areas for improvement. Statistical analysis is basic or contains minor errors. Limited interpretation of results. Some formatting or structural issues.\n4-5.9 Points (Needs Improvement): Report has significant structural problems or analysis errors. Poor data visualization or interpretation. Major sections missing or substantially under word count. Limited understanding of methodology.\n0-3.9 Points (Inadequate): Report does not meet basic requirements. Major analysis errors, missing key sections, or demonstrates poor understanding of the data and methods. Unprofessional presentation.\n\n\nTF Feedback Process\nYour TF will provide detailed feedback and final grades through GitHub Issues:\n\nAfter your final submission, your TF will create Issues in your repository for:\n\nOverall project feedback and final grade breakdown\nSpecific comments on analysis, methods, or presentation\nIndividual contribution assessment based on commit history and contribution files\n\nGrade breakdown will include:\n\nFinal Report Score (out of 10 points)\nOral Presentation Score (out of 10 points)\nOverall Final Project Grade calculation\n\nTeams can respond to TF feedback through Issue comments if clarification is needed\n\nNote: Check your repository for Issues after the final project deadline for comprehensive feedback and grades."
+  },
+  {
+    "objectID": "final-project26munge.html#report-structure",
+    "href": "final-project26munge.html#report-structure",
+    "title": "Final Project, 2026 edition",
+    "section": "Report Structure",
+    "text": "Report Structure\nYou will prepare a comprehensive report following the style of an academic paper. This report will be divided into the following five structured sections, with approximate word counts to help you reach a target of 2,500 to 3,000 words, up to four figures and up to two tables.\n\nAbstract (150-200 words)\n\nPurpose: The abstract provides a concise summary of your project, including its objectives, key findings, and significance. Write this section last, after completing all other sections, to accurately reflect your project’s focus and main results.\nGuidelines: Limit this section to 150-200 words. Briefly outline the purpose of your study, the approach you used, and the primary results and conclusions. The abstract should be clear, succinct, and give readers an immediate understanding of what your project entails.\n\n\n\nIntroduction (500-600 words)\n\nPurpose: The introduction sets the stage for your project, presenting the background and rationale for your analysis. Explain why the topic is significant and justify your choice of dataset and analysis strategy.\nGuidelines: Start with a broad overview of the topic, gradually narrowing down to your specific focus. Conclude with a clear statement of your research questions, hypotheses, or objectives. Use 2-3 paragraphs to establish a solid foundation for the rest of the paper.\n\n\n\nMethods (600-700 words)\n\nPurpose: This section details the data sources, methods, and analytical techniques you used to conduct your analysis. It should be specific enough that someone else could replicate your study using the same resources and approach.\nGuidelines: Describe the dataset version you used and justify your choice. Outline your approach for cleaning and analyzing the data, including any statistical or computational methods applied. Clearly explain any assumptions or limitations in your approach, particularly regarding missing data handling.\n\n\n\nResults (500-600 words)\n\nPurpose: The results section presents the main findings of your analysis without interpretation. Organize the data logically to highlight key insights, using tables, figures, and charts to illustrate trends and comparisons.\nGuidelines: For each result, briefly describe it and refer to relevant visuals or tables where appropriate. Do not provide explanations or discuss implications in this section; focus only on presenting the findings clearly and accurately.\n\n\n\nUse of AI Tools\nStudents are welcome to use AI tools as a complementary aid, but they must clearly state in their report where AI was used (e.g., text generation, editing, data analysis suggestions, or AI-assisted conclusions). AI should serve as a productivity and learning tool, not as the primary author of the report.\n\n\nDiscussion (600-700 words)\n\nPurpose: In the discussion, interpret the significance of your findings, explore potential implications, and relate the results back to your initial research questions or hypotheses. This section allows you to discuss any patterns, unexpected findings, or limitations and suggest possible future research.\nGuidelines: Analyze your results in the context of your research question and relevant health literature. Consider what your findings reveal, any limitations they may have (particularly regarding missing data or survey design), and how they might impact future work or policy. End with a brief conclusion summarizing your main insights.\n\nYour final report should be professionally formatted, with each section clearly labeled and referenced. Aim for clarity, precision, and a well-organized presentation of your analysis.\nTotal Word Count: Approximately 2,500-3,000 words."
+  },
+  {
+    "objectID": "final-project26munge.html#supplementary-methods-no-limit",
+    "href": "final-project26munge.html#supplementary-methods-no-limit",
+    "title": "Final Project, 2026 edition",
+    "section": "Supplementary Methods (no limit)",
+    "text": "Supplementary Methods (no limit)\nYou can include a separate document titled Supplementary Methods.\n\nPurpose: Share any mathematical derivations, data visualizations, or tables needed to justify the choices described in the Methods Section. You can also provide further support for the claims made in the Results Section. You can refer to this document in the main report.\nGuidelines: There is no limits in the length of this section nor on the number of figures and tables. However, be careful not to drown the graders with too much information."
+  },
+  {
+    "objectID": "final-project26munge.html#github-repository-requirements",
+    "href": "final-project26munge.html#github-repository-requirements",
+    "title": "Final Project, 2026 edition",
+    "section": "GitHub Repository Requirements",
+    "text": "GitHub Repository Requirements\nYour repository must include:\n\nDirectory structure: code, data, and docs directories\nAnalysis scripts: At least one script for data wrangling in the code directory\nMain report: One file called final-project.qmd that renders to produce the final report (can be in code or home directory)\nREADME file: Explaining how to reproduce all results\nProject outline: Outline.txt with your initial plan and progress updates\nIndividual contribution files: Each team member creates a file with their name documenting their specific contributions and effort (hours/week)\nData handling: Include code that loads all relevant data via the R package (no need to store raw data)\n\nGit Requirements: We expect to see at least five meaningful commits by each person demonstrating collaborative development throughout the project timeline."
   },
   {
     "objectID": "slides.html",
@@ -7969,7 +8160,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-2",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 143094 0.802\n 2  19106 0.768\n 3 631940 0.764\n 4 648704 0.762\n 5 411012 0.756\n 6 165181 0.754\n 7  75086 0.752\n 8 396315 0.749\n 9 979384 0.743\n10 779514 0.743\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.802."
+    "text": "Spurious correlation\n\nres &lt;- sim_data |&gt;  \n  group_by(group) |&gt;  \n  summarize(r = cor(x, y)) |&gt;  \n  arrange(desc(r)) \nres \n\n# A tibble: 1,000,000 × 2\n    group     r\n    &lt;int&gt; &lt;dbl&gt;\n 1 829378 0.782\n 2 607373 0.774\n 3 945694 0.772\n 4 922743 0.762\n 5 707380 0.759\n 6 439641 0.758\n 7 848616 0.755\n 8 986161 0.743\n 9 463111 0.742\n10 796312 0.740\n# ℹ 999,990 more rows\n\n\n\nWe see a maximum correlation of 0.782."
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-3",
@@ -8004,7 +8195,7 @@
     "href": "slides/linear-models/32-association-not-causation.html#spurious-correlation-7",
     "title": "Association Not Causation",
     "section": "Spurious correlation",
-    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.618    0.0961      6.43 0.00000146"
+    "text": "Spurious correlation\n\nlibrary(broom) \nsim_data |&gt;  \n  filter(group == res$group[which.max(res$r)]) |&gt; \n  reframe(tidy(lm(y ~ x))) |&gt;  \n  filter(term == \"x\") \n\n# A tibble: 1 × 5\n  term  estimate std.error statistic    p.value\n  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 x        0.718     0.119      6.01 0.00000396"
   },
   {
     "objectID": "slides/linear-models/32-association-not-causation.html#spurious-correlation-8",
@@ -10342,7 +10533,7 @@
     "href": "slides/R/05-r-basics.html#setting-levels",
     "title": "R Basics",
     "section": "Setting Levels",
-    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Male   Male   Female Female Male   Female Male   Female Female Male  \nLevels: Male Female\n\ny2[1:10]\n\n [1] Male   Male   Female Female Male   Female Male   Female Female Male  \nLevels: Female Male"
+    "text": "Setting Levels\n\nyou can set up the levels as you would like, when creating a factor\nif you do not set them up, then they will be created in lexicographic order (in the locale you are using)\n\n\nx = sample(c(\"Male\", \"Female\"), 50, replace =TRUE)\ny1 = factor(x, levels=c(\"Male\", \"Female\"))\ny2 = factor(x, levels = c(\"Female\", \"Male\"))\ny1[1:10]\n\n [1] Female Male   Male   Female Male   Male   Male   Female Female Female\nLevels: Male Female\n\ny2[1:10]\n\n [1] Female Male   Male   Female Male   Male   Male   Female Female Female\nLevels: Female Male"
   },
   {
     "objectID": "slides/R/05-r-basics.html#categories-based-on-strata",
@@ -10517,7 +10708,7 @@
     "href": "slides/R/05-r-basics.html#lexical-scope-1",
     "title": "R Basics",
     "section": "Lexical Scope",
-    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x77ee8739d8&gt;"
+    "text": "Lexical Scope\n\nwe can write some interesting functions - like a function that evaluates the log likelihood for any given set of data\nhere we use rexp to generate values from an Exponential distribution\nnotice that a function is returned and that R notes that it is a closure\n\n\nx = rexp(100, rate = 4)\n\nllExp = function(DATA) {\n   n = length(DATA)\n   sumx = sum(DATA)\n   return(function(mu) {n * log(mu) - mu * sumx})\n}\n\nmyLL = llExp(x)\nmyLL\n\nfunction (mu) \n{\n    n * log(mu) - mu * sumx\n}\n&lt;environment: 0x7adcb43c08&gt;"
   },
   {
     "objectID": "slides/R/05-r-basics.html#lexical-scope-example",
@@ -10629,7 +10820,7 @@
     "href": "slides/R/06-vectorization.html#vectorization-4",
     "title": "Vectorization",
     "section": "Vectorization",
-    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.86 61.96 66.08 69.98 69.90 73.13 67.29 72.98 66.95 69.92"
+    "text": "Vectorization\n\nIf we operate on two vectors, vectorization is componentwise.\nHere is an example:\n\n\nheights &lt;- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)\nerror &lt;- rnorm(length(heights), 0, 0.1)\nheights + error\n\n [1] 68.95 62.16 66.02 69.87 69.79 72.93 66.89 72.97 66.95 70.02"
   },
   {
     "objectID": "slides/R/06-vectorization.html#exercise",
@@ -12750,7 +12941,7 @@
     "href": "slides/inference/24-confidence-intervals.html#confidence-intervals-7",
     "title": "Confidence Intervals",
     "section": "Confidence intervals",
-    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4152 0.4768\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.3983 0.4597\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
+    "text": "Confidence intervals\n\nAnd notice that the interval here:\n\n\nx &lt;- sample(c(0, 1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.4221 0.4839\n\n\n\nis different from this one:\n\n\nx &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \nx_hat &lt;- mean(x) \nse_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \nc(x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n\n[1] 0.3993 0.4607\n\n\n\nKeep sampling and creating intervals, and you will see the random variation."
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#confidence-intervals-8",
@@ -12792,7 +12983,7 @@
     "href": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation",
     "title": "Confidence Intervals",
     "section": "A Monte Carlo simulation",
-    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.948"
+    "text": "A Monte Carlo simulation\n\nWe can run a Monte Carlo simulation to confirm that, in fact, a 95% confidence interval includes \\(p\\) 95% of the time.\n\n\nN &lt;- 1000 \nB &lt;- 10000 \ninside &lt;- replicate(B, { \n  x &lt;- sample(c(0,1), size = N, replace = TRUE, prob = c(1 - p, p)) \n  x_hat &lt;- mean(x) \n  se_hat &lt;- sqrt(x_hat*(1 - x_hat)/N) \n  between(p, x_hat - 1.96*se_hat, x_hat + 1.96*se_hat) \n}) \nmean(inside) \n\n[1] 0.9496"
   },
   {
     "objectID": "slides/inference/24-confidence-intervals.html#a-monte-carlo-simulation-1",
@@ -14197,9 +14388,9 @@
   {
     "objectID": "oral-evaluations.html",
     "href": "oral-evaluations.html",
-    "title": "Oral Evaluations for 2026",
+    "title": "Oral Evaluation for 2026",
     "section": "",
-    "text": "Oral evaluations account for 15% of your final grade, divided into three separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code.\nImportant: You can only schedule an oral evaluation meeting after you have completed and submitted the problem sets included in that evaluation period.\nAn oral exam can include requests for information on any lecture or reading content or submitted problem set.\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nOctober 5 - October 9\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nNovember 2 - November 6\nProblem Sets Covered TBD\n15 minutes\n10%\n\n\n\n\n\n\nStudents will be assigned to Teaching Fellows in a posting to follow.\n\n\n\nYour oral evaluation will be graded on the following scale:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0/5\nNo meeting scheduled\n\n\n1/5\nNo understanding of the code/answers\n\n\n2/5\nLimited understanding of code/answers\n\n\n3/5\nModerate understanding of code/answers but with significant gaps in explanations\n\n\n4/5\nGood understanding of code/answers but moderate gaps in explanations\n\n\n5/5\nExcellent understanding of code/answers with either very little or no gaps in explanations\n\n\n\n\n\n\nDuring your meeting (15 minutes for the first two evaluations, 20 minutes for the final evaluation), your TF may ask you to:\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
+    "text": "Oral evaluation accounts for 10% of your final grade.\nImportant: You can only schedule an oral evaluation meeting after you have completed and submitted the problem sets included in that evaluation period.\nAn oral exam can include requests for information on any lecture or reading content or submitted problem set.\n\n\n\n\n\n\n\n\n\n\n\n\nEvaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nOctober 5 - October 9\nProblem Sets 1-3\n15 minutes\n10%\n\n\n\n\n\n\nStudents will be assigned to Teaching Fellows in a posting to follow.\n\n\n\nYour oral evaluation will be graded on the following scale:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0/5\nNo meeting scheduled\n\n\n1/5\nNo understanding of the code/answers\n\n\n2/5\nLimited understanding of code/answers\n\n\n3/5\nModerate understanding of code/answers but with significant gaps in explanations\n\n\n4/5\nGood understanding of code/answers but moderate gaps in explanations\n\n\n5/5\nExcellent understanding of code/answers with either very little or no gaps in explanations\n\n\n\n\n\n\nDuring your meeting prepare to\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
     "crumbs": [
       "Oral Evaluations"
     ]
@@ -14207,9 +14398,9 @@
   {
     "objectID": "oral-evaluations.html#evaluation-schedule",
     "href": "oral-evaluations.html#evaluation-schedule",
-    "title": "Oral Evaluations for 2026",
+    "title": "Oral Evaluation for 2026",
     "section": "",
-    "text": "Evaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nOctober 5 - October 9\nProblem Sets 1-3\n15 minutes\n5%\n\n\nOral Eval 2\nNovember 2 - November 6\nProblem Sets Covered TBD\n15 minutes\n10%",
+    "text": "Evaluation\nDate Range\nProblem Sets Included\nDuration\nGrade Weight\n\n\n\n\nOral Eval 1\nOctober 5 - October 9\nProblem Sets 1-3\n15 minutes\n10%",
     "crumbs": [
       "Oral Evaluations"
     ]
@@ -14217,7 +14408,7 @@
   {
     "objectID": "oral-evaluations.html#tf-assignments",
     "href": "oral-evaluations.html#tf-assignments",
-    "title": "Oral Evaluations for 2026",
+    "title": "Oral Evaluation for 2026",
     "section": "",
     "text": "Students will be assigned to Teaching Fellows in a posting to follow.",
     "crumbs": [
@@ -14227,7 +14418,7 @@
   {
     "objectID": "oral-evaluations.html#evaluation-criteria",
     "href": "oral-evaluations.html#evaluation-criteria",
-    "title": "Oral Evaluations for 2026",
+    "title": "Oral Evaluation for 2026",
     "section": "",
     "text": "Your oral evaluation will be graded on the following scale:\n\n\n\n\n\n\n\nScore\nCriteria\n\n\n\n\n0/5\nNo meeting scheduled\n\n\n1/5\nNo understanding of the code/answers\n\n\n2/5\nLimited understanding of code/answers\n\n\n3/5\nModerate understanding of code/answers but with significant gaps in explanations\n\n\n4/5\nGood understanding of code/answers but moderate gaps in explanations\n\n\n5/5\nExcellent understanding of code/answers with either very little or no gaps in explanations",
     "crumbs": [
@@ -14237,9 +14428,9 @@
   {
     "objectID": "oral-evaluations.html#what-to-expect",
     "href": "oral-evaluations.html#what-to-expect",
-    "title": "Oral Evaluations for 2026",
+    "title": "Oral Evaluation for 2026",
     "section": "",
-    "text": "During your meeting (15 minutes for the first two evaluations, 20 minutes for the final evaluation), your TF may ask you to:\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
+    "text": "During your meeting prepare to\n\nExplain specific lines or sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss any challenges you encountered and how you solved them\nDemonstrate your understanding of key concepts covered in the lectures and problem sets\n\nCome prepared to discuss any part of your submitted work in detail.",
     "crumbs": [
       "Oral Evaluations"
     ]
@@ -14309,7 +14500,7 @@
     "href": "syllabus.html#grade-distribution-from-2025-subject-to-change-in-2026",
     "title": "Syllabus",
     "section": "Grade Distribution – from 2025, subject to change in 2026",
-    "text": "Grade Distribution – from 2025, subject to change in 2026\n\n\n\nComponent\nWeight\n\n\n\n\n10 Problem Sets\n30%\n\n\n2 Oral Evaluations\n15%\n\n\nMidterm 1\n10%\n\n\nMidterm 2\n25%\n\n\nFinal Project\n20%",
+    "text": "Grade Distribution – from 2025, subject to change in 2026\n\n\n\nComponent\nWeight\n\n\n\n\n10 Problem Sets\n30%\n\n\n1 Oral Evaluation\n10%\n\n\nClass participation, extra work\n5%\n\n\nMidterm 1\n10%\n\n\nMidterm 2\n25%\n\n\nFinal Project\n20%",
     "crumbs": [
       "Syllabus"
     ]
@@ -14329,7 +14520,7 @@
     "href": "syllabus.html#oral-evaluations",
     "title": "Syllabus",
     "section": "Oral Evaluations",
-    "text": "Oral Evaluations\nOral evaluations account for 15% of your final grade, divided into two separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code and approach.\nKey Details:\n\nFirst evaluation: 15 minutes, 5% of final grade, covers 2 problem sets\nSecond evaluation: 15 minutes, 10% of final grade, covers 5 or 6 problem sets, more details to follow.\nStudents are assigned to TFs based on the first letter of their last name (see assignments on the full page)\nYou can only schedule a meeting after completing all problem sets included in that evaluation period\nMeetings are conducted via Zoom using dedicated Slack channels for scheduling\nFailure to schedule and attend a meeting results in 0 points for that evaluation\n\nDuring each session, your TF may ask you to:\n\nExplain specific sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss challenges you encountered and how you solved them\n\nGrading Scale: 0-5 points based on your demonstrated understanding, ranging from no understanding (0 points) to excellent understanding with minimal gaps (5 points).\nSee the Oral Evaluations page for complete details including scheduling instructions, TF assignments, and full grading criteria.",
+    "text": "Oral Evaluations\nOral evaluation accounts for 10% of your final grade. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code and approach.\nKey Details:\n\nFirst evaluation: 15 minutes, 10% of final grade, covers 2 problem sets\nStudents are assigned to TFs based on the first letter of their last name (see assignments on the full page)\nYou can only schedule a meeting after completing all problem sets included in that evaluation period\nMeetings are conducted via Zoom using dedicated Slack channels for scheduling\nFailure to schedule and attend a meeting results in 0 points for that evaluation\n\nDuring each session, your TF may ask you to:\n\nExplain specific sections of your code\nWalk through your problem-solving approach\nJustify your choice of methods or functions\nDiscuss challenges you encountered and how you solved them\n\nGrading Scale: 0-10 points based on your demonstrated understanding, ranging from no understanding (0 points) to excellent understanding with minimal gaps (10 points).\nSee the Oral Evaluations page for complete details including scheduling instructions, TF assignments, and full grading criteria.",
     "crumbs": [
       "Syllabus"
     ]
@@ -14339,7 +14530,7 @@
     "href": "syllabus.html#midterm-policy",
     "title": "Syllabus",
     "section": "Midterm Policy",
-    "text": "Midterm Policy\nBoth midterms are closed book, no internet, and in-class. You are expected to complete them in 1 hour.\nThey will be very similar to the problem sets and the examples given in class.\nPlease make sure you can come to class on the midterm dates provided in the Key Dates table below. If you miss the exam, you will need approval from the Office of Student Affairs to receive a makeup. All make-up exams will be completely different from the in-class ones.",
+    "text": "Midterm Policy\nBoth midterms are closed book, no internet, and in-class. You are expected to complete them in 1 hour.\nThey will be very similar to the problem sets and the examples given in class.\nPlease make sure you can come to class on the midterm dates provided in the Key Dates table below. If you miss the exam, you will need approval from the Office of Student Affairs to receive a makeup. All make-up exams may be completely different from the in-class ones.",
     "crumbs": [
       "Syllabus"
     ]
@@ -14349,17 +14540,7 @@
     "href": "syllabus.html#final-project",
     "title": "Syllabus",
     "section": "Final Project",
-    "text": "Final Project\nYou will be assigned to a team of 4 or 5 students and a Teaching Fellow (TF) who will supervise your project throughout the semester.\nGrading: The final project accounts for 20% of your course grade, divided as follows:\n\nFinal Project Report: 10% of course grade\n\nOral Presentation: 10% of course grade\n\n\nProject Overview\nYour team will select from a list of available data science projects or propose a custom research topic (subject to TF approval). You will prepare a comprehensive 2,500-3,000 word academic-style report with sections including Abstract, Introduction, Methods, Results, and Discussion.\n\n\nKey Requirements\n\nTeam Collaboration: Work in assigned teams of 4-5 students\nReproducible Analysis: Submit via GitHub repository with all code and data\nOral Presentation: 20-minute team presentation scheduled between December 15-18\nIndividual Accountability: All team members must participate and demonstrate understanding of their contributions\n\n\n\nAI Policy\nStudents may use AI tools as complementary aids but must clearly document where AI was used in their analysis or writing.\nImportant: You should start working on your project after the first midterm. Do not wait until the last week. Teaching staff will be available during office hours to provide guidance.\nFor complete details including team assignments, project options, submission guidelines, grading rubrics, and formatting requirements, see the Final Project page.",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#chatgpt-policy",
-    "href": "syllabus.html#chatgpt-policy",
-    "title": "Syllabus",
-    "section": "ChatGPT Policy",
-    "text": "ChatGPT Policy\nYou can use ChatGPT however you want. Do remember you won’t be able to use it during the midterms.",
+    "text": "Final Project\nGrading: The final project accounts for 20% of your course grade. Instructions for the project are available at this site.\nGrading will be based on accuracy of completion of instructions for building your project web site, on the quality of the scientific questions posed, and on the coherence and clarity of the solutions to data analysis tasks executed in the project.\n\nAI Policy\nStudents may use AI tools as complementary aids but must clearly document where AI was used in their analysis or writing. “Produce a project” or a similar global prompt should not be used.",
     "crumbs": [
       "Syllabus"
     ]
@@ -14369,10 +14550,24 @@
     "href": "syllabus.html#key-dates",
     "title": "Syllabus",
     "section": "Key Dates",
-    "text": "Key Dates\n\n\n\nDate\nEvent\n\n\n\n\nSep 7\nNo class: Labor Day\n\n\nOct 5-7\nOral Exam 1: Problem Sets 1-3\n\n\nOct 12\nNo class: Indigenous People’s Day\n\n\nOct 14\nMidterm 1: covers material from Aug 31-Oct 07\n\n\nOct 19\nStart final project\n\n\nNov 2-6\nOral Exam 2: material TBD\n\n\nNov 11\nNo class: Veterans’ Day\n\n\nNov 23\nMidterm 2: cover material from Aug 31-Nov 18\n\n\nNov 25\nNo class: Thanksgiving Recess Begins\n\n\nDec 15\nFinal Project due; last day of class\n\n\nDec 15-18\nFinal Project Presentations w/Your TF",
+    "text": "Key Dates\n\n\n\nDate\nEvent\n\n\n\n\nSep 7\nNo class: Labor Day\n\n\nOct 5-7\nOral Exam 1: Problem Sets 1-3\n\n\nOct 12\nNo class: Indigenous People’s Day\n\n\nOct 14\nMidterm 1: covers material from Aug 31-Oct 07\n\n\nOct 19\nStart final project\n\n\nNov 2-6\nOral Exam 2: material TBD\n\n\nNov 11\nNo class: Veterans’ Day\n\n\nNov 16\nSet up your project infrastructure\n\n\nNov 18\nCommit your project proposal\n\n\nNov 23\nMidterm 2: cover material from Aug 31-Nov 18\n\n\nNov 25\nNo class: Thanksgiving Recess Begins\n\n\nDec 15\nFinal Project due; last day of class\n\n\nDec 15-18\n(TBD) Final Project Presentations w/Your TF",
     "crumbs": [
       "Syllabus"
     ]
+  },
+  {
+    "objectID": "26b-bayes.html#bayes-theorem",
+    "href": "26b-bayes.html#bayes-theorem",
+    "title": "Bayesian applications",
+    "section": "Bayes’ theorem",
+    "text": "Bayes’ theorem\nRecall the definition of conditional probability: \\[\n\\mbox{Pr}(A|B) = \\frac{\\mbox{Pr}(A \\cap B)}{\\mbox{Pr}(B)}\n\\] which is defined as long as \\(\\mbox{Pr}{B} &gt; 0\\). Bayes’ theorem defines a relationship between \\(\\mbox{Pr}(A|B)\\) and \\(\\mbox{Pr}(B|A)\\). \\[\n\\mbox{Pr}(A|B) = \\frac{\\mbox{Pr}(B|A)\\mbox{Pr}(A)}{\\mbox{Pr}{B}}\n\\] \\[\n= \\frac{\\mbox{Pr}(B|A)\\mbox{Pr}(A)}{\\mbox{Pr}(B|A)\\mbox{Pr}(A) + \\mbox{Pr}(B|\\bar{A})\\mbox{Pr}(\\bar{A})}\n\\]"
+  },
+  {
+    "objectID": "26b-bayes.html#application-1-disease-screening",
+    "href": "26b-bayes.html#application-1-disease-screening",
+    "title": "Bayesian applications",
+    "section": "Application 1: disease screening",
+    "text": "Application 1: disease screening\nNotation:\nBasic events: - \\(+\\) is used to indicate event “test is positive” - \\(-\\) is used to indicate event “test is negative” - \\(D\\) is used to indicate event “disease is present” - \\(\\bar{D}\\) is used to indicate event “disease is not present”\nTest characteristics: - Specificity \\(\\mbox{Pr}(-|\\bar{D})\\) - Sensitivity \\(\\mbox{Pr}(+|D)\\) - Prevalence \\(\\mbox{Pr}(D)\\)"
   },
   {
     "objectID": "psets2026/pset-06-models.html",
