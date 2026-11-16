@@ -1,0 +1,41 @@
+---
+title: Problem set 8; from course textbook chapter 18
+date: 2026-11-27
+---
+
+# Overview
+
+If you use AI to help solve any problem, please
+provide information on 1) the model in use, 2) the prompt used to get help,
+3) some comments on what you learned from the encounter.
+
+Solutions to this problem set should be submitted as quarto documents.
+Place the required file in your bst260 repository in folder "solutions" as "pset08.qmd"
+Use the title "BST 260 Problem set 8: Topics in generalized linear models"
+and put your
+name as author in the yaml header.  Ensure that the HTML
+to which your quarto document compiles has a good appearance.
+
+```{r dosetup, message=FALSE}
+library(dslabs)  # setup for problems
+library(dplyr)
+```
+
+
+1\. A famous athlete boasts an impressive career, winning 70% of her 500 career matches. Nevertheless, this athlete is criticized because in important events, such as the Olympics, she has a losing record of 8 wins and 9 losses. Perform a Chi-square test to determine if this losing record can be simply due to chance as opposed to not performing well under pressure.
+
+2\. Why did we use the Chi-square test instead of Fisher's exact test in the previous exercise?
+
+a.  It actually does not matter, since they give the exact same p-value.
+b.  Fisher's exact and the Chi-square are different names for the same test.
+c.  Because the sums of the rows and columns of the two-by-two table are not fixed, the hypergeometric distribution is not an appropriate assumption for the null hypothesis. For this reason, Fisher's exact test is rarely applicable to observational data.
+d.  Because the Chi-square test runs faster.
+
+3\. Now compute the odds ratio of "losing under pressure" and use the approximation we learned to construct  a 95% confidence interval. What do you say to those critiquing the athlete? Is the criticism fair?
+
+4\. Repeat exercise 3 but using the `glm` function. Compare the results.
+
+5\. Use the `research_funding_rates` data to estimate the log odds ratio  and standard errors comparing women to men for each discipline. Compute a confidence interval for each discipline. Plot the log odds ratios and use error bars to denote 95% confidence intervals 
+ 
+6\. Report all the disciplines for which one gender appears to be favored over the other.
+

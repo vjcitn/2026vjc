@@ -6,6 +6,8 @@ shortcodes:
 
 ## Course Information
 
+Syllabus for [final month](finalmonth.html)
+
 Last built from commit {{< git-rev >}}.
 
 * Instructor: {{< var instructor_list >}}
@@ -52,7 +54,23 @@ edition of the course, and will change.
 
 See [https://vjcitn.github.io/2026vjc/psets2026.html](https://vjcitn.github.io/2026vjc/psets2026.html)
 
-## Final projects for 2026.  To be determined.
+## Final projects for 2026.  See [https://vjcitn.github.io/bst260project-template/](https://vjcitn.github.io/bst260project-template/).  Briefly:
+
+- For 2026, final project will be **individual** and will consist of the production of a pkgdown web site
+using GitHub Pages 
+- Specific deadlines
+    - create your draft pkgdown web site by Nov 16 2026, instructions at the [template repo](https://vjcitn.github.io/bst260project-template/articles/instructions.html#infrastructure-accomplish-by-nov-16-2026)
+        - forking the "template" repo, changing the name and settings, and running pkgdown to produce the
+initial draft should take no more than 20 minutes
+        - after successfully running pkgdown, you should be able to install your `finalproject` package with
+`devtools::install_github("[yourGHusername]/finalproject")
+    - create your proposal document and post in your web site by Nov 18 2026.  In this document you
+will identify the datasets and scientific questions you wish to explore
+        - this proposal document is stored as vignettes/proposal.qmd
+    - your repo will be checked for success on Nov 17.
+    - your proposal.qmd will be checked for success on Nov 19.
+    - we will discuss further checkpoints on your project progress in classes after Thanksgiving
+
 
 ## Problem Set/Project Examples from 2025.  
 

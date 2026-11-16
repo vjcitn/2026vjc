@@ -1,0 +1,40 @@
+---
+title: Nov-Dec 2016 syllabus, BST 260
+---
+
+## New problem sets
+
+- PS 7 Due Nov 20 (linear model focus, [link](psets2026/pset-07-lm.html))
+- PS 8 Due Nov 27 (glm focus, [link](psets2026/pset-08-glm.html))
+- PS 9 Due Dec 4 (high-dimensional data focus, [link](psets2026/pset-09-highdim.html))
+- PS 10 Due Dec 11 (in process)
+
+## Nov 16 activities
+
+- Review this schedule and problem set due dates
+- Midterm planning, project planning - what is a pkgdown site?  What is a proposal?
+- Bayes "learnr" system
+- Quiz parts a and b for Monday wrapup
+
+## Nov 18 activities
+
+- Linear algebra with singular value decomposition and principal components
+- continue with Bayes "learnr", perhaps more
+- midterm preparation and Weds wrapup quiz
+
+## Nov 23 midterm
+
+- Will be on Canvas, you can use RStudio, example problems will be provided to
+help you plan
+- Anyone planning absence must be in touch with Office of Student Affairs
+
+## Nov 25 HOLIDAY
+
+## Nov 30 activities
+
+- Machine learning modules, quizzes
+
+## Dec 2 and beyond: in progress, touching base on project progress
+
+## Dec 14 and 16 ... possible "lightning talks" on projects -- likely
+be voluntary, sign up

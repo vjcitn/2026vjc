@@ -1,10 +1,10 @@
 ---
-title: "Oral Evaluations for 2026"
+title: "Oral Evaluation for 2026"
 ---
 
 # Overview
 
-Oral evaluations account for **15% of your final grade**, divided into three separate evaluations throughout the semester. Each student must schedule a Zoom meeting with their assigned Teaching Fellow (TF) to discuss their problem set solutions and demonstrate understanding of their code.
+Oral evaluation accounts for **10% of your final grade**.
 
 **Important**: You can only schedule an oral evaluation meeting **after** you have completed and submitted the problem sets included in that evaluation period.
 
@@ -15,8 +15,7 @@ submitted problem set.
 
 | Evaluation | Date Range | Problem Sets Included | Duration | Grade Weight |
 |:-----------|:-----------|:---------------------|:---------|:-------------|
-| Oral Eval 1 | October 5 - October 9  | Problem Sets 1-3 | 15 minutes | 5% |
-| Oral Eval 2 | November 2 - November 6 | Problem Sets Covered TBD | 15 minutes | 10% |
+| Oral Eval 1 | October 5 - October 9  | Problem Sets 1-3 | 15 minutes | 10% |
 
 ## TF Assignments
 
@@ -38,7 +37,7 @@ Your oral evaluation will be graded on the following scale:
 
 ## What to Expect
 
-During your meeting (15 minutes for the first two evaluations, 20 minutes for the final evaluation), your TF may ask you to:
+During your meeting prepare to
 
 - Explain specific lines or sections of your code
 - Walk through your problem-solving approach

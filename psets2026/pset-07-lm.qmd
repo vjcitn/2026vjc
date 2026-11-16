@@ -1,0 +1,56 @@
+---
+title: Problem set 7; from course textbook chapter 17
+date: 2026-11-20
+---
+
+# Overview
+
+If you use AI to help solve any problem, please
+provide information on 1) the model in use, 2) the prompt used to get help,
+3) some comments on what you learned from the encounter.
+
+Solutions to this problem set should be submitted as quarto documents.
+Place the required file in your bst260 repository in folder "solutions" as "pset07.qmd"
+Use the title "BST 260 Problem set 7: Topics in linear models"
+and put your
+name as author in the yaml header.  Ensure that the HTML
+to which your quarto document compiles has a good appearance.
+
+```{r dosetup, message=FALSE}
+library(dslabs)  # setup for problems
+library(dplyr)
+```
+
+Problems 1-6 are taken verbatim from the [course textbook](https://rafalab.dfci.harvard.edu/dsbook-part-2/) chapter 17.
+
+1\. Once you fit a model, the estimate of the standard error $\sigma$ can be obtained as follows:
+
+```{r}
+#| eval: false
+fit <- lm(body_weight ~ diet, data = mice_weights)
+summary(fit)$sigma
+```
+
+Compute the estimate of $\sigma$ using both the model that includes only diet and a model that accounts for sex. Are the estimates the same? If not, why not?
+
+
+2\. One of the assumptions of the linear model fit by `lm` is that the standard deviation of the errors $\varepsilon_i$ is equal for all $i$. This implies that it does not depend on the expected value. Group the mice by their weight like this:
+
+```{r, message=FALSE}
+dat <- mice_weights
+breaks <- with(dat, seq(min(body_weight), max(body_weight), 1))
+dat <- mutate(dat, group = cut(body_weight, breaks, include.lowest=TRUE))
+```
+
+Compute the average and standard deviation of `body_weight` for groups with more than 10 observations and use data exploration to verify if this assumption holds.
+
+3\. The dataset also includes a variable indicating which litter the mice came from. Create a boxplot showing weights by litter. Use faceting to make separate plots for each diet and sex combination.
+
+
+4\. Use a linear model to test for a litter effect, taking into account sex and diet. Use ANOVA to compare the variability explained by litter with that of other factors.
+
+5\. The `mice_weights` data includes two other outcomes: bone density and percent fat. Create a boxplot illustrating bone density by sex and diet. Compare what the visualizations reveal about the diet effect by sex.
+
+6\.  Fit a linear model and conduct a separate test for the diet effect on bone density for each sex. Note that the diet effect is statistically significant for females but not for males. Then fit the model to the entire dataset that includes diet, sex, and their interaction. Notice that the diet effect is significant, yet the interaction effect is not. Explain how this can happen. Hint: To fit a model to the entire dataset with a separate effect for males and females, you can use the formula `~ sex + diet:sex`
+
+

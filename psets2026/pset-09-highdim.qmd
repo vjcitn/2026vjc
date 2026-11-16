@@ -1,0 +1,94 @@
+---
+title: Problem set 9; from course textbook chapters 22 and 23
+date: 2026-12-04
+---
+
+# Overview
+
+If you use AI to help solve any problem, please
+provide information on 1) the model in use, 2) the prompt used to get help,
+3) some comments on what you learned from the encounter.
+
+Solutions to this problem set should be submitted as quarto documents.
+Place the required file in your bst260 repository in folder "solutions" as "pset09.qmd"
+Use the title "BST 260 Problem set 9: Matrices and dimension reduction"
+and put your
+name as author in the yaml header.  Ensure that the HTML
+to which your quarto document compiles has a good appearance.
+
+```{r dosetup, message=FALSE}
+library(dslabs)  # setup for problems
+library(dplyr)
+```
+
+# Part 1: Matrices
+
+1\. Generate two matrices, `A` and `B`, containing randomly generated and normally distributed numbers. The dimensions of these two matrices should be $4 \times 3$ and $3 \times 6$, respectively. Confirm that `C <- A %*% B` produces the same results as:
+
+```{r, eval=FALSE}
+m <- nrow(A)
+p <- ncol(B)
+AB <- matrix(0, m, p)
+for(i in 1:m){
+  for(j in 1:p){
+    AB[i,j] <- sum(A[i,] * B[,j])
+  }
+}
+```
+
+2\. Solve the following system of equations using R:
+
+$$
+\begin{aligned}
+x + y + z + w &= 10\\
+2x + 3y - z - w &= 5\\
+3x - y + 4z - 2w &= 15\\
+2x + 2y - 2z - 2w &= 20\\ 
+\end{aligned}
+$$
+
+3\. Define `x` and `y`:
+
+```{r}
+#| eval: false
+
+mnist <- read_mnist()
+x <- mnist$train$images[1:300,] 
+y <- mnist$train$labels[1:300]
+```
+
+and compute the distance matrix:
+
+```{r}
+#| eval: false
+
+d <- dist(x)
+class(d)
+```
+
+Generate a boxplot showing the distances from the second row of `d` to all other observations, stratified by digit label. Do not include the distance to itself, which we know is a distance of 0. Based on the boxplot, can you predict what digit is represented by the second row of `x`?
+
+4\. Use the `apply` function and matrix algebra to compute the distance between the fourth digit `mnist$train$images[4,]` and all other digits represented in `mnist$train$images`. Then generate a boxplot as in exercise 3 and predict what digit is in the fourth row.
+
+
+# Part 2: Expanding computations in the course textbook
+
+5\.  In this section you will obtain a copy of the quarto source code of
+chapter 23 of the course textbook and render it with quarto.  Two changes
+will be necessary.  What are they?
+
+
+6\.  Based on the image views of rotations (third graphic in [this section](https://rafalab.dfci.harvard.edu/dsbook-part-2/highdim/dimension-reduction.html#mnist-example)), which digit is most likely to be well-isolated
+by PC1?  Provide the code that presents the boxplots for values of PC1 stratified by digit label to demonstrate this.
+
+7\.  Provide the code that expands the image displays of rotation matrices for PC5-PC8.
+
+8\.  Consider this code:
+```
+npcs = predict(pca, newdata=mnist$test$images)
+tem = lm(npcs[,2]~factor(mnist$test$labels)-1)
+plot(0:9, coef(tem))
+```
+Explain why this is in some ways a better way of looking at
+the effectiveness of a computed principal component as
+a discriminator of classes of inputs.

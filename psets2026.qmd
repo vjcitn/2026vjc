@@ -14,6 +14,9 @@ listing:
       - psets2026/pset-04-nhanes-cards.qmd
       - psets2026/pset-05-dist.qmd
       - psets2026/pset-06-models.qmd
+      - psets2026/pset-07-lm.qmd
+      - psets2026/pset-08-glm.qmd
+      - psets2026/pset-09-highdim.qmd
     type: table
     fields: [title, date]
     date-format: "ddd, MMM DD"

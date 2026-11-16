@@ -1,5 +1,20 @@
 [
   {
+    "listing": "/psets.html",
+    "items": [
+      "/psets/pset-01-unix-quarto.html",
+      "/psets/pset-02-r-vectorization.html",
+      "/psets/pset-03-tidyverse.html",
+      "/psets/pset-04-wrangling.html",
+      "/psets/pset-05-dataviz.html",
+      "/psets/pset-06-prob.html",
+      "/psets/pset-07-election.html",
+      "/psets/pset-08-linear-models.html",
+      "/psets/pset-09-matrices.html",
+      "/psets/pset-10-ml.html"
+    ]
+  },
+  {
     "listing": "/psets2026.html",
     "items": [
       "/psets2026/pset-01-github.html",
@@ -10,7 +25,10 @@
       "/psets2026/pset-03-various.html",
       "/psets2026/pset-04-nhanes-cards.html",
       "/psets2026/pset-05-dist.html",
-      "/psets2026/pset-06-models.html"
+      "/psets2026/pset-06-models.html",
+      "/psets2026/pset-07-lm.html",
+      "/psets2026/pset-08-glm.html",
+      "/psets2026/pset-09-highdim.html"
     ]
   },
   {
@@ -76,21 +94,6 @@
       "/slides/ml/44-algorithms.html",
       "/slides/ml/45-ml-in-practice.html",
       "/slides/other-topics/46-shiny.html"
-    ]
-  },
-  {
-    "listing": "/psets.html",
-    "items": [
-      "/psets/pset-01-unix-quarto.html",
-      "/psets/pset-02-r-vectorization.html",
-      "/psets/pset-03-tidyverse.html",
-      "/psets/pset-04-wrangling.html",
-      "/psets/pset-05-dataviz.html",
-      "/psets/pset-06-prob.html",
-      "/psets/pset-07-election.html",
-      "/psets/pset-08-linear-models.html",
-      "/psets/pset-09-matrices.html",
-      "/psets/pset-10-ml.html"
     ]
   }
 ]
